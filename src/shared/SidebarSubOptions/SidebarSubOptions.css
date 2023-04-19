@@ -1,0 +1,16 @@
+.main-sidebar__suboptions {
+    padding: 0 .5rem 0 3rem;
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: height .5s;
+}
+
+.main-sidebar__suboptions .linevertical {
+    display: block;
+    position: absolute;
+    width: 5px;
+    left: 1.8rem;
+    top: .2rem;
+    background-color: var(--bg-seven-color-white);
+}

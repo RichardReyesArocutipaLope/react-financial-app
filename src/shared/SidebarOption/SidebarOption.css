@@ -1,0 +1,90 @@
+.main-sidebar__option {
+    padding: .8rem;
+    padding-left: 0;
+    border-radius: 1rem;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: var(--z-index-40);
+    position: relative;
+    background-color: var(--bg-three-color-white);
+}
+
+
+.min-sidebar .main-sidebar__option {
+    padding-right: 0;
+}
+
+.main-sidebar__option:hover {
+    box-shadow: -4px -4px 8px 0px var(--bg-one-color-white),
+        4px 4px 10px 0px var(--shadow-45),
+        inset -2px -2px 2px 0px var(--bg-seven-color-white),
+        inset 2px 2px 2px 0px var(--bg-one-color-white);
+    background-color: var(--bg-four-color-white);
+}
+
+
+.main-sidebar__option.active {
+    background-color: var(--bg-seven-color-black);
+    box-shadow: 4px 4px 10px 0px var(--shadow-60),
+        -3px -3px 4px 0px var(--bg-one-color-white),
+        inset -3px -3px 5px 0px var(--bg-four-color-black),
+        inset 3px 3px 5px 0px var(--bg-eleven-color-black);
+    z-index: var(--z-index-50);
+}
+
+
+.min-sidebar .main-sidebar__option.active {
+    background: linear-gradient(-45deg, var(--bg-eight-color-black) 5%, var(--bg-five-color-black)100%);
+}
+
+.main-sidebar__option.active .icon-option__i {
+    color: var(--text-alternative-four-color-white);
+}
+
+.main-sidebar__option.active .main-sidebar__label {
+    color: var(--text-alternative-four-color-white);
+}
+
+/* .main-sidebar__option:hover .icon-option__i {
+    color: var(--text-one-color-black);
+}
+
+.main-sidebar__option:hover .main-sidebar__label {
+    color: var(--text-one-color-black);
+}
+
+.main-sidebar__option:hover .angle-down {
+    color: var(--text-one-color-black);
+} */
+
+.main-sidebar__label-container {
+    display: flex;
+    align-items: center;
+}
+
+.icon-option {
+    width: 4rem;
+    height: 2.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-sidebar__label-container .icon-option__i {
+    color: var(--text-ten-color-black);
+    font-size: 2.1rem;
+}
+
+.main-sidebar__label {
+    color: var(--text-ten-color-black);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.main-sidebar__option .angle-down {
+    color: var(--text-ten-color-black);
+    font-size: 1.4rem;
+}

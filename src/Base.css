@@ -1,0 +1,320 @@
+/* THEME */
+:root {
+    /* ======== START - MODE LIGHT THEME ======== */
+    /* color text */
+    --text-one-color-black: rgb(0, 0, 0);
+    --text-two-color-black: rgb(10, 10, 10);
+    --text-three-color-black: rgb(20, 20, 20);
+    --text-four-color-black: rgb(30, 30, 30);
+    --text-five-color-black: rgb(40, 40, 40);
+    --text-six-color-black: rgb(50, 50, 50);
+    --text-seven-color-black: rgb(60, 60, 60);
+    --text-eight-color-black: rgb(70, 70, 70);
+    --text-nine-color-black: rgb(80, 80, 80);
+    --text-ten-color-black: rgb(90, 90, 90);
+    --text-eleven-color-black: rgb(100, 100, 100);
+    --text-twelve-color-black: rgb(110, 110, 110);
+    --text-thirteen-color-black: rgb(120, 120, 120);
+
+    --text-alternative-one-color-white: rgb(255, 255, 255);
+    --text-alternative-two-color-white: rgb(245, 245, 245);
+    --text-alternative-three-color-white: rgb(235, 235, 235);
+    --text-alternative-four-color-white: rgb(225, 225, 225);
+    --text-alternative-five-color-white: rgb(215, 215, 215);
+    --text-alternative-six-color-white: rgb(205, 205, 205);
+    --text-alternative-seven-color-white: rgb(195, 195, 195);
+    --text-alternative-eight-color-white: rgb(185, 185, 185);
+    --text-alternative-nine-color-white: rgb(175, 175, 175);
+    --text-alternative-ten-color-white: rgb(165, 165, 165);
+    --text-alternative-eleven-color-white: rgb(155, 155, 155);
+    --text-alternative-twelve-color-white: rgb(145, 145, 145);
+    --text-alternative-thirteen-color-white: rgb(135, 135, 135);
+
+    /* background color */
+    --bg-one-color-black: rgb(0, 0, 0);
+    --bg-two-color-black: rgb(10, 10, 10);
+    --bg-three-color-black: rgb(20, 20, 20);
+    --bg-four-color-black: rgb(30, 30, 30);
+    --bg-five-color-black: rgb(40, 40, 40);
+    --bg-six-color-black: rgb(50, 50, 50);
+    --bg-seven-color-black: rgb(60, 60, 60);
+    --bg-eight-color-black: rgb(70, 70, 70);
+    --bg-nine-color-black: rgb(80, 80, 80);
+    --bg-ten-color-black: rgb(90, 90, 90);
+    --bg-eleven-color-black: rgb(100, 100, 100);
+    --bg-twelve-color-black: rgb(110, 110, 110);
+    --bg-thirteen-color-black: rgb(120, 120, 120);
+
+    --bg-one-color-white: rgb(255, 255, 255);
+    --bg-two-color-white: rgb(250, 250, 250);
+    --bg-three-color-white: rgb(240, 240, 240);
+    --bg-four-color-white: rgb(230, 230, 230);
+    --bg-five-color-white: rgb(220, 220, 220);
+    --bg-six-color-white: rgb(210, 210, 210);
+    --bg-seven-color-white: rgb(200, 200, 200);
+    --bg-eight-color-white: rgb(190, 190, 190);
+    --bg-nine-color-white: rgb(180, 180, 180);
+    --bg-ten-color-white: rgb(170, 170, 170);
+    --bg-eleven-color-white: rgb(160, 160, 160);
+    --bg-twelve-color-white: rgb(150, 150, 150);
+    --bg-thirteen-color-white: rgb(140, 140, 140);
+
+    /* box-shadow  sombras */
+    --shadow-100: rgba(0, 0, 0, 1);
+    --shadow-95: rgba(0, 0, 0, 0.95);
+    --shadow-90: rgba(0, 0, 0, 0.9);
+    --shadow-85: rgba(0, 0, 0, 0.85);
+    --shadow-80: rgba(0, 0, 0, 0.8);
+    --shadow-75: rgba(0, 0, 0, 0.75);
+    --shadow-70: rgba(0, 0, 0, 0.7);
+    --shadow-65: rgba(0, 0, 0, 0.65);
+    --shadow-60: rgba(0, 0, 0, 0.6);
+    --shadow-55: rgba(0, 0, 0, 0.55);
+    --shadow-50: rgba(0, 0, 0, 0.5);
+    --shadow-45: rgba(0, 0, 0, 0.45);
+    --shadow-40: rgba(0, 0, 0, 0.4);
+    --shadow-35: rgba(0, 0, 0, 0.35);
+    --shadow-30: rgba(0, 0, 0, 0.3);
+    --shadow-25: rgba(0, 0, 0, 0.25);
+    --shadow-20: rgba(0, 0, 0, 0.2);
+    --shadow-15: rgba(0, 0, 0, 0.15);
+    --shadow-10: rgba(0, 0, 0, 0.1);
+    --shadow-05: rgba(0, 0, 0, 0.05);
+
+
+
+    /* border-radius */
+
+    --border-one-radius: .1rem;
+    --border-two-radius: .2rem;
+    --border-three-radius: .3rem;
+    --border-four-radius: .4rem;
+    --border-five-radius: .5rem;
+    --border-six-radius: .6rem;
+    --border-seven-radius: .7rem;
+    --border-eight-radius: .8rem;
+    --border-nine-radius: .9rem;
+    --border-ten-radius: 1rem;
+
+    /* z-index */
+    --z-index--1: -1;
+    --z-index-0: 0;
+    --z-index-10: 10;
+    --z-index-20: 20;
+    --z-index-30: 30;
+    --z-index-40: 40;
+    --z-index-50: 50;
+    --z-index-60: 60;
+    --z-index-70: 70;
+    --z-index-80: 80;
+    --z-index-90: 90;
+    --z-index-100: 100;
+
+    /* ======== END ======== */
+
+    /* ======== START - MODE DARK THEME ======== */
+
+    /* --text-one-color-black:rgb(255, 255, 255);
+    --text-two-color-black:rgb(245, 245, 245);
+    --text-three-color-black:rgb(235, 235, 235);
+    --text-four-color-black:rgb(225, 225, 225);
+    --text-five-color-black:rgb(215, 215, 215);
+    --text-six-color-black:rgb(205, 205, 205);
+    --text-seven-color-black:rgb(195, 195, 195);
+    --text-eight-color-black:rgb(185, 185, 185);
+    --text-nine-color-black:rgb(175, 175, 175);
+    --text-ten-color-black:rgb(165, 165, 165);
+    --text-eleven-color-black:rgb(155, 155, 155);
+    --text-twelve-color-black:rgb(145, 145, 145);
+    --text-thirteen-color-black:rgb(135, 135, 135);
+
+    --text-alternative-one-color-white:rgb(0, 0, 0);
+    --text-alternative-two-color-white:rgb(10, 10, 10);
+    --text-alternative-three-color-white:rgb(20, 20, 20);
+    --text-alternative-four-color-white:rgb(30, 30, 30);
+    --text-alternative-five-color-white:rgb(40, 40, 40);
+    --text-alternative-six-color-white:rgb(50, 50, 50);
+    --text-alternative-seven-color-white:rgb(60, 60, 60);
+    --text-alternative-eight-color-white:rgb(70, 70, 70);
+    --text-alternative-nine-color-white:rgb(80, 80, 80);
+    --text-alternative-ten-color-white:rgb(90, 90, 90);
+    --text-alternative-eleven-color-white:rgb(100, 100, 100);
+    --text-alternative-twelve-color-white:rgb(110, 110, 110);
+    --text-alternative-thirteen-color-white:rgb(120, 120, 120);
+
+    --bg-one-color-black:rgb( 103, 171, 208  );
+    --bg-two-color-black:rgb( 101, 166, 202 );
+    --bg-three-color-black:rgb( 99, 163, 198 );
+    --bg-four-color-black:rgb( 96, 158, 193 );
+    --bg-five-color-black:rgb( 94, 154, 188  );
+    --bg-six-color-black:rgb( 92, 151, 183 );
+    --bg-seven-color-black:rgb( 89, 146, 177 );
+    --bg-eight-color-black:rgb( 87, 142, 173 );
+    --bg-nine-color-black:rgb( 85, 138, 167 );
+    --bg-ten-color-black:rgb( 81, 132, 161  );
+    --bg-eleven-color-black:rgb( 78, 127, 155 );
+    --bg-twelve-color-black:rgb(  75, 122, 148  );
+    --bg-thirteen-color-black:rgb( 70, 115, 139 );
+
+    --bg-one-color-white:rgb( 18, 28, 34 );
+    --bg-two-color-white:rgb( 22, 35, 42  );
+    --bg-three-color-white:rgb( 26, 42, 51 );
+    --bg-four-color-white:rgb( 30, 48, 58 );
+    --bg-five-color-white:rgb( 34, 54, 65 );
+    --bg-six-color-white:rgb( 37, 60, 72 );
+    --bg-seven-color-white:rgb(42, 67, 81);
+    --bg-eight-color-white:rgb( 46, 74, 89  );
+    --bg-nine-color-white:rgb( 51, 82, 99  );
+    --bg-ten-color-white:rgb(54, 88, 106);
+    --bg-eleven-color-white:rgb( 58, 94, 113  );
+    --bg-twelve-color-white:rgb(62, 101, 122);
+    --bg-thirteen-color-white:rgb(67, 109, 132);
+
+    --shadow-one-color:rgba(0, 0, 0,.8);
+    --shadow-two-color:rgba(0,0,0,.8);
+    --shadow-three-color:rgba(0,0,0,.8);
+    --shadow-four-color:rgba(1,1,1,.8);
+    --shadow-five-color:rgba(1,1,1,.8);
+    --shadow-six-color:rgba(1,1,1,.8);
+    --shadow-seven-color:rgba(2,2,2,.8);
+    --shadow-eight-color:rgba(2,2,2,.8);
+    --shadow-nine-color:rgba(2,2,2,.8);
+    --shadow-ten-color:rgba(3,3,3,.8);
+    --shadow-eleven-color:rgba(3,3,3,.8);
+    --shadow-twelve-color:rgba(3,3,3,.8);
+    --shadow-thirteen-color:rgba(4,4,4,.8);
+    --shadow-fourteen-color:rgba(4,4,4,.8);
+    --shadow-fifteen-color:rgba(4,4,4,.8);
+    --shadow-sixteen-color:rgba(5,5,5,.8);
+    --shadow-seventeen-color:rgba(5,5,5,.8);
+    --shadow-eighteen-color:rgba(5,5,5,.8);
+    --shadow-nineteen-color:rgba(6,6,6,.8);
+    --shadow-twenty-color:rgba(6,6,6,.8);
+    --shadow-twentyone-color:rgba(6,6,6,.8);
+    --shadow-twentytwo-color:rgba(7, 7, 7,.8);
+    --shadow-twentythree-color:rgba(8, 8, 8,.8);
+    --shadow-twentyfour-color:rgba(9, 9, 9,.8);
+    --shadow-twentyfive-color:rgba(10, 10, 10,.8); */
+    /* ======== END ======== */
+}
+
+/* BASE */
+html{
+    font-size: 16px;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--bg-twelve-color-white);
+    border-radius: 2px;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    min-height: 100vh;
+    background-color: var(--bg-three-color-white);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+
+a {
+    text-decoration: none;
+
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/*  */
+#root{
+    display: flex;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.content-app{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.d-none{
+    display: none !important;
+}
+
+
+/* ===========================================00 */
+/* RESPONSIVE */
+@media screen and (max-width: 3000px) {
+    html {
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (max-width: 2560px) {
+    html {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 1536px) {
+    html {
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 1280px) {
+}
+@media screen and (max-width: 1024px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+}
+
+@media screen and (max-width: 640px) {
+
+}
+
+@media screen and (max-width: 450px) {}
+
+@media screen and (max-width: 370px) {
+
+}
+
+@media screen and (max-width: 350px) {}
+
+/* ======== END ======== */

@@ -1,0 +1,44 @@
+.sub-option__label {
+    color: var(--text-ten-color-black);
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: .8rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    position: relative;
+    display: block;
+}
+
+.sub-option__label:hover {
+    box-shadow: -1px -1px 4px 0px var(--bg-two-color-white),
+        4px 4px 7px 0px var(--bg-six-color-white),
+        inset -2px -2px 2px 0px var(--bg-four-color-white),
+        inset 2px 2px 2px 0px var(--bg-two-color-white);
+}
+
+.sub-option__label.active {
+    box-shadow: -4px -4px 8px 0px var(--bg-one-color-white),
+        4px 4px 7px 0px var(--bg-twelve-color-white),
+        inset -2px -2px 2px 0px var(--bg-seven-color-white),
+        inset 2px 2px 2px 0px var(--bg-one-color-white);
+    background-color: var(--bg-three-color-white);
+    color: var(--text-one-color-black);
+    z-index: var(--z-index-50);
+}
+
+.sub-option__label:first-of-type {
+    margin-top: 1rem;
+}
+
+.sub-option__label:last-of-type {
+    margin-bottom: .5rem;
+}
+
+.icon-suboption {
+    font-size: 1.3rem;
+    color: var(--bg-seven-color-white);
+    position: absolute;
+    top: 50%;
+    left: -1.2rem;
+    transform: translateY(-50%);
+}
