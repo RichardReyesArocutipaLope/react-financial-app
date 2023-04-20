@@ -31,6 +31,7 @@ export const App = () => {
             <Sidebar />
             <div className="content-app">
                 <Header />
+                <div className='body__shadow'></div>
                 <Routes>
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/cajas" element={<Cajas />} />
@@ -56,6 +57,7 @@ export const App = () => {
                     <Route path="/" element={<Main />} />
                     <Route path="/*" element={<Navigate to='/' />} />
                 </Routes>
+                <div className='body__shadow'></div>
                 {/* <Footer /> */}
             </div>
         </>

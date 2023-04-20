@@ -6,6 +6,7 @@
     justify-content: end;
     align-items: center;
     gap: 2rem;
+    z-index: var(--z-index-50);
 }
 
 .main-header__options{

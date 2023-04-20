@@ -1,0 +1,72 @@
+.module-options{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+.module-option__container {
+    width: 12rem;
+    height: 12rem;
+    background-color: var(--bg-nine-color-black);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: .8rem .8rem 1.5rem 0rem var(--shadow-15);
+}
+.verde{
+    background-color: rgb(31, 183, 194);
+}
+.gris{
+    background-color: var(--bg-eleven-color-white);
+}
+
+.verde .module-option__wrapper{
+    box-shadow: .3rem .3rem .3rem 0rem var(--shadow-40),
+    -.3rem -.3rem .3rem 0rem rgb(56, 201, 211),
+    inset -.15rem -.15rem .1rem 0rem var(--bg-nine-color-white),
+    inset .15rem .15rem .1rem 0rem var(--bg-one-color-white);
+}
+.gris .module-option__wrapper{
+    box-shadow: .3rem .3rem .3rem 0rem var(--shadow-40),
+    -.3rem -.3rem .3rem 0rem var(--bg-ten-color-white),
+    inset -.15rem -.15rem .1rem 0rem var(--bg-nine-color-white),
+    inset .15rem .15rem .1rem 0rem var(--bg-one-color-white);
+}
+
+.module-option__wrapper {
+    width: 10.5rem;
+    height: 10.5rem;
+    background-color: var(--bg-three-color-white);
+    box-shadow: .3rem .3rem .3rem 0rem var(--shadow-40),
+    -.3rem -.3rem .3rem 0rem var(--bg-eleven-color-black),
+    inset -.15rem -.15rem .1rem 0rem var(--bg-nine-color-white),
+    inset .15rem .15rem .1rem 0rem var(--bg-one-color-white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.module-option {
+    width: 9.5rem;
+    height: 9.5rem;
+    background-color: var(--bg-three-color-white);
+    box-shadow: inset .2rem .2rem .6rem 0rem var(--shadow-50),
+    .15rem .15rem .1rem 0rem var(--bg-one-color-white),
+    -.15rem -.15rem .1rem 0rem var(--bg-nine-color-white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .5rem;
+}
+.module-option i{
+    font-size: 3rem;
+}
+.module-option p{
+    font-size: 1.4rem;
+    font-weight: 400;
+}
