@@ -1,0 +1,12 @@
+.inputs-row{
+    display: flex;
+    align-items: end;
+}
+
+.inputs-row > :first-child{
+    padding-left: 0;
+}
+
+.inputs-row > :last-child{
+    padding-right: 0;
+}

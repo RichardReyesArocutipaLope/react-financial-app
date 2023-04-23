@@ -1,0 +1,15 @@
+.input-container{
+    display: flex;
+    flex-direction: column;
+    height: 5.89rem;
+    padding: .5rem;
+    width: 400px;
+}
+
+.input__label{
+    font-size: 1.2rem;
+    font-weight: 500;
+    order: 1;
+    padding: .3rem 1rem;
+}
+
