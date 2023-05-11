@@ -1,6 +1,6 @@
 import './InputContainer.css'
 
-export const InputContainer = ({ children, col }) => {
+export const InputContainer = ({ children, col, name, label }) => {
 
     let maxCol = 24;
     let maxWidth = 100;
@@ -10,8 +10,9 @@ export const InputContainer = ({ children, col }) => {
     }
 
     return (
-        <div className='input-container' style={{ width: `${width}%` }}>
+        <div className='input__container' style={{ width: `${width}%` }}>
             {children}
+            {label && <label className='input__label' htmlFor={name}>{label}</label>}
         </div>
     )
 }

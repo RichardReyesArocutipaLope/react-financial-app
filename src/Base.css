@@ -78,8 +78,10 @@
     --shadow-25: rgba(0, 0, 0, 0.25);
     --shadow-20: rgba(0, 0, 0, 0.2);
     --shadow-15: rgba(0, 0, 0, 0.15);
-    --shadow-10: rgba(0, 0, 0, 0.1);
+    --shadow-10: rgba(0, 0, 0, 0.11);
     --shadow-05: rgba(0, 0, 0, 0.05);
+    --shadow-04: rgba(0, 0, 0, 0.04);
+    --shadow-03: rgba(0, 0, 0, 0.03);
 
 
 

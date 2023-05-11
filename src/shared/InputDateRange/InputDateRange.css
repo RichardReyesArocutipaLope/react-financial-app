@@ -1,5 +1,4 @@
 .input-date__range-container {
-    width: 100%;
     display: flex;
     gap: 6%;
     order: 2;
@@ -7,22 +6,14 @@
 }
 
 .input-date__range {
-    background-color: var(--bg-three-color-white);
-    border-radius: 1rem;
-    box-shadow: .5rem .5rem 1rem 0rem var(--shadow-05);
-    color: var(--text-four-color-black);
-    font-size: 1.17rem;
-    padding: .5059rem 1rem;
-    outline: none;
-    border: none;
     width: 47%;
 }
 
 .input-date__range-container::after {
     content: '-';
     font-size: 1.5rem;
-    position: absolute;
     left: 50%;
+    position: absolute;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
 }

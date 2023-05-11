@@ -1,16 +1,9 @@
-
-.select{
-    background-color: var(--bg-three-color-white);
-    border-radius: 1rem;
-    box-shadow: .5rem .5rem 1rem 0rem var(--shadow-05);
-    color: var(--text-four-color-black);
-    font-size: 1.1rem;
+.input-select__container{
     order: 2;
-    padding: .6rem 1rem;
     position: relative;
-    width: 100%;
 }
-.select i{
+
+.input-select i{
     color: var(--text-four-color-black);
     font-size: 1.3rem;
     position: absolute;

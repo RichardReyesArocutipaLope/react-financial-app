@@ -1,5 +1,4 @@
 .input-number__range-container {
-    width: 100%;
     display: flex;
     gap: 6%;
     order: 2;
@@ -7,16 +6,8 @@
 }
 
 .input-number__range {
-    background-color: var(--bg-three-color-white);
-    border-radius: 1rem;
-    box-shadow: .5rem .5rem 1rem 0rem var(--shadow-05);
-    color: var(--text-four-color-black);
-    font-size: 1.1rem;
-    padding: .6rem 1rem;
     padding-left: 3.1rem;
     position: relative;
-    outline: none;
-    border: none;
     width: 47%;
 }
 
@@ -29,27 +20,18 @@
     transform: translateX(-50%) translateY(-50%);
 }
 
-
-.input-number__symbol:nth-child(1) {
+.input-number__symbol{
     position: absolute;
     font-size: 1.1rem;
     padding: .6rem;
     z-index: 100;
-    left: 0rem;
+    background-color: var(--bg-six-color-white);
     top: 0;
-    background-color: var(--bg-six-color-white);;
     border-bottom-left-radius: 1rem;
     border-top-left-radius: 1rem;
+    height: 100%;
+    left: 0;
 }
-
 .input-number__symbol:nth-child(2) {
-    position: absolute;
-    font-size: 1.1rem;
-    padding: .6rem;
-    z-index: 100;
     left: 53%;
-    top: 0;
-    background-color: var(--bg-six-color-white);;
-    border-bottom-left-radius: 1rem;
-    border-top-left-radius: 1rem;
 }
