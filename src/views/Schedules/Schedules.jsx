@@ -1,20 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Schedules.css'
 import { Table } from '../../shared/Table/Table'
 import { InputChekbox } from '../../shared/InputCheckbox/InputChekbox'
 import { ModuleOptions } from '../../shared/ModuleOptions/ModuleOptions'
 import { Filter } from '../../shared/Filter/Filter'
 import { Paginacion } from '../../shared/Paginacion/Paginacion'
+import { ModuleTitle } from '../../shared/ModuleTitle/ModuleTitle'
 
 export const Schedules = () => {
+
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const infoTable = {
+    currentPage,
+    setCurrentPage,
+    totalPages: 500,
+    totalRegisters: 5000
+  }
+
   return (
-    <div className='xd'>
-      <h1 className='main-title'>Créditos</h1>
-      {/* <HeaderModule/> */}
+    <>
+      <ModuleTitle text='Créditos' />
       <ModuleOptions />
       <Filter />
       <Table />
-      <Paginacion />
-    </div>
+      <Paginacion infoTable={infoTable} />
+    </>
   )
 }

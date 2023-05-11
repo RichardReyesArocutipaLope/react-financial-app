@@ -1,0 +1,98 @@
+.module-option__container {
+    width: 12rem;
+    min-width: 12rem;
+    height: 12rem;
+    min-height: 12rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: .8rem .8rem 1.5rem 0rem var(--shadow-15);
+    transform: rotate(90deg);
+}
+
+.module-option__wrapper {
+    width: 10.5rem;
+    height: 10.5rem;
+    background-color: var(--bg-three-color-white);
+    box-shadow: .3rem .3rem .3rem 0rem var(--shadow-40),
+    inset -.15rem -.15rem .1rem 0rem var(--bg-nine-color-white),
+    inset .15rem .15rem .1rem 0rem var(--bg-one-color-white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+}
+
+.module-option {
+    width: 9.5rem;
+    height: 9.5rem;
+    background-color: var(--bg-three-color-white);
+    box-shadow: inset .2rem .2rem .6rem 0rem var(--shadow-50),
+    .15rem .15rem .1rem 0rem var(--bg-one-color-white),
+    -.15rem -.15rem .1rem 0rem var(--bg-nine-color-white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .5rem;
+}
+.module-option__wrapper:active .module-option{
+    box-shadow: inset .6rem .6rem 1.5rem 0rem var(--shadow-50),
+    .15rem .15rem .1rem 0rem var(--bg-one-color-white),
+    -.15rem -.15rem .1rem 0rem var(--bg-nine-color-white);
+}
+
+.module-option i{
+    font-size: 2.5rem;
+    color: var(--text-six-color-black);
+}
+.module-option p{
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-six-color-black);
+    font-family: 'Roboto', sans-serif;
+}
+
+.module-option__wrapper:active .module-option i{
+    color: var(--text-one-color-black);
+}
+.module-option__wrapper:active .module-option p{
+    color: var(--text-one-color-black);
+}
+
+.turquesa{
+    background-color: rgba(0, 93, 100, 0.3);
+}
+
+.gris{
+    background-color: rgba(87, 87, 87, 0.3);
+}
+
+.celeste{
+    background-color: rgb(17, 80, 131, 0.3);
+}
+
+.ambar{
+    background-color: rgb(105, 79, 0, 0.3);
+}
+
+.rojo{
+    background-color: rgb(109, 0, 0, 0.3);
+}
+
+.verde{
+    background-color: rgb(0, 75, 4, 0.3);
+}
+
+.morado{
+    background-color: rgb(51, 0, 80, 0.3);
+}
+
+.azul{
+    background-color: rgb(0, 21, 92, 0.3);
+}

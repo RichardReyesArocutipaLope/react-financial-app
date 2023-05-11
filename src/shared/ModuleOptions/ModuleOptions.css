@@ -1,72 +1,195 @@
-.module-options{
+.module-options__container {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 2rem;
+    height: 19.7rem;
+    max-height: 19.7rem;
 }
 
-.module-option__container {
-    width: 12rem;
-    height: 12rem;
-    background-color: var(--bg-nine-color-black);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: .8rem .8rem 1.5rem 0rem var(--shadow-15);
-}
-.verde{
-    background-color: rgb(31, 183, 194);
-}
-.gris{
-    background-color: var(--bg-eleven-color-white);
-}
-
-.verde .module-option__wrapper{
-    box-shadow: .3rem .3rem .3rem 0rem var(--shadow-40),
-    -.3rem -.3rem .3rem 0rem rgb(56, 201, 211),
-    inset -.15rem -.15rem .1rem 0rem var(--bg-nine-color-white),
-    inset .15rem .15rem .1rem 0rem var(--bg-one-color-white);
-}
-.gris .module-option__wrapper{
-    box-shadow: .3rem .3rem .3rem 0rem var(--shadow-40),
-    -.3rem -.3rem .3rem 0rem var(--bg-ten-color-white),
-    inset -.15rem -.15rem .1rem 0rem var(--bg-nine-color-white),
-    inset .15rem .15rem .1rem 0rem var(--bg-one-color-white);
-}
-
-.module-option__wrapper {
-    width: 10.5rem;
-    height: 10.5rem;
+.module-options__info-wrapper {
+    width: 4rem;
+    min-width: 4rem;
+    overflow: hidden;
+    border-radius: 1rem;
     background-color: var(--bg-three-color-white);
-    box-shadow: .3rem .3rem .3rem 0rem var(--shadow-40),
-    -.3rem -.3rem .3rem 0rem var(--bg-eleven-color-black),
-    inset -.15rem -.15rem .1rem 0rem var(--bg-nine-color-white),
-    inset .15rem .15rem .1rem 0rem var(--bg-one-color-white);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    transition: width .2s, min-width .2s;
+    position: relative;
+    z-index: 50;
+    height: 100%;
+    padding: .5rem;
+    padding-right: 0;
+}
+.module-options__info-wrapper.left {
+    box-shadow: .5rem 0rem .5rem 0rem var(--shadow-15),
+        0rem .8rem .8rem 0rem var(--shadow-05);
+}
+.module-options__info-wrapper.right {
+    box-shadow: -.5rem 0rem .5rem 0rem var(--shadow-15),
+        .8rem .8rem .8rem 0rem var(--shadow-05);
+}
+.module-options__info-wrapper.extend {
+    width: 30rem;
+    min-width: 30rem;
+}
+.module-options__info-wrapper.left p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) rotate(90deg);
+    font-size: 1.2rem;
+    text-align: center;
+    width: 10rem;
+    user-select: none;
+}
+.module-options__info-wrapper.right p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+    font-size: 1.2rem;
+    text-align: center;
+    width: 10rem;
+    user-select: none;
+}
+.module-options__info-wrapper.extend p {
+    display: none;
+}
+.module-options__info-wrapper.extend .module-options__info {
+    display: block;
 }
 
-.module-option {
-    width: 9.5rem;
-    height: 9.5rem;
+
+.module-options__info{
+    padding: .3rem 0;
+    padding-right: .5rem;
+    height: 100%;
+    overflow-y: auto;
+    border-radius: 1rem;
+    display: none;
+}
+.module-options__info::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+
+.module-options__info-row {
+    white-space: nowrap;
+    width: 100%;
+    padding: .3rem;
+    background-color: var(--bg-five-color-white);
+    border-radius: 1rem;
+    margin-bottom: .3rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.module-options__info-row span {
+    font-size: 1.1rem;
+}
+
+.module-options__info-row :first-child {
+    width: 9rem;
+    min-width: 9rem;
+    display: inline-block;
+    background-color: rgb(80, 80, 80);
+    padding: .3rem .8rem;
+    color: white;
+    border-radius: .8rem;
+    margin-right: .4rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.module-options__info-row :first-child::after {
+    content: ':';
+    display: block;
+    position: absolute;
+    right: .5rem;
+    top: .2rem;
+}
+
+.module-options__info-row :last-child {
+    width: 19rem;
+    min-width: 19rem;
+    display: inline-block;
     background-color: var(--bg-three-color-white);
-    box-shadow: inset .2rem .2rem .6rem 0rem var(--shadow-50),
-    .15rem .15rem .1rem 0rem var(--bg-one-color-white),
-    -.15rem -.15rem .1rem 0rem var(--bg-nine-color-white);
-    border-radius: 50%;
+    padding: .3rem .8rem;
+    color: black;
+    border-radius: .8rem;
+}
+
+
+.module-options__info-table-title{
+    width: 100%;
+    padding: .3rem;
+    background-color: var(--bg-five-color-white);
+    border-radius: 1rem;
+    margin-bottom: .3rem;
+    font-family: 'Roboto', sans-serif;
+}
+.module-options__info-table-title span{
+    width: 29rem;
+    min-width: 29rem;
+    display: inline-block;
+    background-color: rgb(80, 80, 80);
+    padding: .3rem .8rem;
+    color: white;
+    border-radius: .8rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-align: center;
+}
+.module-options__info-table{
+    width: 29rem;
+    min-width: 29rem;
+    padding: .3rem;
+    padding-bottom: .2rem;
+    background-color: var(--bg-five-color-white);
+    border-radius: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+.module-options__info .table-container{
+    padding: 0;
+    box-shadow: none;
+    border-radius: .9rem;
+}
+
+.module-options__info .table__thead th{
+    padding: .3rem .8rem;
+    font-size: 1rem;
+}
+
+.module-options__info .table__tbody td{
+    padding: .3rem .8rem;
+    font-size: 1rem;
+}
+
+/*  */
+
+.module-options {
+    height: 19.7rem;
+    width: 100%;
+    position: relative;
+    flex-grow: 1;
+    background-color: var(--bg-four-color-white);
+    z-index: 40;
+}
+
+.module-options>div {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
     flex-direction: column;
-    gap: .5rem;
+    gap: 1.7rem;
+    padding: 2rem 5.2rem 2rem 2.5rem;
+    overflow-x: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 19.7rem;
+    transition: height .2s;
+    height: 40rem;
+    background-color: var(--bg-four-color-white);
+    transform: translateY(-50%) translateX(-50%) rotate(-90deg);
 }
-.module-option i{
-    font-size: 3rem;
-}
-.module-option p{
-    font-size: 1.4rem;
-    font-weight: 400;
+
+.module-options>div::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }

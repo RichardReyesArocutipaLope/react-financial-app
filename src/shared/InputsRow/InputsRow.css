@@ -1,4 +1,6 @@
 .inputs-row{
+    margin-top: .7rem;
+    padding-bottom: .2rem;
     display: flex;
     align-items: end;
 }

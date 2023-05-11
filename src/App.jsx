@@ -24,6 +24,8 @@ import { Empleados } from "./views/Empleados/Empleados"
 import { Clientes } from "./views/Clientes/Clientes"
 import { Declines } from "./views/Declines/Declines"
 import { Payouts } from "./views/Payouts/Payouts"
+import { ModuleContainer } from "./shared/ModuleContainer/ModuleContainer"
+import { Modal } from "./shared/Modal/Modal"
 
 export const App = () => {
     return (
@@ -31,35 +33,36 @@ export const App = () => {
             <Sidebar />
             <div className="content-app">
                 <Header />
-                <div className='body__shadow'></div>
-                <Routes>
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/cajas" element={<Cajas />} />
-                    <Route path="/operaciones" element={<Operaciones />} />
-                    <Route path="/consultas" element={<Consultas />} />
-                    <Route path="/schedules" element={<Schedules />} />
-                    <Route path="/cobros" element={<Cobros />} />
-                    <Route path="/supervisor" element={<Supervisor />} />
-                    <Route path="/historial" element={<Historial />} />
-                    <Route path="/pagar-cuotas" element={<PagarCuotas />} />
-                    <Route path="/usuarios" element={<Usuarios />} />
-                    <Route path="/permisos" element={<Permisos />} />
-                    <Route path="/reportes" element={<Reportes />} />
-                    <Route path="/agencias" element={<Agencias />} />
-                    <Route path="/parametros-sis" element={<Parametros />} />
-                    <Route path="/cerrar-caja" element={<CerrarCajas />} />
-                    <Route path="/transferir" element={<Transferir />} />
-                    <Route path="/aperturar" element={<Aperturar />} />
-                    <Route path="/empleados" element={<Empleados />} />
-                    <Route path="/clientes" element={<Clientes />} />
-                    <Route path="/declines" element={<Declines />} />
-                    <Route path="/payouts" element={<Payouts />} />
-                    <Route path="/" element={<Main />} />
-                    <Route path="/*" element={<Navigate to='/' />} />
-                </Routes>
-                <div className='body__shadow'></div>
-                {/* <Footer /> */}
+
+                <ModuleContainer>
+                    <Routes>
+                        <Route path="/dashboard" element={<Dashboard />} />
+                        <Route path="/cajas" element={<Cajas />} />
+                        <Route path="/operaciones" element={<Operaciones />} />
+                        <Route path="/consultas" element={<Consultas />} />
+                        <Route path="/schedules" element={<Schedules />} />
+                        <Route path="/cobros" element={<Cobros />} />
+                        <Route path="/supervisor" element={<Supervisor />} />
+                        <Route path="/historial" element={<Historial />} />
+                        <Route path="/pagar-cuotas" element={<PagarCuotas />} />
+                        <Route path="/usuarios" element={<Usuarios />} />
+                        <Route path="/permisos" element={<Permisos />} />
+                        <Route path="/reportes" element={<Reportes />} />
+                        <Route path="/agencias" element={<Agencias />} />
+                        <Route path="/parametros-sis" element={<Parametros />} />
+                        <Route path="/cerrar-caja" element={<CerrarCajas />} />
+                        <Route path="/transferir" element={<Transferir />} />
+                        <Route path="/aperturar" element={<Aperturar />} />
+                        <Route path="/empleados" element={<Empleados />} />
+                        <Route path="/clientes" element={<Clientes />} />
+                        <Route path="/declines" element={<Declines />} />
+                        <Route path="/payouts" element={<Payouts />} />
+                        <Route path="/" element={<Main />} />
+                        <Route path="/*" element={<Navigate to='/' />} />
+                    </Routes>
+                </ModuleContainer>
             </div>
+            <Modal/>
         </>
     )
 }

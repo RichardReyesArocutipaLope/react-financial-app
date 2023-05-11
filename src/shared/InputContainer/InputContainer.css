@@ -1,8 +1,8 @@
 .input-container{
     display: flex;
     flex-direction: column;
-    height: 5.89rem;
-    padding: .5rem;
+    height: 4.5rem;
+    padding: 0rem 1.2rem;
     width: 400px;
 }
 

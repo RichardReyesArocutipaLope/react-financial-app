@@ -1,0 +1,42 @@
+.pagination-button{
+    border-radius: .7rem;
+    box-shadow: 3px 3px 4px 0px var(--shadow-20),
+    -1px -1px 2px 0px var(--bg-three-color-white),
+    inset -2px -2px 2px 0px var(--bg-five-color-white),
+    inset 2px 2px 2px 0px var(--bg-one-color-white);
+    color: var(--text-five-color-black);
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    height: 2.5rem;
+    padding: .2rem .5rem;
+    transform: scale(1);
+    transition: transform .1s;
+    user-select: none;
+    width: 3.5rem;
+    background-color: var(--bg-three-color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-button--arrow{
+
+}
+.pagination-button--number{
+
+}
+.pagination-button:hover{
+    transform: scale(1.1);
+}
+.pagination-button.active{
+    background-color: var(--bg-six-color-black);
+    box-shadow: 3px 3px 4px 0px var(--shadow-20),
+        -1px -1px 2px 0px var(--bg-three-color-white),
+        inset -2px -2px 2px 0px var(--bg-four-color-black),
+        inset 2px 2px 2px 0px var(--bg-nine-color-black);
+    transform: scale(1.1);
+    color: var(--text-alternative-one-color-white);
+}

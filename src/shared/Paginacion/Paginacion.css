@@ -1,0 +1,26 @@
+
+.pagination-container{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination-info{
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-three-color-white);
+    box-shadow: .8rem .8rem .8rem 0rem var(--shadow-05);
+    color: var(--text-six-color-black);
+    padding: .2rem 2.5rem;
+    padding-top: .5rem;
+    height: 2.5rem;
+    border-radius: 1rem;
+}
+
+.pagination{
+    display: flex;
+    gap: .6rem;
+}
+
