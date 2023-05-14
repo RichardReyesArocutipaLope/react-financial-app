@@ -26,8 +26,15 @@ import { Declines } from "./views/Declines/Declines"
 import { Payouts } from "./views/Payouts/Payouts"
 import { ModuleContainer } from "./shared/ModuleContainer/ModuleContainer"
 import { Modal } from "./shared/Modal/Modal"
+import { useState } from "react"
 
 export const App = () => {
+
+    const [isOpenModal, setIsOpenModal] = useState(false)
+
+    const handleModal = () => {
+        setIsOpenModal(!isOpenModal);
+    }
     return (
         <>
             <Sidebar />
@@ -40,7 +47,7 @@ export const App = () => {
                         <Route path="/cajas" element={<Cajas />} />
                         <Route path="/operaciones" element={<Operaciones />} />
                         <Route path="/consultas" element={<Consultas />} />
-                        <Route path="/schedules" element={<Schedules />} />
+                        <Route path="/schedules" element={<Schedules handleModal={handleModal}/>} />
                         <Route path="/cobros" element={<Cobros />} />
                         <Route path="/supervisor" element={<Supervisor />} />
                         <Route path="/historial" element={<Historial />} />
@@ -62,7 +69,7 @@ export const App = () => {
                     </Routes>
                 </ModuleContainer>
             </div>
-            <Modal/>
+            <Modal isOpenModal={isOpenModal}  handleModal={handleModal} />
         </>
     )
 }

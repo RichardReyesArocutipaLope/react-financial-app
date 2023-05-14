@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { ModuleOption } from '../ModuleOption/ModuleOption'
 import './ModuleOptions.css'
 
-export const ModuleOptions = () => {
+export const ModuleOptions = ({handleModal}) => {
 
     const [moreInfo, setMoreInfo] = useState(false);
     const [notifications, setNotifications] = useState(false);
@@ -89,7 +89,9 @@ export const ModuleOptions = () => {
                     <ModuleOption
                         icon={<i class="fa-solid fa-file-circle-plus"></i>}
                         text='Crear'
-                        color='celeste' />
+                        color='celeste' 
+                        handleModal={handleModal}
+                        />
                     <ModuleOption
                         icon={<i class="fa-solid fa-file-pen"></i>}
                         text='Editar'

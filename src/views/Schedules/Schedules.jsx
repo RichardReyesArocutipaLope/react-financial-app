@@ -7,7 +7,7 @@ import { Filter } from '../../shared/Filter/Filter'
 import { Paginacion } from '../../shared/Paginacion/Paginacion'
 import { ModuleTitle } from '../../shared/ModuleTitle/ModuleTitle'
 
-export const Schedules = () => {
+export const Schedules = ({handleModal}) => {
 
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -21,7 +21,7 @@ export const Schedules = () => {
   return (
     <>
       <ModuleTitle text='Créditos' />
-      <ModuleOptions />
+      <ModuleOptions handleModal={handleModal} />
       <Filter />
       <Table />
       <Paginacion infoTable={infoTable} />
