@@ -28,9 +28,9 @@ export const Filter = () => {
         <InputSelect col={4} label='Estado' name='estado' />
         <FragmentContainer col={5}>
           <Button width='7rem' className='warning' content='Reset' />
-          <Button width='5.5rem' className='print-pdf' content={<i class="fa-solid fa-file-pdf icon-pdf"></i>} />
-          <Button width='5.5rem' className='print-xlsx' content={<i class="fa-solid fa-file-excel icon-xlsx"></i>} />
-          <Button width='5.5rem' className='secondary' content={<i class="fa-solid fa-image icon-capture"></i>} />
+          <Button width='5.5rem' className='print-pdf' content={<i class="fa-solid fa-file-pdf icon"></i>} />
+          <Button width='5.5rem' className='print-xlsx' content={<i class="fa-solid fa-file-excel icon"></i>} />
+          <Button width='5.5rem' className='secondary' content={<i class="fa-solid fa-image icon"></i>} />
         </FragmentContainer>
       </InputsRow>
     </div>

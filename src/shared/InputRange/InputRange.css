@@ -1,0 +1,11 @@
+.input-range{
+    order: 2;
+    width: 100%;
+    height: 2.6rem;
+    max-height: 2.6rem;
+    min-height: 2.6rem;
+}
+
+.input-range:focus+.input__label{
+    color: var(--text-one-color-black);
+}
