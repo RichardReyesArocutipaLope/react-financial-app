@@ -222,7 +222,12 @@
     display: flex;
     scroll-behavior: smooth;
 }
-
+.form-tab__body-title{
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: .2rem 1rem;
+    color: var(--text-ten-color-black);
+}
 .form-tab__body::-webkit-scrollbar {
     width: 0;
     height: 0;

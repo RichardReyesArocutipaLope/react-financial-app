@@ -1,0 +1,6 @@
+.flex-container{
+    display: flex;
+    justify-content: start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}

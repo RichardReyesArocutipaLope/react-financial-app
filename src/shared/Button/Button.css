@@ -65,10 +65,10 @@
 }
 
 .button.secondary {
-    background-color: rgb(167, 167, 167);
+    background-color: rgb(180, 180, 180);
 }
 .button.secondary::after {
-    background-color: rgb(167, 167, 167);
+    background-color: rgb(180, 180, 180);
 }
 
 .button.success {
@@ -85,6 +85,14 @@
 }
 .button.danger::after {
     background-color: rgb(192, 34, 34);
+}
+
+.button.orange {
+    background-color: rgb(228, 102, 0);
+    color: var(--text-alternative-two-color-white);
+}
+.button.orange::after {
+    background-color: rgb(228, 102, 0);
 }
 
 .button.warning {

@@ -7,6 +7,11 @@ import { InputNumber } from '../InputNumber/InputNumber'
 import { InputText } from '../InputText/InputText'
 import { FragmentContainer } from '../FragmentContainer/FragmentContainer'
 import { NavLink } from 'react-router-dom'
+import { InputChekbox } from '../InputCheckbox/InputChekbox'
+import { InputFileImage } from '../InputFileImage/InputFileImage'
+import { FlexContainer } from '../FlexContainer/FlexContainer'
+import { InputFileDocument } from '../InputFileDocument/InputFileDocument'
+import { InputDate } from '../InputDate/InputDate'
 
 export const Modal = ({ isOpenModal, handleModal }) => {
 
@@ -31,7 +36,7 @@ export const Modal = ({ isOpenModal, handleModal }) => {
                                     className='form-tab__header-item active'
                                     onClick={(e) => {
                                         document.querySelectorAll('.form-tab__header-item').
-                                        forEach((item) => { item.classList.remove('active') });
+                                            forEach((item) => { item.classList.remove('active') });
                                         e.target.classList.add('active');
                                     }}>
                                     Datos de cliente
@@ -76,7 +81,7 @@ export const Modal = ({ isOpenModal, handleModal }) => {
                             <div className='form-tab__body'>
                                 <div className='form-tab__body-inputs' id='1'>
                                     <InputsRow margin='1.6'>
-                                        <InputNumber col={4} label='N. Operación' name='n_operacion'/>
+                                        <InputNumber col={4} label='N. Operación' name='n_operacion' />
                                         <InputNumber col={4} label='N. Crédito' name='n_credito' />
                                         <InputSelect col={8} label='Analista' name='analista' />
                                         <InputSelect col={8} label='Cobrador' name='cobrador' />
@@ -113,33 +118,55 @@ export const Modal = ({ isOpenModal, handleModal }) => {
                                     <InputsRow margin='1.6'>
                                         <InputText col={12} label='Referencia Negocio' name='neg_referencia' />
                                     </InputsRow>
+                                    <h2 className='form-tab__body-title'>Subir imagenes</h2>
+                                    <FlexContainer margin='1'>
+                                        <InputFileImage name='image1'/>
+                                        <InputFileImage name='image2'/>
+                                        <InputFileImage name='image3'/>
+                                        <InputFileImage name='image4'/>
+                                    </FlexContainer>
+                                    <h2 className='form-tab__body-title'>Subir documentos</h2>
+                                    <FlexContainer margin='1'>
+                                        <InputFileDocument name='doc1'/>
+                                        <InputFileDocument name='doc2'/>
+                                    </FlexContainer>
                                 </div>
                                 <div className='form-tab__body-inputs' id='3'>
 
-                                    <InputsRow>
+                                    <InputsRow margin='1.6'>
                                         <InputNumber col={6} label='Solicitao' name='pres_solicitado' money />
                                         <InputNumber col={6} label='Aprobado' name='pres_aprobado' money />
-                                        <InputNumber col={6} label='Fecha de emision' name='pres_fecha-emision' money />
-                                        <InputNumber col={6} label='Fecha desembolso' name='pres_fecha-desembolso' money />
-
+                                        <InputDate col={6} label='Fecha de emision' name='pres_fecha-emision' />
+                                        <InputDate col={6} label='Fecha desembolso' name='pres_fecha-desembolso' />
                                     </InputsRow>
-                                    <InputsRow>
+                                    <InputsRow margin='1.6'>
                                         <InputNumber col={6} label='Plazo' name='pres_plazo' />
                                         <InputSelect col={6} label='Tipo plazo' name='pres_tipo-plazo' />
                                         <InputSelect col={6} label='Tipo interes' name='pres_interes' />
                                         <InputNumber col={6} label='Tasa%' name='pres_tasa' />
 
                                     </InputsRow>
-                                    <InputsRow>
+                                    <InputsRow margin='1.6'>
                                         <InputNumber col={6} label='Ventas diarias' name='pres_ventas-diarias' money />
                                         <InputNumber col={6} label='Días buenos' name='pres_dias-buenos' money />
                                         <InputNumber col={6} label='Días malos' name='pres_dias-malos' money />
                                         <InputNumber col={6} label='Inventario' name='pres_inventario' money />
                                     </InputsRow>
+
+                                    <InputsRow>
+                                        <InputChekbox col={8} label='Recibo de luz' name='recibo-luz' />
+                                        <InputChekbox col={8} label='Mayor de 21 años' name='mayor-21' />
+                                        <InputChekbox col={8} label='DNI vigente' name='dni-vigente' />
+                                    </InputsRow>
+                                    <InputsRow>
+                                        <InputChekbox col={8} label='Documentos de propiedad del negocio' name='doc-negocio' />
+                                        <InputChekbox col={8} label='Documentos de propiedad de vivienda' name='doc-vivienda' />
+                                        <InputChekbox col={8} label='Comprobantes negocio' name='compr-negocio' />
+                                    </InputsRow>
                                 </div>
                                 <div className='form-tab__body-inputs' id='4'>
-                                    <h2>Referencia 1</h2>
-                                    <InputsRow>
+                                    <h2 className='form-tab__body-title'>Referencia 1</h2>
+                                    <InputsRow margin='1.6'>
                                         <InputText col={5} label='DNI' name='ref1_dni' />
                                         <FragmentContainer col={3}>
                                             <Button width='8.7rem' className='primary' content='Buscar' />
@@ -147,7 +174,7 @@ export const Modal = ({ isOpenModal, handleModal }) => {
                                         <InputText col={8} label='Nombres' name='ref1_nombres' />
                                         <InputText col={8} label='Apellidos' name='ref1_apellidos' />
                                     </InputsRow>
-                                    <InputsRow>
+                                    <InputsRow margin='1.6'>
                                         <InputText col={8} label='Domicilio' name='ref1_domicilio' />
                                         <InputText col={4} label='Parentesco' name='ref1_parentesco' />
                                         <InputText col={4} label='Celular 1' name='ref1_celular1' />
@@ -155,8 +182,8 @@ export const Modal = ({ isOpenModal, handleModal }) => {
                                         <InputSelect col={4} label='Estado civil' name='ref1_estado-civil' />
                                     </InputsRow>
                                     <hr />
-                                    <h2>Referencia 2</h2>
-                                    <InputsRow>
+                                    <h2 className='form-tab__body-title'>Referencia 2</h2>
+                                    <InputsRow margin='1.6'>
                                         <InputText col={5} label='DNI' name='ref2_dni' />
                                         <FragmentContainer col={3}>
                                             <Button width='8.7rem' className='primary' content='Buscar' />
@@ -164,7 +191,7 @@ export const Modal = ({ isOpenModal, handleModal }) => {
                                         <InputText col={8} label='Nombres' name='ref2_nombres' />
                                         <InputText col={8} label='Apellidos' name='ref2_apellidos' />
                                     </InputsRow>
-                                    <InputsRow>
+                                    <InputsRow margin='1.6'>
                                         <InputText col={8} label='Domicilio' name='ref2_domicilio' />
                                         <InputText col={4} label='Parentesco' name='ref2_parentesco' />
                                         <InputText col={4} label='Celular 1' name='ref2_celular1' />
@@ -174,8 +201,8 @@ export const Modal = ({ isOpenModal, handleModal }) => {
 
                                 </div>
                                 <div className='form-tab__body-inputs' id='5'>
-                                    <h2>Aval 1</h2>
-                                    <InputsRow>
+                                    <h2 className='form-tab__body-title'>Aval 1</h2>
+                                    <InputsRow margin='1.6'>
                                         <InputText col={5} label='DNI' name='aval1_dni' />
                                         <FragmentContainer col={3}>
                                             <Button width='8.7rem' className='primary' content='Buscar' />
@@ -183,15 +210,15 @@ export const Modal = ({ isOpenModal, handleModal }) => {
                                         <InputText col={8} label='Nombres' name='aval1_nombres' />
                                         <InputText col={8} label='Apellidos' name='aval1_apellidos' />
                                     </InputsRow>
-                                    <InputsRow>
+                                    <InputsRow margin='1.6'>
                                         <InputText col={8} label='Domicilio' name='aval1_domicilio' />
                                         <InputText col={6} label='Correo' name='aval1_correo' />
                                         <InputText col={5} label='Celular 1' name='aval1_celular1' />
                                         <InputText col={5} label='Celular 2' name='aval1_celular2' />
                                     </InputsRow>
                                     <hr />
-                                    <h2>Aval 1</h2>
-                                    <InputsRow>
+                                    <h2 className='form-tab__body-title'>Aval 1</h2>
+                                    <InputsRow margin='1.6'>
                                         <InputText col={5} label='DNI' name='aval2_dni' />
                                         <FragmentContainer col={3}>
                                             <Button width='8.7rem' className='primary' content='Buscar' />
@@ -199,7 +226,7 @@ export const Modal = ({ isOpenModal, handleModal }) => {
                                         <InputText col={8} label='Nombres' name='aval2_nombres' />
                                         <InputText col={8} label='Apellidos' name='aval2_apellidos' />
                                     </InputsRow>
-                                    <InputsRow>
+                                    <InputsRow margin='1.6'>
                                         <InputText col={8} label='Domicilio' name='aval2_domicilio' />
                                         <InputText col={6} label='Correo' name='aval2_correo' />
                                         <InputText col={5} label='Celular 1' name='aval2_celular1' />

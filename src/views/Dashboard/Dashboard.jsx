@@ -21,6 +21,8 @@ import { InputUrl } from '../../shared/InputUrl/InputUrl'
 import { InputWeek } from '../../shared/InputWeek/InputWeek'
 import { Button } from '../../shared/Button/Button'
 import { FragmentContainer } from '../../shared/FragmentContainer/FragmentContainer'
+import { InputDatalist } from '../../shared/InputDatalist/InputDatalist'
+import { InputTextarea } from '../../shared/InputTextarea/InputTextarea'
 
 export const Dashboard = () => {
   return (
@@ -55,25 +57,29 @@ export const Dashboard = () => {
       </InputsRow>
 
       <InputsRow margin='1.6'>
-        <InputMoneyRange col={6} label='Input money range' name='rango-money' />
-        <InputDateRange col={6} label='Input date range' name='rango-date' />
+        <InputMoneyRange col={6} label='Input money range' name='rango-money'/>
+        <InputDateRange col={6} label='Input date range' name='rango-date'/>
+        <InputDatalist col={6} label='Input data list' name='input-datalist'/>
+        <InputTextarea col={6} label='Textarea' name='textarea'/>
       </InputsRow>
 
       <InputsRow margin='3'>
         <FragmentContainer col={24}>
-          <Button width='9.2rem' className='primary' content='Buscar' />
-          <Button width='9.2rem' className='secondary' content='secondary' />
-          <Button width='9.2rem' className='success' content='success' />
-          <Button width='9.2rem' className='danger' content='danger' />
-          <Button width='9.2rem' className='morado' content='morado' />
-          <Button width='9.2rem' className='warning' content='warning' />
-          <Button width='9.2rem' className='info' content='info' />
-          <Button width='9.2rem' className='light' content='light' />
-          <Button width='9.2rem' className='dark' content='dark' />
-          <Button width='9.2rem' className='gris' content='gris' />
-          <Button width='9.2rem' className='print-pdf' content={<i class="fa-solid fa-file-pdf icon"></i>}/>
-          <Button width='9.2rem' className='print-xlsx' content={<i class="fa-solid fa-file-excel icon"></i>}/>
-          <Button width='9.2rem' className='print-word' content={<i class="fa-sharp fa-solid fa-file-word icon"></i>}/>
+          <Button width='8.1rem' className='primary' content='Buscar' />
+          <Button width='8.1rem' className='secondary' content='second' />
+          <Button width='8.1rem' className='success' content='success' />
+          <Button width='8.1rem' className='danger' content='danger' />
+          <Button width='8.1rem' className='orange' content='orange' />
+          <Button width='8.1rem' className='morado' content='morado' />
+          <Button width='8.1rem' className='warning' content='warning' />
+          <Button width='8.1rem' className='info' content='info' />
+          <Button width='8.1rem' className='light' content='light' />
+          <Button width='8.1rem' className='dark' content='dark' />
+          <Button width='8.1rem' className='gris' content='gris' />
+          <Button width='8.1rem' className='print-pdf' content={<i class="fa-solid fa-file-pdf icon"></i>}/>
+          <Button width='8.1rem' className='print-xlsx' content={<i class="fa-solid fa-file-excel icon"></i>}/>
+          <Button width='8.1rem' className='print-word' content={<i class="fa-sharp fa-solid fa-file-word icon"></i>}/>
+          <Button width='8.1rem' className='dark' content={<i class="fa-solid fa-print icon"></i>}/>
         </FragmentContainer>
       </InputsRow>
 
