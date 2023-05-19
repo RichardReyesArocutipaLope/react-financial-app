@@ -1,0 +1,60 @@
+
+.document__info-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.6rem;
+}
+
+.document__info div:first-child {
+    margin-bottom: 1rem;
+    height: 7.5rem;
+    max-height: 7.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.document__info h2 {
+    font-size: 2rem;
+    letter-spacing: .2rem;
+}
+
+.document__info p {
+    font-size: 1.3rem;
+    padding: .2rem 0;
+    font-weight: 400;
+    max-width: 32rem;
+}
+
+.document__info span {
+    color: black;
+    font-weight: 500;
+    display: inline-block;
+    width: 9rem;
+}
+
+/*  */
+
+.document__table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.document__table thead th {
+    padding: .6rem 1.1rem;
+    background-color: rgb(110, 110, 110);
+    text-align: start;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: white;
+}
+
+.document__table tbody tr {
+    border-bottom: 3px solid var(--bg-five-color-white);
+}
+
+.document__table tbody td {
+    padding: .6rem 1.1rem;
+    font-size: 1.2rem;
+}
+

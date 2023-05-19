@@ -51,8 +51,11 @@
     opacity: 0;
     overflow: hidden;
     color: var(--text-six-color-black);
-}
 
+}
+.modal.height100{
+    height: 100%;
+}
 
 .modal.modal-xxs {
     width: 25rem;
@@ -130,8 +133,8 @@
 .modal__body-container .shadow {
     height: .1px;
     background-color: var(--bg-four-color-white);
-    box-shadow: -20px 0px 15px 2px var(--shadow-10),
-        20px 0px 15px 2px var(--shadow-10);
+    box-shadow: -20px 0px 15px 2px var(--shadow-05),
+        20px 0px 15px 2px var(--shadow-05);
     z-index: var(--z-index-50);
     position: relative;
     margin-left: 5%;
@@ -156,6 +159,8 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
 
 

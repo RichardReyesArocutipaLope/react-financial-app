@@ -31,8 +31,27 @@ import { useState } from "react"
 export const App = () => {
 
     const [isOpenModal, setIsOpenModal] = useState(false)
+    const [modalBodyContent, setModalBodyContent] = useState(<></>)
+    const [modalFooterContent, setModalFooterContent] = useState(<></>)
+    const [modalProperties, setModalProperties] = useState({
+        width: 'modal-l',
+        heightBody: '40rem',
+        staticBackdrop: false,
+        scroll: false,
+        verticallyCentered: false,
+        title:'MODAL',
+        bodyBackgroundColor:'var(--bg-two-color-white)',
+    })
 
-    const handleModal = () => {
+
+    const handleModal = (typeOfOperation = '', bodyComponent = <></>, footerComponet = <></>, modalProperties = {}) => {
+        if (typeOfOperation === 'setData') {
+            setModalBodyContent(bodyComponent)
+            setModalFooterContent(footerComponet)
+            modalProperties && setModalProperties(modalProperties)
+            setIsOpenModal(!isOpenModal);
+            return;
+        }
         setIsOpenModal(!isOpenModal);
     }
     return (
@@ -47,7 +66,7 @@ export const App = () => {
                         <Route path="/cajas" element={<Cajas />} />
                         <Route path="/operaciones" element={<Operaciones />} />
                         <Route path="/consultas" element={<Consultas />} />
-                        <Route path="/schedules" element={<Schedules handleModal={handleModal}/>} />
+                        <Route path="/schedules" element={<Schedules handleModal={handleModal} />} />
                         <Route path="/cobros" element={<Cobros />} />
                         <Route path="/supervisor" element={<Supervisor />} />
                         <Route path="/historial" element={<Historial />} />
@@ -69,7 +88,13 @@ export const App = () => {
                     </Routes>
                 </ModuleContainer>
             </div>
-            <Modal isOpenModal={isOpenModal}  handleModal={handleModal} />
+            <Modal
+                isOpenModal={isOpenModal}
+                handleModal={handleModal}
+                modalBodyContent={modalBodyContent}
+                modalFooterContent={modalFooterContent}
+                modalProperties={modalProperties}
+            />
         </>
     )
 }

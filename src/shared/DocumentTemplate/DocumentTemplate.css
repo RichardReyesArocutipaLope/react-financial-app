@@ -1,0 +1,149 @@
+.document {
+    width: 84.1rem;
+    height: 119.60rem;
+    background-color: var(--bg-four-color-white);
+    box-shadow: 0rem 0rem 1.8rem 0 var(--bg-two-color-white),
+        1rem 1rem 1rem 0rem var(--shadow-30),
+        inset .15rem .15rem .15rem 0 var(--bg-two-color-white),
+        inset -.2rem -.2rem .2rem 0 var(--shadow-15);
+    margin: 1.5rem;
+    border-radius: .3rem;
+    padding: 4rem;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.document-header {
+    text-align: end;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.document__logo-container {
+    background-color: rgb(110, 110, 110);
+    width: 13.5rem;
+    height: 13rem;
+    position: absolute;
+    left: 0;
+    top: -3.85rem;
+}
+
+.document__logo {
+    text-align: center;
+}
+
+.document__logo i {
+    font-size: 4rem;
+    color: white;
+    padding-top: 2.5rem;
+    padding-bottom: .5rem;
+}
+
+.document__logo-title {
+    text-align: center;
+    font-size: 1.3rem;
+    color: white;
+    padding: .4rem 0;
+    font-weight: 600;
+    letter-spacing: .1rem;
+}
+
+.document__logo-title2 {
+    text-align: center;
+    font-size: 1.2rem;
+    color: white;
+    padding: .3rem;
+    letter-spacing: .15rem;
+}
+
+.document__title {
+    font-size: 4.3rem;
+    font-weight: 600;
+    color: rgb(95, 95, 95);
+    padding: 1.5rem;
+    letter-spacing: .3rem;
+}
+
+/*  */
+
+.document-body {
+    flex-grow: 1;
+    margin: 0;
+}
+
+
+/*  */
+
+.document-footer {
+    height: 8rem;
+    display: flex;
+    gap: 1rem;
+    border-top: 4px solid rgb(110, 110, 110);
+}
+
+.document-footer__item {
+    flex-grow: 1;
+    flex-basis: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.document-footer__item span:first-child {
+    width: 4rem;
+    max-width: 4rem;
+}
+
+.document-footer__item span:first-child i {
+    font-size: 2rem;
+    color: rgb(110, 110, 110);
+}
+
+.document-footer__item span:last-child {
+    display: inline-block;
+    max-width: 19rem;
+    text-align: start;
+}
+
+.document-footer__item span:last-child p {
+    font-size: 1.2rem;
+}
+
+/*  */
+
+.document-details {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.terms-conditions {
+    width: calc(50% - 1rem);
+}
+
+.terms-conditions p:first-child {
+    font-size: 1.4rem;
+    color: black;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+.terms-conditions p:last-child{
+    font-size: 1.1rem;
+}
+
+.signature {
+    width: calc(50% - 1rem);
+    text-align: center;
+}
+
+.signature h3 {
+    font-size: 1.3rem;
+    color: black;
+    font-weight: 500;
+    margin-bottom: .5rem;
+
+}
