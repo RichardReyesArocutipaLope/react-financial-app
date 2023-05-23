@@ -50,7 +50,8 @@
     transition: transform .2s, opacity .2s;
     opacity: 0;
     overflow: hidden;
-    color: var(--text-six-color-black);
+    color: var(--color-modal);
+    background-color: var(--bg-modal);
 
 }
 .modal.height100{
@@ -95,7 +96,7 @@
 
 .modal__header {
     height: 5rem;
-    background-color: var(--bg-four-color-white);
+    background-color: var(--bg-modal-header);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -112,7 +113,7 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    background-color: var(--bg-five-color-white);
+    background-color: var(--bg-modal-header-close);
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -132,9 +133,8 @@
 
 .modal__body-container .shadow {
     height: .1px;
-    background-color: var(--bg-four-color-white);
-    box-shadow: -20px 0px 15px 2px var(--shadow-05),
-        20px 0px 15px 2px var(--shadow-05);
+    background-color: var(--bg-shadow-modal);
+    box-shadow: var(--shadow-shadow-modal);
     z-index: var(--z-index-50);
     position: relative;
     margin-left: 5%;
@@ -144,7 +144,6 @@
 .modal__body {
     height: 50rem;
     padding: 1.2rem;
-    background-color: var(--bg-two-color-white);
 }
 
 .modal__body.modal-scroll {
@@ -153,7 +152,7 @@
 
 .modal__footer {
     height: 5rem;
-    background-color: var(--bg-four-color-white);
+    background-color: var(--bg-modal-footer);
     padding: 1rem 2rem;
     display: flex;
     align-items: center;
@@ -168,18 +167,19 @@
 /* -------------------------- */
 .form-tab {
     border-radius: 1rem;
-    background-color: var(--bg-four-color-white);
+    background-color: var(--bg-form-tab);
     height: 100%;
     overflow: hidden;
 }
 
 .form-tab__header {
     padding: 0rem 1rem;
-    background-color: var(--bg-one-color-black);
+    background-color: var(--bg-form-tab-header);
     display: flex;
     position: relative;
-    box-shadow: 0rem .5rem .5rem 0rem var(--shadow-20);
+    box-shadow: var(--shadow-form-tab-header);
     height: 5.7rem;
+    color: var(--color-form-tab-header);
 }
 
 .form-tab__header-item {
@@ -187,7 +187,7 @@
     width: 13rem;
     min-width: 13rem;
     height: 100%;
-    color: var(--text-alternative-seven-color-white);
+    color: var(--color-form-tab-header);
     font-size: 1.4rem;
     font-weight: 500;
     text-align: center;
@@ -204,18 +204,18 @@
     transition: width .4s;
     margin: 0 auto;
     margin-top: .8rem;
-    background-color: var(--text-alternative-seven-color-white);
+    background-color: var(--color-form-tab-header);
 }
 .form-tab__header-item:hover::after {
     width: 80%;
-    background-color: var(--text-alternative-two-color-white);
+    background-color: var(--color-form-tab-header);
 }
 .form-tab__header-item.active::after {
     width: 80%;
-    background-color: var(--text-alternative-two-color-white);
+    background-color: var(--color-form-tab-header);
 }
 .form-tab__header-item.active {
-    color: var(--text-alternative-two-color-white);
+    color: var(--color-form-tab-header);
 }
 
 
@@ -231,7 +231,6 @@
     font-size: 1.4rem;
     font-weight: 600;
     padding: .2rem 1rem;
-    color: var(--text-ten-color-black);
 }
 .form-tab__body::-webkit-scrollbar {
     width: 0;
@@ -249,5 +248,5 @@
 }
 
 hr {
-    border: 2px solid var(--bg-seven-color-white);
+    border: var(--border-hr);
 }

@@ -28,43 +28,43 @@ export const Dashboard = () => {
   return (
     <>
       <InputsRow margin='1.6'>
-        <InputChekbox col={6} label='Input checkbox' name='Input checkbox' />
-        <InputColor col={6} label='Input color' name='Input color' />
-        <InputDate col={6} label='Input date' name='Input date' />
-        <InputDateTime col={6} label='Input datetime' name='Input datetime' />
+        <InputChekbox col={6} minWidth={10} label='Input checkbox' name='Input checkbox' />
+        <InputColor col={6} minWidth={10} label='Input color' name='Input color' />
+        <InputDate col={6} minWidth={15} label='Input date' name='Input date' />
+        <InputDateTime col={6} minWidth={19} label='Input datetime' name='Input datetime' />
       </InputsRow>
 
       <InputsRow margin='1.6'>
-        <InputEmail col={6} label='Input email' name='Input email' />
-        <InputMonth col={6} label='Input month' name='Input month' />
-        <InputNumber col={6} label='Input number' name='Input number' />
-        <InputPassword col={6} label='Input password' name='Input password' />
+        <InputEmail col={6} minWidth={15} label='Input email' name='Input email' />
+        <InputMonth col={6} minWidth={15} label='Input month' name='Input month' />
+        <InputNumber col={6} minWidth={15} label='Input number' name='Input number' />
+        <InputPassword col={6} minWidth={15} label='Input password' name='Input password' />
       </InputsRow>
 
       <InputsRow margin='1.6'>
-        <InputRadio col={3} label='Input radio' name='Input-radio' id='a' />
-        <InputRadio col={3} label='Input radio' name='Input-radio' id='b' />
-        <InputRange col={6} label='Input range' name='Input-range' />
-        <InputTel col={6} label='Input tel' name='Input-tel' />
-        <InputText col={6} label='Input text' name='Input-text' />
+        <InputRadio col={3} minWidth={5} label='Input radio' name='Input-radio' id='a' />
+        <InputRadio col={3} minWidth={5} label='Input radio' name='Input-radio' id='b' />
+        <InputRange col={6} minWidth={5} label='Input range' name='Input-range' />
+        <InputTel col={6} minWidth={5} label='Input tel' name='Input-tel' />
+        <InputText col={6} minWidth={5} label='Input text' name='Input-text' />
       </InputsRow>
 
       <InputsRow margin='1.6'>
-        <InputTime col={6} label='Input time' name='Input-time' />
-        <InputUrl col={6} label='Input url' name='Input-url' />
-        <InputWeek col={6} label='Input week' name='Input-week' />
-        <InputSelect col={6} label='Input select' name='select' />
+        <InputTime col={6} minWidth={5} label='Input time' name='Input-time' />
+        <InputUrl col={6} minWidth={5} label='Input url' name='Input-url' />
+        <InputWeek col={6} minWidth={5} label='Input week' name='Input-week' />
+        <InputSelect col={6} minWidth={5} label='Input select' name='select' />
       </InputsRow>
 
       <InputsRow margin='1.6'>
-        <InputMoneyRange col={6} label='Input money range' name='rango-money'/>
-        <InputDateRange col={6} label='Input date range' name='rango-date'/>
-        <InputDatalist col={6} label='Input data list' name='input-datalist'/>
-        <InputTextarea col={6} label='Textarea' name='textarea'/>
+        <InputMoneyRange col={6} minWidth={5} label='Input money range' name='rango-money'/>
+        <InputDateRange col={6} minWidth={5} label='Input date range' name='rango-date'/>
+        <InputDatalist col={6} minWidth={5} label='Input data list' name='input-datalist'/>
+        <InputTextarea col={6} minWidth={5} label='Textarea' name='textarea'/>
       </InputsRow>
 
       <InputsRow margin='3'>
-        <FragmentContainer col={24}>
+        <FragmentContainer col={24} minWidth={5}> 
           <Button width='8.1rem' className='primary' content='Buscar' />
           <Button width='8.1rem' className='secondary' content='second' />
           <Button width='8.1rem' className='success' content='success' />

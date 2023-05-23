@@ -1,16 +1,13 @@
 .document {
     width: 84.1rem;
     height: 119.60rem;
-    background-color: var(--bg-four-color-white);
-    box-shadow: 0rem 0rem 1.8rem 0 var(--bg-two-color-white),
-        1rem 1rem 1rem 0rem var(--shadow-30),
-        inset .15rem .15rem .15rem 0 var(--bg-two-color-white),
-        inset -.2rem -.2rem .2rem 0 var(--shadow-15);
+    background-color: var(--bg-document);
+    box-shadow: var( --shadow-document);
     margin: 1.5rem;
     border-radius: .3rem;
     padding: 4rem;
     font-family: 'Roboto', sans-serif;
-    color: black;
+    color: var(--color-document);
     display: flex;
     flex-direction: column;
 }

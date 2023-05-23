@@ -1,9 +1,9 @@
 .table-container {
     padding: 1.5rem;
     border-radius: 1rem;
-    background-color: var(--bg-three-color-white);
-    box-shadow: .8rem .8rem .8rem 0rem var(--shadow-05);
-    color: var(--text-two-color-black);
+    background-color: var(--bg-table-container);
+    box-shadow: var(--shadow-table-container);
+    color: var(--color-table);
 }
 
 .table {
@@ -14,7 +14,7 @@
 
 .table__thead th {
     padding: .8rem 1.1rem;
-    background-color: var(--bg-four-color-white);
+    background-color: var(--bg-table-th);
     text-align: start;
     font-size: 1.2rem;
     font-weight: 500;
@@ -31,7 +31,7 @@
 }
 
 .table__tbody tr {
-    border-bottom: 2px solid var(--bg-five-color-white);
+    border-bottom: var(--border-table-tr);
 }
 
 .table__tbody tr td:first-of-type {
@@ -46,8 +46,8 @@
 
 .table__tbody tr:hover {
     cursor: pointer;
-    background-color: var(--bg-six-color-black);
-    color: var(--text-alternative-one-color-white);
+    background-color: var(--bg-table-tr-hover);
+    color: var(--color-table-tr-hover);
 }
 
 .table__tbody td {

@@ -14,6 +14,10 @@ import { OptionsDisburseCredit } from '../../components/DisburseCredit/OptionsDi
 import { CreditSchedule } from '../../components/CreditSchedule/CreditSchedule';
 import { DocumentExportOptions } from '../DocumentExportOptions/DocumentExportOptions';
 import { ClientFile } from '../../components/ClientFile/ClientFile';
+import { SimulateCredit } from '../../components/SimulateCredit/SimulateCredit';
+import { OptionsSimulateCredit } from '../../components/SimulateCredit/OptionsSimulateCredit';
+import { ExportCreditData } from '../../components/ExportCreditData/ExportCreditData';
+import { OptionsExportCreditData } from '../../components/ExportCreditData/OptionsExportCreditData';
 
 
 export const ModuleOptions = ({ handleModal }) => {
@@ -114,7 +118,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             scroll: false,
                             verticallyCentered: false,
                             title:'CREAR CRÉDITO',
-                            bodyBackgroundColor:'var(--bg-two-color-white)',
+                            bodyBackgroundColor:'',
                         }}
                     />
                     <ModuleOption
@@ -224,16 +228,16 @@ export const ModuleOptions = ({ handleModal }) => {
                         text='Simular'
                         color='turquesa'
                         handleModal={handleModal}
-                        bodyComponent={<CreateCredit />}
-                        footerComponent={<OptionsCreateCredit />}
+                        bodyComponent={<SimulateCredit />}
+                        footerComponent={<OptionsSimulateCredit />}
                         modalProperties={{
                             width: 'modal-l',
-                            heightBody: '50rem',
+                            heightBody: '100%',
                             staticBackdrop: false,
-                            scroll: false,
+                            scroll: true,
                             verticallyCentered: false,
-                            title:'CREAR CRÉDITO',
-                            bodyBackgroundColor:'var(--bg-two-color-white)',
+                            title:'SIMULAR CRÉDITO',
+                            bodyBackgroundColor:'var(--bg-four-color-white)',
                         }}
                     />
                     <ModuleOption
@@ -241,15 +245,15 @@ export const ModuleOptions = ({ handleModal }) => {
                         text='Exportar'
                         color='morado'
                         handleModal={handleModal}
-                        bodyComponent={<CreateCredit />}
-                        footerComponent={<OptionsCreateCredit />}
+                        bodyComponent={<ExportCreditData />}
+                        footerComponent={<OptionsExportCreditData />}
                         modalProperties={{
-                            width: 'modal-l',
-                            heightBody: '50rem',
+                            width: 'modal-m',
+                            heightBody: '12rem',
                             staticBackdrop: false,
                             scroll: false,
-                            verticallyCentered: false,
-                            title:'CREAR CRÉDITO',
+                            verticallyCentered: true,
+                            title:'EXPORTAR CRÉDITO',
                             bodyBackgroundColor:'var(--bg-two-color-white)',
                         }}
                     />

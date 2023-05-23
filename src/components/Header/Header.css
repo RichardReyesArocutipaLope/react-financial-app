@@ -1,6 +1,7 @@
 .main-header{
     height: 6rem;
-    background-color: var(--bg-three-color-white);
+    background-color: var(--bg-header);
+    color: var(--color-header-option);
     padding: 1.5rem;
     display: flex;
     justify-content: end;
@@ -20,12 +21,12 @@
     justify-content: center;
     align-items: center;
     border-radius: .8rem;
-    border: 2px solid var(--bg-five-color-white);
+    border: var(--border-header-option);
     box-shadow: 0px 0px 20px 0px var(--shadow-10);
 }
 .main-header__option i{
     font-size: 1.5rem;
-    color: var(--text-eight-color-black);
+    color: var(--color-header-option);
 }
 
 .main-header__perfil{

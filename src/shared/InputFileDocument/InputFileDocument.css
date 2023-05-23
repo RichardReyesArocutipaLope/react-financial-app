@@ -2,9 +2,9 @@
     width: 13rem;
     height: 9rem;
     display: block;
-    background-color: var(--bg-three-color-white);
+    background-color: var(--bg-inputs);
     border-radius: .8rem;
-    box-shadow: .5rem .6rem .3rem 0rem var(--shadow-02);
+    box-shadow: var(--shadow-inputs);
     padding: 1rem;
     text-align: center;
     cursor: pointer;
@@ -12,5 +12,5 @@
 
 .input-file-document i {
     font-size: 7rem;
-    color: var(--text-thirteen-color-black);
+    color: var(--color-inputs);
 }

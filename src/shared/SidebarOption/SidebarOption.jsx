@@ -4,7 +4,7 @@ import './SidebarOption.css'
 import { SidebarSubOptions } from '../SidebarSubOptions/SidebarSubOptions';
 import { SidebarSubOption } from '../SidebarSubOption/SidebarSubOption';
 
-export const SidebarOption = ({ option, isLink, asideRef, optionTooltipRef }) => {
+export const SidebarOption = ({ option, isLink}) => {
 
 
     const [isOpenSubOptions, setIsOpenSubOptions] = useState(false)
@@ -12,30 +12,6 @@ export const SidebarOption = ({ option, isLink, asideRef, optionTooltipRef }) =>
     const handleSuboptions = () => {
         setIsOpenSubOptions(!isOpenSubOptions);
     }
-
-    const handleHoverOption = (event) => {
-        if (!optionTooltipRef.current) return;
-        const { top } = event.currentTarget.getBoundingClientRect()
-        setTimeout(() => {
-            optionTooltipRef.current.classList.remove('animation-backward')
-            optionTooltipRef.current.classList.add('animation-forward')
-            optionTooltipRef.current.textContent = label;
-            optionTooltipRef.current.style.top = `${(top / 16) + 1.95}rem`;
-            optionTooltipRef.current.style.transform = 'translateY(-50%)';
-        }, 500);
-    }
-
-    const handleLeaveOption = (event) => {
-        if (!optionTooltipRef.current) return;
-
-
-
-        if (!optionTooltipRef.current.classList.contains('animation-forward')) return;
-        optionTooltipRef.current.classList.remove('animation-forward')
-        optionTooltipRef.current.classList.add('animation-backward')
-    }
-
-
     const { label, icon, path, options } = option;
 
 
@@ -45,8 +21,6 @@ export const SidebarOption = ({ option, isLink, asideRef, optionTooltipRef }) =>
             <NavLink
                 className={({ isActive }) => (`main-sidebar__option ${isActive ? 'active' : ''}`)}
                 to={path}
-                onMouseEnter={handleHoverOption}
-                onMouseLeave={handleLeaveOption}
             >
                 <div className='main-sidebar__label-container'>
                     <span className='icon-option'>{icon}</span>
@@ -60,8 +34,6 @@ export const SidebarOption = ({ option, isLink, asideRef, optionTooltipRef }) =>
             <>
                 <div className='main-sidebar__option'
                     onClick={handleSuboptions}
-                    onMouseEnter={handleHoverOption}
-                    onMouseLeave={handleLeaveOption}
                 >
                     <div className='main-sidebar__label-container'>
                         <span className='icon-option'>{icon}</span>

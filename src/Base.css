@@ -1,63 +1,5 @@
 /* THEME */
 :root {
-    /* ======== START - MODE LIGHT THEME ======== */
-    /* color text */
-    --text-one-color-black: rgb(0, 0, 0);
-    --text-two-color-black: rgb(10, 10, 10);
-    --text-three-color-black: rgb(20, 20, 20);
-    --text-four-color-black: rgb(30, 30, 30);
-    --text-five-color-black: rgb(40, 40, 40);
-    --text-six-color-black: rgb(50, 50, 50);
-    --text-seven-color-black: rgb(60, 60, 60);
-    --text-eight-color-black: rgb(70, 70, 70);
-    --text-nine-color-black: rgb(80, 80, 80);
-    --text-ten-color-black: rgb(90, 90, 90);
-    --text-eleven-color-black: rgb(100, 100, 100);
-    --text-twelve-color-black: rgb(110, 110, 110);
-    --text-thirteen-color-black: rgb(120, 120, 120);
-
-    --text-alternative-one-color-white: rgb(255, 255, 255);
-    --text-alternative-two-color-white: rgb(245, 245, 245);
-    --text-alternative-three-color-white: rgb(235, 235, 235);
-    --text-alternative-four-color-white: rgb(225, 225, 225);
-    --text-alternative-five-color-white: rgb(215, 215, 215);
-    --text-alternative-six-color-white: rgb(205, 205, 205);
-    --text-alternative-seven-color-white: rgb(195, 195, 195);
-    --text-alternative-eight-color-white: rgb(185, 185, 185);
-    --text-alternative-nine-color-white: rgb(175, 175, 175);
-    --text-alternative-ten-color-white: rgb(165, 165, 165);
-    --text-alternative-eleven-color-white: rgb(155, 155, 155);
-    --text-alternative-twelve-color-white: rgb(145, 145, 145);
-    --text-alternative-thirteen-color-white: rgb(135, 135, 135);
-
-    /* background color */
-    --bg-one-color-black: rgb(0, 0, 0);
-    --bg-two-color-black: rgb(10, 10, 10);
-    --bg-three-color-black: rgb(20, 20, 20);
-    --bg-four-color-black: rgb(30, 30, 30);
-    --bg-five-color-black: rgb(40, 40, 40);
-    --bg-six-color-black: rgb(50, 50, 50);
-    --bg-seven-color-black: rgb(60, 60, 60);
-    --bg-eight-color-black: rgb(70, 70, 70);
-    --bg-nine-color-black: rgb(80, 80, 80);
-    --bg-ten-color-black: rgb(90, 90, 90);
-    --bg-eleven-color-black: rgb(100, 100, 100);
-    --bg-twelve-color-black: rgb(110, 110, 110);
-    --bg-thirteen-color-black: rgb(120, 120, 120);
-
-    --bg-one-color-white: rgb(255, 255, 255);
-    --bg-two-color-white: rgb(250, 250, 250);
-    --bg-three-color-white: rgb(240, 240, 240);
-    --bg-four-color-white: rgb(230, 230, 230);
-    --bg-five-color-white: rgb(220, 220, 220);
-    --bg-six-color-white: rgb(210, 210, 210);
-    --bg-seven-color-white: rgb(200, 200, 200);
-    --bg-eight-color-white: rgb(190, 190, 190);
-    --bg-nine-color-white: rgb(180, 180, 180);
-    --bg-ten-color-white: rgb(170, 170, 170);
-    --bg-eleven-color-white: rgb(160, 160, 160);
-    --bg-twelve-color-white: rgb(150, 150, 150);
-    --bg-thirteen-color-white: rgb(140, 140, 140);
 
     /* box-shadow  sombras */
     --shadow-100: rgba(0, 0, 0, 1);
@@ -121,94 +63,509 @@
 
     /* ======== END ======== */
 
+    /* ======== START - MODE LIGHT THEME ======== */
+
+    /* Sidebar.css */
+    --bg-sidebar: rgb(215, 215, 215);
+    --bg-shadow-sidebar: rgb(195, 195, 195);
+    --shadow-shadow-sidebar: 0px 0px 10px 1px var(--shadow-40);
+    --bg-icon-open-sidebar: rgb(20, 20, 20);
+    --color-icon-open-sidebar: rgb(225, 225, 225);
+    /*  */
+    --bg-sidebar-footer-button: rgb(40, 40, 40);
+    --color-sidebar-footer-button: rgb(230, 230, 230);
+    --shadow-sidebar-footer-button: 4px 4px 10px 0px var(--shadow-60),
+        -2px -2px 4px 0px rgb(240, 240, 240),
+        inset -2px -2px 2px 0px rgb(20, 20, 20),
+        inset 2px 2px 2px 0px rgb(75, 75, 75);
+    /*  */
+    --bg-change-theme: rgb(215, 215, 215);
+    --bg-button-change-theme: linear-gradient(315deg, #000000 0%, #414141 70%);
+    --shadow-change-theme1: -4px -4px 8px 0px rgb(245, 245, 245),
+        4px 4px 10px 0px var(--shadow-45),
+        inset -2px -2px 2px 0px var(--shadow-25),
+        inset 2px 2px 2px 0px rgb(245, 245, 245);
+    --shadow-change-theme2: 2px 3px 2px 0px rgb(245, 245, 245),
+        -2px -2px 3px 0px var(--shadow-25),
+        inset 5px 5px 10px 2px var(--shadow-20);
+
+
+    /* SidebarOption.css */
+    --bg-sidebar-option: rgb(215, 215, 215);
+    --color-sidebar-option: rgb(70, 70, 70);
+    --bg-sidebar-option-hover: rgb(225, 225, 225);
+    --shadow-sidebar-option-hover: -4px -4px 8px 0px rgb(230, 230, 230),
+        4px 4px 10px 0px var(--shadow-40),
+        inset -2px -2px 2px 0px var(--shadow-15),
+        inset 2px 2px 3px 0px rgb(235, 235, 235);
+
+    --bg-sidebar-option-active: rgb(40, 40, 40);
+    --color-sidebar-option-active: rgb(220, 220, 220);
+    --shadow-sidebar-option-active: 4px 4px 13px 0px var(--shadow-50),
+        -3px -3px 4px 0px rgb(230, 230, 230),
+        inset -3px -3px 5px 0px rgb(20, 20, 20),
+        inset 3px 3px 5px 0px rgb(65, 65, 65);
+    /*  */
+
+    /* SidebarSubOptions.css*/
+    --bg-line-suboption: rgb(140, 140, 140);
+
+    /* SidebarSubOption.css */
+    --color-suboption: rgb(100, 100, 100);
+    --color-icon-suboption: rgb(140, 140, 140);
+    --shadow-sidebar-suboption-hover: -4px -4px 4px 0px rgb(225, 225, 225),
+        4px 4px 5px 0px var(--shadow-20),
+        inset -2px -2px 2px 0px var(--shadow-15),
+        inset 2px 2px 3px 0px rgb(235, 235, 235);
+
+    --bg-sidebar-suboption-active: rgb(40, 40, 40);
+    --color-sidebar-suboption-active: rgb(220, 220, 220);
+    --shadow-sidebar-suboption-active: 4px 4px 5px 0px var(--shadow-40),
+        -3px -3px 4px 0px rgb(230, 230, 230),
+        inset -3px -3px 5px 0px rgb(20, 20, 20),
+        inset 3px 3px 5px 0px rgb(65, 65, 65);
+
+
+    /* Header.css */
+    --bg-header: rgb(215, 215, 215);
+
+    --border-header-option: 2px solid rgb(225, 225, 225);
+    --color-header-option: rgb(70, 70, 70);
+
+    /* ModuleContainer.css */
+    --bg-module: rgb(205, 205, 205);
+
+
+    /* ModuleOptions.css */
+    --bg-module-options-info: rgb(215, 215, 215);
+    --color-module-options-info: rgb(70, 70, 70);
+    --bg-module-options-info-row: rgb(185, 185, 185);
+    --bg-module-options-info-row-title: rgb(40, 40, 40);
+    --color-module-options-info-row-title: rgb(230, 230, 230);
+    --bg-module-options-info-row-content: rgb(215, 215, 215);
+    --color-module-options-info-row-content: rgb(30, 30, 30);
+
+    /* ModuleOption.css */
+    --bg-module-option-wrapper: rgb(215, 215, 215);
+    --shadow-module-option-wrapper: .3rem .3rem .3rem 0rem var(--shadow-40),
+        inset -.15rem -.15rem .1rem 0rem rgb(180, 180, 180),
+        inset .15rem .15rem .1rem 0rem rgb(240, 240, 240);
+
+    --bg-module-option: rgb(215, 215, 215);
+    --color-module-option: rgb(70, 70, 70);
+    --color-module-option-active: rgb(40, 40, 40);
+    --shadow-module-option: inset .2rem .2rem .6rem 0rem var(--shadow-50),
+        .15rem .15rem .1rem 0rem rgb(240, 240, 240),
+        -.15rem -.15rem .1rem 0rem rgb(180, 180, 180);
+
+    --shadow-module-option-active: inset .6rem .6rem 1.5rem 0rem var(--shadow-50),
+        .15rem .15rem .1rem 0rem rgb(240, 240, 240),
+        -.15rem -.15rem .1rem 0rem rgb(180, 180, 180);
+
+    /* InputsRow.css */
+    --color-inputs: rgb(40, 40, 40);
+
+    /* InputContainer.css */
+    --bg-inputs: rgb(215, 215, 215);
+    --shadow-inputs: .5rem .6rem .3rem 0rem var(--shadow-02);
+    --bg-inputs-focus: rgb(228, 228, 228);
+    --color-inputs-focus-label: rgb(10, 10, 10);
+
+    /* InputMoneyRange.css */
+    --input-money-symbol: rgb(190, 190, 190);
+
+    /* Table.css */
+    --bg-table-container: rgb(215, 215, 215);
+    --shadow-table-container: .8rem .8rem .8rem 0rem var(--shadow-05);
+    --color-table: rgb(40, 40, 40);
+    --bg-table-th: rgb(205, 205, 205);
+    --border-table-tr: 2px solid rgb(185, 185, 185);
+    --bg-table-tr-hover: rgb(40, 40, 40);
+    --color-table-tr-hover: rgb(240, 240, 240);
+
+    /* Paginacion.css */
+    --bg-paginacion-info: rgb(215, 215, 215);
+    --color-paginacion-info: rgb(40, 40, 40);
+    --shadow-paginacion-info: .8rem .8rem .8rem 0rem var(--shadow-05);
+    /* PaginationButton.css */
+    --bg-pagination-button: rgb(215, 215, 215);
+    --color-pagination-button: rgb(40, 40, 40);
+    --shadow-pagination-button: .3rem .3rem .8rem 0rem var(--shadow-08);
+
+    --bg-pagination-button-active: rgb(40, 40, 40);
+    --color-pagination-button-active: rgb(220, 220, 220);
+    --shadow-pagination-button-active: .3rem .3rem .8rem 0rem var(--shadow-15);
+
+    /* ModuleTitle.css */
+    --color-module-title: rgb(20, 20, 20);
+
+    /* Button */
+    --color-button-predeterminado: rgb(30, 30, 30);
+    --color-button-white: rgb(220, 220, 220);
+
+    /* ==================================================================== */
+    /* ==================================================================== */
+    /* ==================================================================== */
     /* ======== START - MODE DARK THEME ======== */
 
-    /* --text-one-color-black:rgb(255, 255, 255);
-    --text-two-color-black:rgb(245, 245, 245);
-    --text-three-color-black:rgb(235, 235, 235);
-    --text-four-color-black:rgb(225, 225, 225);
-    --text-five-color-black:rgb(215, 215, 215);
-    --text-six-color-black:rgb(205, 205, 205);
-    --text-seven-color-black:rgb(195, 195, 195);
-    --text-eight-color-black:rgb(185, 185, 185);
-    --text-nine-color-black:rgb(175, 175, 175);
-    --text-ten-color-black:rgb(165, 165, 165);
-    --text-eleven-color-black:rgb(155, 155, 155);
-    --text-twelve-color-black:rgb(145, 145, 145);
-    --text-thirteen-color-black:rgb(135, 135, 135);
 
-    --text-alternative-one-color-white:rgb(0, 0, 0);
-    --text-alternative-two-color-white:rgb(10, 10, 10);
-    --text-alternative-three-color-white:rgb(20, 20, 20);
-    --text-alternative-four-color-white:rgb(30, 30, 30);
-    --text-alternative-five-color-white:rgb(40, 40, 40);
-    --text-alternative-six-color-white:rgb(50, 50, 50);
-    --text-alternative-seven-color-white:rgb(60, 60, 60);
-    --text-alternative-eight-color-white:rgb(70, 70, 70);
-    --text-alternative-nine-color-white:rgb(80, 80, 80);
-    --text-alternative-ten-color-white:rgb(90, 90, 90);
-    --text-alternative-eleven-color-white:rgb(100, 100, 100);
-    --text-alternative-twelve-color-white:rgb(110, 110, 110);
-    --text-alternative-thirteen-color-white:rgb(120, 120, 120);
+    /* Sidebar.css */
+    --bg-sidebar: rgb(25, 25, 25);
+    --bg-shadow-sidebar: rgb(25, 25, 25);
+    --shadow-shadow-sidebar: 0px 0px 10px 1px var(--shadow-40);
+    --bg-icon-open-sidebar: rgb(60, 60, 60);
+    --color-icon-open-sidebar: rgb(0, 0, 0);
+    /*  */
+    --bg-sidebar-footer-button: rgb(60, 60, 60);
+    --color-sidebar-footer-button: rgb(150, 150, 150);
+    --shadow-sidebar-footer-button: 4px 4px 10px 0px var(--shadow-65),
+        -2px -2px 4px 0px rgb(40, 40, 40),
+        inset -2px -2px 2px 0px rgb(40, 40, 40),
+        inset 2px 2px 2px 0px rgb(70, 70, 70);
+    /*  */
+    --bg-change-theme: rgb(60, 60, 60);
+    --bg-button-change-theme: linear-gradient(315deg, #000000 0%, #414141 70%);
+    --shadow-change-theme1: -4px -4px 8px 0px rgb(40, 40, 40),
+        4px 4px 10px 0px var(--shadow-65),
+        inset -2px -2px 2px 0px rgb(40, 40, 40),
+        inset 2px 2px 2px 0px rgb(70, 70, 70);
+    --shadow-change-theme2: 2px 3px 2px 0px rgb(70, 70, 70),
+        -2px -2px 3px 0px var(--shadow-65),
+        inset 5px 5px 10px 2px var(--shadow-60);
 
-    --bg-one-color-black:rgb( 103, 171, 208  );
-    --bg-two-color-black:rgb( 101, 166, 202 );
-    --bg-three-color-black:rgb( 99, 163, 198 );
-    --bg-four-color-black:rgb( 96, 158, 193 );
-    --bg-five-color-black:rgb( 94, 154, 188  );
-    --bg-six-color-black:rgb( 92, 151, 183 );
-    --bg-seven-color-black:rgb( 89, 146, 177 );
-    --bg-eight-color-black:rgb( 87, 142, 173 );
-    --bg-nine-color-black:rgb( 85, 138, 167 );
-    --bg-ten-color-black:rgb( 81, 132, 161  );
-    --bg-eleven-color-black:rgb( 78, 127, 155 );
-    --bg-twelve-color-black:rgb(  75, 122, 148  );
-    --bg-thirteen-color-black:rgb( 70, 115, 139 );
 
-    --bg-one-color-white:rgb( 18, 28, 34 );
-    --bg-two-color-white:rgb( 22, 35, 42  );
-    --bg-three-color-white:rgb( 26, 42, 51 );
-    --bg-four-color-white:rgb( 30, 48, 58 );
-    --bg-five-color-white:rgb( 34, 54, 65 );
-    --bg-six-color-white:rgb( 37, 60, 72 );
-    --bg-seven-color-white:rgb(42, 67, 81);
-    --bg-eight-color-white:rgb( 46, 74, 89  );
-    --bg-nine-color-white:rgb( 51, 82, 99  );
-    --bg-ten-color-white:rgb(54, 88, 106);
-    --bg-eleven-color-white:rgb( 58, 94, 113  );
-    --bg-twelve-color-white:rgb(62, 101, 122);
-    --bg-thirteen-color-white:rgb(67, 109, 132);
+    /* SidebarOption.css */
+    --bg-sidebar-option: rgb(25, 25, 25);
+    --color-sidebar-option: rgb(150, 150, 150);
+    --bg-sidebar-option-hover: rgb(30, 30, 30);
+    --shadow-sidebar-option-hover: -4px -4px 8px 0px rgb(30, 30, 30),
+        4px 4px 10px 0px var(--shadow-65),
+        inset -3px -3px 3px 0px rgb(10, 10, 10),
+        inset 3px 3px 3px 0px rgb(40, 40, 40);
 
-    --shadow-one-color:rgba(0, 0, 0,.8);
-    --shadow-two-color:rgba(0,0,0,.8);
-    --shadow-three-color:rgba(0,0,0,.8);
-    --shadow-four-color:rgba(1,1,1,.8);
-    --shadow-five-color:rgba(1,1,1,.8);
-    --shadow-six-color:rgba(1,1,1,.8);
-    --shadow-seven-color:rgba(2,2,2,.8);
-    --shadow-eight-color:rgba(2,2,2,.8);
-    --shadow-nine-color:rgba(2,2,2,.8);
-    --shadow-ten-color:rgba(3,3,3,.8);
-    --shadow-eleven-color:rgba(3,3,3,.8);
-    --shadow-twelve-color:rgba(3,3,3,.8);
-    --shadow-thirteen-color:rgba(4,4,4,.8);
-    --shadow-fourteen-color:rgba(4,4,4,.8);
-    --shadow-fifteen-color:rgba(4,4,4,.8);
-    --shadow-sixteen-color:rgba(5,5,5,.8);
-    --shadow-seventeen-color:rgba(5,5,5,.8);
-    --shadow-eighteen-color:rgba(5,5,5,.8);
-    --shadow-nineteen-color:rgba(6,6,6,.8);
-    --shadow-twenty-color:rgba(6,6,6,.8);
-    --shadow-twentyone-color:rgba(6,6,6,.8);
-    --shadow-twentytwo-color:rgba(7, 7, 7,.8);
-    --shadow-twentythree-color:rgba(8, 8, 8,.8);
-    --shadow-twentyfour-color:rgba(9, 9, 9,.8);
-    --shadow-twentyfive-color:rgba(10, 10, 10,.8); */
-    /* ======== END ======== */
+    --bg-sidebar-option-active: rgb(80, 80, 80);
+    --color-sidebar-option-active: rgb(0, 0, 0);
+    --shadow-sidebar-option-active: 4px 4px 13px 0px var(--shadow-90),
+        -3px -3px 4px 0px rgb(40, 40, 40),
+        inset -3px -3px 5px 0px rgb(60, 60, 60),
+        inset 3px 3px 5px 0px rgb(90, 90, 90);
+    /*  */
+
+    /* SidebarSubOptions.css*/
+    --bg-line-suboption: rgb(60, 60, 60);
+
+    /* SidebarSubOption.css */
+    --color-suboption: rgb(150, 150, 150);
+    --color-icon-suboption: rgb(60, 60, 60);
+    --shadow-sidebar-suboption-hover: -4px -4px 4px 0px rgb(30, 30, 30),
+        4px 4px 5px 0px var(--shadow-65),
+        inset -2px -2px 2px 0px rgb(10, 10, 10),
+        inset 2px 2px 3px 0px rgb(30, 30, 30);
+
+    --bg-sidebar-suboption-active: rgb(60, 60, 60);
+    --color-sidebar-suboption-active: rgb(220, 220, 220);
+    --shadow-sidebar-suboption-active: 4px 4px 5px 0px var(--shadow-90),
+        -3px -3px 4px 0px rgb(30, 30, 30),
+        inset -3px -3px 5px 0px rgb(40, 40, 40),
+        inset 3px 3px 5px 0px rgb(70, 70, 70);
+
+
+    /* Header.css */
+    --bg-header: rgb(25, 25, 25);
+
+    --border-header-option: 2px solid rgb(35, 35, 35);
+    --color-header-option: rgb(150, 150, 150);
+
+    /* ModuleContainer.css */
+    --bg-module: rgb(10, 10, 10);
+
+
+    /* ModuleOptions.css */
+    --bg-module-options-info: rgb(25, 25, 25);
+    --color-module-options-info: rgb(150, 150, 150);
+    --bg-module-options-info-row: rgb(5, 5, 5);
+    --bg-module-options-info-row-title: rgb(15, 15, 15);
+    --color-module-options-info-row-title: rgb(150, 150, 150);
+    --bg-module-options-info-row-content: rgb(100, 100, 100);
+    --color-module-options-info-row-content: rgb(0, 0, 0);
+
+    /* ModuleOption.css */
+    --bg-module-option-wrapper: rgb(25, 25, 25);
+    --shadow-module-option-wrapper: .3rem .3rem .3rem 0rem var(--shadow-65),
+        inset -.15rem -.15rem .1rem 0rem rgb(10, 10, 10),
+        inset .15rem .15rem .1rem 0rem rgb(30, 30, 30);
+
+    --bg-module-option: rgb(25, 25, 25);
+    --color-module-option: rgb(150, 150, 150);
+    --color-module-option-active: rgb(220, 220, 220);
+    --shadow-module-option: inset .2rem .2rem .6rem 0rem var(--shadow-65),
+        .15rem .15rem .1rem 0rem rgb(30, 30, 30),
+        -.15rem -.15rem .1rem 0rem rgb(10, 10, 10);
+
+    --shadow-module-option-active: inset .6rem .6rem 1.5rem 0rem var(--shadow-100),
+        .15rem .15rem .1rem 0rem rgb(30, 30, 30),
+        -.15rem -.15rem .1rem 0rem rgb(10, 10, 10);
+
+    /* InputsRow.css */
+    --color-inputs: rgb(150, 150, 150);
+
+    /* InputContainer.css */
+    --bg-inputs: rgb(25, 25, 25);
+    --shadow-inputs: .5rem .6rem .3rem 0rem var(--shadow-02);
+    --bg-inputs-focus: rgb(30, 30, 30);
+    --color-inputs-focus-label: rgb(220, 220, 220);
+
+    /* InputMoneyRange.css */
+    --input-money-symbol: rgb(0, 0, 0);
+
+    /* Table.css */
+    --bg-table-container: rgb(25, 25, 25);
+    --shadow-table-container: .8rem .8rem .8rem 0rem var(--shadow-05);
+    --color-table: rgb(150, 150, 150);
+    --bg-table-th: rgb(10, 10, 10);
+    --border-table-tr: 2px solid rgb(50, 50, 50);
+    --bg-table-tr-hover: rgb(60, 60, 60);
+    --color-table-tr-hover: rgb(240, 240, 240);
+
+    /* Paginacion.css */
+    --bg-paginacion-info: rgb(25, 25, 25);
+    --color-paginacion-info: rgb(150, 150, 150);
+    --shadow-paginacion-info: .8rem .8rem .8rem 0rem var(--shadow-40);
+    /* PaginationButton.css */
+    --bg-pagination-button: rgb(25, 25, 25);
+    --color-pagination-button: rgb(150, 150, 150);
+    --shadow-pagination-button: .3rem .3rem .8rem 0rem var(--shadow-60);
+
+    --bg-pagination-button-active: rgb(60, 60, 60);
+    --color-pagination-button-active: rgb(230, 230, 230);
+    --shadow-pagination-button-active: .3rem .3rem .8rem 0rem var(--shadow-60);
+
+    /* ModuleTitle.css */
+    --color-module-title: rgb(20, 20, 20);
+
+    /* Button */
+    --color-button-predeterminado: rgb(30, 30, 30);
+    --color-button-white: rgb(240, 240, 240);
+
+    /* ========================================= */
+
+
+    /* ==================================================================== */
+    /* ==================================================================== */
+    /* ==================================================================== */
+    /* ======== START - MODE DARK DARK PLUS+++ THEME ======== */
+
+
+    /* Sidebar.css */
+    --bg-sidebar: rgb(0, 0, 0);
+    --bg-shadow-sidebar: rgb(50, 50, 50);
+    --shadow-shadow-sidebar: none;
+    --bg-icon-open-sidebar: rgb(30, 30, 30);
+    --color-icon-open-sidebar: rgb(150, 150, 150);
+    /*  */
+    --bg-sidebar-footer-button: rgb(30, 30, 30);
+    --color-sidebar-footer-button: rgb(150, 150, 150);
+    --shadow-sidebar-footer-button: -2px -2px 4px 0px rgb(10, 10, 10),
+        inset -3px -3px 3px 0px rgb(10, 10, 10),
+        inset 3px 3px 3px 0px rgb(40, 40, 40);
+    /*  */
+    --bg-change-theme: rgb(30, 30, 30);
+    --bg-button-change-theme: linear-gradient(315deg, #000000 0%, #414141 70%);
+    --shadow-change-theme1: -4px -4px 10px 0px rgb(10, 10, 10),
+        inset -2px -2px 2px 0px rgb(10, 10, 10),
+        inset 2px 2px 2px 0px rgb(40, 40, 40);
+    --shadow-change-theme2: 2px 3px 2px 0px rgb(40, 40, 40),
+        -2px -2px 3px 0px var(--shadow-85),
+        inset 5px 5px 10px 2px var(--shadow-90);
+
+
+    /* SidebarOption.css */
+    --bg-sidebar-option: rgb(0, 0, 0);
+    --color-sidebar-option: rgb(150, 150, 150);
+    --bg-sidebar-option-hover: rgb(10, 10, 10);
+    --shadow-sidebar-option-hover: -4px -4px 8px 0px rgb(10, 10, 10),
+        inset -3px -3px 3px 0px rgb(3, 3, 3),
+        inset 3px 3px 3px 0px rgb(20, 20, 20);
+
+    --bg-sidebar-option-active: rgb(30, 30, 30);
+    --color-sidebar-option-active: rgb(150, 150, 150);
+    --shadow-sidebar-option-active: -3px -3px 4px 0px rgb(10, 10, 10),
+        inset -3px -3px 5px 0px rgb(10, 10, 10),
+        inset 3px 3px 5px 0px rgb(40, 40, 40);
+    /*  */
+
+    /* SidebarSubOptions.css*/
+    --bg-line-suboption: rgb(30, 30, 30);
+
+    /* SidebarSubOption.css */
+    --color-suboption: rgb(150, 150, 150);
+    --color-icon-suboption: rgb(30, 30, 30);
+    --shadow-sidebar-suboption-hover: -4px -4px 4px 0px rgb(10, 10, 10),
+        inset 2px 2px 3px 0px rgb(3, 3, 3);
+
+    --bg-sidebar-suboption-active: rgb(30, 30, 30);
+    --color-sidebar-suboption-active: rgb(150, 150, 150);
+    --shadow-sidebar-suboption-active: -3px -3px 4px 0px rgb(10, 10, 10),
+        inset -3px -3px 5px 0px rgb(10, 10, 10),
+        inset 3px 3px 5px 0px rgb(40, 40, 40);
+
+
+    /* Header.css */
+    --bg-header: rgb(0, 0, 0);
+
+    --border-header-option: 2px solid rgb(20, 20, 20);
+    --color-header-option: rgb(150, 150, 150);
+
+    /* ModuleContainer.css */
+    --bg-module: rgb(10, 10, 10);
+
+
+    /* ModuleOptions.css */
+    --bg-module-options-info: rgb(0, 0, 0);
+    --color-module-options-info: rgb(150, 150, 150);
+    --bg-module-options-info-row: rgb(15, 15, 15);
+    --bg-module-options-info-row-title: rgb(0, 0, 0);
+    --color-module-options-info-row-title: rgb(150, 150, 150);
+    --bg-module-options-info-row-content: rgb(40, 40, 40);
+    --color-module-options-info-row-content: rgb(150, 150, 150);
+
+    /* ModuleOption.css */
+    --bg-module-option-wrapper: rgb(0, 0, 0);
+    --shadow-module-option-wrapper: .3rem .3rem .3rem 0rem var(--shadow-80),
+        inset -.15rem -.15rem .1rem 0rem rgb(0, 0, 0),
+        inset .15rem .15rem .1rem 0rem rgb(10, 10, 10);
+
+    --bg-module-option: rgb(0, 0, 0);
+    --color-module-option: rgb(150, 150, 150);
+    --color-module-option-active: rgb(200, 200, 200);
+    --shadow-module-option: inset .2rem .2rem .6rem 0rem var(--shadow-80),
+        .15rem .15rem .1rem 0rem rgb(12, 12, 12),
+        -.15rem -.15rem .1rem 0rem rgb(0, 0, 0);
+
+    --shadow-module-option-active: inset .6rem .6rem 1.5rem 0rem var(--shadow-100),
+        .15rem .15rem .1rem 0rem rgb(12, 12, 12),
+        -.15rem -.15rem .1rem 0rem rgb(0, 0, 0);
+
+    /* InputsRow.css */
+    --color-inputs: rgb(150, 150, 150);
+
+    /* InputContainer.css */
+    --bg-inputs: rgb(0, 0, 0);
+    --shadow-inputs: .5rem .5rem .5rem 0rem var(--shadow-40);
+    --bg-inputs-focus: rgb(0, 0, 0);
+    --color-inputs-focus-label: rgb(200, 200, 200);
+
+    /* InputMoneyRange.css */
+    --input-money-symbol: rgb(25, 25, 25);
+
+    /* Table.css */
+    --bg-table-container: rgb(0, 0, 0);
+    --shadow-table-container: .8rem .8rem .8rem 0rem var(--shadow-40);
+    --color-table: rgb(150, 150, 150);
+    --bg-table-th: rgb(10, 10, 10);
+    --border-table-tr: 2px solid rgb(30, 30, 30);
+    --bg-table-tr-hover: rgb(30, 30, 30);
+    --color-table-tr-hover: rgb(240, 240, 240);
+
+    /* Paginacion.css */
+    --bg-paginacion-info: rgb(0, 0, 0);
+    --color-paginacion-info: rgb(150, 150, 150);
+    --shadow-paginacion-info: .8rem .8rem .8rem 0rem var(--shadow-50);
+    /* PaginationButton.css */
+    --bg-pagination-button: rgb(0, 0, 0);
+    --color-pagination-button: rgb(150, 150, 150);
+    --shadow-pagination-button: .3rem .3rem .8rem 0rem var(--shadow-50);
+
+    --bg-pagination-button-active: rgb(30, 30, 30);
+    --color-pagination-button-active: rgb(230, 230, 230);
+    --shadow-pagination-button-active: .3rem .3rem .8rem 0rem var(--shadow-50);
+
+    /* ModuleTitle.css */
+    --color-module-title: rgb(150, 150, 150);
+
+    /* Button */
+    --color-button-predeterminado: rgb(20, 20, 20);
+    --color-button-white: rgb(200, 200, 200);
+
+    /* Modal.css */
+    --bg-modal: rgb(20, 20, 20);
+    --color-modal: rgb(150, 150, 150);
+
+    --bg-shadow-modal: rgb(10, 10, 10);
+    --shadow-shadow-modal: -20px 0px 15px 2px var(--shadow-05),
+        20px 0px 15px 2px var(--shadow-05);
+
+    --bg-modal-header: rgb(10, 10, 10);
+    --bg-modal-header-close: rgb(35, 35, 35);
+
+    --bg-modal-footer: rgb(10, 10, 10);
+
+    /*  */
+    --bg-form-tab: rgb(10, 10, 10);
+    --bg-form-tab-header: rgb(150, 150, 150);
+
+    --shadow-form-tab-header: 0rem .8rem .8rem 0rem var(--shadow-100);
+    --color-form-tab-header: rgb(10, 10, 10);
+    --border-hr: 2px solid rgb(30, 30, 30);
+
+    /* DocumentTemplate.css */
+    --bg-document: rgb(210, 210, 210);
+    --color-document: rgb(5, 5, 5);
+    --shadow-document: -.5rem -.5rem 1.8rem 0 rgb(50, 50, 50),
+        1.5rem 1.5rem 1rem 0rem var(--shadow-100),
+        inset .3rem .3rem .2rem 0 rgb(230, 230, 230),
+        inset -.3rem -.3rem .2rem 0 rgb(150, 150, 150);
+
+    /* CreditSchedule.css */
+    --border-document-table: 3px solid rgb(180, 180, 180);
+
+    /* InputForDocument.css */
+    --bg-input-document: rgb(200, 200, 200);
+    --color-input-document: rgb(60, 60, 60);
+
+    /*  Export Data.css */
+    --bg-export: rgb(0, 0, 0);
+    --color-export: rgb(180, 180, 180);  
+    --shadow-export: .6rem .6rem .6rem 0rem var(--shadow-50);
+
+    --bg-export-hover: rgb(180, 180, 180);
+    --color-export-hover: rgb(0, 0, 0);  
+    --shadow-export-hover: .6rem .6rem .6rem 0rem var(--shadow-80);
+
+
+    /* ========================================= */
+    --color-txt-00: rgb(0, 0, 0);
+    --color-txt-10: rgb(10, 10, 10);
+    --color-txt-20: rgb(20, 20, 20);
+    --color-txt-30: rgb(30, 30, 30);
+    --color-txt-40: rgb(40, 40, 40);
+    --color-txt-50: rgb(50, 50, 50);
+    --color-txt-60: rgb(60, 60, 60);
+    --color-txt-70: rgb(70, 70, 70);
+    --color-txt-80: rgb(80, 80, 80);
+    --color-txt-90: rgb(90, 90, 90);
+    --color-txt-100: rgb(100, 100, 100);
+    --color-txt-110: rgb(110, 110, 110);
+    --color-txt-120: rgb(120, 120, 120);
+
+    --color-alt-txt-255: rgb(255, 255, 255);
+    --color-alt-txt-245: rgb(245, 245, 245);
+    --color-alt-txt-235: rgb(235, 235, 235);
+    --color-alt-txt-225: rgb(225, 225, 225);
+    --color-alt-txt-215: rgb(215, 215, 215);
+    --color-alt-txt-205: rgb(205, 205, 205);
+    --color-alt-txt-195: rgb(195, 195, 195);
+    --color-alt-txt-185: rgb(185, 185, 185);
+    --color-alt-txt-175: rgb(175, 175, 175);
+    --color-alt-txt-165: rgb(165, 165, 165);
+    --color-alt-txt-155: rgb(155, 155, 155);
+    --color-alt-txt-145: rgb(145, 145, 145);
+    --color-alt-txt-135: rgb(135, 135, 135);
 }
 
+
 /* BASE */
-html{
+html {
     font-size: 16px;
 }
 
@@ -267,7 +624,7 @@ img {
 
 
 /*  */
-#root{
+#root {
     display: flex;
     height: 100vh;
     min-height: 100vh;
@@ -275,13 +632,13 @@ img {
     position: relative;
 }
 
-.content-app{
+.content-app {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.d-none{
+.d-none {
     display: none !important;
 }
 
@@ -300,31 +657,28 @@ img {
         font-size: 16px;
     }
 }
+
 @media screen and (max-width: 1536px) {
     html {
         font-size: 15px;
     }
 }
-@media screen and (max-width: 1280px) {
-}
+
+@media screen and (max-width: 1280px) {}
+
 @media screen and (max-width: 1024px) {
     html {
         font-size: 14px;
     }
 }
 
-@media screen and (max-width: 850px) {
-}
+@media screen and (max-width: 850px) {}
 
-@media screen and (max-width: 640px) {
-
-}
+@media screen and (max-width: 640px) {}
 
 @media screen and (max-width: 450px) {}
 
-@media screen and (max-width: 370px) {
-
-}
+@media screen and (max-width: 370px) {}
 
 @media screen and (max-width: 350px) {}
 

@@ -27,8 +27,8 @@
   top: -.5rem;
   left: -.5rem;
   border-radius: .6rem;
-  box-shadow: .4rem .4rem .2rem 0rem var(--shadow-05);
-  background-color: var(--bg-three-color-white);
+  box-shadow: var(--shadow-inputs);
+  background-color: var(--bg-inputs);
 }
 
 .checkbox__label-icon svg {
@@ -37,7 +37,7 @@
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke: var(--text-ten-color-black);
+  stroke: var(--color-inputs);
   stroke-width: 2;
 }
 
@@ -66,5 +66,5 @@
 
 /* -------------- */
 .checkbox-custom:checked+.checkbox__label-container{
-  color: var(--text-one-color-black);
+  color: var(--color-inputs-focus-label);
 }

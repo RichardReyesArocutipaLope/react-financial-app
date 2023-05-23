@@ -1,6 +1,6 @@
 .row-for-document{
     display: flex;
     align-items: end;
-    color: rgb(90, 90, 90);
+    color: var(--color-input-document);
     margin: 0 -1.2rem;
 }

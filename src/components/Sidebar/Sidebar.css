@@ -1,7 +1,6 @@
 .main-sidebar {
     width: 20rem;
-    background-color: var(--bg-three-color-white);
-    box-shadow: 1px 0px 10px 0px var(--bg-four-color-white);
+    background-color: var(--bg-sidebar);
     min-height: 100vh;
     position: relative;
     transition: width .5s ease;
@@ -18,8 +17,8 @@
 }
 
 .arrow-sidebar {
-    background-color: var(--bg-six-color-black);
-    color: var(--text-alternative-four-color-white);
+    background-color: var(--bg-icon-open-sidebar);
+    color: var(--color-icon-open-sidebar);
     padding: .5rem .782rem;
     border-radius: 50%;
     font-size: 1.5rem;
@@ -147,16 +146,17 @@
 
 .sidebar-header {
     padding: 1.2rem;
-    background-color: var(--bg-three-color-white);
     z-index: var(--z-index-60);
+    background-color: var(--bg-sidebar);
+    color: var(--color-sidebar-option);
     height: 6rem;
     position: relative;
 }
 
 .sidebar-body__shadow {
-    height: .1px;
-    background-color: var(--bg-three-color-white);
-    box-shadow: 0px 0px 10px 1px var(--shadow-40);
+    height: 1px;
+    background-color: var(--bg-shadow-sidebar);
+    box-shadow: var(--shadow-shadow-sidebar);
     z-index: var(--z-index-50);
     position: relative;
     margin-left: 10%;
@@ -165,7 +165,7 @@
 
 .sidebar-body {
     padding: 0rem 1.2rem 0rem 1.2rem;
-    height: calc(100vh - 12rem);
+    height: calc(100vh - 12.125rem);
     overflow-y: auto;
     position: relative;
 }
@@ -176,7 +176,7 @@
 }
 
 .sidebar-footer {
-    background-color: var(--bg-three-color-white);
+    background-color: var(--bg-sidebar);
     height: 6rem;
     z-index: var(--z-index-60);
     position: relative;
@@ -204,16 +204,13 @@
     justify-content: center;
     align-items: center;
     border-radius: .8rem;
-    background-color: var(--bg-six-color-black);
-    box-shadow: 4px 4px 10px 0px var(--bg-seven-color-black),
-        -2px -2px 4px 0px var(--bg-one-color-white),
-        inset -2px -2px 2px 0px var(--bg-four-color-black),
-        inset 2px 2px 2px 0px var(--bg-nine-color-black);
+    background-color: var(--bg-sidebar-footer-button);
+    box-shadow: var(--shadow-sidebar-footer-button);
 }
 
 .sidebar-footer__option i {
     font-size: 1.5rem;
-    color: var(--bg-three-color-white);
+    color: var(--color-sidebar-footer-button);
 }
 
 /* --theme */
@@ -223,7 +220,7 @@
 
 #checkbox:checked+.theme-container::before {
     left: calc(100% - 3.2rem);
-    background-image: linear-gradient(315deg, #000000 0%, #414141 70%);
+    background-image: var(--bg-button-change-theme)
 }
 
 .theme-container::before {
@@ -238,7 +235,7 @@
             #726f6f 62%);
     top: .82rem;
     left: .82rem;
-    box-shadow: 5px 5px 15px 1px var(--bg-twelve-color-black);
+    box-shadow: 5px 5px 15px 1px var(--shadow-50);
     transition: 0.4s;
 }
 
@@ -250,20 +247,14 @@
     height: 4rem;
     padding: .8rem;
     transition: width .5s, transform .5s;
-    background-color: var(--bg-four-color-white);
-
-    box-shadow: -4px -4px 8px 0px var(--bg-one-color-white),
-        4px 4px 10px 0px var(--shadow-45),
-        inset -2px -2px 2px 0px var(--bg-seven-color-white),
-        inset 2px 2px 2px 0px var(--bg-one-color-white);
+    background-color: var(--bg-change-theme);
+    box-shadow: var(--shadow-change-theme1);
     border-radius: 1.5rem;
 }
 
 .theme {
     height: 100%;
-    box-shadow: 2px 3px 2px 0px var(--bg-one-color-white),
-        -2px -2px 3px 0px var(--bg-eleven-color-white),
-        inset 5px 5px 10px 2px var(--bg-eight-color-white);
+    box-shadow: var(--shadow-change-theme2);
     border-radius: 1rem;
     display: flex;
 }
@@ -277,93 +268,5 @@
     min-width: 6rem;
     transform: scale(.85);
 }
-
-
-/* sidebar minim  */
-.sidebar-option__label-tooltip {
-    padding: .5rem 1rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text-alternative-four-color-white);
-    width: 1rem;
-    min-width: 1rem;
-    max-width: 15rem;
-    position: absolute;
-    z-index: var(--z-index-30);
-    left: 1.5rem;
-    top: 7.5rem;
-    background-color: var(--bg-six-color-black);
-    box-shadow: 4px 4px 10px 0px var(--bg-seven-color-black),
-        -2px -2px 4px 0px var(--bg-one-color-white),
-        inset -2px -2px 2px 0px var(--bg-four-color-black),
-        inset 2px 2px 2px 0px var(--bg-nine-color-black);
-    border-radius: .6rem;
-    white-space: nowrap;
-    display: block;
-    overflow: hidden;
-}
-
-.sidebar-option__label-tooltip::before {
-    content: '';
-    position: absolute;
-    width: .5rem;
-    height: .5rem;
-    background-color: var(--bg-six-color-black);
-    top: 50%;
-    left: -.25rem;
-    transform: translateY(-50%) rotate(45deg);
-}
-
-.animation-forward {
-    animation-name: tooltip-sidebar;
-    animation-duration: .5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-play-state: paused;
-}
-
-.sidebar-option__label-tooltip.animation-forward {
-    animation-play-state: running;
-}
-
-@keyframes tooltip-sidebar {
-    0% {}
-
-    100% {
-        left: 5.8rem;
-        width: 10rem;
-        min-width: 10rem;
-        overflow: visible;
-    }
-}
-
-.animation-backward {
-    animation-name: tooltip-aea;
-    animation-duration: .5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-play-state: paused;
-}
-
-.sidebar-option__label-tooltip.animation-backward {
-    animation-play-state: running;
-}
-
-@keyframes tooltip-aea {
-    0% {
-        left: 5.8rem;
-        width: 10rem;
-        min-width: 10rem;
-        overflow: visible;
-    }
-
-    100% {
-        left: 1.5rem;
-        width: 1rem;
-        min-width: 1rem;
-        overflow: hidden;
-    }
-}
-
 
 /*  */

@@ -10,7 +10,7 @@ import './Filter.css'
 export const Filter = () => {
   return (
     <div className='main-filter'>
-      <InputsRow>
+      <InputsRow margin='.5'>
         <InputDateRange col={5} label='Rango Date' name='range-date' />
         <InputMoneyRange col={5} label='Rango Prestamo' name='rango-prestamo' />
         <InputMoneyRange col={5} label='Rango Saldo' name='rango-saldo' />
@@ -18,7 +18,7 @@ export const Filter = () => {
         <InputSelect col={4} label='Estado' name='estado' />
       </InputsRow>
 
-      <InputsRow>
+      <InputsRow margin='.5'>
         <InputSearch col={6} width='30rem' placeholder='Busque por DNI, Cliente, Analista o Cobrador' />
         <FragmentContainer col={4}>
           <Button width='9.2rem' className='primary' content='Buscar' />

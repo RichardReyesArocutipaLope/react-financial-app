@@ -1,6 +1,6 @@
 .inputs-row{
     display: flex;
     align-items: end;
-    color: var(--text-ten-color-black);
+    color: var(--color-inputs);
     margin: 0 -1.2rem;
 }

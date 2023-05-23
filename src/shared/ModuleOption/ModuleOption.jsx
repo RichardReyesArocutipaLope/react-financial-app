@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+
 import './ModuleOption.css'
 
 export const ModuleOption = ({ icon, text, color, handleModal, bodyComponent, footerComponent, modalProperties }) => {

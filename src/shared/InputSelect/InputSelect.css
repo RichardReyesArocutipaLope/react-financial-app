@@ -1,5 +1,5 @@
 .input-select-icon{
-    background-color: var(--bg-three-color-white);
+    background-color: var(--bg-inputs);
     font-size: 1.3rem;
     padding: .3rem;
     position: absolute;
@@ -8,5 +8,5 @@
 }
 
 .input-select option {
-    background-color: var(--bg-three-color-white);
+    background-color: var(--bg-inputs);
 }

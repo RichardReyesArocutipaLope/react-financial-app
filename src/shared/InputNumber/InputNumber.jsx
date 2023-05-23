@@ -1,9 +1,9 @@
 import { InputContainer } from '../InputContainer/InputContainer'
 import './InputNumber.css'
 
-export const InputNumber = ({ label, col, name, money }) => {
+export const InputNumber = ({ label, col, name, money, minWidth }) => {
   return (
-    <InputContainer col={col}>
+    <InputContainer col={col} minWidth={minWidth}>
       <input name={name} id={name}
         className={`input input-number ${money ? 'money' : ''}`}
         type="number"></input>

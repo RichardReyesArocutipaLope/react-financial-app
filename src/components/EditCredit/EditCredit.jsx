@@ -126,8 +126,8 @@ export const EditCredit = () => {
                         <InputSelect col={6} label='Tipo plazo' name='pres_tipo-plazo' />
                         <InputSelect col={6} label='Tipo interes' name='pres_interes' />
                         <InputNumber col={6} label='Tasa%' name='pres_tasa' />
-
                     </InputsRow>
+                    
                     <InputsRow margin='1.6'>
                         <InputNumber col={6} label='Ventas diarias' name='pres_ventas-diarias' money />
                         <InputNumber col={6} label='Días buenos' name='pres_dias-buenos' money />

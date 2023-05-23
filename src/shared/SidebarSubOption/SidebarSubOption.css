@@ -1,5 +1,5 @@
 .sub-option__label {
-    color: var(--text-ten-color-black);
+    color: var(--color-suboption);
     font-size: 1.2rem;
     font-weight: 600;
     padding: .8rem 1rem;
@@ -10,19 +10,13 @@
 }
 
 .sub-option__label:hover {
-    box-shadow: -1px -1px 4px 0px var(--bg-two-color-white),
-        4px 4px 7px 0px var(--bg-six-color-white),
-        inset -2px -2px 2px 0px var(--bg-four-color-white),
-        inset 2px 2px 2px 0px var(--bg-two-color-white);
+    box-shadow: var(--shadow-sidebar-suboption-hover);
 }
 
 .sub-option__label.active {
-    box-shadow: -4px -4px 8px 0px var(--bg-one-color-white),
-        4px 4px 7px 0px var(--bg-twelve-color-white),
-        inset -2px -2px 2px 0px var(--bg-seven-color-white),
-        inset 2px 2px 2px 0px var(--bg-one-color-white);
-    background-color: var(--bg-three-color-white);
-    color: var(--text-one-color-black);
+    box-shadow: var(--shadow-sidebar-suboption-active);
+    background-color: var(--bg-sidebar-suboption-active);
+    color: var(--color-sidebar-suboption-active);
     z-index: var(--z-index-50);
 }
 
@@ -36,7 +30,7 @@
 
 .icon-suboption {
     font-size: 1.3rem;
-    color: var(--bg-seven-color-white);
+    color: var(--color-icon-suboption);
     position: absolute;
     top: 50%;
     left: -1.2rem;

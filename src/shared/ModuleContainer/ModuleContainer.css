@@ -1,6 +1,6 @@
 
 .module-container {
-    background-color: var(--bg-four-color-white);
+    background-color: var(--bg-module);
     padding: 2rem;
     flex-grow: 1;
     overflow-y: scroll;
@@ -10,7 +10,7 @@
 
 .body__shadow {
     height: .1px;
-    background-color: var(--bg-three-color-white);
+    background-color: var(--bg-module);
     box-shadow: 0px 0px 20px 1px var(--shadow-40);
     z-index: var(--z-index-40);
     position: relative;

@@ -19,7 +19,7 @@
 }
 
 .input-doc {
-    background-color: rgb(225, 225, 225);
+    background-color: var(--bg-input-document);
     border-radius: .8rem;
     /* box-shadow: 0rem 0rem .5rem 0rem var(--shadow-10); */
     font-size: 1.3rem;

@@ -24,9 +24,9 @@
     font-size: 1.1rem;
     padding: .6rem;
     z-index: 100;
-    background-color: var(--bg-five-color-white);
-    border-bottom-left-radius: 1rem;
-    border-top-left-radius: 1rem;
+    background-color: var(--input-money-symbol);
+    border-bottom-left-radius: .8rem;
+    border-top-left-radius: .8rem;
 }
 .input-number__range-container .input-number__symbol:nth-child(2) {
     left: 53%;
