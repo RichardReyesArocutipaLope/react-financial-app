@@ -1,5 +1,7 @@
 .fragment-container{
     display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 0rem;
     justify-content: space-between;
     padding: 0rem 1.2rem;
 }
