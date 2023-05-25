@@ -28,45 +28,42 @@ import { useResponsiveForm } from '../../hooks/useResponsiveForm'
 export const Dashboard = () => {
 
   const initialResponsive = [
-    { name: 'inputChekbox', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputColor', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputDate', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputDateTime', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputEmail', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputMonth', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputNumber', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputPassword', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputRadio', xxs:24,xs: 12, m: 8, xl: 6, col: 3 },
-    { name: 'inputRange', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputTel', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputText', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputTime', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputUrl', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputWeek', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputSelect', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputRangoMoney', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputRangoDate', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputDatalist', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
-    { name: 'inputTextarea', xxs:24,xs: 12, m: 8, xl: 6, col: 6 },
+    { name: 'inputChekbox', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputColor', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputDate', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputDateTime', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputEmail', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputMonth', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputNumber', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputPassword', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputRadio', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 3 },
+    { name: 'inputRange', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputTel', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputText', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputTime', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputUrl', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputWeek', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputSelect', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputRangoMoney', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputRangoDate', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputDatalist', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
+    { name: 'inputTextarea', xxs: 24, s: 12, m: 8, l: 6, xl: 4.8, xxl: 4, col: 6 },
   ]
 
   const { rwd } = useResponsiveForm(initialResponsive);
 
   return (
     <>
-      <InputsRow margin='1.6'>
-        <InputChekbox col={rwd.inputChekbox} label='Input checkbox' name='Input-checkbox' />
+      <InputsRow margin='0'>
         <InputColor col={rwd.inputColor} label='Input color' name='Input-color' />
+        <InputChekbox col={rwd.inputChekbox} label='Input checkbox' name='Input-checkbox' />
         <InputDate col={rwd.inputDate} label='Input date' name='Input date' />
         <InputDateTime col={rwd.inputDateTime} label='Input datetime' name='Input datetime' />
-
 
         <InputEmail col={rwd.inputEmail} label='Input email' name='Input email' />
         <InputMonth col={rwd.inputMonth} label='Input month' name='Input month' />
         <InputNumber col={rwd.inputNumber} label='Input number' name='Input number' />
         <InputPassword col={rwd.inputPassword} label='Input password' name='Input password' />
-
-
 
         <InputRadio col={rwd.inputRadio} label='Input radio' name='Input-radio' id='a' />
         <InputRadio col={rwd.inputRadio} label='Input radio' name='Input-radio' id='b' />
@@ -74,12 +71,10 @@ export const Dashboard = () => {
         <InputTel col={rwd.inputTel} label='Input tel' name='Input-tel' />
         <InputText col={rwd.inputText} label='Input text' name='Input-text' />
 
-
         <InputTime col={rwd.inputTime} label='Input time' name='Input-time' />
         <InputUrl col={rwd.inputUrl} label='Input url' name='Input-url' />
         <InputWeek col={rwd.inputWeek} label='Input week' name='Input-week' />
         <InputSelect col={rwd.inputSelect} label='Input select' name='select' />
-
 
         <InputMoneyRange col={rwd.inputRangoMoney} label='Input money range' name='rango-money' />
         <InputDateRange col={rwd.inputRangoDate} label='Input date range' name='rango-date' />
