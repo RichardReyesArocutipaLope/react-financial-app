@@ -1,0 +1,12 @@
+@media screen and (max-width: 640px) {
+    .modal__body-container {
+        height: 100% !important;
+    }
+
+    .modal{
+        height: 100% !important;
+    }
+    .modal__body {
+        height: 100% !important;
+    }
+}

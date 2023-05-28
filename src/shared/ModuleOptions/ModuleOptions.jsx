@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { ModuleOption } from '../ModuleOption/ModuleOption'
 import './ModuleOptions.css'
 import { CreateCredit } from '../../components/CreateCredit/CreateCredit';
@@ -24,33 +24,13 @@ export const ModuleOptions = ({ handleModal }) => {
 
     const [moreInfo, setMoreInfo] = useState(false);
     const [notifications, setNotifications] = useState(false);
-    const [widthModuleOptions, setwidthModuleOptions] = useState('')
-
-    const moduleOptions = useRef();
 
     const handleMoreInfo = () => {
         setMoreInfo(!moreInfo);
-        let ancho = (moduleOptions.current.offsetWidth) / 16
-        moreInfo ? (ancho = ancho + 26) : (ancho = ancho - 26)
-        setwidthModuleOptions(ancho + 'rem')
     }
-
     const handleNotifications = () => {
         setNotifications(!notifications);
-        let ancho = (moduleOptions.current.offsetWidth) / 16
-        console.log(ancho)
-        notifications ? (ancho = ancho + 26) : (ancho = ancho - 26)
-        setwidthModuleOptions(ancho + 'rem')
-        console.log(notifications)
     }
-
-    useEffect(() => {
-        console.log(moduleOptions.current.offsetWidth)
-        let ancho = (moduleOptions.current.offsetWidth) / 16
-        setwidthModuleOptions(ancho + 'rem')
-    }, [])
-
-
 
     return (
         <div className='module-options__container'>
@@ -102,161 +82,172 @@ export const ModuleOptions = ({ handleModal }) => {
                     </div>
                 </div>
             </div>
-            <div className='module-options' ref={moduleOptions}>
-                <div style={{ height: `${widthModuleOptions}` }}>
-                    <ModuleOption
-                        icon={<i class="fa-solid fa-file-circle-plus"></i>}
-                        text='Crear'
-                        color='celeste'
-                        handleModal={handleModal}
-                        bodyComponent={<CreateCredit />}
-                        footerComponent={<OptionsCreateCredit />}
-                        modalProperties={{
-                            width: 'modal-l',
-                            heightBody: '50rem',
-                            staticBackdrop: false,
-                            scroll: false,
-                            verticallyCentered: false,
-                            title:'CREAR CRÉDITO',
-                            bodyBackgroundColor:'',
-                        }}
-                    />
-                    <ModuleOption
-                        icon={<i class="fa-solid fa-file-pen"></i>}
-                        text='Editar'
-                        color='ambar'
-                        handleModal={handleModal}
-                        bodyComponent={<EditCredit />}
-                        footerComponent={<OptionsEditCredit />}
-                        modalProperties={{
-                            width: 'modal-l',
-                            heightBody: '50rem',
-                            staticBackdrop: false,
-                            scroll: false,
-                            verticallyCentered: false,
-                            title:'EDITAR CRÉDITO',
-                            bodyBackgroundColor:'var(--bg-two-color-white)',
-                        }}
-                    />
-                    <ModuleOption
-                        icon={<i class="fa-solid fa-trash"></i>}
-                        text='Eliminar'
-                        color='rojo'
-                        handleModal={handleModal}
-                        bodyComponent={<DeleteCredit />}
-                        footerComponent={<OptionsDeleteCredit />}
-                        modalProperties={{
-                            width: 'modal-s',
-                            heightBody: '12.5rem',
-                            staticBackdrop: false,
-                            scroll: false,
-                            verticallyCentered: true,
-                            title:'ELIMINAR CRÉDITO',
-                            bodyBackgroundColor:'var(--bg-two-color-white)',
-                        }}
-                    />
-                    <ModuleOption
-                        icon={<i class="fa-solid fa-thumbs-up"></i>}
-                        text='Aprobar'
-                        color='azul'
-                        handleModal={handleModal}
-                        bodyComponent={<ApproveCredit />}
-                        footerComponent={<OptionsApproveCredit />}
-                        modalProperties={{
-                            width: 'modal-s',
-                            heightBody: '12.5rem',
-                            staticBackdrop: false,
-                            scroll: false,
-                            verticallyCentered: true,
-                            title:'APROBAR CRÉDITO',
-                            bodyBackgroundColor:'var(--bg-two-color-white)',
-                        }}
-                    />
-                    <ModuleOption
-                        icon={<i class="fa-solid fa-sack-dollar"></i>}
-                        text='Desembolsar'
-                        color='verde'
-                        handleModal={handleModal}
-                        bodyComponent={<DisburseCredit />}
-                        footerComponent={<OptionsDisburseCredit />}
-                        modalProperties={{
-                            width: 'modal-s',
-                            heightBody: '17.5rem',
-                            staticBackdrop: false,
-                            scroll: false,
-                            verticallyCentered: true,
-                            title:'DESEMBOLSAR CRÉDITO',
-                            bodyBackgroundColor:'var(--bg-two-color-white)',
-                        }}
-                    />
-                    <ModuleOption
-                        icon={<i class="fa-solid fa-calendar-days"></i>}
-                        text='Cronograma'
-                        color='turqueza'
-                        handleModal={handleModal}
-                        bodyComponent={<CreditSchedule />}
-                        footerComponent={<DocumentExportOptions />}
-                        modalProperties={{
-                            width: 'modal-l',
-                            heightBody: '100%',
-                            staticBackdrop: false,
-                            scroll: true,
-                            verticallyCentered: false,
-                            title:'CRONOGRAMA',
-                            bodyBackgroundColor:'var(--bg-four-color-white)',
-                        }}
-                    />
-                    <ModuleOption
-                        icon={<i class="fa-solid fa-file-lines"></i>}
-                        text='Ficha'
-                        color='gris'
-                        handleModal={handleModal}
-                        bodyComponent={<ClientFile />}
-                        footerComponent={<DocumentExportOptions />}
-                        modalProperties={{
-                            width: 'modal-l',
-                            heightBody: '100%',
-                            staticBackdrop: false,
-                            scroll: true,
-                            verticallyCentered: false,
-                            title:'FICHA DEL CLIENTE',
-                            bodyBackgroundColor:'var(--bg-four-color-white)',
-                        }}
-                    />
-                    <ModuleOption
-                        icon={<i class="fa-solid fa-bolt"></i>}
-                        text='Simular'
-                        color='turquesa'
-                        handleModal={handleModal}
-                        bodyComponent={<SimulateCredit />}
-                        footerComponent={<OptionsSimulateCredit />}
-                        modalProperties={{
-                            width: 'modal-l',
-                            heightBody: '100%',
-                            staticBackdrop: false,
-                            scroll: true,
-                            verticallyCentered: false,
-                            title:'SIMULAR CRÉDITO',
-                            bodyBackgroundColor:'var(--bg-four-color-white)',
-                        }}
-                    />
-                    <ModuleOption
-                        icon={<i class="fa-solid fa-file-export"></i>}
-                        text='Exportar'
-                        color='morado'
-                        handleModal={handleModal}
-                        bodyComponent={<ExportCreditData />}
-                        footerComponent={<OptionsExportCreditData />}
-                        modalProperties={{
-                            width: 'modal-m',
-                            heightBody: '12rem',
-                            staticBackdrop: false,
-                            scroll: false,
-                            verticallyCentered: true,
-                            title:'EXPORTAR CRÉDITO',
-                            bodyBackgroundColor:'var(--bg-two-color-white)',
-                        }}
-                    />
+            <div className='module-options__main' >
+                <div className='module-options'>
+                    <div >
+                        <ModuleOption
+                            icon={<i class="fa-solid fa-file-circle-plus"></i>}
+                            text='Crear'
+                            color='celeste'
+                            handleModal={handleModal}
+                            bodyComponent={<CreateCredit />}
+                            footerComponent={<OptionsCreateCredit />}
+                            modalProperties={{
+                                width: 'modal-l',
+                                heightBody: '50rem',
+                                staticBackdrop: false,
+                                scroll: false,
+                                verticallyCentered: false,
+                                title: 'CREAR CRÉDITO',
+                                bodyBackgroundColor: '',
+                                footerHeightClass: 'modal__footer--responsive',
+                            }}
+                        />
+                        <ModuleOption
+                            icon={<i class="fa-solid fa-file-pen"></i>}
+                            text='Editar'
+                            color='ambar'
+                            handleModal={handleModal}
+                            bodyComponent={<EditCredit />}
+                            footerComponent={<OptionsEditCredit />}
+                            modalProperties={{
+                                width: 'modal-l',
+                                heightBody: '50rem',
+                                staticBackdrop: false,
+                                scroll: false,
+                                verticallyCentered: false,
+                                title: 'EDITAR CRÉDITO',
+                                bodyBackgroundColor: 'var(--bg-two-color-white)',
+                                footerHeightClass: 'modal__footer--responsive',
+                            }}
+                        />
+                        <ModuleOption
+                            icon={<i class="fa-solid fa-trash"></i>}
+                            text='Eliminar'
+                            color='rojo'
+                            handleModal={handleModal}
+                            bodyComponent={<DeleteCredit />}
+                            footerComponent={<OptionsDeleteCredit />}
+                            modalProperties={{
+                                width: 'modal-s',
+                                heightBody: '12.5rem',
+                                staticBackdrop: false,
+                                scroll: false,
+                                verticallyCentered: true,
+                                title: 'ELIMINAR CRÉDITO',
+                                bodyBackgroundColor: 'var(--bg-two-color-white)',
+                                footerHeightClass: '',
+                            }}
+                        />
+                        <ModuleOption
+                            icon={<i class="fa-solid fa-thumbs-up"></i>}
+                            text='Aprobar'
+                            color='azul'
+                            handleModal={handleModal}
+                            bodyComponent={<ApproveCredit />}
+                            footerComponent={<OptionsApproveCredit />}
+                            modalProperties={{
+                                width: 'modal-s',
+                                heightBody: '12.5rem',
+                                staticBackdrop: false,
+                                scroll: false,
+                                verticallyCentered: true,
+                                title: 'APROBAR CRÉDITO',
+                                bodyBackgroundColor: 'var(--bg-two-color-white)',
+                                footerHeightClass: '',
+                            }}
+                        />
+                        <ModuleOption
+                            icon={<i class="fa-solid fa-sack-dollar"></i>}
+                            text='Desembolsar'
+                            color='verde'
+                            handleModal={handleModal}
+                            bodyComponent={<DisburseCredit />}
+                            footerComponent={<OptionsDisburseCredit />}
+                            modalProperties={{
+                                width: 'modal-s',
+                                heightBody: '17.5rem',
+                                staticBackdrop: false,
+                                scroll: false,
+                                verticallyCentered: true,
+                                title: 'DESEMBOLSAR CRÉDITO',
+                                bodyBackgroundColor: 'var(--bg-two-color-white)',
+                                footerHeightClass: '',
+                            }}
+                        />
+                        <ModuleOption
+                            icon={<i class="fa-solid fa-calendar-days"></i>}
+                            text='Cronograma'
+                            color='turqueza'
+                            handleModal={handleModal}
+                            bodyComponent={<CreditSchedule />}
+                            footerComponent={<DocumentExportOptions />}
+                            modalProperties={{
+                                width: 'modal-l',
+                                heightBody: '100%',
+                                staticBackdrop: false,
+                                scroll: true,
+                                verticallyCentered: false,
+                                title: 'CRONOGRAMA',
+                                bodyBackgroundColor: 'var(--bg-four-color-white)',
+                                footerHeightClass: '',
+                            }}
+                        />
+                        <ModuleOption
+                            icon={<i class="fa-solid fa-file-lines"></i>}
+                            text='Ficha'
+                            color='gris'
+                            handleModal={handleModal}
+                            bodyComponent={<ClientFile />}
+                            footerComponent={<DocumentExportOptions />}
+                            modalProperties={{
+                                width: 'modal-l',
+                                heightBody: '100%',
+                                staticBackdrop: false,
+                                scroll: true,
+                                verticallyCentered: false,
+                                title: 'FICHA DEL CLIENTE',
+                                bodyBackgroundColor: 'var(--bg-four-color-white)',
+                                footerHeightClass: '',
+                            }}
+                        />
+                        <ModuleOption
+                            icon={<i class="fa-solid fa-bolt"></i>}
+                            text='Simular'
+                            color='turquesa'
+                            handleModal={handleModal}
+                            bodyComponent={<SimulateCredit />}
+                            footerComponent={<OptionsSimulateCredit />}
+                            modalProperties={{
+                                width: 'modal-l',
+                                heightBody: '100%',
+                                staticBackdrop: false,
+                                scroll: true,
+                                verticallyCentered: false,
+                                title: 'SIMULAR CRÉDITO',
+                                bodyBackgroundColor: 'var(--bg-four-color-white)',
+                                footerHeightClass: '',
+                            }}
+                        />
+                        <ModuleOption
+                            icon={<i class="fa-solid fa-file-export"></i>}
+                            text='Exportar'
+                            color='morado'
+                            handleModal={handleModal}
+                            bodyComponent={<ExportCreditData />}
+                            footerComponent={<OptionsExportCreditData />}
+                            modalProperties={{
+                                width: 'modal-m',
+                                heightBody: '12rem',
+                                staticBackdrop: false,
+                                scroll: false,
+                                verticallyCentered: true,
+                                title: 'EXPORTAR CRÉDITO',
+                                bodyBackgroundColor: 'var(--bg-two-color-white)',
+                                footerHeightClass: '',
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
             <div

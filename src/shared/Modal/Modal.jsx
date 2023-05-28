@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import { Button } from '../Button/Button'
 import './Modal.css'
 
 export const Modal = ({ isOpenModal, handleModal, modalBodyContent, modalFooterContent, modalProperties }) => {
 
-    const { width, heightBody, staticBackdrop, scroll, verticallyCentered, title, bodyBackgroundColor } = modalProperties;
+    const { width, heightBody, staticBackdrop, scroll, verticallyCentered, title, bodyBackgroundColor, footerHeightClass } = modalProperties;
 
     return (
         <div className={`modal-container ${verticallyCentered ? 'center' : ''} ${isOpenModal ? 'active' : 'inactive'}`}>
@@ -24,7 +22,7 @@ export const Modal = ({ isOpenModal, handleModal, modalBodyContent, modalFooterC
                     <div className='shadow'></div>
                 </div>
 
-                <div className='modal__footer'>
+                <div className={`modal__footer ${footerHeightClass}`}>
                     {isOpenModal && modalFooterContent}
                 </div>
             </div>

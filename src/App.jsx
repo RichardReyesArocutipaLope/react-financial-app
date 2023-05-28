@@ -33,6 +33,7 @@ export const App = () => {
         verticallyCentered: false,
         title: 'MODAL',
         bodyBackgroundColor: 'var(--bg-two-color-white)',
+        footerHeightClass:'',
     })
 
 

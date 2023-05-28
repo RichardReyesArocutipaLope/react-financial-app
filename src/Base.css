@@ -662,19 +662,83 @@ img {
     html {
         font-size: 15px;
     }
+
+    .pagination-container {
+        flex-direction: column;
+        justify-content: start;
+        gap: 1rem;
+    }
+
 }
 
-@media screen and (max-width: 1280px) {}
+@media screen and (max-width: 1280px) {
+
+    /* minimizar sidebar */
+    .main-sidebar {
+        width: 6.4rem;
+    }
+
+    .main-sidebar .hide {
+        display: none;
+    }
+
+    .main-sidebar .sidebar-footer--center {
+        padding: 0;
+    }
+
+    .main-sidebar .theme-container {
+        width: 6rem;
+        min-width: 6rem;
+        transform: scale(.85);
+    }
+
+    .arrow-sidebar {
+        display: none !important;
+    }
+
+    /* module options */
+    .module-options__container {
+        font-size: 14px;
+    }
+}
 
 @media screen and (max-width: 1024px) {
     html {
         font-size: 14px;
     }
+
+    /* paginacion */
+    .pagination {
+        display: flex;
+        gap: .3rem;
+    }
+
+    .pagination-button {
+        font-size: 1rem;
+        width: 2.5rem;
+    }
+
+    /* module options  */
+    .main-title {
+        font-size: 2rem;
+
+    }
+
+    /* module options */
+    .module-options__container {
+        font-size: 13px;
+    }
+
 }
 
 @media screen and (max-width: 850px) {
     html {
         font-size: 13px;
+    }
+
+    /* module options */
+    .module-options__container {
+        font-size: 12px;
     }
 }
 
@@ -704,7 +768,7 @@ img {
     }
 
     /* sidebar header */
-    .sidebar-header{
+    .sidebar-header {
         padding: .5rem;
         height: 5rem;
     }
@@ -717,29 +781,89 @@ img {
 
 
     /* main header*/
-    .main-header{
+    .main-header {
         height: 5rem;
     }
+
     .main-header__options {
         display: none;
     }
 
-    .main-header__perfil-img{
+    .main-header__perfil-img {
         width: 3rem;
         height: 3rem;
     }
 
     /* module container -- body */
-    .module-container{
+    .module-container {
         padding: 1rem;
+    }
+
+    /* paginacion */
+    .pagination-button {
+        width: 1.8rem;
+    }
+
+    /* module options  */
+    .module-options__info-wrapper {
+        display: none;
+    }
+
+    .module-options__container {
+        height: 16.7em;
+        max-height: 16.7em;
+        font-size: 10px;
+    }
+
+    .module-options__main {
+        height: 16.7em;
+    }
+
+    .module-options {
+        width: 16.7em;
+    }
+
+    .module-options>div {
+        padding: 2em 4.2em 2em 0.5em;
+    }
+
+
+    /* la wea pa que no se seleccione */
+    *,
+    *::after,
+    *::before {
+        -webkit-tap-highlight-color: transparent;
+        tap-highlight-color: transparent;
+    }
+    button:focus{
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+        tap-highlight-color: transparent;
+    }
+
+    /* modal */
+    .modal-container {
+        padding: 2rem;
     }
 
 }
 
-@media screen and (max-width: 450px) {}
+@media screen and (max-width: 450px) {
+    html {
+        font-size: 12.5px;
+    }
+}
 
-@media screen and (max-width: 370px) {}
+@media screen and (max-width: 400px) {
+    html {
+        font-size: 12px;
+    }
+}
 
-@media screen and (max-width: 350px) {}
+@media screen and (max-width: 350px) {
+    html {
+        font-size: 11px;
+    }
+}
 
 /* ======== END ======== */

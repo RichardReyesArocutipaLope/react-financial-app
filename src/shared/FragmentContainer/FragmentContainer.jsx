@@ -1,6 +1,6 @@
 import './FragmentContainer.css'
 
-export const FragmentContainer = ({ children, col, justifyContent='center' }) => {
+export const FragmentContainer = ({ children, col, justifyContent='center', gap='1rem' }) => {
 
     let maxCol = 24;
     let maxWidth = 100;
@@ -10,7 +10,7 @@ export const FragmentContainer = ({ children, col, justifyContent='center' }) =>
     }
 
     return (
-        <div className='fragment-container' style={{ width: `${width}%`, justifyContent:justifyContent }}>
+        <div className='fragment-container' style={{ width: `${width}%`, justifyContent:justifyContent, gap:gap }}>
             {children}
         </div>
     )

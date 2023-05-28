@@ -9,13 +9,13 @@ const breackPoints = {
     xl: 2000,
 }
 const config = [
-    { min: breackPoints.xl, max: 5000, sentinel: ">xl", col: "xxl" },
-    { min: breackPoints.l + 1, max: breackPoints.xl, sentinel: "l-xl", col: "xl" },
-    { min: breackPoints.m + 1, max: breackPoints.l, sentinel: "m-l", col: "l" },
-    { min: breackPoints.s + 1, max: breackPoints.m, sentinel: "s-m", col: "m" },
-    { min: breackPoints.xs + 1, max: breackPoints.s, sentinel: "xs-s", col: "s" },
-    { min: breackPoints.xxs + 1, max: breackPoints.xs, sentinel: "xxs-xs", col: "xs" },
-    { min: 0, max: breackPoints.xxs, sentinel: "<xxs", col: "xxs" },
+    { min: breackPoints.xl, max: 5000, sentinel: 3000, col: "xxl" },
+    { min: breackPoints.l + 1, max: breackPoints.xl, sentinel: 2000, col: "xl" },
+    { min: breackPoints.m + 1, max: breackPoints.l, sentinel: 1536, col: "l" },
+    { min: breackPoints.s + 1, max: breackPoints.m, sentinel: 1280, col: "m" },
+    { min: breackPoints.xs + 1, max: breackPoints.s, sentinel: 1024, col: "s" },
+    { min: breackPoints.xxs + 1, max: breackPoints.xs, sentinel: 768, col: "xs" },
+    { min: 0, max: breackPoints.xxs, sentinel: 480, col: "xxs" },
 ];
 
 export const useResponsiveForm = (initialResponsive = []) => {
@@ -55,5 +55,5 @@ export const useResponsiveForm = (initialResponsive = []) => {
         setRwd(updatedRwd)
     }
 
-    return { rwd, }
+    return { rwd, centinela }
 }
