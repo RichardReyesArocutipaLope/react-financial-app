@@ -95,6 +95,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-l',
                                 heightBody: '50rem',
+                                bodyHeightClass:'modal__body--responsive',
                                 staticBackdrop: false,
                                 scroll: false,
                                 verticallyCentered: false,
@@ -113,6 +114,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-l',
                                 heightBody: '50rem',
+                                bodyHeightClass:'modal__body--responsive',
                                 staticBackdrop: false,
                                 scroll: false,
                                 verticallyCentered: false,
@@ -130,7 +132,8 @@ export const ModuleOptions = ({ handleModal }) => {
                             footerComponent={<OptionsDeleteCredit />}
                             modalProperties={{
                                 width: 'modal-s',
-                                heightBody: '12.5rem',
+                                heightBody: 'max-content',
+                                bodyHeightClass:'',
                                 staticBackdrop: false,
                                 scroll: false,
                                 verticallyCentered: true,
@@ -148,7 +151,8 @@ export const ModuleOptions = ({ handleModal }) => {
                             footerComponent={<OptionsApproveCredit />}
                             modalProperties={{
                                 width: 'modal-s',
-                                heightBody: '12.5rem',
+                                heightBody: 'max-content',
+                                bodyHeightClass:'',
                                 staticBackdrop: false,
                                 scroll: false,
                                 verticallyCentered: true,
@@ -166,7 +170,8 @@ export const ModuleOptions = ({ handleModal }) => {
                             footerComponent={<OptionsDisburseCredit />}
                             modalProperties={{
                                 width: 'modal-s',
-                                heightBody: '17.5rem',
+                                heightBody: 'max-content',
+                                bodyHeightClass:'',
                                 staticBackdrop: false,
                                 scroll: false,
                                 verticallyCentered: true,
@@ -185,12 +190,13 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-l',
                                 heightBody: '100%',
+                                bodyHeightClass:'modal__body--responsive',
                                 staticBackdrop: false,
                                 scroll: true,
                                 verticallyCentered: false,
                                 title: 'CRONOGRAMA',
                                 bodyBackgroundColor: 'var(--bg-four-color-white)',
-                                footerHeightClass: '',
+                                footerHeightClass: 'modal__footer--responsive',
                             }}
                         />
                         <ModuleOption
@@ -203,12 +209,13 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-l',
                                 heightBody: '100%',
+                                bodyHeightClass:'modal__body--responsive',
                                 staticBackdrop: false,
                                 scroll: true,
                                 verticallyCentered: false,
                                 title: 'FICHA DEL CLIENTE',
                                 bodyBackgroundColor: 'var(--bg-four-color-white)',
-                                footerHeightClass: '',
+                                footerHeightClass: 'modal__footer--responsive',
                             }}
                         />
                         <ModuleOption
@@ -221,12 +228,13 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-l',
                                 heightBody: '100%',
+                                bodyHeightClass:'modal__body--responsive',
                                 staticBackdrop: false,
                                 scroll: true,
                                 verticallyCentered: false,
                                 title: 'SIMULAR CRÉDITO',
                                 bodyBackgroundColor: 'var(--bg-four-color-white)',
-                                footerHeightClass: '',
+                                footerHeightClass: 'modal__footer--responsive',
                             }}
                         />
                         <ModuleOption
@@ -238,7 +246,8 @@ export const ModuleOptions = ({ handleModal }) => {
                             footerComponent={<OptionsExportCreditData />}
                             modalProperties={{
                                 width: 'modal-m',
-                                heightBody: '12rem',
+                                heightBody: 'max-content',
+                                bodyHeightClass:'',
                                 staticBackdrop: false,
                                 scroll: false,
                                 verticallyCentered: true,

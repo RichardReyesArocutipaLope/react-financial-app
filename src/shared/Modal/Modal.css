@@ -29,6 +29,8 @@
     opacity: 0;
 }
 
+
+
 .modal-container.active {
     backdrop-filter: blur(3px);
     background-color: rgba(0, 0, 0, 0.6);
@@ -47,12 +49,21 @@
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
-    transition: transform .2s, opacity .2s;
+    transition: transform .3s, opacity .3s;
     opacity: 0;
     overflow: hidden;
     color: var(--color-modal);
     background-color: var(--bg-modal);
 
+}
+
+.modal-container.another-modal-inactive .modal {
+    transform: translateY(-50%);
+    opacity: 0;
+}
+.modal-container.another-modal-active .modal {
+    transform: translateY(0%);
+    opacity: 1;
 }
 
 .modal.height100 {

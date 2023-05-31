@@ -116,8 +116,8 @@
 }
 
 .module-options__info-row :last-child {
-    width: 19em;
-    min-width: 19em;
+    width: calc(100% - 9.4em);
+    min-width: calc(100% - 9.4em);
     display: inline-block;
     background-color: var(--bg-module-options-info-row-content);
     padding: .3em .8em;
@@ -136,8 +136,8 @@
 }
 
 .module-options__info-table-title span {
-    width: 29em;
-    min-width: 29em;
+    width: 100%;
+    min-width: 100%;
     display: inline-block;
     background-color: var(--bg-module-options-info-row-title);
     padding: .3em .8em;

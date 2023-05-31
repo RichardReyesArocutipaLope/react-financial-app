@@ -3,7 +3,7 @@
     position: relative;
     height: 0;
     overflow: hidden;
-    transition: height .5s;
+    transition: height .4s;
 }
 
 .main-sidebar__suboptions .linevertical {
@@ -13,4 +13,34 @@
     left: 1.8rem;
     top: .2rem;
     background-color: var(--bg-line-suboption);
+}
+
+.min-sidebar .main-sidebar__suboptions {
+    overflow: hidden;
+    z-index: var(--z-index-80);
+    position: absolute;
+    border-radius: 1rem;
+    background-color: var(--bg-min-suboption);
+    box-shadow: var(--shadow-min-suboption);
+    width: max-content;
+}
+
+.min-sidebar .main-sidebar__suboptions .linevertical {
+    background-color: var(--bg-min-line-subption);
+}
+
+@media screen and (max-width: 1280px) {
+    .main-sidebar__suboptions {
+        overflow: hidden;
+        z-index: var(--z-index-80);
+        position: absolute;
+        border-radius: 1rem;
+        background-color: var(--bg-min-suboption);
+        box-shadow: var(--shadow-min-suboption);
+        width: max-content;
+    }
+    
+    .main-sidebar__suboptions .linevertical {
+        background-color: var(--bg-min-line-subption);
+    }
 }

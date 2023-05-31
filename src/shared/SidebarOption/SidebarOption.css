@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: var(--z-index-40);
+    z-index: var(--z-index-70);
     position: relative;
     background-color: var(--bg-sidebar-option);
 }
@@ -26,7 +26,6 @@
 .main-sidebar__option.active {
     background-color: var(--bg-sidebar-option-active);
     box-shadow: var(--shadow-sidebar-option-active);
-    z-index: var(--z-index-50);
 }
 
 .main-sidebar__option.active .icon-option__i {

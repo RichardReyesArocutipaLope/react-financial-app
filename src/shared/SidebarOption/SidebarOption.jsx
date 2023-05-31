@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './SidebarOption.css'
 import { SidebarSubOptions } from '../SidebarSubOptions/SidebarSubOptions';
 import { SidebarSubOption } from '../SidebarSubOption/SidebarSubOption';
 
-export const SidebarOption = ({ option, isLink}) => {
+export const SidebarOption = ({ option, isLink }) => {
 
 
     const [isOpenSubOptions, setIsOpenSubOptions] = useState(false)
@@ -13,6 +13,20 @@ export const SidebarOption = ({ option, isLink}) => {
         setIsOpenSubOptions(!isOpenSubOptions);
     }
     const { label, icon, path, options } = option;
+
+    const handleClickOutside = (event) => {
+        if (event.target.closest('.main-sidebar__option--subptions') === null) {
+            setIsOpenSubOptions(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        }
+    }, [])
 
 
     return isLink
@@ -32,7 +46,7 @@ export const SidebarOption = ({ option, isLink}) => {
         :
         (
             <>
-                <div className='main-sidebar__option'
+                <div className='main-sidebar__option main-sidebar__option--subptions '
                     onClick={handleSuboptions}
                 >
                     <div className='main-sidebar__label-container'>
@@ -50,6 +64,4 @@ export const SidebarOption = ({ option, isLink}) => {
                 </SidebarSubOptions>
             </>
         )
-
-
 }

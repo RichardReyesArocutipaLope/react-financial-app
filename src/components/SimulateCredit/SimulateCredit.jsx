@@ -1,4 +1,5 @@
 
+import { useResponsiveForm } from "../../hooks/useResponsiveForm"
 import { Button } from "../../shared/Button/Button"
 import { DocumentTemplate } from "../../shared/DocumentTemplate/DocumentTemplate"
 import { FragmentContainer } from "../../shared/FragmentContainer/FragmentContainer"
@@ -9,24 +10,32 @@ import { InputText } from "../../shared/InputText/InputText"
 import { InputsRow } from "../../shared/InputsRow/InputsRow"
 
 export const SimulateCredit = () => {
+
+    const initialResponsive = [
+        { name: 'DNI',              xxs: 24, xs: 24, s: 16, m: 7, l: 7, xl: 5, xxl: 5, col: 6 },
+        { name: 'buttonSearchDNI',  xxs: 24, xs: 24, s: 8, m: 5, l: 5, xl: 3, xxl: 3, col: 6 },
+
+        { name: 'simulate_data1',   xxs: 24, xs: 24, s: 24, m: 12, l: 12, xl: 8, xxl: 8, col: 6 },
+        { name: 'simulate_data2',   xxs: 24, xs: 24, s: 12, m: 6, l: 6, xl: 4, xxl: 4, col: 6 },
+    ]
+    const { rwd, centinela } = useResponsiveForm(initialResponsive);
+
     return (
         <>
             <div style={{ padding: '.5rem 2rem' }}>
-                <InputsRow margin='.5'>
-                    <InputText col={5} label='DNI' name='dni' />
-                    <FragmentContainer col={3}>
+                <InputsRow margin='1.6'>
+                    <InputText col={rwd.DNI} label='DNI' name='dni' />
+                    <FragmentContainer col={rwd.buttonSearchDNI}>
                         <Button width='8.7rem' className='primary' content='Buscar' />
                     </FragmentContainer>
-                    <InputText col={8} label='Nombres' name='cli_nombre' />
-                    <InputText col={8} label='Apellidos' name='cli_apellidos' />
-                </InputsRow>
-                <InputsRow margin='1.4'>
-                    <InputNumber col={4} label='Monto solicitado' name='monto-solicitado' money />
-                    <InputDate col={4} label='Desembolso' name='pres_fecha-desembolso' />
-                    <InputNumber col={4} label='Plazo' name='pres_plazo' />
-                    <InputSelect col={4} label='Tipo plazo' name='pres_tipo-plazo' />
-                    <InputSelect col={4} label='Tipo interes' name='pres_interes' />
-                    <InputNumber col={4} label='Tasa%' name='pres_tasa' />
+                    <InputText col={rwd.simulate_data1} label='Nombres' name='cli_nombre' />
+                    <InputText col={rwd.simulate_data1} label='Apellidos' name='cli_apellidos' />
+                    <InputNumber col={rwd.simulate_data2} label='Monto solicitado' name='monto-solicitado' money />
+                    <InputDate col={rwd.simulate_data2} label='Desembolso' name='pres_fecha-desembolso' />
+                    <InputNumber col={rwd.simulate_data2} label='Plazo' name='pres_plazo' />
+                    <InputSelect col={rwd.simulate_data2} label='Tipo plazo' name='pres_tipo-plazo' />
+                    <InputSelect col={rwd.simulate_data2} label='Tipo interes' name='pres_interes' />
+                    <InputNumber col={rwd.simulate_data2} label='Tasa%' name='pres_tasa' />
                 </InputsRow>
                 <hr />
             </div>

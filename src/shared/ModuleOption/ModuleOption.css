@@ -94,3 +94,9 @@
 .azul {
     background-color: rgb(0, 21, 92, 0.3);
 }
+
+@media screen and (max-width: 640px) {
+    .module-option__container {
+        box-shadow: 0.4em 0.4em 0.6em 0em var(--shadow-30);
+    }
+}

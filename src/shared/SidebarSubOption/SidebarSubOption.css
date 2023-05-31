@@ -36,3 +36,14 @@
     left: -1.2rem;
     transform: translateY(-50%);
 }
+
+.min-sidebar .icon-suboption {
+    color: var(--color-min-icon-suboption);
+}
+
+@media screen and (max-width: 1280px) {
+    .icon-suboption {
+        color: var(--color-min-icon-suboption);
+    }
+    
+}

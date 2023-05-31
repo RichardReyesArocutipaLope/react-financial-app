@@ -8,11 +8,10 @@
     padding: .5rem;
 }
 .warning-container p:first-child{
-    height: 7rem;
-    min-height: 7rem;
-    max-height: 7rem;
+    text-align: justify;
 }
 .warning-container p:last-child{
     text-align: center;
     font-size: 1.35rem;
+    margin-top: 2rem;
 }

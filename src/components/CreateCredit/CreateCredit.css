@@ -1,12 +1,5 @@
 @media screen and (max-width: 640px) {
-    .modal__body-container {
-        height: 100% !important;
-    }
-
-    .modal{
-        height: 100% !important;
-    }
-    .modal__body {
+    .modal__body--responsive{
         height: 100% !important;
     }
 }

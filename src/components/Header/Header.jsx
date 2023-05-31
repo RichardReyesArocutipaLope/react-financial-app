@@ -1,4 +1,4 @@
-import { Input } from '../../shared/Input/Input'
+
 import './Header.css'
 
 export const Header = () => {
