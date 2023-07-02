@@ -779,6 +779,7 @@ img {
     /* minimizar sidebar */
     .main-sidebar {
         width: 6.4rem;
+        min-width: 6.4rem;
     }
 
     .main-sidebar .hide {
@@ -848,6 +849,7 @@ img {
 @media screen and (max-width: 640px) {
     .main-sidebar {
         width: 5rem;
+        min-width: 5rem;
     }
 
     .main-sidebar .hide {

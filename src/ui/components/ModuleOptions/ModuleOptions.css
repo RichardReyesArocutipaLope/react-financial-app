@@ -18,6 +18,19 @@
     padding: .5em;
     padding-right: 0;
     color: var(--color-module-options-info);
+    cursor:pointer
+}
+.module-options__info-wrapper::after{
+    content: "";
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+    background-image: url(/src/assets/dblclick.png);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .module-options__info-wrapper.left {

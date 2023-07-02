@@ -101,8 +101,8 @@ export const App = () => {
                             <Route path="/pagar-cuotas" element={<PagarCuotas />} />
                             <Route path="/historial" element={<Historial />} />
 
-                            <Route path="/" element={<Main />} />
-                            <Route path="/*" element={<Navigate to='/' />} />
+                            <Route path="/" element={<Navigate to="/creditos" />} />
+                            <Route path="/*" element={<Navigate to='/creditos' />} />
                         </Routes>
                     </ModuleContainer>
                 </div>
