@@ -14,13 +14,13 @@ export const Login = () => {
                 <h1 className='login__title'>LOAN MATE</h1>
                 <div className="input-container">
                     <input className="input-field" type="text" />
-                    <label for="input-field" className="input-label">Usuario</label>
+                    <label htmlFor="input-field" className="input-label">Usuario</label>
                     <span className="input-highlight"></span>
                 </div>
 
                 <div className="input-container ctm">
                     <input className="input-field" type="password" />
-                    <label for="input-field" className="input-label">Contraseña</label>
+                    <label htmlFor="input-field" className="input-label">Contraseña</label>
                     <span className="input-highlight"></span>
                 </div>
 

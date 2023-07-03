@@ -1,5 +1,5 @@
 import { useResponsiveForm } from '../../../hooks';
-import { Button, FlexContainer, FragmentContainer, InputDate, InputFileDocument, InputFileImage, InputNumber, InputSelect, InputText, InputsRow } from '../../../ui/components';
+import { Button, FlexContainer, FragmentContainer, InputChekbox, InputDate, InputFileDocument, InputFileImage, InputNumber, InputSelect, InputText, InputsRow } from '../../../ui/components';
 import './EditCredit.css';
 
 export const EditCredit = () => {
