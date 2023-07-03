@@ -1,4 +1,4 @@
-import { InputContainer } from '../InputContainer/InputContainer'
+import { InputContainer } from '../inputContainer/InputContainer'
 import './InputColor.css'
 
 export const InputColor = ({ col, label, name}) => {

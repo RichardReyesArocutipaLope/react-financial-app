@@ -1,5 +1,5 @@
 import { Button } from "../Button/Button"
-import { FragmentContainer } from "../FragmentContainer/FragmentContainer"
+import { FragmentContainer } from "../fragmentContainer/FragmentContainer"
 
 
 export const DocumentExportOptions = ({ setIsOpenModal }) => {

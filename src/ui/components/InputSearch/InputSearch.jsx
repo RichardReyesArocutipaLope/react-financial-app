@@ -1,4 +1,4 @@
-import { InputContainerHorizontal } from '../InputContainerHorizontal/InputContainerHorizontal'
+import { InputContainerHorizontal } from '../inputContainerHorizontal/InputContainerHorizontal'
 import './InputSearch.css'
 
 export const InputSearch = ({ placeholder = 'Buscar', name = 'input', col }) => {

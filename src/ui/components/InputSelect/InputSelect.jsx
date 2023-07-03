@@ -1,4 +1,4 @@
-import { InputContainer } from '../InputContainer/InputContainer'
+import { InputContainer } from '../inputContainer/InputContainer'
 import './InputSelect.css'
 
 export const InputSelect = ({ label, col, name }) => {

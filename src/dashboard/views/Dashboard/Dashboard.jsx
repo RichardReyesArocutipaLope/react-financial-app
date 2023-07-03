@@ -1,4 +1,4 @@
-import React from 'react'
+
 import './Dashboard.css'
 import { InputsRow } from '../../shared/InputsRow/InputsRow'
 import { InputDateRange } from '../../shared/InputDateRange/InputDateRange'
@@ -23,7 +23,7 @@ import { Button } from '../../shared/Button/Button'
 import { FragmentContainer } from '../../shared/FragmentContainer/FragmentContainer'
 import { InputDatalist } from '../../shared/InputDatalist/InputDatalist'
 import { InputTextarea } from '../../shared/InputTextarea/InputTextarea'
-import { useResponsiveForm } from '../../hooks/useResponsiveForm'
+import { useResponsiveForm } from '../../../hooks/useResponsiveForm'
 
 export const Dashboard = () => {
 

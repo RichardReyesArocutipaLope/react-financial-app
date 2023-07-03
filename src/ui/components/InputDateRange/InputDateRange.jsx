@@ -1,4 +1,4 @@
-import { InputContainer } from '../InputContainer/InputContainer'
+import { InputContainer } from '../inputContainer/InputContainer'
 import './InputDateRange.css'
 
 export const InputDateRange = ({ label, col, name }) => {

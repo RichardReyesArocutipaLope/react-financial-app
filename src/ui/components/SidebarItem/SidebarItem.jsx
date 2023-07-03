@@ -1,6 +1,6 @@
 
 import './SidebarItem.css';
-import { SidebarOption } from '../SidebarOption/SidebarOption';
+import { SidebarOption } from '../sidebarOption/SidebarOption';
 
 export const SidebarItem = ({ option }) => {
 

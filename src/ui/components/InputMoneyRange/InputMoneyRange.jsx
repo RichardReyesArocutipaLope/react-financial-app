@@ -1,4 +1,4 @@
-import { InputContainer } from '../InputContainer/InputContainer'
+import { InputContainer } from '../inputContainer/InputContainer'
 import './InputMoneyRange.css'
 
 export const InputMoneyRange = ({ label, col, name }) => {

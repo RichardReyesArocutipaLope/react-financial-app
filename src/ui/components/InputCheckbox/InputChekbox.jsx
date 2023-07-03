@@ -1,6 +1,6 @@
 import React from 'react'
 import './InputChekbox.css'
-import { InputContainer } from '../InputContainer/InputContainer'
+import { InputContainer } from '../inputContainer/InputContainer'
 
 
 export const InputChekbox = ({ col, label, name }) => {

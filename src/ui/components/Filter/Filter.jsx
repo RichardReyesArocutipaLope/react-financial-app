@@ -1,11 +1,11 @@
 import { useResponsiveForm } from '../../hooks/useResponsiveForm'
 import { Button } from '../Button/Button'
-import { FragmentContainer } from '../FragmentContainer/FragmentContainer'
-import { InputDateRange } from '../InputDateRange/InputDateRange'
-import { InputMoneyRange } from '../InputMoneyRange/InputMoneyRange'
-import { InputSearch } from '../InputSearch/InputSearch'
-import { InputSelect } from '../InputSelect/InputSelect'
-import { InputsRow } from '../InputsRow/InputsRow'
+import { FragmentContainer } from '../fragmentContainer/FragmentContainer'
+import { InputDateRange } from '../inputDateRange/InputDateRange'
+import { InputMoneyRange } from '../inputMoneyRange/InputMoneyRange'
+import { InputSearch } from '../inputSearch/InputSearch'
+import { InputSelect } from '../inputSelect/InputSelect'
+import { InputsRow } from '../inputsRow/InputsRow'
 import './Filter.css'
 
 export const Filter = () => {

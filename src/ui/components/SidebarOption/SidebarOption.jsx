@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './SidebarOption.css'
-import { SidebarSubOptions } from '../SidebarSubOptions/SidebarSubOptions';
-import { SidebarSubOption } from '../SidebarSubOption/SidebarSubOption';
+import { SidebarSubOptions } from '../sidebarSubOptions/SidebarSubOptions';
+import { SidebarSubOption } from '../sidebarSubOption/SidebarSubOption';
 
 export const SidebarOption = ({ option, isLink }) => {
 
