@@ -1,15 +1,5 @@
-import { useResponsiveForm } from '../../hooks/useResponsiveForm';
-import { Button } from '../../shared/Button/Button';
-import { FlexContainer } from '../../shared/FlexContainer/FlexContainer';
-import { FragmentContainer } from '../../shared/FragmentContainer/FragmentContainer';
-import { InputChekbox } from '../../shared/InputCheckbox/InputChekbox';
-import { InputDate } from '../../shared/InputDate/InputDate';
-import { InputFileDocument } from '../../shared/InputFileDocument/InputFileDocument';
-import { InputFileImage } from '../../shared/InputFileImage/InputFileImage';
-import { InputNumber } from '../../shared/InputNumber/InputNumber';
-import { InputSelect } from '../../shared/InputSelect/InputSelect';
-import { InputText } from '../../shared/InputText/InputText';
-import { InputsRow } from '../../shared/InputsRow/InputsRow';
+import { useResponsiveForm } from '../../../hooks';
+import { Button, FlexContainer, FragmentContainer, InputDate, InputFileDocument, InputFileImage, InputNumber, InputSelect, InputText, InputsRow } from '../../../ui/components';
 import './EditCredit.css';
 
 export const EditCredit = () => {
@@ -45,7 +35,7 @@ export const EditCredit = () => {
                             forEach((item) => { item.classList.remove('active') });
                         e.target.classList.add('active');
                     }}>
-                    {(centinela <= 1280) ? <i class="fa-solid fa-user"></i> : "Datos de cliente"}
+                    {(centinela <= 1280) ? <i className="fa-solid fa-user"></i> : "Datos de cliente"}
                 </a>
                 <a href='#2'
                     className='form-tab__header-item'
@@ -54,7 +44,7 @@ export const EditCredit = () => {
                             .forEach((item) => { item.classList.remove('active') });
                         e.target.classList.add('active');
                     }}>
-                    {(centinela <= 1280) ? <i class="fa-solid fa-briefcase"></i> : "Datos de negocio"}
+                    {(centinela <= 1280) ? <i className="fa-solid fa-briefcase"></i> : "Datos de negocio"}
                 </a>
                 <a href='#3'
                     className='form-tab__header-item'
@@ -63,7 +53,7 @@ export const EditCredit = () => {
                             .forEach((item) => { item.classList.remove('active') });
                         e.target.classList.add('active');
                     }}>
-                    {(centinela <= 1280) ? <i class="fa-solid fa-landmark"></i> : "Datos de prestamo"}
+                    {(centinela <= 1280) ? <i className="fa-solid fa-landmark"></i> : "Datos de prestamo"}
 
                 </a>
                 <a href='#4'
@@ -73,7 +63,7 @@ export const EditCredit = () => {
                             .forEach((item) => { item.classList.remove('active') });
                         e.target.classList.add('active');
                     }}>
-                    {(centinela <= 1280) ? <i class="fa-solid fa-users"></i> : "Ref. Personales"}
+                    {(centinela <= 1280) ? <i className="fa-solid fa-users"></i> : "Ref. Personales"}
 
                 </a>
                 <a href='#5'
@@ -83,7 +73,7 @@ export const EditCredit = () => {
                             .forEach((item) => { item.classList.remove('active') });
                         e.target.classList.add('active');
                     }}>
-                    {(centinela <= 1280) ? <i class="fa-solid fa-user-lock"></i> : "Datos de aval"}
+                    {(centinela <= 1280) ? <i className="fa-solid fa-user-lock"></i> : "Datos de aval"}
                 </a>
             </div>
             <div className='form-tab__body' >

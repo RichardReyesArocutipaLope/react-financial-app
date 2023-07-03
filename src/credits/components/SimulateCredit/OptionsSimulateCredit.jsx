@@ -1,5 +1,4 @@
-import { Button } from "../../shared/Button/Button"
-import { FragmentContainer } from "../../shared/FragmentContainer/FragmentContainer"
+import { Button, FragmentContainer } from "../../../ui/components"
 
 export const OptionsSimulateCredit = ({ setIsOpenModal }) => {
 

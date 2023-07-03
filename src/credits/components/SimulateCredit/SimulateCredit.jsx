@@ -1,13 +1,5 @@
-
-import { useResponsiveForm } from "../../hooks/useResponsiveForm"
-import { Button } from "../../shared/Button/Button"
-import { DocumentTemplate } from "../../shared/DocumentTemplate/DocumentTemplate"
-import { FragmentContainer } from "../../shared/FragmentContainer/FragmentContainer"
-import { InputDate } from "../../shared/InputDate/InputDate"
-import { InputNumber } from "../../shared/InputNumber/InputNumber"
-import { InputSelect } from "../../shared/InputSelect/InputSelect"
-import { InputText } from "../../shared/InputText/InputText"
-import { InputsRow } from "../../shared/InputsRow/InputsRow"
+import { useResponsiveForm } from "../../../hooks";
+import { Button, DocumentTemplate, FragmentContainer, InputDate, InputNumber, InputSelect, InputText, InputsRow } from "../../../ui/components";
 
 export const SimulateCredit = () => {
 

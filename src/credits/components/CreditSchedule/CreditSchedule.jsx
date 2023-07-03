@@ -1,4 +1,4 @@
-import { DocumentTemplate } from '../../shared/DocumentTemplate/DocumentTemplate'
+import { DocumentTemplate } from '../../../ui/components'
 import './CreditSchedule.css'
 
 export const CreditSchedule = () => {

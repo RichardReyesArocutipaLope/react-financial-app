@@ -31,7 +31,7 @@ export const Modal = ({ isOpenModal, setIsOpenModal, handleModal, modalBodyConte
                 <div className='modal__header'>
                     <h1>{title}</h1>
                     <span onClick={handleModal} className='modal__header-closeModal'>
-                        <i class="fa-solid fa-xmark"></i>
+                        <i className="fa-solid fa-xmark"></i>
                     </span>
                 </div>
 

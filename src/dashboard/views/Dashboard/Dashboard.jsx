@@ -1,29 +1,8 @@
-
+import { useResponsiveForm } from '../../../hooks';
+import { Button, FragmentContainer, InputChekbox, InputColor, InputDatalist, InputDate, InputDateRange, InputDateTime,
+  InputEmail, InputMoneyRange, InputMonth, InputNumber, InputPassword, InputRadio, InputRange, InputSelect,
+  InputTel, InputText, InputTextarea, InputTime, InputUrl, InputWeek, InputsRow } from '../../../ui/components';
 import './Dashboard.css'
-import { InputsRow } from '../../shared/InputsRow/InputsRow'
-import { InputDateRange } from '../../shared/InputDateRange/InputDateRange'
-import { InputMoneyRange } from '../../shared/InputMoneyRange/InputMoneyRange'
-import { InputSelect } from '../../shared/InputSelect/InputSelect'
-import { InputText } from '../../shared/InputText/InputText'
-import { InputChekbox } from '../../shared/InputCheckbox/InputChekbox'
-import { InputColor } from '../../shared/InputColor/InputColor'
-import { InputDate } from '../../shared/InputDate/InputDate'
-import { InputDateTime } from '../../shared/InputDateTime/InputDateTime'
-import { InputEmail } from '../../shared/InputEmail/InputEmail'
-import { InputMonth } from '../../shared/InputMonth/InputMonth'
-import { InputNumber } from '../../shared/InputNumber/InputNumber'
-import { InputPassword } from '../../shared/InputPassword/InputPassword'
-import { InputRadio } from '../../shared/InputRadio/InputRadio'
-import { InputRange } from '../../shared/InputRange/InputRange'
-import { InputTel } from '../../shared/InputTel/InputTel'
-import { InputTime } from '../../shared/InputTime/InputTime'
-import { InputUrl } from '../../shared/InputUrl/InputUrl'
-import { InputWeek } from '../../shared/InputWeek/InputWeek'
-import { Button } from '../../shared/Button/Button'
-import { FragmentContainer } from '../../shared/FragmentContainer/FragmentContainer'
-import { InputDatalist } from '../../shared/InputDatalist/InputDatalist'
-import { InputTextarea } from '../../shared/InputTextarea/InputTextarea'
-import { useResponsiveForm } from '../../../hooks/useResponsiveForm'
 
 export const Dashboard = () => {
 
@@ -95,10 +74,10 @@ export const Dashboard = () => {
           <Button width='8.1rem' className='light' content='light' />
           <Button width='8.1rem' className='dark' content='dark' />
           <Button width='8.1rem' className='gris' content='gris' />
-          <Button width='8.1rem' className='print-pdf' content={<i class="fa-solid fa-file-pdf icon"></i>} />
-          <Button width='8.1rem' className='print-xlsx' content={<i class="fa-solid fa-file-excel icon"></i>} />
-          <Button width='8.1rem' className='print-word' content={<i class="fa-sharp fa-solid fa-file-word icon"></i>} />
-          <Button width='8.1rem' className='dark' content={<i class="fa-solid fa-print icon"></i>} />
+          <Button width='8.1rem' className='print-pdf' content={<i className="fa-solid fa-file-pdf icon"></i>} />
+          <Button width='8.1rem' className='print-xlsx' content={<i className="fa-solid fa-file-excel icon"></i>} />
+          <Button width='8.1rem' className='print-word' content={<i className="fa-sharp fa-solid fa-file-word icon"></i>} />
+          <Button width='8.1rem' className='dark' content={<i className="fa-solid fa-print icon"></i>} />
         </FragmentContainer>
       </InputsRow>
     </>

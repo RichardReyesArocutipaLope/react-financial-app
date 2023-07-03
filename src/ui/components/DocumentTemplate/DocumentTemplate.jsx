@@ -6,7 +6,7 @@ export const DocumentTemplate = ({ children }) => {
             <header className='document-header'>
                 <div className='document__logo-container'>
                     <div className='document__logo'>
-                        <i class="fa-brands fa-react"></i>
+                        <i className="fa-brands fa-react"></i>
                     </div>
                     <p className='document__logo-title'>Richard Company</p>
                     <p className='document__logo-title2'>Desarrollo web</p>
@@ -18,7 +18,7 @@ export const DocumentTemplate = ({ children }) => {
             </body>
             <footer className='document-footer'>
                 <div className='document-footer__item'>
-                    <span><i class="fa-solid fa-phone"></i></span>
+                    <span><i className="fa-solid fa-phone"></i></span>
                     <span>
                         <p>&#40;+51&#41; 925 072 688 </p>
                         <p>&#40;+51&#41; 925 072 688 </p>
@@ -26,14 +26,14 @@ export const DocumentTemplate = ({ children }) => {
                 </div>
 
                 <div className='document-footer__item'>
-                    <span><i class="fa-solid fa-map-location-dot"></i></span>
+                    <span><i className="fa-solid fa-map-location-dot"></i></span>
                     <span>
                         <p>Portal Municipal Nº44 Ayacucho. Ayacucho Unjbg ESIS ETC</p>
                     </span>
                 </div>
 
                 <div className='document-footer__item'>
-                    <span><i class="fa-solid fa-envelope"></i></span>
+                    <span><i className="fa-solid fa-envelope"></i></span>
                     <span>
                         <p>richardreyesarocutipa@gmail.com</p>
                         <p>richardreyesarocutipa@gmail.com</p>

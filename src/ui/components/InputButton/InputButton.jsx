@@ -1,5 +1,4 @@
-import React from 'react'
-import 'InputButton.css'
+import './InputButton.css'
 
 export const InputButton = () => {
   return (

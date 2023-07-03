@@ -1,6 +1,4 @@
-import { DocumentTemplate } from "../../shared/DocumentTemplate/DocumentTemplate"
-import { InputForDocument } from "../../shared/InputForDocument/InputForDocument"
-import { RowForDocument } from "../../shared/RowForDocument/RowForDocument"
+import { DocumentTemplate, InputForDocument, RowForDocument } from '../../../ui/components'
 import './ClientFile.css'
 
 export const ClientFile = () => {

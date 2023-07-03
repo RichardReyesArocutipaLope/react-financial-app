@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Table.css'
-import { useResponsiveTable } from '../../hooks/useResponsiveTable'
+import { useResponsiveTable } from '../../../hooks'
 
 export const Table = () => {
 
@@ -209,7 +209,7 @@ export const Table = () => {
                             <>
                                 <tr key={id}>
                                     <td className='button-rwd'>
-                                        <i onClick={() => { setTableRwd(tableRwd => ({ ...tableRwd, [`tr${index}`]: !tableRwd[`tr${index}`] })) }} class="fa-solid fa-plus"></i>
+                                        <i onClick={() => { setTableRwd(tableRwd => ({ ...tableRwd, [`tr${index}`]: !tableRwd[`tr${index}`] })) }} className="fa-solid fa-plus"></i>
                                     </td>
 
                                     {data.map((item, index) => {

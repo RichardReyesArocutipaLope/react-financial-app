@@ -1,9 +1,5 @@
 import { useState } from 'react'
-import { Table } from '../../shared/Table/Table'
-import { ModuleOptions } from '../../shared/ModuleOptions/ModuleOptions'
-import { Filter } from '../../shared/Filter/Filter'
-import { Paginacion } from '../../shared/Paginacion/Paginacion'
-import { ModuleTitle } from '../../shared/ModuleTitle/ModuleTitle'
+import { Filter, ModuleOptions, ModuleTitle, Pagination, Table } from '../../../ui/components';
 
 export const Credits = ({handleModal}) => {
 
@@ -22,7 +18,7 @@ export const Credits = ({handleModal}) => {
       <ModuleOptions handleModal={handleModal} />
       <Filter />
       <Table />
-      <Paginacion infoTable={infoTable} />
+      <Pagination infoTable={infoTable} />
     </>
   )
 }

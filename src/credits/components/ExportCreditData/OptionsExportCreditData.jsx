@@ -1,5 +1,4 @@
-import { Button } from "../../shared/Button/Button"
-
+import { Button } from "../../../ui/components"
 
 export const OptionsExportCreditData = ({ setIsOpenModal }) => {
 

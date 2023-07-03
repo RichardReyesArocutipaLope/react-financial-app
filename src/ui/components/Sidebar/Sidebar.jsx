@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { SidebarNav } from '../../shared/SidebarNav/SidebarNav';
 import './Sidebar.css';
-import { sidebarOptions } from '../../data/sidebarOptions';
+import { SidebarNav } from '../sidebarNav';
+import { sidebarOptions } from '../../../assets/data/sidebarOptions';
 
 export const Sidebar = () => {
 
@@ -265,10 +265,10 @@ export const Sidebar = () => {
 
         <div className='sidebar-footer__option-container hide'>
           <div className='sidebar-footer__option'>
-            <i class="fa-solid fa-brush"></i>
+            <i className="fa-solid fa-brush"></i>
           </div>
           <div className='sidebar-footer__option'>
-            <i class="fa-solid fa-font"></i>
+            <i className="fa-solid fa-font"></i>
           </div>
         </div>
 

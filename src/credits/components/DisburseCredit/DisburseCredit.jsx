@@ -1,6 +1,4 @@
-import { InputSelect } from "../../shared/InputSelect/InputSelect"
-import { InputsRow } from "../../shared/InputsRow/InputsRow"
-import { ModalWarningContainer } from "../../shared/ModalWarningContainer/ModalWarningContainer"
+import { InputSelect, InputsRow, ModalWarningContainer } from "../../../ui/components"
 
 export const DisburseCredit = () => {
     return (

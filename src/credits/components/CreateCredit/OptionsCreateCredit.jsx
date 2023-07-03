@@ -1,7 +1,5 @@
-import { Button } from '../../shared/Button/Button'
-import { DocumentExportOptions } from '../../shared/DocumentExportOptions/DocumentExportOptions'
-import { FragmentContainer } from '../../shared/FragmentContainer/FragmentContainer'
-import { CreditSchedule } from '../creditSchedule/CreditSchedule'
+import { Button, DocumentExportOptions, FragmentContainer } from "../../../ui/components"
+import { CreditSchedule } from "../creditSchedule"
 
 export const OptionsCreateCredit = ({ setIsOpenModal, openAnotherModal }) => {
 

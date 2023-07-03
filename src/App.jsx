@@ -1,27 +1,14 @@
-import { Navigate, Route, Routes } from "react-router-dom"
-import { Header } from "./components/Header/Header"
-import { Main } from "./components/Main/Main"
-import { Sidebar } from "./components/Sidebar/Sidebar"
-import { Dashboard } from "./views/Dashboard/Dashboard"
-import { Caja } from "./views/Caja/Caja"
-import { Operaciones } from "./views/Operaciones/Operaciones"
-import { Creditos } from "./views/Creditos/Creditos"
-import { Historial } from "./views/Historial/Historial"
-import { PagarCuotas } from "./views/PagarCuotas/PagarCuotas"
-import { Usuarios } from "./views/Usuarios/Usuarios"
-import { Permisos } from "./views/Permisos/Permisos"
-import { Reportes } from "./views/Reportes/Reportes"
-import { Agencias } from "./views/Agencias/Agencias"
-import { Parametros } from "./views/Parametros/Parametros"
-import { Empleados } from "./views/Empleados/Empleados"
-import { Clientes } from "./views/Clientes/Clientes"
-import { Feriados } from "./views/Feriados/Feriados"
-import { ModuleContainer } from "./shared/ModuleContainer/ModuleContainer"
-import { Modal } from "./shared/Modal/Modal"
 import { useState } from "react"
-import { MainLoading } from "./views/MainLoading/MainLoading"
-import { StormBackground } from "./shared/StormBackground/StormBackground"
-import { Login } from "./views/Login/Login"
+import { Navigate, Route, Routes } from "react-router-dom"
+import { Login } from "./auth/pages"
+import { Dashboard } from "./dashboard/views"
+import { Agencies, Customers, Employees, Holidays } from "./catalogue/views"
+import { Credits } from "./credits/views"
+import { CashAccount, Operations } from "./cash-account/views"
+import { Reports } from "./reports/views"
+import { Parameters, Permissions, Users } from "./security/views"
+import { PayDues, PaymentHistory } from "./receivables/views"
+import { Header, Modal, ModuleContainer, Sidebar } from "./ui/components"
 
 
 export const App = () => {
@@ -77,29 +64,29 @@ export const App = () => {
                             <Route path="/dashboard" element={<Dashboard />} />
 
                             {/* MODULO CATALOGO */}
-                            <Route path="/agencias" element={<Agencias />} />
-                            <Route path="/empleados" element={<Empleados />} />
-                            <Route path="/clientes" element={<Clientes />} />
-                            <Route path="/feriados" element={<Feriados />} />
+                            <Route path="/agencias" element={<Agencies />} />
+                            <Route path="/empleados" element={<Employees />} />
+                            <Route path="/clientes" element={<Customers />} />
+                            <Route path="/feriados" element={<Holidays />} />
 
                             {/* MODULO CREDITO */}
-                            <Route path="/creditos" element={<Creditos handleModal={handleModal} />} />
+                            <Route path="/creditos" element={<Credits handleModal={handleModal} />} />
 
                             {/* MODULO CAJA */}
-                            <Route path="/cajas" element={<Caja />} />
-                            <Route path="/operaciones" element={<Operaciones />} />
+                            <Route path="/cajas" element={<CashAccount />} />
+                            <Route path="/operaciones" element={<Operations />} />
 
                             {/* MODULO REPORTES */}
-                            <Route path="/reportes" element={<Reportes />} />
+                            <Route path="/reportes" element={<Reports />} />
 
                             {/* MODULO SEGURIDAD */}
-                            <Route path="/usuarios" element={<Usuarios />} />
-                            <Route path="/permisos" element={<Permisos />} />
-                            <Route path="/parametros-sis" element={<Parametros />} />
+                            <Route path="/usuarios" element={<Users />} />
+                            <Route path="/permisos" element={<Permissions />} />
+                            <Route path="/parametros-sis" element={<Parameters />} />
 
                             {/* MODULO COBRANZAS */}
-                            <Route path="/pagar-cuotas" element={<PagarCuotas />} />
-                            <Route path="/historial" element={<Historial />} />
+                            <Route path="/pagar-cuotas" element={<PayDues />} />
+                            <Route path="/historial" element={<PaymentHistory/>} />
 
                             <Route path="/" element={<Navigate to="/creditos" />} />
                             <Route path="/*" element={<Navigate to='/creditos' />} />

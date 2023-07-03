@@ -1,24 +1,12 @@
 import { useState } from 'react'
-import { ModuleOption } from '../ModuleOption/ModuleOption'
+import {
+    ApproveCredit, ClientFile, CreateCredit, CreditSchedule, DeleteCredit, DisburseCredit, EditCredit,
+    ExportCreditData, OptionsApproveCredit, OptionsCreateCredit, OptionsDeleteCredit, OptionsDisburseCredit,
+    OptionsEditCredit, OptionsExportCreditData, OptionsSimulateCredit, SimulateCredit
+} from '../../../credits/components';
+import { DocumentExportOptions } from '../documentExportOptions';
+import { ModuleOption } from '../moduleOption/ModuleOption';
 import './ModuleOptions.css'
-import { CreateCredit } from '../../components/CreateCredit/CreateCredit';
-import { DeleteCredit } from '../../components/DeleteCredit/DeleteCredit';
-import { OptionsCreateCredit } from '../../components/CreateCredit/OptionsCreateCredit';
-import { OptionsDeleteCredit } from '../../components/DeleteCredit/OptionsDeleteCredit';
-import { EditCredit } from '../../components/EditCredit/EditCredit';
-import { OptionsEditCredit } from '../../components/EditCredit/OptionsEditCredit';
-import { ApproveCredit } from '../../components/ApproveCredit/ApproveCredit';
-import { OptionsApproveCredit } from '../../components/ApproveCredit/OptionsApproveCredit';
-import { DisburseCredit } from '../../components/DisburseCredit/DisburseCredit';
-import { OptionsDisburseCredit } from '../../components/DisburseCredit/OptionsDisburseCredit';
-import { CreditSchedule } from '../../components/CreditSchedule/CreditSchedule';
-import { DocumentExportOptions } from '../DocumentExportOptions/DocumentExportOptions';
-import { ClientFile } from '../../components/ClientFile/ClientFile';
-import { SimulateCredit } from '../../components/SimulateCredit/SimulateCredit';
-import { OptionsSimulateCredit } from '../../components/SimulateCredit/OptionsSimulateCredit';
-import { ExportCreditData } from '../../components/ExportCreditData/ExportCreditData';
-import { OptionsExportCreditData } from '../../components/ExportCreditData/OptionsExportCreditData';
-
 
 export const ModuleOptions = ({ handleModal }) => {
 
@@ -86,7 +74,7 @@ export const ModuleOptions = ({ handleModal }) => {
                 <div className='module-options'>
                     <div >
                         <ModuleOption
-                            icon={<i class="fa-solid fa-file-circle-plus"></i>}
+                            icon={<i className="fa-solid fa-file-circle-plus"></i>}
                             text='Crear'
                             color='celeste'
                             handleModal={handleModal}
@@ -95,7 +83,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-l',
                                 heightBody: '50rem',
-                                bodyHeightClass:'modal__body--responsive',
+                                bodyHeightClass: 'modal__body--responsive',
                                 staticBackdrop: false,
                                 scroll: false,
                                 verticallyCentered: false,
@@ -105,7 +93,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             }}
                         />
                         <ModuleOption
-                            icon={<i class="fa-solid fa-file-pen"></i>}
+                            icon={<i className="fa-solid fa-file-pen"></i>}
                             text='Editar'
                             color='ambar'
                             handleModal={handleModal}
@@ -114,7 +102,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-l',
                                 heightBody: '50rem',
-                                bodyHeightClass:'modal__body--responsive',
+                                bodyHeightClass: 'modal__body--responsive',
                                 staticBackdrop: false,
                                 scroll: false,
                                 verticallyCentered: false,
@@ -124,7 +112,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             }}
                         />
                         <ModuleOption
-                            icon={<i class="fa-solid fa-trash"></i>}
+                            icon={<i className="fa-solid fa-trash"></i>}
                             text='Eliminar'
                             color='rojo'
                             handleModal={handleModal}
@@ -133,7 +121,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-s',
                                 heightBody: 'max-content',
-                                bodyHeightClass:'',
+                                bodyHeightClass: '',
                                 staticBackdrop: false,
                                 scroll: false,
                                 verticallyCentered: true,
@@ -143,7 +131,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             }}
                         />
                         <ModuleOption
-                            icon={<i class="fa-solid fa-thumbs-up"></i>}
+                            icon={<i className="fa-solid fa-thumbs-up"></i>}
                             text='Aprobar'
                             color='azul'
                             handleModal={handleModal}
@@ -152,7 +140,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-s',
                                 heightBody: 'max-content',
-                                bodyHeightClass:'',
+                                bodyHeightClass: '',
                                 staticBackdrop: false,
                                 scroll: false,
                                 verticallyCentered: true,
@@ -162,7 +150,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             }}
                         />
                         <ModuleOption
-                            icon={<i class="fa-solid fa-sack-dollar"></i>}
+                            icon={<i className="fa-solid fa-sack-dollar"></i>}
                             text='Desembolsar'
                             color='verde'
                             handleModal={handleModal}
@@ -171,7 +159,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-s',
                                 heightBody: 'max-content',
-                                bodyHeightClass:'',
+                                bodyHeightClass: '',
                                 staticBackdrop: false,
                                 scroll: false,
                                 verticallyCentered: true,
@@ -181,7 +169,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             }}
                         />
                         <ModuleOption
-                            icon={<i class="fa-solid fa-calendar-days"></i>}
+                            icon={<i className="fa-solid fa-calendar-days"></i>}
                             text='Cronograma'
                             color='turqueza'
                             handleModal={handleModal}
@@ -190,7 +178,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-l',
                                 heightBody: '100%',
-                                bodyHeightClass:'modal__body--responsive',
+                                bodyHeightClass: 'modal__body--responsive',
                                 staticBackdrop: false,
                                 scroll: true,
                                 verticallyCentered: false,
@@ -200,7 +188,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             }}
                         />
                         <ModuleOption
-                            icon={<i class="fa-solid fa-file-lines"></i>}
+                            icon={<i className="fa-solid fa-file-lines"></i>}
                             text='Ficha'
                             color='gris'
                             handleModal={handleModal}
@@ -209,7 +197,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-l',
                                 heightBody: '100%',
-                                bodyHeightClass:'modal__body--responsive',
+                                bodyHeightClass: 'modal__body--responsive',
                                 staticBackdrop: false,
                                 scroll: true,
                                 verticallyCentered: false,
@@ -219,7 +207,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             }}
                         />
                         <ModuleOption
-                            icon={<i class="fa-solid fa-bolt"></i>}
+                            icon={<i className="fa-solid fa-bolt"></i>}
                             text='Simular'
                             color='turquesa'
                             handleModal={handleModal}
@@ -228,7 +216,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-l',
                                 heightBody: '100%',
-                                bodyHeightClass:'modal__body--responsive',
+                                bodyHeightClass: 'modal__body--responsive',
                                 staticBackdrop: false,
                                 scroll: true,
                                 verticallyCentered: false,
@@ -238,7 +226,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             }}
                         />
                         <ModuleOption
-                            icon={<i class="fa-solid fa-file-export"></i>}
+                            icon={<i className="fa-solid fa-file-export"></i>}
                             text='Exportar'
                             color='morado'
                             handleModal={handleModal}
@@ -247,7 +235,7 @@ export const ModuleOptions = ({ handleModal }) => {
                             modalProperties={{
                                 width: 'modal-m',
                                 heightBody: 'max-content',
-                                bodyHeightClass:'',
+                                bodyHeightClass: '',
                                 staticBackdrop: false,
                                 scroll: false,
                                 verticallyCentered: true,

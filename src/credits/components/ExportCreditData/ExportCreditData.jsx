@@ -5,7 +5,7 @@ export const ExportCreditData = () => {
         <div className='export-container'>
             <div className='export'>
                 <div>
-                    <i class="fa-solid fa-image-portrait"></i>
+                    <i className="fa-solid fa-image-portrait"></i>
                 </div>
                 <p>
                     Exportar datos del cliente
@@ -14,7 +14,7 @@ export const ExportCreditData = () => {
 
             <div className='export'>
                 <div>
-                    <i class="fa-solid fa-calendar-day"></i>
+                    <i className="fa-solid fa-calendar-day"></i>
                 </div>
                 <p>
                     Exportar Cronograma de pagos
@@ -23,7 +23,7 @@ export const ExportCreditData = () => {
 
             <div className='export'>
                 <div>
-                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <i className="fa-solid fa-file-invoice-dollar"></i>
                 </div>
                 <p>
                     Exportar historial de pagos

@@ -1,11 +1,11 @@
-import { useResponsiveForm } from '../../hooks/useResponsiveForm'
-import { Button } from '../Button/Button'
-import { FragmentContainer } from '../fragmentContainer/FragmentContainer'
-import { InputDateRange } from '../inputDateRange/InputDateRange'
-import { InputMoneyRange } from '../inputMoneyRange/InputMoneyRange'
-import { InputSearch } from '../inputSearch/InputSearch'
-import { InputSelect } from '../inputSelect/InputSelect'
-import { InputsRow } from '../inputsRow/InputsRow'
+import { useResponsiveForm } from '../../../hooks';
+import { Button } from '../button';
+import { FragmentContainer } from '../fragmentContainer';
+import { InputDateRange } from '../inputDateRange';
+import { InputMoneyRange } from '../inputMoneyRange';
+import { InputSearch } from '../inputSearch';
+import { InputSelect } from '../inputSelect';
+import { InputsRow } from '../inputsRow';
 import './Filter.css'
 
 export const Filter = () => {
@@ -42,13 +42,13 @@ export const Filter = () => {
             centinela > 1024 &&
             <>
               <Button width='6rem' className='warning' content='Reset' />
-              <Button width='5rem' className='print-pdf' content={<i class="fa-solid fa-file-pdf icon"></i>} />
-              <Button width='5rem' className='print-xlsx' content={<i class="fa-solid fa-file-excel icon"></i>} />
-              <Button width='5rem' className='secondary' content={<i class="fa-solid fa-image icon"></i>} />
+              <Button width='5rem' className='print-pdf' content={<i className="fa-solid fa-file-pdf icon"></i>} />
+              <Button width='5rem' className='print-xlsx' content={<i className="fa-solid fa-file-excel icon"></i>} />
+              <Button width='5rem' className='secondary' content={<i className="fa-solid fa-image icon"></i>} />
             </>
           }
 
-          {centinela <= 1024 && <Button width='4rem' className='info' content={<i class="fa-solid fa-filter icon"></i>} />}
+          {centinela <= 1024 && <Button width='4rem' className='info' content={<i className="fa-solid fa-filter icon"></i>} />}
         </FragmentContainer>
       </InputsRow>
 

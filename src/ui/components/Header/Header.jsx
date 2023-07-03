@@ -6,16 +6,16 @@ export const Header = () => {
     <header className='main-header'>
       <div className='main-header__options'>
         <div className='main-header__option'>
-        <i class="fa-solid fa-bell"></i>
+        <i className="fa-solid fa-bell"></i>
         </div>
         <div className='main-header__option'>
-        <i class="fa-solid fa-calendar-days"></i>
+        <i className="fa-solid fa-calendar-days"></i>
         </div>
         <div className='main-header__option'>
-        <i class="fa-solid fa-note-sticky"></i>
+        <i className="fa-solid fa-note-sticky"></i>
         </div>
         <div className='main-header__option'>
-        <i class="fa-solid fa-gear"></i>
+        <i className="fa-solid fa-gear"></i>
         </div>
       </div>
       <div className='main-header__perfil'>

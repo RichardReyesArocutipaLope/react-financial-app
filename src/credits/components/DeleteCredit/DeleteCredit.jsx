@@ -1,4 +1,4 @@
-import { ModalWarningContainer } from '../../shared/ModalWarningContainer/ModalWarningContainer'
+import { ModalWarningContainer } from "../../../ui/components"
 
 export const DeleteCredit = () => {
     return (
