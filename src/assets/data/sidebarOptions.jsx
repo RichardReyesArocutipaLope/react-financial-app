@@ -16,22 +16,22 @@ export const sidebarOptions = [
       {
         id: 10,
         label: 'Agencias',
-        path: '/agencias',
+        path: 'catalogue/agencias',
       },
       {
         id: 20,
         label: 'Empleados',
-        path: '/empleados',
+        path: 'catalogue/empleados',
       },
       {
         id: 30,
         label: 'Clientes',
-        path: '/clientes',
+        path: 'catalogue/clientes',
       },
       {
         id: 40,
         label: 'Feriados',
-        path: '/feriados',
+        path: 'catalogue/feriados',
       }
     ],
   },
@@ -39,7 +39,7 @@ export const sidebarOptions = [
     id: 3,
     label: 'Créditos',
     icon: <i className="icon-option__i fa-solid fa-landmark"></i>,
-    path: '/creditos',
+    path: '/credits',
     options: [
     ],
   },
@@ -52,12 +52,12 @@ export const sidebarOptions = [
       {
         id: 50,
         label: 'Cajas',
-        path: '/cajas',
+        path: 'cash-account/cash',
       },
       {
         id: 60,
         label: 'Operaciones',
-        path: '/operaciones',
+        path: 'cash-account/operations',
       },
     ],
   },
@@ -65,7 +65,7 @@ export const sidebarOptions = [
     id: 5,
     label: 'Reportes',
     icon: <i className="icon-option__i fa-solid fa-folder-closed"></i>,
-    path: '/reportes',
+    path: '/reports',
     options: [
     ],
   },
@@ -78,17 +78,17 @@ export const sidebarOptions = [
       {
         id: 70,
         label: 'Usuarios',
-        path: '/usuarios',
+        path: 'security/users',
       },
       {
         id: 80,
         label: 'Permisos',
-        path: '/permisos',
+        path: 'security/permissions',
       },
       {
         id: 90,
         label: 'Parametros',
-        path: '/parametros-sis',
+        path: 'security/parameters',
       },
     ],
   },
@@ -101,12 +101,12 @@ export const sidebarOptions = [
       {
         id: 100,
         label: 'Pagar Cuotas',
-        path: '/pagar-cuotas',
+        path: 'receivables/pay-dues',
       },
       {
         id: 110,
         label: 'Historial',
-        path: '/historial',
+        path: 'receivables/payment-history',
       },
     ],
   },
