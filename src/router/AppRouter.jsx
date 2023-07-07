@@ -9,9 +9,14 @@ import { CashAccountRouter } from "../cash-account/routes/CashAccountRouter"
 import { ReportsRouter } from "../reports/routes/ReportsRouter"
 import { SecurityRouter } from "../security/routes/SecurityRouter"
 import { ReceivablesRouter } from "../receivables/routes/ReceivablesRouter"
+import { useSelector } from "react-redux"
+import { MainLoading } from "../ui/views"
 
 export const AppRouter = () => {
 
+    const { status } = useSelector(state => state.auth)
+
+    if (status === 'checking') return <MainLoading/>
 
     return (
         <Routes>
@@ -32,7 +37,6 @@ export const AppRouter = () => {
                 </PrivateRoute>
             } />
         </Routes>
-        // (<MainLoading/>)
         // (<StormBackground/>)
     )
 }

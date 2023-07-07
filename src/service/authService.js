@@ -1,8 +1,8 @@
 import { financialApi } from "../api"
 
-export const loginRequest = async ({ fullName, password }) => {
+export const loginRequest = async ({ user, password }) => {
     try {
-        const { data } = await financialApi.post('/auth/users/login', { full_name: fullName, password }, {
+        const { data } = await financialApi.post('/auth/users/login', { full_name: user, password }, {
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -18,6 +18,10 @@ export const loginRequest = async ({ fullName, password }) => {
 
     } catch (error) {
         console.log(error)
+        return {
+            ok:false,
+            errorMessage: error.message
+        }
     }
 }
 

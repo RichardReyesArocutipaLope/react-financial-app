@@ -58,3 +58,4 @@ export * from './sidebarSubOption';
 export * from './sidebarSubOptions';
 export * from './stormBackground';
 export * from './table';
+export * from './userOptionsWindow'

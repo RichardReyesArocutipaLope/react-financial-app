@@ -15,9 +15,7 @@ export const SidebarOption = ({ option, isLink }) => {
     const { label, icon, path, options } = option;
 
     const handleClickOutside = (event) => {
-        if (event.target.closest('.main-sidebar__option--subptions') === null) {
-            setIsOpenSubOptions(false);
-        }
+        if (event.target.closest('.main-sidebar__option--subptions') === null) setIsOpenSubOptions(false);
     };
 
     useEffect(() => {

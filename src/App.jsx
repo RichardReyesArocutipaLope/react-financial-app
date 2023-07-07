@@ -38,7 +38,7 @@ export const App = () => {
     }
 
     const dispatch = useDispatch();
-    const data = { fullName: 'administrador', password: 'Password123' }
+    const data = { user: '', password: '' }
     useEffect(() => {
         dispatch(startLogin(data))
 

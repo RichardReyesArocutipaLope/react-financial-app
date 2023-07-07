@@ -1,9 +1,10 @@
 import { loginRequest, registerRequest } from "../../service/authService";
-import { login } from "./authSlice";
+import { login, logout } from "./authSlice";
 
 export const startLogin = (data) => {
     return async (dispatch) => {
         const user = await loginRequest(data);
+        if (!user.ok) return dispatch(logout())
         dispatch(login(user))
     }
 }

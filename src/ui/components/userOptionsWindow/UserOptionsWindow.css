@@ -1,0 +1,69 @@
+.user__container {
+    position: relative;
+}
+
+.user__info {
+    display: flex;
+    gap: 1rem;
+    min-width: 12rem;
+    width: 13rem;
+    justify-content: end;
+    cursor: pointer;
+}
+
+.user__img {
+    width: 3.7rem;
+    height: 3.7rem;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px 1px var(--shadow-40);
+}
+
+.user__name {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.user__name :first-of-type {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.user__name :last-of-type {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+
+.user__options-window {
+    position: absolute;
+    width: 100%;
+    height: 0rem;
+    background-color: rgb(10, 10, 10);
+    box-shadow: 0rem 0rem 1rem 0rem var(--shadow-100);
+    border-radius: .5rem;
+    right: 0;
+    top: 120%;
+    transition: height .3s;
+    overflow: hidden;
+}
+.user__options-window.open {
+    height: 10rem;
+}
+
+.user__option-container{
+    padding: 1rem;
+}
+.user__option {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.4rem .8rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+.user__option:hover{
+    background-color: rgb(26, 26, 26);
+}
