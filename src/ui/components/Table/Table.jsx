@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
-import './Table.css'
 import { useResponsiveTable } from '../../../hooks'
 import { useSelector } from 'react-redux'
+import './Table.css'
+import { SimpleLoading } from '../simpleLoading'
+import { TableThead } from '../tableThead/TableThead'
 
 export const Table = () => {
 
@@ -61,17 +63,9 @@ export const Table = () => {
         <div className='table-container'>
 
             {isLoading
-                ? (<h1>CARGANDO LA WEA</h1>)
+                ? (<SimpleLoading />)
                 : (<table className='table'>
-                    <thead className='table__thead'>
-                        <tr>
-                            <th className='button-rwd'></th>
-                            {thead.map((item, index) => {
-                                if ((index + 1) > maxColumns) return;
-                                return (<th key={item}>{item}</th>)
-                            })}
-                        </tr>
-                    </thead>
+                    <TableThead thead={thead} maxColumns={maxColumns} />
                     <tbody className='table__tbody'>
                         {
                             adaptedCredits?.map(({ id, credit }, index) => (
