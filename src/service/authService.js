@@ -9,6 +9,9 @@ export const loginRequest = async ({ user, password }) => {
         })
         const { token, user: { full_name, id } } = data;
 
+        localStorage.setItem('token', token );
+        localStorage.setItem('token-init-date', new Date().getTime() );
+
         return {
             ok: true,
             uid: id,
