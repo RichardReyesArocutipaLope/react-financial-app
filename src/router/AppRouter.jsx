@@ -37,6 +37,5 @@ export const AppRouter = () => {
                 </PrivateRoute>
             } />
         </Routes>
-        // (<StormBackground/>)
     )
 }

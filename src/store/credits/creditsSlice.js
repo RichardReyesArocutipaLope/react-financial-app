@@ -1,38 +1,44 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    isSaving: false, // 'checking','not-authenticated', 'authenticated
-    credits:[],
-    message:''
+    isLoading: false,
+    credits: [],
+    message: ''
 }
 
 export const creditsSlice = createSlice({
     name: 'creditsSlice',
     initialState,
     reducers: {
-        addCredit:(state, action)=>{
+        addCredit: (state, action) => {
             state.credits.push(action.payload);
-            state.isSaving = false;
+            state.isLoading = false;
         },
 
-        setSaving:(state, action)=>{
-            state.isSaving=true;
-            state.message=''
+        setLoading: (state, action) => {
+            state.isLoading = true;
         },
 
-        updateCredit:(state, action)=>{
-            state.isSaving=false;
-            state.credits=[];
+        updateCredit: (state, action) => {
+            state.isLoading = false;
+            state.credits = [];
         },
-        
-        setCredits: (state,action)=>{
+
+        setCredits: (state, action) => {
             state.credits = action.payload;
+            state.isLoading = false;
         },
 
-        deleteCreditById:(state, action) => {
+        deleteCreditById: (state, action) => {
             state.credits = state.credits.filter(credit => credit.id !== action.payload)
+        },
+
+        clearCreditsLogout: (state) => {
+            state.isLoading = false;
+            state.credits = [];
+            state.message = '';
         }
     },
 })
 
-export const { addCredit, setSaving, updateCredit, setCredits, deleteCreditById } = creditsSlice.actions
+export const { addCredit, setLoading, updateCredit, setCredits, deleteCreditById, clearCreditsLogout } = creditsSlice.actions

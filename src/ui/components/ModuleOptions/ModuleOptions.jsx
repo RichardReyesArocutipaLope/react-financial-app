@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import {
     ApproveCredit, ClientFile, CreateCredit, CreditSchedule, DeleteCredit, DisburseCredit, EditCredit,
     ExportCreditData, OptionsApproveCredit, OptionsCreateCredit, OptionsDeleteCredit, OptionsDisburseCredit,
@@ -7,11 +7,13 @@ import {
 import { DocumentExportOptions } from '../documentExportOptions';
 import { ModuleOption } from '../moduleOption/ModuleOption';
 import './ModuleOptions.css'
+import { ModalContext } from '../../../context/modalContext';
 
-export const ModuleOptions = ({ handleModal }) => {
+export const ModuleOptions = () => {
 
     const [moreInfo, setMoreInfo] = useState(false);
     const [notifications, setNotifications] = useState(false);
+    const { handleModal } = useContext(ModalContext);
 
     const handleMoreInfo = () => {
         setMoreInfo(!moreInfo);

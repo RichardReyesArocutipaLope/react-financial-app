@@ -10,7 +10,7 @@ export const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
             user: 'administrador',
-            password: '3322',
+            password: 'Password123',
         }
     });
 

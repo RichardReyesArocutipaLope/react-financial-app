@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Filter, ModuleOptions, ModuleTitle, Pagination, Table } from '../../../ui/components';
 
-export const Credits = ({handleModal}) => {
+
+export const Credits = () => {
 
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -11,11 +12,15 @@ export const Credits = ({handleModal}) => {
     totalPages: 500,
     totalRegisters: 5000
   }
+  
+  useEffect(() => {
+
+  }, [])
 
   return (
     <>
       <ModuleTitle text='Créditos' />
-      <ModuleOptions handleModal={handleModal} />
+      <ModuleOptions />
       <Filter />
       <Table />
       <Pagination infoTable={infoTable} />
