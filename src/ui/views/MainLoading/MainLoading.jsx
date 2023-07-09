@@ -1,8 +1,9 @@
 import './MainLoading.css'
-
+import fondo from '../../../assets/img/textura-azul.jpg'
 export const MainLoading = () => {
     return (
- <div className='main-loading'>
+        <div className='main-loading'>
+             <img src={fondo} alt="" className='img-fondo' />
             <div aria-label="Orange and tan hamster running in a metal wheel" role="img" className="wheel-and-hamster">
                 <div className="wheel"></div>
                 <div className="hamster">
@@ -22,7 +23,7 @@ export const MainLoading = () => {
                 <div className="spoke"></div>
             </div>
 
- </div>
+        </div>
 
     )
 }

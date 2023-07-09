@@ -6,7 +6,6 @@
     align-items: center;
     font-family: 'Roboto', sans-serif;
 }
-
 .img-fondo {
     position: absolute;
 }
@@ -14,13 +13,13 @@
 .login__form {
     display: block;
     backdrop-filter: blur(7px) brightness(40%);
-    height: 40rem;
+    height: max-content;
+    min-height: 40rem;
     width: 30rem;
     border-radius: 1.2rem;
     box-shadow: 0rem 0rem 3rem 0rem var(--shadow-90);
     padding: 3rem;
 }
-
 .login__title {
     font-size: 2rem;
     color: white;
@@ -29,19 +28,11 @@
     text-align: center;
 }
 
-
-/*  */
-/* Input container */
 .input-container {
     position: relative;
-    margin: 1.5rem 0;
-}
-
-.ctm{
     margin-top: 3rem;
 }
 
-/* Input field */
 .input-field {
     display: block;
     width: 100%;
@@ -54,10 +45,9 @@
     background-color: transparent;
 }
 
-/* Input label */
 .input-label {
     position: absolute;
-    top: .6rem;
+    top: .4rem;
     left: 0;
     font-size: 1.1rem;
     color: white;
@@ -65,29 +55,36 @@
     transition: all 0.3s ease;
 }
 
-/* Input highlight */
-.input-highlight {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 4px;
-    width: 0;
-    background-color: #000000;
-    transition: all 0.3s ease;
-}
-
-/* Input field:focus styles */
 .input-field:focus+.input-label {
-    top: -20px;
+    top: -1.2rem;
     font-size: 1.1rem;
-    color: #ffffff;
 }
 
-.input-field:focus+.input-label+.input-highlight {
-    width: 100%;
+.input-field:valid+.input-label {
+    top: -1.2rem;
+    font-size: 1.1rem;
 }
 
-/*  */
+.error-container{
+    background-color: rgba(0, 0, 0, .5);
+    padding: .3rem .8rem;
+    border-radius: .5rem;
+    margin-top: 1rem;
+}
+.error-message{
+    color: red;
+    padding: .4rem 0;
+    font-size: 1.1rem;
+    letter-spacing: .03rem;
+    font-weight: 500;
+}
+.error{
+    color: red;
+    padding-top: .4rem;
+    font-size: 1.1rem;
+    letter-spacing: .03rem;
+}
+
 /*  */
 .aea {
     position: relative;
@@ -130,7 +127,8 @@
 .cntr {
     position: relative;
 }
-.cntr h2{
+
+.cntr h2 {
     color: white;
     font-size: .9rem;
     font-weight: 200;
@@ -179,9 +177,10 @@
 
 /*  */
 
-.button-container{
+.button-container {
     text-align: center;
 }
+
 .login__button-log-in {
     padding: .8rem 1.5rem;
     font-size: 1rem;
@@ -211,24 +210,25 @@
 }
 
 /* login__options */
-.login__options{
+.login__options {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 2.5rem;
 }
 
-.login__options-forgot{
+.login__options-forgot {
     font-size: .9rem;
     font-weight: 300;
     color: rgb(255, 255, 255);
 }
 
 /* logo */
-.login__logo-container{
+.login__logo-container {
     text-align: center;
 }
-.login__logo{
+
+.login__logo {
     width: 9rem;
     height: 9rem;
     border-radius: 1.2rem;

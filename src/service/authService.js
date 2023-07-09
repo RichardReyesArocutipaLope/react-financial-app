@@ -9,8 +9,8 @@ export const loginRequest = async ({ user, password }) => {
         })
         const { token, user: { full_name, id } } = data;
 
-        localStorage.setItem('token', token );
-        localStorage.setItem('token-init-date', new Date().getTime() );
+        localStorage.setItem('token', token);
+        localStorage.setItem('token-init-date', new Date().getTime());
 
         return {
             ok: true,
@@ -20,21 +20,25 @@ export const loginRequest = async ({ user, password }) => {
         }
 
     } catch (error) {
-        console.log(error)
+        const errorType = error.response?.data?.error
+        let errorMessage='Error del servidor'
+        if (errorType == 'Bad Request' || errorType == 'Unauthorized') {
+            errorMessage ='El nombre de usuario o contraseña son incorrectos'
+        }
         return {
-            ok:false,
-            errorMessage: error.message
+            ok: false,
+            errorMessage: errorMessage,
         }
     }
 }
 
 export const registerRequest = async ({ fullName, password, idEmployee, idRole }) => {
     try {
-        const { data } = await financialApi.post('/auth/users/login', { 
-            full_name: fullName, 
+        const { data } = await financialApi.post('/auth/users/login', {
+            full_name: fullName,
             password,
-            fk_employee:idEmployee,
-            fk_role:idRole
+            fk_employee: idEmployee,
+            fk_role: idRole
         }, {
             headers: {
                 'Content-Type': 'application/json',

@@ -5,7 +5,7 @@ export const startLogin = (data) => {
     return async (dispatch) => {
         dispatch(checkingCredentials())
         const user = await loginRequest(data);
-        if (!user.ok) return dispatch(logout())
+        if (!user.ok) return dispatch(logout(user))
         dispatch(login(user))
     }
 }
@@ -17,13 +17,13 @@ export const startRegister = (data) => {
     }
 }
 
-export const startAuthToken = ({ fullName, password }) => {
+export const startAuthToken = (data) => {
     return async (dispatch) => {
-
+        dispatch(logout())
     }
 }
 
-export const startLogout = ({ fullName, password }) => {
+export const startLogout = (data) => {
     return async (dispatch) => {
     }
 }
