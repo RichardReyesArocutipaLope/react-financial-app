@@ -1,36 +1,37 @@
 import { financialApi } from "../api"
 
-export const creditsGetRequest = async (data) => {
+export const creditsGetRequest = async (dataFilter, parameters) => {
 
     const filter = {
-        search_value: data.searchValue,
-        state: data.state,
-        date_range_first: data.dateRangeFirst,
-        date_range_last: data.dateRangeLast,
-        money_range_first: data.moneyRangeFirst,
-        money_range_last: data.moneyRangeLast,
-        id_analista: data.idAnalista,
-        id_cobrador: data.idCobrador,
+        search_value: dataFilter.searchValue,
+        state: dataFilter.state,
+        date_range_first: dataFilter.dateRangeFirst,
+        date_range_last: dataFilter.dateRangeLast,
+        money_range_first: dataFilter.moneyRangeFirst,
+        money_range_last: dataFilter.moneyRangeLast,
+        id_analista: dataFilter.idAnalista,
+        id_cobrador: dataFilter.idCobrador,
     }
 
     const token = localStorage.getItem('token') || ''
 
     try {
-        const credits = await financialApi.post('/credits/credit/filter', filter, {
+        const { data } = await financialApi.post('/credits/credit/filter', filter, {
             headers: {
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
             params: {
-                limit: 10,
-                offset: 0,
+                limit: parameters.limit,
+                offset: parameters.offset,
             },
         })
-
+        console.log(data,'service')
         return {
             ok: true,
-            credits: credits.data,
+            numberOfCredits: data.activeCredits,
+            credits: data.credits,
         }
 
     } catch (error) {

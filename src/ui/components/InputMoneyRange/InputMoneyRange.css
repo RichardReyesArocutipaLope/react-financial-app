@@ -6,7 +6,7 @@
 }
 
 .input-number__range {
-    padding-left: 3.1rem;
+    padding-left: 3.1rem !important;
     width: 47%;
 }
 

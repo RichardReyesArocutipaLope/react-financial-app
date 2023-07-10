@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     isLoading: false,
     credits: [],
+    numberOfCredits: 0,
     message: ''
 }
 
@@ -25,7 +26,9 @@ export const creditsSlice = createSlice({
         },
 
         setCredits: (state, action) => {
-            state.credits = action.payload;
+            console.log(action,'slice')
+            state.credits = action.payload.credits;
+            state.numberOfCredits=action.payload.numberOfCredits
             state.isLoading = false;
         },
 

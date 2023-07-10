@@ -1,49 +1,10 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useResponsiveTable } from '../../../hooks'
-import { useSelector } from 'react-redux'
-import './Table.css'
 import { SimpleLoading } from '../simpleLoading'
 import { TableThead } from '../tableThead/TableThead'
+import './Table.css'
 
-export const Table = () => {
-
-    const thead = [
-        'Nombres',
-        'DNI',
-        'Préstamo',
-        'Estado',
-        'Plazo',
-        'Tasa Inc',
-        'Analista',
-        'Cobrador',
-    ]
-
-    const { isLoading, credits } = useSelector(state => state.credits);
-
-    const adaptedCredits = []
-    credits?.forEach(credit => {
-        let newEstado
-        switch (credit.estado) {
-            case 'NU': newEstado = 'Nuevo'; break;
-            case 'RE': newEstado = 'Renovado'; break;
-            case 'AP': newEstado = 'Aprobado'; break;
-            case 'DE': newEstado = 'Desembolsado'; break;
-            case 'RC': newEstado = 'Rechazado'; break;
-        }
-        adaptedCredits.push({
-            id: credit.id_credit,
-            credit: [
-                credit.cliente,
-                credit.dni,
-                credit.prestamo,
-                newEstado,
-                credit.plazo,
-                credit.credit_interest_rate,
-                credit.analista,
-                credit.cobrador,
-            ]
-        })
-    });
+export const Table = ({ isLoading, arrayData, thead, setCreditSelect }) => {
 
     const [tableRwd, setTableRwd] = useState(null)
     const [numRegister, setNumRegister] = useState(10)
@@ -59,6 +20,10 @@ export const Table = () => {
         setTableRwd(initialTableRwd)
     }, [numRegister])
 
+    const onSelectRegister = (data,id) => {
+        setCreditSelect({ thead, data, id })
+    }
+
     return (
         <div className='table-container'>
 
@@ -68,24 +33,24 @@ export const Table = () => {
                     <TableThead thead={thead} maxColumns={maxColumns} />
                     <tbody className='table__tbody'>
                         {
-                            adaptedCredits?.map(({ id, credit }, index) => (
-                                <>
-                                    <tr key={id}>
+                            arrayData?.map(({ id, data }, index) => (
+                                <React.Fragment key={id}>
+                                    <tr key={id} onClick={()=>{onSelectRegister(data, id)}}>
                                         <td className='button-rwd'>
                                             <i onClick={() => { setTableRwd(tableRwd => ({ ...tableRwd, [`tr${index}`]: !tableRwd[`tr${index}`] })) }} className="fa-solid fa-plus"></i>
                                         </td>
 
-                                        {credit.map((item, index) => {
+                                        {data.map((item, index) => {
                                             if ((index + 1) > maxColumns) return
                                             return (
                                                 <td key={item}>{item}</td>
                                             )
                                         })}
                                     </tr>
-                                    {tableRwd && tableRwd[`tr${index}`] && (credit.length > maxColumns) &&
+                                    {tableRwd && tableRwd[`tr${index}`] && (data.length > maxColumns) &&
                                         <tr className='tr-children'>
                                             <div>
-                                                {credit.map((item, index) => {
+                                                {data.map((item, index) => {
                                                     if ((index + 1) <= maxColumns) return
                                                     return (
                                                         <td key={item}>
@@ -96,7 +61,7 @@ export const Table = () => {
                                                 })}
                                             </div>
                                         </tr>}
-                                </>
+                                </React.Fragment>
                             ))
                         }
                     </tbody>

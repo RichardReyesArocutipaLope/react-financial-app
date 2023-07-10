@@ -1,7 +1,7 @@
 import { InputContainerHorizontal } from '../inputContainerHorizontal/InputContainerHorizontal'
 import './InputSearch.css'
 
-export const InputSearch = ({ placeholder = 'Buscar', name = 'input', col }) => {
+export const InputSearch = ({ placeholder = 'Buscar', register, col }) => {
   return (
 
     <InputContainerHorizontal col={col}>
@@ -10,7 +10,7 @@ export const InputSearch = ({ placeholder = 'Buscar', name = 'input', col }) => 
           type="text"
           className="input search__input "
           placeholder={placeholder}
-          name={name}
+          {...register}
         />
         <div className="search-icon__container">
           <svg
