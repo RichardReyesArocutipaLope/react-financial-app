@@ -9,7 +9,7 @@ import { InputSelect } from '../inputSelect';
 import { InputsRow } from '../inputsRow';
 import './Filter.css'
 
-export const Filter = ({ setdataForFilter }) => {
+export const Filter = ({ setdataForFilter, analistas, cobradores }) => {
 
   const initialResponsive = [
     { name: 'filter', xxs: 24, s: 12, m: 12, l: 8, xl: 6, xxl: 6, col: 6 },
@@ -37,19 +37,29 @@ export const Filter = ({ setdataForFilter }) => {
   const onSubmit = (data) => {
     setdataForFilter({
       searchValue: data.search,
-      state: data.state,
-      dateRangeFirst: data.range_date_from,
-      dateRangeLast: data.range_date_to,
-      moneyRangeFirst: +data.range_loan_from,
-      moneyRangeLast: +data.range_loan_to,
-      idAnalista: +data.id_analista,
-      idCobrador: +data.id_cobrador,
+      state: data.state || null,
+      dateRangeFirst: data.range_date_from || null,
+      dateRangeLast: data.range_date_to || null,
+      moneyRangeFirst: +data.range_loan_from || null,
+      moneyRangeLast: +data.range_loan_to || null,
+      idAnalista: +data.id_analista || null,
+      idCobrador: +data.id_cobrador || null,
     })
     console.log(data, 'Se aplico el filtro entero')
   }
 
   const onReset = () => {
     reset()
+    setdataForFilter({
+      searchValue: '',
+      state: null,
+      dateRangeFirst: null,
+      dateRangeLast: null,
+      moneyRangeFirst: null,
+      moneyRangeLast: null,
+      idAnalista: null,
+      idCobrador: null,
+    })
     console.log('Se reinicio el filtro')
   }
 
@@ -89,7 +99,9 @@ export const Filter = ({ setdataForFilter }) => {
               id='analista' register={{ ...register('id_analista') }}
             >
               <option value="">No especificado</option>
-              <option value="3">Kheyvin Arucutipa</option>
+              {analistas?.map((analista) => (
+                <option value={analista.id}>{analista.fullname}</option>
+              ))}
             </InputSelect>
 
             <InputSelect
@@ -97,7 +109,9 @@ export const Filter = ({ setdataForFilter }) => {
               id='cobrador' register={{ ...register('id_cobrador') }}
             >
               <option value="">No especificado</option>
-              <option value="5">Victor Mirelez</option>
+              {cobradores?.map((cobrador) => (
+                <option value={cobrador.id}>{cobrador.fullname}</option>
+              ))}
             </InputSelect>
           </>
         }

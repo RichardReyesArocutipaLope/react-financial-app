@@ -1,13 +1,16 @@
 import { useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { startLoadingCredits } from '../../../store/credits/thunks';
 import { ModalContext } from '../../../context/modalContext';
-import { DocumentExportOptions, Filter, ModuleOption, ModuleOptions, ModuleTitle, Pagination, Table } from '../../../ui/components';
+import { Button, DocumentExportOptions, Filter, ModuleOption, ModuleOptions, ModuleTitle, Pagination, Table } from '../../../ui/components';
 import {
   ApproveCredit, ClientFile, CreateCredit, CreditSchedule, DeleteCredit, DisburseCredit, EditCredit,
   ExportCreditData, OptionsApproveCredit, OptionsCreateCredit, OptionsDeleteCredit, OptionsDisburseCredit,
   OptionsEditCredit, OptionsExportCreditData, OptionsSimulateCredit, SimulateCredit
 } from '../../components';
+import { startLoadingCredits } from '../../../store/credits/thunks';
+import { startLoadingRoleByName } from '../../../store/security/roles';
+import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
+import { MyDocument } from './MyDocument';
 
 const thead = [
   'Nombres',
@@ -46,6 +49,7 @@ export const Credits = () => {
   const dispatch = useDispatch();
   const { handleModal } = useContext(ModalContext);
   const { isLoading, credits, numberOfCredits } = useSelector(state => state.credits);
+  const { analistas, cobradores } = useSelector(state => state.roles);
 
   const adaptedCredits = []
   credits?.forEach(credit => {
@@ -99,8 +103,21 @@ export const Credits = () => {
     dispatch(startLoadingCredits(dataFilter, parameters))
   }, [parameters, dataFilter])
 
+  useEffect(() => {
+    dispatch(startLoadingRoleByName('analista'))
+    dispatch(startLoadingRoleByName('cobrador'))
+  }, [])
 
   const [creditSelect, setCreditSelect] = useState()
+
+
+  const viewerStyle = {
+    display: "block",
+    position: "absolute",
+    width: "80vw",
+    height: "90vh"
+
+  };
   return (
     <>
       <ModuleTitle text='Créditos' />
@@ -282,7 +299,11 @@ export const Credits = () => {
           }}
         />
       </ModuleOptions>
-      <Filter setdataForFilter={setdataForFilter}/>
+      <Filter
+        setdataForFilter={setdataForFilter}
+        analistas={analistas}
+        cobradores={cobradores}
+      />
       <Table
         isLoading={isLoading}
         arrayData={adaptedCredits}
@@ -295,6 +316,28 @@ export const Credits = () => {
         totalPages={Math.round(numberOfCredits / parameters.limit)}
         totalRegisters={numberOfCredits}
       />
+
+      <PDFViewer style={viewerStyle}>
+        <MyDocument
+          adaptedCredits={adaptedCredits}
+          thead={thead}
+          dataFilter={dataFilter}
+        />
+      </PDFViewer>
+
+      <PDFDownloadLink
+        document={
+          <MyDocument
+            adaptedCredits={adaptedCredits}
+            thead={thead}
+            dataFilter={dataFilter}
+          />
+        }
+        fileName="ejemploreporte.pdf"
+      >
+        <Button width='5rem' className='print-pdf' content={<i className="fa-solid fa-file-pdf icon"></i>} />
+
+      </PDFDownloadLink>
     </>
   )
 }

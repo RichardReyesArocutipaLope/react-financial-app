@@ -30,10 +30,9 @@ export const creditsGetRequest = async (dataFilter, parameters) => {
         console.log(data,'service')
         return {
             ok: true,
-            numberOfCredits: data.activeCredits,
+            numberOfCredits: data.countCredits,
             credits: data.credits,
         }
-
     } catch (error) {
         console.log(error)
         return {
