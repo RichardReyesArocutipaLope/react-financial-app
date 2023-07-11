@@ -1,4 +1,10 @@
 import { Page, Text, View, Document, StyleSheet, Font } from '@react-pdf/renderer';
+import robotoBold from '../../../fonts/Roboto-Bold.ttf'
+
+Font.register({
+    family: 'robotoBold',
+    src: robotoBold
+})
 
 const styles = StyleSheet.create({
     page: {
@@ -60,55 +66,137 @@ const styles = StyleSheet.create({
         textAlign: "start",
         margin: 5,
         fontSize: 10,
+        fontFamily: "robotoBold",
+    },
+
+
+
+
+    rowTitle: {
+        flexDirection: "row",
+        width: '100%',
+    },
+
+    rowTitleText: {
+        width: '100%',
+        textAlign: "center",
+        margin: 5,
+        marginBottom: 13,
+        fontSize: 12,
+        fontFamily: "robotoBold",
     }
 
 
 });
 
+
+const CreateTableHeader = ({ newThead }) => {
+    return (
+        <View style={styles.tableRowHeaderStyle} fixed>
+            {newThead.map(item => (
+                <View style={{ width: item.width }}>
+                    <Text style={styles.tableCellHeaderStyle}>{item.label}</Text>
+                </View>
+            ))}
+        </View>
+    );
+};
+
+const CreateTableRow = ({ newCredits }) => {
+    return newCredits.map(item => (
+        <View style={styles.tableRowBodyStyle} key={item.id}>
+            {item.credit.map(campo => (
+                <View style={{ width: campo.width }} key={campo.label}>
+                    <Text style={styles.tableCellStyle}>{campo.label}</Text>
+                </View>
+            ))}
+        </View>
+    ))
+
+};
+
+const Filter = ({ newDataFilter }) => {
+    return newDataFilter.map(data => (
+        <View style={styles.rowFilter} fixed>
+            {data.map(item => (
+                <View style={styles.rowFilterItem}>
+                    <View style={styles.rowFilterHead}>
+                        <Text style={styles.rowFilterTextHead}>{item.label}</Text>
+                    </View>
+                    <View style={styles.rowFilterInfo}>
+                        <Text style={styles.rowFilterText}>{item.value}</Text>
+                    </View>
+                </View>
+            ))}
+        </View>
+    ))
+}
+
+const Title = ({ title }) => {
+    return (
+        <View style={styles.rowTitle}>
+            <Text style={styles.rowTitleText}>{title}</Text>
+        </View>
+    )
+}
+
 // Create Document Component
-export const MyDocument = ({ adaptedCredits, thead, dataFilter }) => {
+export const MyDocument = ({ adaptedCredits, thead, dataFilter, analistas, cobradores }) => {
 
     console.log({ adaptedCredits, thead, dataFilter })
+
+    const convertState=(estado)=>{
+        let newEstado
+        switch (estado) {
+            case 'NU': newEstado = 'Nuevo'; break;
+            case 'RE': newEstado = 'Renovado'; break;
+            case 'AP': newEstado = 'Aprobado'; break;
+            case 'DE': newEstado = 'Desembolsado'; break;
+            case 'RC': newEstado = 'Rechazado'; break;
+        }
+
+        return newEstado
+    }
 
     const newDataFilter = [
         [
             {
-                label: 'FECHA INICIAL',
+                label: 'FECHA DESDE :',
                 value: dataFilter.dateRangeFirst || 'No especificado'
             },
             {
-                label: 'FECHA FINAL',
+                label: 'FECHA HASTA :',
                 value: dataFilter.dateRangeLast || 'No especificado'
             },
         ],
         [
             {
-                label: 'ANALISTA',
-                value: dataFilter.idAnalista || 'No especificado'
+                label: 'ANALISTA :',
+                value: analistas?.find(employee => dataFilter.idAnalista == employee.id)?.fullname || 'No especificado'
             },
             {
-                label: 'COBRADOR',
-                value: dataFilter.idCobrador || 'No especificado'
+                label: 'COBRADOR :',
+                value: cobradores?.find(employee => dataFilter.idCobrador == employee.id)?.fullname || 'No especificado'
             },
         ],
         [
             {
-                label: 'PRÉSTAMO FROM',
+                label: 'PRÉSTAMO DESDE :',
                 value: dataFilter.moneyRangeFirst || 'No especificado'
             },
             {
-                label: 'PRÉSTAMO TO',
+                label: 'PRÉSTAMO HASTA :',
                 value: dataFilter.moneyRangeLast || 'No especificado'
             },
         ],
         [
             {
-                label: 'BUSQUEDA',
+                label: 'BÚSQUEDA :',
                 value: dataFilter.searchValue || 'No especificado'
             },
             {
-                label: 'ESTADO',
-                value: dataFilter.state || 'No especificado'
+                label: 'ESTADO :',
+                value: convertState(dataFilter.state) || 'No especificado'
             },
         ]
     ]
@@ -192,55 +280,14 @@ export const MyDocument = ({ adaptedCredits, thead, dataFilter }) => {
     });
     console.log(newCredits, 'aeaeaeaeae')
 
-    const CreateTableHeader = () => {
-        return (
-            <View style={styles.tableRowHeaderStyle} fixed>
-                {newThead.map(item => (
-                    <View style={{ width: item.width }}>
-                        <Text style={styles.tableCellHeaderStyle}>{item.label}</Text>
-                    </View>
-                ))}
-            </View>
-        );
-    };
-
-    const CreateTableRow = () => {
-        return newCredits.map(item => (
-            <View style={styles.tableRowBodyStyle} key={item.id}>
-                {item.credit.map(campo => (
-                    <View style={{ width: campo.width }} key={campo.label}>
-                        <Text style={styles.tableCellStyle}>{campo.label}</Text>
-                    </View>
-                ))}
-            </View>
-        ))
-
-    };
-
-    const Filter = () => {
-        return newDataFilter.map(data => (
-            <View style={styles.rowFilter} fixed>
-                {data.map(item => (
-                    <View style={styles.rowFilterItem}>
-                        <View style={styles.rowFilterHead}>
-                            <Text style={styles.rowFilterTextHead}>{item.label}:</Text>
-                        </View>
-                        <View style={styles.rowFilterInfo}>
-                            <Text style={styles.rowFilterText}>{item.value}</Text>
-                        </View>
-                    </View>
-                ))}
-            </View>
-        ))
-    }
-
     return (
         <Document>
             <Page size="A4" style={styles.page} orientation='landscape'>
                 <View style={styles.tableStyle}>
-                    <Filter />
-                    <CreateTableHeader />
-                    <CreateTableRow />
+                    <Title title="REPORTE" />
+                    <Filter newDataFilter={newDataFilter} />
+                    <CreateTableHeader newThead={newThead} />
+                    <CreateTableRow newCredits={newCredits} />
                 </View>
             </Page>
         </Document>

@@ -9,8 +9,6 @@ import {
 } from '../../components';
 import { startLoadingCredits } from '../../../store/credits/thunks';
 import { startLoadingRoleByName } from '../../../store/security/roles';
-import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
-import { MyDocument } from './MyDocument';
 
 const thead = [
   'Nombres',
@@ -110,14 +108,13 @@ export const Credits = () => {
 
   const [creditSelect, setCreditSelect] = useState()
 
-
-  const viewerStyle = {
-    display: "block",
-    position: "absolute",
-    width: "80vw",
-    height: "90vh"
-
-  };
+  // const viewerStyle = {
+  //   display: "block",
+  //   position: "absolute",
+  //   width: "80vw",
+  //   height: "90vh"
+  // };
+  
   return (
     <>
       <ModuleTitle text='Créditos' />
@@ -303,6 +300,10 @@ export const Credits = () => {
         setdataForFilter={setdataForFilter}
         analistas={analistas}
         cobradores={cobradores}
+
+        adaptedCredits={adaptedCredits}
+        thead={thead}
+        dataFilter={dataFilter}
       />
       <Table
         isLoading={isLoading}
@@ -317,27 +318,16 @@ export const Credits = () => {
         totalRegisters={numberOfCredits}
       />
 
-      <PDFViewer style={viewerStyle}>
+      {/* <PDFViewer style={viewerStyle}>
         <MyDocument
           adaptedCredits={adaptedCredits}
           thead={thead}
           dataFilter={dataFilter}
+          analistas={analistas}
+          cobradores={cobradores}
+
         />
-      </PDFViewer>
-
-      <PDFDownloadLink
-        document={
-          <MyDocument
-            adaptedCredits={adaptedCredits}
-            thead={thead}
-            dataFilter={dataFilter}
-          />
-        }
-        fileName="ejemploreporte.pdf"
-      >
-        <Button width='5rem' className='print-pdf' content={<i className="fa-solid fa-file-pdf icon"></i>} />
-
-      </PDFDownloadLink>
+      </PDFViewer> */}
     </>
   )
 }

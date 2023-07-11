@@ -8,8 +8,10 @@ import { InputSearch } from '../inputSearch';
 import { InputSelect } from '../inputSelect';
 import { InputsRow } from '../inputsRow';
 import './Filter.css'
+import { MyDocument } from '../../../credits/views/credits/MyDocument';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 
-export const Filter = ({ setdataForFilter, analistas, cobradores }) => {
+export const Filter = ({ setdataForFilter, analistas, cobradores, adaptedCredits, thead, dataFilter }) => {
 
   const initialResponsive = [
     { name: 'filter', xxs: 24, s: 12, m: 12, l: 8, xl: 6, xxl: 6, col: 6 },
@@ -130,7 +132,20 @@ export const Filter = ({ setdataForFilter, analistas, cobradores }) => {
             centinela > 1024 &&
             <>
               <Button event={onReset} width='8rem' className='warning' content='Reiniciar' />
-              <Button width='5rem' className='print-pdf' content={<i className="fa-solid fa-file-pdf icon"></i>} />
+              <PDFDownloadLink
+                document={
+                  <MyDocument
+                    adaptedCredits={adaptedCredits}
+                    thead={thead}
+                    dataFilter={dataFilter}
+                    analistas={analistas}
+                    cobradores={cobradores}
+                  />
+                }
+                fileName="Reporte_creditos.pdf"
+              >
+                <Button width='5rem' className='print-pdf' content={<i className="fa-solid fa-file-pdf icon"></i>} />
+              </PDFDownloadLink>
               <Button width='5rem' className='print-xlsx' content={<i className="fa-solid fa-file-excel icon"></i>} />
               <Button width='5rem' className='secondary' content={<i className="fa-solid fa-image icon"></i>} />
             </>
