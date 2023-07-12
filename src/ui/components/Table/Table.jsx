@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useResponsiveTable } from '../../../hooks'
 import { SimpleLoading } from '../simpleLoading'
 import { TableThead } from '../tableThead/TableThead'
 import './Table.css'
+import { CreditContext } from '../../../credits/context'
 
-export const Table = ({ isLoading, arrayData, thead, setCreditSelect }) => {
-
+export const Table = ({ isLoading, arrayData }) => {
+    const { tablethead, setCreditSelected } = useContext(CreditContext);
     const [tableRwd, setTableRwd] = useState(null)
     const [numRegister, setNumRegister] = useState(10)
     const { maxColumns } = useResponsiveTable();
     console.log('maxColumns', maxColumns);
+
 
     useEffect(() => {
         let initialTableRwd = {}
@@ -21,7 +23,7 @@ export const Table = ({ isLoading, arrayData, thead, setCreditSelect }) => {
     }, [numRegister])
 
     const onSelectRegister = (data,id) => {
-        setCreditSelect({ thead, data, id })
+        setCreditSelected({ tablethead, data, id })
     }
 
     return (
@@ -30,7 +32,7 @@ export const Table = ({ isLoading, arrayData, thead, setCreditSelect }) => {
             {isLoading
                 ? (<SimpleLoading />)
                 : (<table className='table'>
-                    <TableThead thead={thead} maxColumns={maxColumns} />
+                    <TableThead tablethead={tablethead} maxColumns={maxColumns} />
                     <tbody className='table__tbody'>
                         {
                             arrayData?.map(({ id, data }, index) => (
@@ -54,7 +56,7 @@ export const Table = ({ isLoading, arrayData, thead, setCreditSelect }) => {
                                                     if ((index + 1) <= maxColumns) return
                                                     return (
                                                         <td key={item}>
-                                                            <span className='tr-children__title'>{thead[index]}</span>:
+                                                            <span className='tr-children__title'>{tablethead[index]}</span>:
                                                             <span className='tr-children__content'>{item}</span>
                                                         </td>
                                                     )

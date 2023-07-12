@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { ModuleOptionsInfoLeft } from '../moduleOptionsInfoLeft/ModuleOptionsInfoLeft';
 import { ModuleOptionsInfoRight } from '../moduleOptionsInfoRight/ModuleOptionsInfoRight';
 import './ModuleOptions.css'
+import { CreditContext } from '../../../credits/context';
 
-export const ModuleOptions = ({ dataInfoRight, children, creditSelect, titleInfoLeft, titleInfoRight }) => {
+export const ModuleOptions = ({ children, titleInfoLeft, titleInfoRight }) => {
 
     const [moreInfoLeft, setMoreInfoLeft] = useState(false);
     const [moreInfoRight, setMoreInfoRight] = useState(false);
-
+    const { dataInfoRight, creditSelected } = useContext(CreditContext);
 
     const handleMoreInfoLeft = () => {
         setMoreInfoLeft(!moreInfoLeft);
@@ -21,7 +22,7 @@ export const ModuleOptions = ({ dataInfoRight, children, creditSelect, titleInfo
             <ModuleOptionsInfoLeft
                 moreInfoLeft={moreInfoLeft}
                 handleMoreInfoLeft={handleMoreInfoLeft}
-                creditSelect={creditSelect}
+                creditSelected={creditSelected}
                 titleInfoLeft={titleInfoLeft}
             />
             <div className='module-options__main' >

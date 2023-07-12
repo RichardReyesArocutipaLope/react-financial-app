@@ -3,9 +3,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import './Pagination.css'
 import { Fragment, useState } from 'react';
 
-export const Pagination = ({ infoTable, totalPages, totalRegisters }) => {
-
-  const { currentPage, setCurrentPage } = infoTable;
+export const Pagination = ({ currentPage, setCurrentPage, totalPages, totalRegisters }) => {
 
   const pagination = [
     {

@@ -6,6 +6,7 @@ export const InputSelect = ({ label, col, id, register, children }) => {
     return (
         <InputContainer col={col}>
             <select className='input input-select' id={id} {...register}>
+                <option value="">No especificado</option>
                 {children}
             </select>
             {label && <label className='input__label' htmlFor={id}>{label}</label>}

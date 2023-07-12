@@ -28,10 +28,37 @@ export const creditsGetRequest = async (dataFilter, parameters) => {
             },
         })
         console.log(data,'service')
+
+        const adaptedCredits = []
+        data.credits?.forEach(credit => {
+          let newEstado
+          switch (credit.estado) {
+            case 'NU': newEstado = 'Nuevo'; break;
+            case 'RE': newEstado = 'Renovado'; break;
+            case 'AP': newEstado = 'Aprobado'; break;
+            case 'DE': newEstado = 'Desembolsado'; break;
+            case 'RC': newEstado = 'Rechazado'; break;
+          }
+          adaptedCredits.push({
+            id: credit.id_credit,
+            data: [
+              credit.cliente,
+              credit.dni,
+              credit.prestamo,
+              newEstado,
+              credit.plazo,
+              credit.credit_interest_rate,
+              credit.analista,
+              credit.cobrador,
+            ]
+          })
+        });
+      
+
         return {
             ok: true,
             numberOfCredits: data.countCredits,
-            credits: data.credits,
+            credits: adaptedCredits,
         }
     } catch (error) {
         console.log(error)

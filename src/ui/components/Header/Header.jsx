@@ -3,7 +3,7 @@ import './Header.css'
 
 export const Header = () => {
   return (
-    <header className='main-header'>
+    <header className='main-header' >
       <div className='main-header__options'>
         <div className='main-header__option'>
           <i className="fa-solid fa-bell"></i>

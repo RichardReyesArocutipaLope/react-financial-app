@@ -141,9 +141,7 @@ const Title = ({ title }) => {
 }
 
 // Create Document Component
-export const MyDocument = ({ adaptedCredits, thead, dataFilter, analistas, cobradores }) => {
-
-    console.log({ adaptedCredits, thead, dataFilter })
+export const MyDocument = ({ credits, thead, dataForFilter, analistas, cobradores }) => {
 
     const convertState=(estado)=>{
         let newEstado
@@ -162,41 +160,41 @@ export const MyDocument = ({ adaptedCredits, thead, dataFilter, analistas, cobra
         [
             {
                 label: 'FECHA DESDE :',
-                value: dataFilter.dateRangeFirst || 'No especificado'
+                value: dataForFilter.dateRangeFirst || 'No especificado'
             },
             {
                 label: 'FECHA HASTA :',
-                value: dataFilter.dateRangeLast || 'No especificado'
+                value: dataForFilter.dateRangeLast || 'No especificado'
             },
         ],
         [
             {
                 label: 'ANALISTA :',
-                value: analistas?.find(employee => dataFilter.idAnalista == employee.id)?.fullname || 'No especificado'
+                value: analistas?.find(employee => dataForFilter.idAnalista == employee.id)?.fullname || 'No especificado'
             },
             {
                 label: 'COBRADOR :',
-                value: cobradores?.find(employee => dataFilter.idCobrador == employee.id)?.fullname || 'No especificado'
+                value: cobradores?.find(employee => dataForFilter.idCobrador == employee.id)?.fullname || 'No especificado'
             },
         ],
         [
             {
                 label: 'PRÉSTAMO DESDE :',
-                value: dataFilter.moneyRangeFirst || 'No especificado'
+                value: dataForFilter.moneyRangeFirst || 'No especificado'
             },
             {
                 label: 'PRÉSTAMO HASTA :',
-                value: dataFilter.moneyRangeLast || 'No especificado'
+                value: dataForFilter.moneyRangeLast || 'No especificado'
             },
         ],
         [
             {
                 label: 'BÚSQUEDA :',
-                value: dataFilter.searchValue || 'No especificado'
+                value: dataForFilter.searchValue || 'No especificado'
             },
             {
                 label: 'ESTADO :',
-                value: convertState(dataFilter.state) || 'No especificado'
+                value: convertState(dataForFilter.state) || 'No especificado'
             },
         ]
     ]
@@ -238,7 +236,7 @@ export const MyDocument = ({ adaptedCredits, thead, dataFilter, analistas, cobra
 
     const newCredits = []
 
-    adaptedCredits.forEach(element => {
+    credits.forEach(element => {
         let adaptCredit = {
             id: element.id,
             credit: [

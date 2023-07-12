@@ -1,126 +1,24 @@
-import { useContext, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useContext } from 'react'
+import { useSelector } from 'react-redux';
 import { ModalContext } from '../../../context/modalContext';
-import { Button, DocumentExportOptions, Filter, ModuleOption, ModuleOptions, ModuleTitle, Pagination, Table } from '../../../ui/components';
+import { CreditContext } from '../../context';
+import { DocumentExportOptions, Filter, ModuleOption, ModuleOptions, ModuleTitle, Pagination, Table } from '../../../ui/components';
 import {
   ApproveCredit, ClientFile, CreateCredit, CreditSchedule, DeleteCredit, DisburseCredit, EditCredit,
   ExportCreditData, OptionsApproveCredit, OptionsCreateCredit, OptionsDeleteCredit, OptionsDisburseCredit,
   OptionsEditCredit, OptionsExportCreditData, OptionsSimulateCredit, SimulateCredit
 } from '../../components';
-import { startLoadingCredits } from '../../../store/credits/thunks';
-import { startLoadingRoleByName } from '../../../store/security/roles';
-
-const thead = [
-  'Nombres',
-  'DNI',
-  'Préstamo',
-  'Estado',
-  'Plazo',
-  'Tasa Inc',
-  'Analista',
-  'Cobrador',
-]
-
-const dataInfoRight = {
-  infoHead: ['Monto', '4', '8', '12'],
-  infoBody: [
-    ["S/. 1,000.00", "S/. 275.00", "S/. 150.00", "S/. 108.00",],
-    ["S/. 1,500.00", "S/. 413.00", "S/. 225.00", "S/. 163.00",],
-    ["S/. 2,000.00", "S/. 550.00", "S/. 300.00", "S/. 217.00",],
-    ["S/. 2,500.00", "S/. 688.00", "S/. 375.00", "S/. 271.00",],
-    ["S/. 3,000.00", "S/. 825.00", "S/. 450.00", "S/. 325.00",],
-    ["S/. 3,500.00", "S/. 963.00", "S/. 525.00", "S/. 379.00",],
-    ["S/. 4,000.00", "S/. 275.00", "S/. 150.00", "S/. 108.00",],
-    ["S/. 4,500.00", "S/. 275.00", "S/. 150.00", "S/. 108.00",],
-    ["S/. 5,000.00", "S/. 275.00", "S/. 150.00", "S/. 108.00",],
-    ["S/. 5,500.00", "S/. 275.00", "S/. 150.00", "S/. 108.00",],
-    ["S/. 6,000.00", "S/. 275.00", "S/. 150.00", "S/. 108.00",],
-    ["S/. 6,500.00", "S/. 275.00", "S/. 150.00", "S/. 108.00",],
-    ["S/. 7,000.00", "S/. 275.00", "S/. 150.00", "S/. 108.00",],
-    ["S/. 7,500.00", "S/. 275.00", "S/. 150.00", "S/. 108.00",],
-  ],
-}
-
 
 export const Credits = () => {
 
-  const dispatch = useDispatch();
   const { handleModal } = useContext(ModalContext);
   const { isLoading, credits, numberOfCredits } = useSelector(state => state.credits);
-  const { analistas, cobradores } = useSelector(state => state.roles);
+  const { currentPage, setCurrentPage, parameters } = useContext(CreditContext);
 
-  const adaptedCredits = []
-  credits?.forEach(credit => {
-    let newEstado
-    switch (credit.estado) {
-      case 'NU': newEstado = 'Nuevo'; break;
-      case 'RE': newEstado = 'Renovado'; break;
-      case 'AP': newEstado = 'Aprobado'; break;
-      case 'DE': newEstado = 'Desembolsado'; break;
-      case 'RC': newEstado = 'Rechazado'; break;
-    }
-    adaptedCredits.push({
-      id: credit.id_credit,
-      data: [
-        credit.cliente,
-        credit.dni,
-        credit.prestamo,
-        newEstado,
-        credit.plazo,
-        credit.credit_interest_rate,
-        credit.analista,
-        credit.cobrador,
-      ]
-    })
-  });
-
-  const [currentPage, setCurrentPage] = useState(0);
-  const infoTable = {
-    currentPage,
-    setCurrentPage,
-  }
-
-  const [dataFilter, setdataForFilter] = useState({
-    searchValue: '',
-    state: null,
-    dateRangeFirst: null,
-    dateRangeLast: null,
-    moneyRangeFirst: null,
-    moneyRangeLast: null,
-    idAnalista: null,
-    idCobrador: null,
-  })
-
-  const [parameters, setParameters] = useState({ limit: 10, offset: 0 })
-
-  useEffect(() => {
-    setParameters({ limit: 10, offset: currentPage })
-  }, [currentPage])
-
-  useEffect(() => {
-    dispatch(startLoadingCredits(dataFilter, parameters))
-  }, [parameters, dataFilter])
-
-  useEffect(() => {
-    dispatch(startLoadingRoleByName('analista'))
-    dispatch(startLoadingRoleByName('cobrador'))
-  }, [])
-
-  const [creditSelect, setCreditSelect] = useState()
-
-  // const viewerStyle = {
-  //   display: "block",
-  //   position: "absolute",
-  //   width: "80vw",
-  //   height: "90vh"
-  // };
-  
   return (
     <>
       <ModuleTitle text='Créditos' />
       <ModuleOptions
-        creditSelect={creditSelect}
-        dataInfoRight={dataInfoRight}
         titleInfoLeft="CREDITOS INFO"
         titleInfoRight="REGISTRO INFO"
       >
@@ -296,38 +194,20 @@ export const Credits = () => {
           }}
         />
       </ModuleOptions>
-      <Filter
-        setdataForFilter={setdataForFilter}
-        analistas={analistas}
-        cobradores={cobradores}
 
-        adaptedCredits={adaptedCredits}
-        thead={thead}
-        dataFilter={dataFilter}
+      <Filter
+        credits={credits}
       />
       <Table
         isLoading={isLoading}
-        arrayData={adaptedCredits}
-        thead={thead}
-        setCreditSelect={setCreditSelect}
-
+        arrayData={credits}
       />
       <Pagination
-        infoTable={infoTable}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
         totalPages={Math.round(numberOfCredits / parameters.limit)}
         totalRegisters={numberOfCredits}
       />
-
-      {/* <PDFViewer style={viewerStyle}>
-        <MyDocument
-          adaptedCredits={adaptedCredits}
-          thead={thead}
-          dataFilter={dataFilter}
-          analistas={analistas}
-          cobradores={cobradores}
-
-        />
-      </PDFViewer> */}
     </>
   )
 }
