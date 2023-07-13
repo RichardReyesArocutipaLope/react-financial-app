@@ -1,9 +1,9 @@
 import './ModuleTitle.css'
 
-export const ModuleTitle = ({text}) => {
+export const ModuleTitle = ({title}) => {
     return (
         <div>
-            <h1 className='main-title'>{text}</h1>
+            <h1 className='main-title'>{title}</h1>
         </div>
     )
 }

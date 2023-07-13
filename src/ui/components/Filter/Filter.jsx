@@ -18,7 +18,8 @@ export const Filter = ({credits }) => {
 
   const initialResponsive = [
     { name: 'filter', xxs: 24, s: 12, m: 12, l: 8, xl: 6, xxl: 6, col: 6 },
-    { name: 'buttons', xxs: 24, s: 24, m: 24, l: 24, xl: 16, xxl: 16, col: 6 },
+    { name: 'search', xxs: 24, s: 24, m: 12, l: 8, xl: 6, xxl: 6, col: 6 },
+    { name: 'buttons', xxs: 24, s: 24, m: 24, l: 24, xl: 12, xxl: 12, col: 6 },
   ]
 
   const { rwd, centinela } = useResponsiveForm(initialResponsive);
@@ -101,7 +102,7 @@ export const Filter = ({credits }) => {
           </>
         }
 
-        <InputSearch col={rwd.filter} width='30rem'
+        <InputSearch col={rwd.search} width='30rem'
           placeholder='Busque por DNI o nombre de cliente'
           register={{ ...register('search') }} />
 

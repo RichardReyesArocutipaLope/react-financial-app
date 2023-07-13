@@ -9,10 +9,10 @@ export const ModalProvider = ({ children }) => {
     const [modalFooterContent, setModalFooterContent] = useState(<></>)
     const [modalProperties, setModalProperties] = useState({
         width: 'modal-l',
-        heightBody: '40rem',
+        bodyHeight: '40rem',
         bodyHeightClass: '',
         staticBackdrop: false,
-        scroll: false,
+        hasScroll: false,
         verticallyCentered: false,
         title: 'MODAL',
         bodyBackgroundColor: 'var(--bg-two-color-white)',

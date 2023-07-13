@@ -3,7 +3,7 @@ import './Modal.css'
 
 export const Modal = ({ isOpenModal, setIsOpenModal, handleModal, modalBodyContent, modalFooterContent, modalProperties, anotherModal }) => {
 
-    const { width, heightBody, bodyHeightClass, staticBackdrop, scroll, verticallyCentered, title, bodyBackgroundColor, footerHeightClass } = modalProperties;
+    const { width, bodyHeight, bodyHeightClass, staticBackdrop, hasScroll, verticallyCentered, title, bodyBackgroundColor, footerHeightClass } = modalProperties;
 
     const handleClickOutside = (event) => {
         if (event.target.closest('.modal') === null) setIsOpenModal(false);
@@ -27,7 +27,7 @@ export const Modal = ({ isOpenModal, setIsOpenModal, handleModal, modalBodyConte
         <div className={`modal-container ${verticallyCentered ? 'center' : ''} ${isOpenModal ? 'active' : 'inactive'} ${isOpenModal && (typeof anotherOpenModal === 'boolean') && (anotherOpenModal ? 'another-modal-active' : 'another-modal-inactive')}`}
             onClick={handleClickOutside}>
             <div
-                className={`modal ${width} ${heightBody === '100%' ? 'height100' : ''} ${bodyHeightClass}`}>
+                className={`modal ${width} ${bodyHeight === '100%' ? 'height100' : ''} ${bodyHeightClass}`}>
                 <div className='modal__header'>
                     <h1>{title}</h1>
                     <span onClick={handleModal} className='modal__header-closeModal'>
@@ -35,9 +35,9 @@ export const Modal = ({ isOpenModal, setIsOpenModal, handleModal, modalBodyConte
                     </span>
                 </div>
 
-                <div className={`modal__body-container ${bodyHeightClass}`} style={{ height: heightBody }}>
+                <div className={`modal__body-container ${bodyHeightClass}`} style={{ height: bodyHeight }}>
                     <div className='shadow'></div>
-                    <div className={`modal__body ${scroll ? 'modal-scroll' : ''}  ${bodyHeightClass}`} style={{ height: heightBody, backgroundColor: bodyBackgroundColor }}>
+                    <div className={`modal__body ${hasScroll ? 'modal-scroll' : ''}  ${bodyHeightClass}`} style={{ height: bodyHeight, backgroundColor: bodyBackgroundColor }}>
                         {isOpenModal && modalBodyContent}
                     </div>
                     <div className='shadow'></div>

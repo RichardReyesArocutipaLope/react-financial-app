@@ -19,12 +19,6 @@
     align-items: center;
 }
 
-.pagination-button--arrow{
-
-}
-.pagination-button--number{
-
-}
 .pagination-button:hover{
     transform: scale(1.1);
 }

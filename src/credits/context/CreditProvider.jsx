@@ -46,7 +46,7 @@ export const CreditProvider = ({ children }) => {
         dispatch(startLoadingRoleByName('cobrador'))
     }, [])
 
-    const [currentPage, setCurrentPage] = useState(0);
+    const [currentOffset, setCurrentOffset] = useState(0);
 
     const [dataForFilter, setDataForFilter] = useState({
         searchValue: '',
@@ -62,8 +62,8 @@ export const CreditProvider = ({ children }) => {
     const [parameters, setParameters] = useState({ limit: 10, offset: 0 })
 
     useEffect(() => {
-        setParameters({ limit: 10, offset: currentPage })
-    }, [currentPage])
+        setParameters({ limit: 10, offset: currentOffset })
+    }, [currentOffset])
 
     useEffect(() => {
         dispatch(startLoadingCredits(dataForFilter, parameters))
@@ -78,8 +78,8 @@ export const CreditProvider = ({ children }) => {
                 creditSelected,
                 setCreditSelected,
 
-                currentPage,
-                setCurrentPage,
+                currentOffset,
+                setCurrentOffset,
 
                 dataForFilter,
                 setDataForFilter,

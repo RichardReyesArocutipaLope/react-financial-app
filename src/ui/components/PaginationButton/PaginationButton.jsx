@@ -1,22 +1,9 @@
 import './PaginationButton.css'
 
-export const PaginationButton = ({
-    isNumber,
-    pageActual,
-    numPage,
-    funOnClick,
-    labelText,
-    totalPages=0,
-    selectPage=() => {},
-}) => {
+export const PaginationButton = ({ currentPage, page, funOnClick = () => { } }) => {
   return (
-    <span
-      className={`pagination-button ${
-        isNumber ? "pagination-button--number" : "pagination-button--arrow"
-      } ${numPage == pageActual ? "active" : ""}`}
-      onClick={funOnClick}
-    >
-      {labelText}
+    <span className={`pagination-button ${page == currentPage ? "active" : ""}`} onClick={funOnClick} >
+      {page}
     </span>
   )
 }
