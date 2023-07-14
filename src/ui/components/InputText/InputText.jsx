@@ -1,11 +1,11 @@
-import { InputContainer } from '../InputContainer/InputContainer'
+import { InputContainer } from '../inputContainer'
 import './InputText.css'
 
-export const InputText = ({ col, label, name }) => {
+export const InputText = ({ col, label, id, register }) => {
   return (
     <InputContainer col={col}>
-      <input type="text" name={name} id={name} className='input input-text'/>
-      {label && <label className='input__label' htmlFor={name}>{label}</label>}
+      <input type="text" {...register} id={id} className='input input-text' />
+      {label && <label className='input__label' htmlFor={id}>{label}</label>}
     </InputContainer>
   )
 }

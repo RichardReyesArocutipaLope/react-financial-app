@@ -1,11 +1,11 @@
+import { InputContainer } from '../inputContainer'
 import './InputDate.css'
-import { InputContainer } from '../InputContainer/InputContainer'
 
-export const InputDate = ({ col, label, name}) => {
+export const InputDate = ({ col, label, id, register }) => {
   return (
     <InputContainer col={col}>
-      <input type="date" name={name} id={name} className='input input-date' />
-      <label className='input__label' htmlFor={name}>{label}</label>
+      <input type="date" {...register} id={id} className='input input-date' />
+      <label className='input__label' htmlFor={id}>{label}</label>
     </InputContainer>
   )
 }

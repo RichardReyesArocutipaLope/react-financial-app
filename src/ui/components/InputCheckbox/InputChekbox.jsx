@@ -3,11 +3,11 @@ import './InputChekbox.css'
 import { InputContainer } from '../inputContainer/InputContainer'
 
 
-export const InputChekbox = ({ col, label, name }) => {
+export const InputChekbox = ({ col, label, id, register }) => {
     return (
         <InputContainer col={col}>
-            <input type="checkbox" name={name} id={name} className="checkbox-custom" style={{ display: 'none' }} />
-            <label htmlFor={name} className="checkbox__label-container">
+            <input type="checkbox" {...register} id={id} className="checkbox-custom" style={{ display: 'none' }} />
+            <label htmlFor={id} className="checkbox__label-container">
                 <div className='checkbox__label-icon'>
                     <svg width="24.5px" height="24.5px" viewBox="0 0 18 18">
                         <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>

@@ -1,7 +1,13 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { useResponsiveForm } from '../../../hooks';
-import { Button, FlexContainer, FragmentContainer, InputChekbox, InputDate, InputFileDocument,
-    InputFileImage, InputNumber, InputSelect, InputText, InputsRow } from '../../../ui/components';
+import {
+    Button, FlexContainer, FragmentContainer, InputChekbox, InputDate, InputFileDocument,
+    InputFileImage, InputNumber, InputSelect, InputText, InputsRow
+} from '../../../ui/components';
 import './CreateCredit.css';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { setSubmitCreditCreateForm } from '../../../store/credits/creditsOptionsSlice';
 
 export const CreateCredit = () => {
 
@@ -25,6 +31,19 @@ export const CreateCredit = () => {
         { name: 'aval_data', xxs: 24, xs: 24, s: 24, m: 12, l: 12, xl: 8, xxl: 8, col: 6 },
     ]
     const { rwd, centinela } = useResponsiveForm(initialResponsive);
+
+    const { register, handleSubmit, reset } = useForm();
+    const { submitCreditCreateForm } = useSelector(state => state.creditsOptions);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (submitCreditCreateForm) {
+            handleSubmit((data) => { console.log(data) })()
+
+            dispatch(setSubmitCreditCreateForm(false))
+        }
+    }, [submitCreditCreateForm])
+
 
     return (
         <div className='form-tab'>
@@ -80,37 +99,66 @@ export const CreateCredit = () => {
             <div className='form-tab__body' >
                 <div className='form-tab__body-inputs' id='1'>
                     <InputsRow margin='1.6'>
-                        <InputNumber col={rwd.operation_data1} label='N. Operación' name='n_operacion' />
-                        <InputNumber col={rwd.operation_data1} label='N. Crédito' name='n_credito' />
-                        <InputSelect col={rwd.operation_data2} label='Analista' name='analista' />
-                        <InputSelect col={rwd.operation_data2} label='Cobrador' name='cobrador' />
+                        <InputNumber col={rwd.operation_data1} label='N. Operación'
+                            register={{ ...register('n_operacion') }} id='n_operacion' />
+                        <InputNumber col={rwd.operation_data1} label='N. Crédito'
+                            register={{ ...register('n_credito') }} id='n_credito' />
+                        <InputSelect col={rwd.operation_data2} label='Analista' id='analista'
+                            register={{ ...register('analista', { required: 'El analista es requerido' }) }} />
+                        <InputSelect col={rwd.operation_data2} label='Cobrador' id='cobrador'
+                            register={{ ...register('cobrador', { required: 'El cobrador es requerido' }) }} />
                     </InputsRow>
                     <hr />
                     <InputsRow margin='1.6'>
-                        <InputText col={rwd.DNI} label='DNI' name='dni_cliente' />
+                        <InputText col={rwd.DNI} label='DNI' id='dni_cliente'
+                            register={{ ...register('dni_cliente', { required: 'El DNI es requerido' }) }} />
                         <FragmentContainer col={rwd.buttonSearchDNI}>
                             <Button width='8.7rem' className='primary' content='Buscar' />
                         </FragmentContainer>
-                        <InputText col={rwd.client_data1} label='Nombres' name='cli_nombre' />
-                        <InputText col={rwd.client_data1} label='Apellidos' name='cli_apellidos' />
+                        <InputText col={rwd.client_data1} label='Nombres' id='cli_nombre'
+                            register={{ ...register('cli_nombre', { required: 'El nombre es requerido' }) }} />
 
-                        <InputText col={rwd.client_data1} label='Domicilio' name='cli_domicilio' />
-                        <InputText col={rwd.client_data1} label='Referencia domicilio' name='cli_ref_domicilio' />
-                        <InputSelect col={rwd.client_data1} label='Vivienda' name='cli_vivienda' />
+                        <InputText col={rwd.client_data1} label='Apellidos' id='cli_apellidos'
+                            register={{ ...register('cli_apellidos', { required: 'El apellido es requerido' }) }} />
 
-                        <InputSelect col={rwd.client_data1} label='Estado civil' name='cli_estado_civil' />
-                        <InputText col={rwd.client_data1} label='Celular 1' name='cli_celular1' />
-                        <InputText col={rwd.client_data1} label='Celular 2' name='cli_celular2' />
 
-                        <InputText col={rwd.client_data1} label='Correo' name='cli_correo' />
-                        <InputText col={rwd.client_data2} label='Observacion' name='clie_obs' />
+                        <InputText col={rwd.client_data1} label='Domicilio' id='cli_domicilio'
+                            register={{ ...register('cli_domicilio', { required: 'El domicilio es requerido' }) }} />
+
+                        <InputText col={rwd.client_data1} label='Referencia domicilio' id='cli_ref_domicilio'
+                            register={{ ...register('cli_ref_domicilio') }} />
+
+                        <InputSelect col={rwd.client_data1} label='Vivienda' id='cli_vivienda'
+                            register={{ ...register('cli_vivienda', { required: 'El tipo de vivienda es requerido' }) }} />
+
+
+                        <InputSelect col={rwd.client_data1} label='Estado civil' id='cli_estado_civil'
+                            register={{ ...register('cli_estado_civil', { required: 'El estado civil es requerido' }) }} />
+
+                        <InputText col={rwd.client_data1} label='Celular 1' id='cli_celular1'
+                            register={{ ...register('cli_celular1', { required: 'El celular 1 es requerido' }) }} />
+
+                        <InputText col={rwd.client_data1} label='Celular 2' id='cli_celular2'
+                            register={{ ...register('cli_celular2') }} />
+
+
+                        <InputText col={rwd.client_data1} label='Correo' id='cli_correo'
+                            register={{ ...register('cli_correo', { required: 'El correo es requerido' }) }} />
+
+                        <InputText col={rwd.client_data2} label='Observacion' id='clie_obs'
+                            register={{ ...register('clie_obs') }} />
                     </InputsRow>
                 </div>
                 <div className='form-tab__body-inputs' id='2'>
                     <InputsRow margin='1.6'>
-                        <InputText col={rwd.busines_data} label='Actividad negocio' name='neg_actividad' />
-                        <InputText col={rwd.busines_data} label='Direccion Negocio' name='neg_direccion' />
-                        <InputText col={rwd.busines_data} label='Referencia Negocio' name='neg_referencia' />
+                        <InputText col={rwd.busines_data} label='Actividad negocio' id='neg_actividad'
+                            register={{ ...register('neg_actividad', { required: 'La actividad del negocio es requerida' }) }} />
+
+                        <InputText col={rwd.busines_data} label='Direccion Negocio' id='neg_direccion'
+                            register={{ ...register('neg_direccion', { required: 'La dirección del negocio es requerida' }) }} />
+
+                        <InputText col={rwd.busines_data} label='Referencia Negocio' id='neg_referencia'
+                            register={{ ...register('neg_referencia') }} />
                     </InputsRow>
 
                     <h2 className='form-tab__body-title'>Subir imagenes</h2>
@@ -128,95 +176,157 @@ export const CreateCredit = () => {
                 </div>
                 <div className='form-tab__body-inputs' id='3'>
                     <InputsRow margin='1.6'>
-                        <InputNumber col={rwd.loan_data1} label='Solicitao' name='pres_solicitado' money />
-                        <InputNumber col={rwd.loan_data1} label='Aprobado' name='pres_aprobado' money />
-                        <InputDate col={rwd.loan_data1} label='Fecha de emision' name='pres_fecha_emision' />
-                        <InputDate col={rwd.loan_data1} label='Fecha desembolso' name='pres_fecha_desembolso' />
+                        <InputNumber col={rwd.loan_data1} label='Solicitao' id='pres_solicitado' money
+                            register={{ ...register('pres_solicitado', { required: 'El préstamo solicitado es requerido' }) }} />
 
-                        <InputNumber col={rwd.loan_data1} label='Plazo' name='pres_plazo' />
-                        <InputSelect col={rwd.loan_data1} label='Tipo plazo' name='pres_tipo_plazo' />
-                        <InputSelect col={rwd.loan_data1} label='Tipo interes' name='pres_interes' />
-                        <InputNumber col={rwd.loan_data1} label='Tasa%' name='pres_tasa' />
+                        <InputNumber col={rwd.loan_data1} label='Aprobado'  id='pres_aprobado' money
+                            register={{ ...register('pres_aprobado') }} />
 
-                        <InputNumber col={rwd.loan_data1} label='Ventas diarias' name='pres_ventas_diarias' money />
-                        <InputNumber col={rwd.loan_data1} label='Días buenos' name='pres_dias_buenos' money />
-                        <InputNumber col={rwd.loan_data1} label='Días malos' name='pres_dias_malos' money />
-                        <InputNumber col={rwd.loan_data1} label='Inventario' name='pres_inventario' money />
+                        <InputDate col={rwd.loan_data1} label='Fecha de emision' id='pres_fecha_emision'
+                            register={{ ...register('pres_fecha_emision', { required: 'La fecha de emisión es requerida' }) }} />
+
+                        <InputDate col={rwd.loan_data1} label='Fecha desembolso' id='pres_fecha_desembolso'
+                            register={{ ...register('pres_fecha_desembolso') }} />
+
+
+                        <InputNumber col={rwd.loan_data1} label='Plazo' id='pres_plazo'
+                            register={{ ...register('pres_plazo', { required: 'El plazo del crédito es requerido' }) }} />
+
+                        <InputSelect col={rwd.loan_data1} label='Tipo plazo' id='pres_tipo_plazo'
+                            register={{ ...register('pres_tipo_plazo', { required: 'El tipo de plazo es requerido' }) }} />
+
+                        <InputSelect col={rwd.loan_data1} label='Tipo interes' id='pres_interes'
+                            register={{ ...register('pres_interes', { required: 'El tipo de interes es requerido' }) }} />
+
+                        <InputNumber col={rwd.loan_data1} label='Tasa%' id='pres_tasa'
+                            register={{ ...register('pres_tasa', { required: 'La tasa es requerida' }) }} />
+
+
+                        <InputNumber col={rwd.loan_data1} label='Ventas diarias' id='pres_ventas_diarias' money
+                            register={{ ...register('pres_ventas_diarias', { required: 'Ventas diarias es requerido' }) }} />
+
+                        <InputNumber col={rwd.loan_data1} label='Días buenos' id='pres_dias_buenos' money
+                            register={{ ...register('pres_dias_buenos', { required: 'Ventas en días buenos es requerido' }) }} />
+
+                        <InputNumber col={rwd.loan_data1} label='Días malos' id='pres_dias_malos' money
+                            register={{ ...register('pres_dias_malos', { required: 'Ventas en días malos es requerido' }) }} />
+
+                        <InputNumber col={rwd.loan_data1} label='Inventario' id='pres_inventario' money
+                            register={{ ...register('pres_inventario', { required: 'El valor del inventario es requerido' }) }} />
                     </InputsRow>
 
                     <InputsRow margin='1.6'>
-                        <InputChekbox col={rwd.loan_data2} label='Recibo de luz' name='recibo_luz' />
-                        <InputChekbox col={rwd.loan_data2} label='Mayor de 21 años' name='mayor_21' />
-                        <InputChekbox col={rwd.loan_data2} label='DNI vigente' name='dni_vigente' />
+                        <InputChekbox col={rwd.loan_data2} label='Recibo de luz' id='recibo_luz'
+                            register={{ ...register('recibo_luz') }} />
 
-                        <InputChekbox col={rwd.loan_data2} label='Documentos de propiedad del negocio' name='doc_negocio' />
-                        <InputChekbox col={rwd.loan_data2} label='Documentos de propiedad de vivienda' name='doc_vivienda' />
-                        <InputChekbox col={rwd.loan_data2} label='Comprobantes negocio' name='compr_negocio' />
+                        <InputChekbox col={rwd.loan_data2} label='Mayor de 21 años' id='mayor_21'
+                            register={{ ...register('mayor_21') }} />
+
+                        <InputChekbox col={rwd.loan_data2} label='DNI vigente' id='dni_vigente'
+                            register={{ ...register('dni_vigente') }} />
+
+
+                        <InputChekbox col={rwd.loan_data2} label='Documentos de propiedad del negocio' id='doc_negocio'
+                            register={{ ...register('doc_negocio') }} />
+
+                        <InputChekbox col={rwd.loan_data2} label='Documentos de propiedad de vivienda' id='doc_vivienda'
+                            register={{ ...register('doc_vivienda') }} />
+
+                        <InputChekbox col={rwd.loan_data2} label='Comprobantes negocio' id='compr_negocio'
+                            register={{ ...register('compr_negocio') }} />
                     </InputsRow>
                 </div>
                 <div className='form-tab__body-inputs' id='4'>
                     <h2 className='form-tab__body-title'>Referencia 1</h2>
                     <InputsRow margin='1.6'>
-                        <InputText col={rwd.DNI} label='DNI' name='ref1_dni' />
+                        <InputText col={rwd.DNI} label='DNI'
+                            register={{ ...register('ref1_dni') }} id='ref1_dni' />
                         <FragmentContainer col={rwd.buttonSearchDNI}>
                             <Button width='8.7rem' className='primary' content='Buscar' />
                         </FragmentContainer>
-                        <InputText col={rwd.ref_data1} label='Nombres' name='ref1_nombres' />
-                        <InputText col={rwd.ref_data1} label='Apellidos' name='ref1_apellidos' />
+                        <InputText col={rwd.ref_data1} label='Nombres'
+                            register={{ ...register('ref1_nombres') }} id='ref1_nombres' />
+                        <InputText col={rwd.ref_data1} label='Apellidos'
+                            register={{ ...register('ref1_apellidos') }} id='ref1_apellidos' />
 
 
-                        <InputText col={rwd.ref_data1} label='Domicilio' name='ref1_domicilio' />
-                        <InputText col={rwd.ref_data2} label='Parentesco' name='ref1_parentesco' />
-                        <InputText col={rwd.ref_data2} label='Celular 1' name='ref1_celular1' />
-                        <InputText col={rwd.ref_data2} label='Celular 2' name='ref1_celular2' />
-                        <InputSelect col={rwd.ref_data2} label='Estado civil' name='ref1_estado_civil' />
+                        <InputText col={rwd.ref_data1} label='Domicilio'
+                            register={{ ...register('ref1_domicilio') }} id='ref1_domicilio' />
+                        <InputText col={rwd.ref_data2} label='Parentesco'
+                            register={{ ...register('ref1_parentesco') }} id='ref1_parentesco' />
+                        <InputText col={rwd.ref_data2} label='Celular 1'
+                            register={{ ...register('ref1_celular1') }} id='ref1_celular1' />
+                        <InputText col={rwd.ref_data2} label='Celular 2'
+                            register={{ ...register('ref1_celular2') }} id='ref1_celular2' />
+                        <InputSelect col={rwd.ref_data2} label='Estado civil'
+                            register={{ ...register('ref1_estado_civil') }} id='ref1_estado_civil' />
                     </InputsRow>
                     <hr />
                     <h2 className='form-tab__body-title'>Referencia 2</h2>
                     <InputsRow margin='1.6'>
-                        <InputText col={rwd.DNI} label='DNI' name='ref2_dni' />
+                        <InputText col={rwd.DNI} label='DNI'
+                            register={{ ...register('ref2_dni') }} id='ref2_dni' />
                         <FragmentContainer col={rwd.buttonSearchDNI}>
                             <Button width='8.7rem' className='primary' content='Buscar' />
                         </FragmentContainer>
-                        <InputText col={rwd.ref_data1} label='Nombres' name='ref2_nombres' />
-                        <InputText col={rwd.ref_data1} label='Apellidos' name='ref2_apellidos' />
+                        <InputText col={rwd.ref_data1} label='Nombres'
+                            register={{ ...register('ref2_nombres') }} id='ref2_nombres' />
+                        <InputText col={rwd.ref_data1} label='Apellidos'
+                            register={{ ...register('ref2_apellidos') }} id='ref2_apellidos' />
 
 
-                        <InputText col={rwd.ref_data1} label='Domicilio' name='ref2_domicilio' />
-                        <InputText col={rwd.ref_data2} label='Parentesco' name='ref2_parentesco' />
-                        <InputText col={rwd.ref_data2} label='Celular 1' name='ref2_celular1' />
-                        <InputText col={rwd.ref_data2} label='Celular 2' name='ref2_celular2' />
-                        <InputSelect col={rwd.ref_data2} label='Estado civil' name='ref2_estado_civil' />
+                        <InputText col={rwd.ref_data1} label='Domicilio'
+                            register={{ ...register('ref2_domicilio') }} id='ref2_domicilio' />
+                        <InputText col={rwd.ref_data2} label='Parentesco'
+                            register={{ ...register('ref2_parentesco') }} id='ref2_parentesco' />
+                        <InputText col={rwd.ref_data2} label='Celular 1'
+                            register={{ ...register('ref2_celular1') }} id='ref2_celular1' />
+                        <InputText col={rwd.ref_data2} label='Celular 2'
+                            register={{ ...register('ref2_celular2') }} id='ref2_celular2' />
+                        <InputSelect col={rwd.ref_data2} label='Estado civil'
+                            register={{ ...register('ref2_estado_civil') }} id='ref2_estado_civil' />
                     </InputsRow>
 
                 </div>
                 <div className='form-tab__body-inputs' id='5'>
                     <h2 className='form-tab__body-title'>Aval 1</h2>
                     <InputsRow margin='1.6'>
-                        <InputText col={rwd.DNI} label='DNI' name='aval1_dni' />
+                        <InputText col={rwd.DNI} label='DNI'
+                            register={{ ...register('aval1_dni') }} id='aval1_dni' />
                         <FragmentContainer col={rwd.buttonSearchDNI}>
                             <Button width='8.7rem' className='primary' content='Buscar' />
                         </FragmentContainer>
-                        <InputText col={rwd.aval_data} label='Nombres' name='aval1_nombres' />
-                        <InputText col={rwd.aval_data} label='Apellidos' name='aval1_apellidos' />
+                        <InputText col={rwd.aval_data} label='Nombres'
+                            register={{ ...register('aval1_nombres') }} id='aval1_nombres' />
+                        <InputText col={rwd.aval_data} label='Apellidos'
+                            register={{ ...register('aval1_apellidos') }} id='aval1_apellidos' />
 
-                        <InputText col={rwd.aval_data} label='Domicilio' name='aval1_domicilio' />
-                        <InputText col={rwd.aval_data} label='Correo' name='aval1_correo' />
-                        <InputText col={rwd.aval_data} label='Celular 1' name='aval1_celular1' />
+                        <InputText col={rwd.aval_data} label='Domicilio'
+                            register={{ ...register('aval1_domicilio') }} id='aval1_domicilio' />
+                        <InputText col={rwd.aval_data} label='Correo'
+                            register={{ ...register('aval1_correo') }} id='aval1_correo' />
+                        <InputText col={rwd.aval_data} label='Celular 1'
+                            register={{ ...register('aval1_celular1') }} id='aval1_celular1' />
                     </InputsRow>
                     <hr />
                     <h2 className='form-tab__body-title'>Aval 1</h2>
                     <InputsRow margin='1.6'>
-                        <InputText col={rwd.DNI} label='DNI' name='aval2_dni' />
+                        <InputText col={rwd.DNI} label='DNI'
+                            register={{ ...register('aval2_dni') }} id='aval2_dni' />
                         <FragmentContainer col={rwd.buttonSearchDNI}>
                             <Button width='8.7rem' className='primary' content='Buscar' />
                         </FragmentContainer>
-                        <InputText col={rwd.aval_data} label='Nombres' name='aval2_nombres' />
-                        <InputText col={rwd.aval_data} label='Apellidos' name='aval2_apellidos' />
+                        <InputText col={rwd.aval_data} label='Nombres'
+                            register={{ ...register('aval2_nombres') }} id='aval2_nombres' />
+                        <InputText col={rwd.aval_data} label='Apellidos'
+                            register={{ ...register('aval2_apellidos') }} id='aval2_apellidos' />
 
-                        <InputText col={rwd.aval_data} label='Domicilio' name='aval2_domicilio' />
-                        <InputText col={rwd.aval_data} label='Correo' name='aval2_correo' />
-                        <InputText col={rwd.aval_data} label='Celular 1' name='aval2_celular1' />
+                        <InputText col={rwd.aval_data} label='Domicilio'
+                            register={{ ...register('aval2_domicilio') }} id='aval2_domicilio' />
+                        <InputText col={rwd.aval_data} label='Correo'
+                            register={{ ...register('aval2_correo') }} id='aval2_correo' />
+                        <InputText col={rwd.aval_data} label='Celular 1'
+                            register={{ ...register('aval2_celular1') }} id='aval2_celular1' />
                     </InputsRow>
                 </div>
             </div>

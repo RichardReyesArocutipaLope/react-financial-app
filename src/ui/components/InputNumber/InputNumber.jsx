@@ -1,13 +1,13 @@
-import { InputContainer } from '../InputContainer/InputContainer'
+import { InputContainer } from '../inputContainer'
 import './InputNumber.css'
 
-export const InputNumber = ({ label, col, name, money}) => {
+export const InputNumber = ({ label, col, id, register, money}) => {
   return (
     <InputContainer col={col}>
-      <input name={name} id={name}
+      <input {...register} id={id}
         className={`input input-number ${money ? 'money' : ''}`}
         type="number"></input>
-      {label && <label className='input__label' htmlFor={name}>{label}</label>}
+      {label && <label className='input__label' htmlFor={id}>{label}</label>}
       {money && <div className='input-number__symbol'>S/.</div>}
     </InputContainer>
   )
