@@ -1,5 +1,9 @@
 import { financialApi } from "../../../api"
 
+// ! ESTO TRAE A LOS EMPLEADOS SEGUN A QUE ROL ESTE ASIGNADO SU USUARIO
+// ! Y ESTA MAL, YA QUE ES EL MODULO DE ROLES Y SOLO DEBERIA TRAER ROLES, 
+// !EN ESTE CASO UN ROL SEGUN EL NOMBRE, SI LE INDICO "ANALISTA" DEBERIA TRAER EL ROL DE ANALISTA Y LISTO :(
+
 export const rolesGetRequestByName = async (name) => {
 
     const token = localStorage.getItem('token') || ''

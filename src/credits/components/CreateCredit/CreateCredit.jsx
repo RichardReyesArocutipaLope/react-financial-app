@@ -11,6 +11,8 @@ import { setSubmitCreditCreateForm } from '../../../store/credits/creditsOptions
 
 export const CreateCredit = () => {
 
+    const { analistas, cobradores } = useSelector(state => state.roles);
+
     const initialResponsive = [
         { name: 'DNI', xxs: 24, xs: 24, s: 16, m: 7, l: 7, xl: 5, xxl: 5, col: 6 },
         { name: 'buttonSearchDNI', xxs: 24, xs: 24, s: 8, m: 5, l: 5, xl: 3, xxl: 3, col: 6 },
@@ -35,7 +37,7 @@ export const CreateCredit = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { submitCreditCreateForm } = useSelector(state => state.creditsOptions);
     const dispatch = useDispatch();
-    console.log(errors)
+    console.log(errors, 'error')
     useEffect(() => {
         if (submitCreditCreateForm) {
             handleSubmit((data) => { console.log(data) })()
@@ -117,14 +119,18 @@ export const CreateCredit = () => {
                             id='analista'
                             error={errors?.analista?.message}
                             register={{ ...register('analista', { required: 'El analista es requerido' }) }}
-                        />
+                        >
+                            {analistas?.map(({ id, fullname }) => (<option key={id} value={id}>{fullname}</option>))}
+                        </InputSelect>
                         <InputSelect
                             col={rwd.operation_data2}
                             label='Cobrador'
                             id='cobrador'
                             error={errors?.cobrador?.message}
                             register={{ ...register('cobrador', { required: 'El cobrador es requerido' }) }}
-                        />
+                        >
+                            {cobradores?.map(({ id, fullname }) => <option key={id} value={id}>{fullname}</option>)}
+                        </InputSelect>
                     </InputsRow>
 
                     <hr />
@@ -141,6 +147,10 @@ export const CreateCredit = () => {
                                         required: 'El DNI es requerido',
                                         maxLength: { value: 8, message: "El DNI debe tener 8 números" },
                                         minLength: { value: 8, message: "El DNI debe tener 8 números" },
+                                        pattern: {
+                                            value: /^[0-9]+$/,
+                                            message: "El DNI solo puede contener números!"
+                                        },
                                     })
                             }} />
 
@@ -153,14 +163,30 @@ export const CreateCredit = () => {
                             label='Nombres'
                             id='cli_nombre'
                             error={errors?.cli_nombre?.message}
-                            register={{ ...register('cli_nombre', { required: 'El nombre es requerido' }) }}
+                            register={{
+                                ...register('cli_nombre', {
+                                    required: 'El nombre es requerido',
+                                    pattern: {
+                                        value: /^[a-zA-Z ]{2,254}$/,
+                                        message: "El nombre solo puede contener letras y espacios"
+                                    }
+                                })
+                            }}
                         />
                         <InputText
                             col={rwd.client_data1}
                             label='Apellidos'
                             id='cli_apellidos'
                             error={errors?.cli_apellidos?.message}
-                            register={{ ...register('cli_apellidos', { required: 'El apellido es requerido' }) }}
+                            register={{
+                                ...register('cli_apellidos', {
+                                    required: 'El apellido es requerido',
+                                    pattern: {
+                                        value: /^[a-zA-Z ]{2,254}$/,
+                                        message: "El apellido solo puede contener letras y espacios"
+                                    }
+                                })
+                            }}
                         />
 
 
@@ -199,14 +225,29 @@ export const CreateCredit = () => {
                             label='Celular 1'
                             id='cli_celular1'
                             error={errors?.cli_celular1?.message}
-                            register={{ ...register('cli_celular1', { required: 'El celular 1 es requerido' }) }}
+                            register={{
+                                ...register('cli_celular1', {
+                                    required: 'El celular 1 es requerido',
+                                    pattern: {
+                                        value: /^\+[0-9\s]+$/,
+                                        message: "El el formato debe ser asi: +51 925 072 688",
+                                    }
+                                })
+                            }}
                         />
                         <InputText
                             col={rwd.client_data1}
                             label='Celular 2'
                             id='cli_celular2'
                             error={errors?.cli_celular2?.message}
-                            register={{ ...register('cli_celular2') }}
+                            register={{
+                                ...register('cli_celular2', {
+                                    pattern: {
+                                        value: /^\+[0-9\s]+$/,
+                                        message: "El el formato debe ser asi: +51 925 072 688",
+                                    }
+                                })
+                            }}
                         />
 
 
@@ -220,7 +261,7 @@ export const CreateCredit = () => {
                                     required: 'El correo es requerido',
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                        message: "Ingresa un correo valido!"
+                                        message: "Ingresa un correo valido: ejemplo@gmail.com"
                                     }
                                 })
                             }}
@@ -241,7 +282,11 @@ export const CreateCredit = () => {
                             label='Actividad negocio'
                             id='neg_actividad'
                             error={errors?.neg_actividad?.message}
-                            register={{ ...register('neg_actividad', { required: 'La actividad del negocio es requerida' }) }}
+                            register={{
+                                ...register('neg_actividad', {
+                                    required: 'La actividad del negocio es requerida'
+                                })
+                            }}
                         />
                         <InputText
                             col={rwd.busines_data}
@@ -277,10 +322,14 @@ export const CreateCredit = () => {
                     <InputsRow margin='1.6'>
                         <InputNumber
                             col={rwd.loan_data1}
-                            label='Solicitao'
+                            label='Solicitado'
                             id='pres_solicitado' money
                             error={errors?.pres_solicitado?.message}
-                            register={{ ...register('pres_solicitado', { required: 'El préstamo solicitado es requerido' }) }}
+                            register={{
+                                ...register('pres_solicitado', {
+                                    required: 'El préstamo solicitado es requerido'
+                                })
+                            }}
                         />
                         <InputNumber
                             col={rwd.loan_data1}
@@ -418,8 +467,18 @@ export const CreateCredit = () => {
                         <InputText
                             col={rwd.DNI}
                             label='DNI'
+                            id='ref1_dni'
                             error={errors?.ref1_dni?.message}
-                            register={{ ...register('ref1_dni') }} id='ref1_dni'
+                            register={{
+                                ...register('ref1_dni', {
+                                    maxLength: { value: 8, message: "El DNI debe tener 8 números" },
+                                    minLength: { value: 8, message: "El DNI debe tener 8 números" },
+                                    pattern: {
+                                        value: /^[0-9]+$/,
+                                        message: "El DNI solo puede contener números!"
+                                    },
+                                })
+                            }}
                         />
                         <FragmentContainer col={rwd.buttonSearchDNI}>
                             <Button width='8.7rem' className='primary' content='Buscar' />
@@ -428,13 +487,27 @@ export const CreateCredit = () => {
                             col={rwd.ref_data1}
                             label='Nombres'
                             error={errors?.ref1_nombres?.message}
-                            register={{ ...register('ref1_nombres') }} id='ref1_nombres'
+                            register={{
+                                ...register('ref1_nombres', {
+                                    pattern: {
+                                        value: /^[a-zA-Z ]{2,254}$/,
+                                        message: "El nombre solo puede contener letras y espacios"
+                                    }
+                                })
+                            }} id='ref1_nombres'
                         />
                         <InputText
                             col={rwd.ref_data1}
                             label='Apellidos'
                             error={errors?.ref1_apellidos?.message}
-                            register={{ ...register('ref1_apellidos') }} id='ref1_apellidos'
+                            register={{
+                                ...register('ref1_apellidos', {
+                                    pattern: {
+                                        value: /^[a-zA-Z ]{2,254}$/,
+                                        message: "El apellido solo puede contener letras y espacios"
+                                    }
+                                })
+                            }} id='ref1_apellidos'
                         />
 
 
@@ -453,14 +526,30 @@ export const CreateCredit = () => {
                         <InputText
                             col={rwd.ref_data2}
                             label='Celular 1'
+                            id='ref1_celular1'
                             error={errors?.ref1_celular1?.message}
-                            register={{ ...register('ref1_celular1') }} id='ref1_celular1'
+                            register={{
+                                ...register('ref1_celular1', {
+                                    pattern: {
+                                        value: /^\+[0-9\s]+$/,
+                                        message: "El el formato debe ser asi: +51 925 072 688",
+                                    }
+                                })
+                            }}
                         />
                         <InputText
                             col={rwd.ref_data2}
                             label='Celular 2'
+                            id='ref1_celular2'
                             error={errors?.ref1_celular2?.message}
-                            register={{ ...register('ref1_celular2') }} id='ref1_celular2'
+                            register={{
+                                ...register('ref1_celular2', {
+                                    pattern: {
+                                        value: /^\+[0-9\s]+$/,
+                                        message: "El el formato debe ser asi: +51 925 072 688",
+                                    }
+                                })
+                            }}
                         />
                         <InputSelect
                             col={rwd.ref_data2}
@@ -477,8 +566,18 @@ export const CreateCredit = () => {
                         <InputText
                             col={rwd.DNI}
                             label='DNI'
+                            id='ref2_dni'
                             error={errors?.ref2_dni?.message}
-                            register={{ ...register('ref2_dni') }} id='ref2_dni'
+                            register={{
+                                ...register('ref2_dni', {
+                                    maxLength: { value: 8, message: "El DNI debe tener 8 números" },
+                                    minLength: { value: 8, message: "El DNI debe tener 8 números" },
+                                    pattern: {
+                                        value: /^[0-9]+$/,
+                                        message: "El DNI solo puede contener números!"
+                                    },
+                                })
+                            }}
                         />
 
                         <FragmentContainer col={rwd.buttonSearchDNI}>
@@ -489,13 +588,27 @@ export const CreateCredit = () => {
                             col={rwd.ref_data1}
                             label='Nombres'
                             error={errors?.ref2_nombres?.message}
-                            register={{ ...register('ref2_nombres') }} id='ref2_nombres'
+                            register={{
+                                ...register('ref2_nombres', {
+                                    pattern: {
+                                        value: /^[a-zA-Z ]{2,254}$/,
+                                        message: "El nombre solo puede contener letras y espacios"
+                                    }
+                                })
+                            }} id='ref2_nombres'
                         />
                         <InputText
                             col={rwd.ref_data1}
                             label='Apellidos'
                             error={errors?.ref2_apellidos?.message}
-                            register={{ ...register('ref2_apellidos') }} id='ref2_apellidos'
+                            register={{
+                                ...register('ref2_apellidos', {
+                                    pattern: {
+                                        value: /^[a-zA-Z ]{2,254}$/,
+                                        message: "El apellido solo puede contener letras y espacios"
+                                    }
+                                })
+                            }} id='ref2_apellidos'
                         />
 
 
@@ -514,14 +627,30 @@ export const CreateCredit = () => {
                         <InputText
                             col={rwd.ref_data2}
                             label='Celular 1'
+                            id='ref2_celular1'
                             error={errors?.ref2_celular1?.message}
-                            register={{ ...register('ref2_celular1') }} id='ref2_celular1'
+                            register={{
+                                ...register('ref2_celular1', {
+                                    pattern: {
+                                        value: /^\+[0-9\s]+$/,
+                                        message: "El el formato debe ser asi: +51 925 072 688",
+                                    }
+                                })
+                            }}
                         />
                         <InputText
                             col={rwd.ref_data2}
                             label='Celular 2'
+                            id='ref2_celular2'
                             error={errors?.ref2_celular2?.message}
-                            register={{ ...register('ref2_celular2') }} id='ref2_celular2'
+                            register={{
+                                ...register('ref2_celular2', {
+                                    pattern: {
+                                        value: /^\+[0-9\s]+$/,
+                                        message: "El el formato debe ser asi: +51 925 072 688",
+                                    }
+                                })
+                            }}
                         />
                         <InputSelect
                             col={rwd.ref_data2}
@@ -538,8 +667,18 @@ export const CreateCredit = () => {
                         <InputText
                             col={rwd.DNI}
                             label='DNI'
+                            id='aval1_dni'
                             error={errors?.aval1_dni?.message}
-                            register={{ ...register('aval1_dni') }} id='aval1_dni'
+                            register={{
+                                ...register('aval1_dni', {
+                                    maxLength: { value: 8, message: "El DNI debe tener 8 números" },
+                                    minLength: { value: 8, message: "El DNI debe tener 8 números" },
+                                    pattern: {
+                                        value: /^[0-9]+$/,
+                                        message: "El DNI solo puede contener números!"
+                                    },
+                                })
+                            }}
                         />
 
                         <FragmentContainer col={rwd.buttonSearchDNI}>
@@ -549,34 +688,67 @@ export const CreateCredit = () => {
                         <InputText
                             col={rwd.aval_data}
                             label='Nombres'
+                            id='aval1_nombres'
                             error={errors?.aval1_nombres?.message}
-                            register={{ ...register('aval1_nombres') }} id='aval1_nombres'
+                            register={{
+                                ...register('aval1_nombres', {
+                                    pattern: {
+                                        value: /^[a-zA-Z ]{2,254}$/,
+                                        message: "El nombre solo puede contener letras y espacios"
+                                    }
+                                })
+                            }}
                         />
                         <InputText
                             col={rwd.aval_data}
                             label='Apellidos'
+                            id='aval1_apellidos'
                             error={errors?.aval1_apellidos?.message}
-                            register={{ ...register('aval1_apellidos') }} id='aval1_apellidos'
+                            register={{
+                                ...register('aval1_apellidos', {
+                                    pattern: {
+                                        value: /^[a-zA-Z ]{2,254}$/,
+                                        message: "El apellido solo puede contener letras y espacios"
+                                    }
+                                })
+                            }}
                         />
 
 
                         <InputText
                             col={rwd.aval_data}
                             label='Domicilio'
+                            id='aval1_domicilio'
                             error={errors?.aval1_domicilio?.message}
-                            register={{ ...register('aval1_domicilio') }} id='aval1_domicilio'
+                            register={{ ...register('aval1_domicilio') }}
                         />
                         <InputText
                             col={rwd.aval_data}
                             label='Correo'
+                            id='aval1_correo'
                             error={errors?.aval1_correo?.message}
-                            register={{ ...register('aval1_correo') }} id='aval1_correo'
+                            register={{
+                                ...register('aval1_correo', {
+                                    pattern: {
+                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                        message: "Ingresa un correo valido: ejemplo@gmail.com"
+                                    }
+                                })
+                            }}
                         />
                         <InputText
                             col={rwd.aval_data}
                             label='Celular 1'
+                            id='aval1_celular1'
                             error={errors?.aval1_celular1?.message}
-                            register={{ ...register('aval1_celular1') }} id='aval1_celular1'
+                            register={{
+                                ...register('aval1_celular1', {
+                                    pattern: {
+                                        value: /^\+[0-9\s]+$/,
+                                        message: "El el formato debe ser asi: +51 925 072 688",
+                                    }
+                                })
+                            }}
                         />
                     </InputsRow>
                     <hr />
@@ -585,8 +757,18 @@ export const CreateCredit = () => {
                         <InputText
                             col={rwd.DNI}
                             label='DNI'
+                            id='aval2_dni'
                             error={errors?.aval2_dni?.message}
-                            register={{ ...register('aval2_dni') }} id='aval2_dni'
+                            register={{
+                                ...register('aval2_dni', {
+                                    maxLength: { value: 8, message: "El DNI debe tener 8 números" },
+                                    minLength: { value: 8, message: "El DNI debe tener 8 números" },
+                                    pattern: {
+                                        value: /^[0-9]+$/,
+                                        message: "El DNI solo puede contener números!"
+                                    },
+                                })
+                            }}
                         />
 
                         <FragmentContainer col={rwd.buttonSearchDNI}>
@@ -596,36 +778,69 @@ export const CreateCredit = () => {
                         <InputText
                             col={rwd.aval_data}
                             label='Nombres'
+                            id='aval2_nombres'
                             error={errors?.aval2_nombres?.message}
-                            register={{ ...register('aval2_nombres') }} id='aval2_nombres'
+                            register={{
+                                ...register('aval2_nombres', {
+                                    pattern: {
+                                        value: /^[a-zA-Z ]{2,254}$/,
+                                        message: "El nombre solo puede contener letras y espacios"
+                                    }
+                                })
+                            }}
                         />
 
                         <InputText
                             col={rwd.aval_data}
                             label='Apellidos'
+                            id='aval2_apellidos'
                             error={errors?.aval2_apellidos?.message}
-                            register={{ ...register('aval2_apellidos') }} id='aval2_apellidos'
+                            register={{
+                                ...register('aval2_apellidos', {
+                                    pattern: {
+                                        value: /^[a-zA-Z ]{2,254}$/,
+                                        message: "El apellido solo puede contener letras y espacios"
+                                    }
+                                })
+                            }}
                         />
 
                         <InputText
                             col={rwd.aval_data}
                             label='Domicilio'
+                            id='aval2_domicilio'
                             error={errors?.aval2_domicilio?.message}
-                            register={{ ...register('aval2_domicilio') }} id='aval2_domicilio'
+                            register={{ ...register('aval2_domicilio') }}
                         />
 
                         <InputText
                             col={rwd.aval_data}
                             label='Correo'
+                            id='aval2_correo'
                             error={errors?.aval2_correo?.message}
-                            register={{ ...register('aval2_correo') }} id='aval2_correo'
+                            register={{
+                                ...register('aval2_correo', {
+                                    pattern: {
+                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                        message: "Ingresa un correo valido: ejemplo@gmail.com"
+                                    }
+                                })
+                            }}
                         />
 
                         <InputText
                             col={rwd.aval_data}
                             label='Celular 1'
+                            id='aval2_celular1'
                             error={errors?.aval2_celular1?.message}
-                            register={{ ...register('aval2_celular1') }} id='aval2_celular1'
+                            register={{
+                                ...register('aval2_celular1', {
+                                    pattern: {
+                                        value: /^\+[0-9\s]+$/,
+                                        message: "El el formato debe ser asi: +51 925 072 688",
+                                    }
+                                })
+                            }}
                         />
                     </InputsRow>
                 </div>
