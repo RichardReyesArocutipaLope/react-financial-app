@@ -3,6 +3,10 @@ import { CreditContext } from "./CreditContext"
 import { useDispatch } from "react-redux"
 import { startLoadingRoleByName } from "../../store/security/roles"
 import { startLoadingCredits } from "../../store/credits/thunks"
+import { startLoadingFinancialInterestRate } from "../../store/credits/financialInterestRate/thunks"
+import { startLoadingPeriodType } from "../../store/credits/periodType/thunks"
+import { startLoadingHousingType } from "../../store/catalogue/housingType/thunks"
+import { startLoadingCivilStatus } from "../../store/catalogue/civilStatus/thunks"
 
 export const CreditProvider = ({ children }) => {
 
@@ -68,6 +72,13 @@ export const CreditProvider = ({ children }) => {
     useEffect(() => {
         dispatch(startLoadingCredits(dataForFilter, parameters))
     }, [parameters, dataForFilter])
+
+    useEffect(()=>{
+        dispatch(startLoadingFinancialInterestRate())
+        dispatch(startLoadingPeriodType())
+        dispatch(startLoadingHousingType())
+        dispatch(startLoadingCivilStatus())
+    }, [])
     
 
     return (

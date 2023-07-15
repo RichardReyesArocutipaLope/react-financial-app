@@ -7,11 +7,19 @@ import {
 import './CreateCredit.css';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { setSubmitCreditCreateForm } from '../../../store/credits/creditsOptionsSlice';
+import { setCleanCreditCreateForm, setSubmitCreditCreateForm } from '../../../store/credits/creditsOptionsSlice';
 
 export const CreateCredit = () => {
 
     const { analistas, cobradores } = useSelector(state => state.roles);
+
+    const { periodType } = useSelector(state => state.periodType);
+
+    const { financialInterestRate } = useSelector(state => state.financialInterestRate);
+
+    const { civilStatus } = useSelector(state => state.civilStatus);
+
+    const { housingType } = useSelector(state => state.housingType);
 
     const initialResponsive = [
         { name: 'DNI', xxs: 24, xs: 24, s: 16, m: 7, l: 7, xl: 5, xxl: 5, col: 6 },
@@ -35,17 +43,26 @@ export const CreateCredit = () => {
     const { rwd, centinela } = useResponsiveForm(initialResponsive);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { submitCreditCreateForm } = useSelector(state => state.creditsOptions);
+    const { submitCreditCreateForm, cleanCreditCreateForm } = useSelector(state => state.creditsOptions);
     const dispatch = useDispatch();
-    console.log(errors, 'error')
     useEffect(() => {
         if (submitCreditCreateForm) {
             handleSubmit((data) => { console.log(data) })()
-
             dispatch(setSubmitCreditCreateForm(false))
         }
     }, [submitCreditCreateForm])
 
+    useEffect(() => {
+        if (cleanCreditCreateForm) {
+            reset()
+            dispatch(setCleanCreditCreateForm(false))
+        }
+    }, [cleanCreditCreateForm])
+
+    // TODO: traer tipo de vivienda
+    // TODO: traer estados civiles
+    // TODO: tipo de plazo
+    // TODO: tipo de interes
 
     return (
         <div className='form-tab'>
@@ -98,7 +115,7 @@ export const CreateCredit = () => {
                     {(centinela <= 1280) ? <i className="fa-solid fa-user-lock"></i> : "Datos de aval"}
                 </a>
             </div>
-            <div className='form-tab__body' >
+            <form className='form-tab__body' >
                 <div className='form-tab__body-inputs' id='1'>
                     <InputsRow margin='1.6'>
                         <InputNumber
@@ -210,7 +227,9 @@ export const CreateCredit = () => {
                             id='cli_vivienda'
                             error={errors?.cli_vivienda?.message}
                             register={{ ...register('cli_vivienda', { required: 'El tipo de vivienda es requerido' }) }}
-                        />
+                        >
+                            {housingType?.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
+                        </InputSelect>
 
 
                         <InputSelect
@@ -219,7 +238,9 @@ export const CreateCredit = () => {
                             id='cli_estado_civil'
                             error={errors?.cli_estado_civil?.message}
                             register={{ ...register('cli_estado_civil', { required: 'El estado civil es requerido' }) }}
-                        />
+                        >
+                            {civilStatus?.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
+                        </InputSelect>
                         <InputText
                             col={rwd.client_data1}
                             label='Celular 1'
@@ -367,14 +388,19 @@ export const CreateCredit = () => {
                             id='pres_tipo_plazo'
                             error={errors?.pres_tipo_plazo?.message}
                             register={{ ...register('pres_tipo_plazo', { required: 'El tipo de plazo es requerido' }) }}
-                        />
+                        >
+                            {periodType?.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
+                        </InputSelect>
+
                         <InputSelect
                             col={rwd.loan_data1}
                             label='Tipo interes'
                             id='pres_interes'
                             error={errors?.pres_interes?.message}
                             register={{ ...register('pres_interes', { required: 'El tipo de interes es requerido' }) }}
-                        />
+                        >
+                            {financialInterestRate?.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
+                        </InputSelect>
                         <InputNumber
                             col={rwd.loan_data1}
                             label='Tasa%'
@@ -554,9 +580,12 @@ export const CreateCredit = () => {
                         <InputSelect
                             col={rwd.ref_data2}
                             label='Estado civil'
+                            id='ref1_estado_civil'
                             error={errors?.ref1_estado_civil?.message}
-                            register={{ ...register('ref1_estado_civil') }} id='ref1_estado_civil'
-                        />
+                            register={{ ...register('ref1_estado_civil') }}
+                        >
+                            {civilStatus?.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
+                        </InputSelect>
                     </InputsRow>
 
                     <hr />
@@ -655,9 +684,12 @@ export const CreateCredit = () => {
                         <InputSelect
                             col={rwd.ref_data2}
                             label='Estado civil'
+                            id='ref2_estado_civil'
                             error={errors?.ref2_estado_civil?.message}
-                            register={{ ...register('ref2_estado_civil') }} id='ref2_estado_civil'
-                        />
+                            register={{ ...register('ref2_estado_civil') }}
+                        >
+                            {civilStatus?.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
+                        </InputSelect>
                     </InputsRow>
 
                 </div>
@@ -844,7 +876,7 @@ export const CreateCredit = () => {
                         />
                     </InputsRow>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
