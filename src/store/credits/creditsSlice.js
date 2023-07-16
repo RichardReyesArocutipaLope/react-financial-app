@@ -3,8 +3,9 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     isLoading: false,
     credits: [],
+    creditActive: [],
     numberOfCredits: 0,
-    message: ''
+    message: {}
 }
 
 export const creditsSlice = createSlice({
@@ -12,7 +13,8 @@ export const creditsSlice = createSlice({
     initialState,
     reducers: {
         addCredit: (state, action) => {
-            state.credits.push(action.payload);
+            state.credits.unshift(action.payload);
+            state.credits.pop();
             state.isLoading = false;
         },
 
@@ -26,9 +28,9 @@ export const creditsSlice = createSlice({
         },
 
         setCredits: (state, action) => {
-            console.log(action,'slice')
+            console.log(action, 'slice')
             state.credits = action.payload.credits;
-            state.numberOfCredits=action.payload.numberOfCredits
+            state.numberOfCredits = action.payload.numberOfCredits
             state.isLoading = false;
         },
 
@@ -39,9 +41,13 @@ export const creditsSlice = createSlice({
         clearCreditsLogout: (state) => {
             state.isLoading = false;
             state.credits = [];
-            state.message = '';
+            state.message = {};
+        },
+
+        setError: (state, action) => {
+            state.message = action.payload;
         }
     },
 })
 
-export const { addCredit, setLoading, updateCredit, setCredits, deleteCreditById, clearCreditsLogout } = creditsSlice.actions
+export const { addCredit, setLoading, updateCredit, setCredits, deleteCreditById, clearCreditsLogout, setError } = creditsSlice.actions

@@ -8,17 +8,15 @@ import './CreateCredit.css';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { setCleanCreditCreateForm, setSubmitCreditCreateForm } from '../../../store/credits/creditsOptionsSlice';
+import { startNewCredit } from '../../../store/credits/thunks';
 
 export const CreateCredit = () => {
 
     const { analistas, cobradores } = useSelector(state => state.roles);
 
     const { periodType } = useSelector(state => state.periodType);
-
     const { financialInterestRate } = useSelector(state => state.financialInterestRate);
-
     const { civilStatus } = useSelector(state => state.civilStatus);
-
     const { housingType } = useSelector(state => state.housingType);
 
     const initialResponsive = [
@@ -42,12 +40,82 @@ export const CreateCredit = () => {
     ]
     const { rwd, centinela } = useResponsiveForm(initialResponsive);
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({
+        defaultValues: {
+                n_operacion: "",
+                n_credito: "",
+                analista: "3",
+                cobrador: "7",
+                dni_cliente: "70283340",
+                cli_nombre: "Richard Reyes",
+                cli_apellidos: "Arocutipa Lope",
+                cli_domicilio: "la perla mz 127 lt 21",
+                cli_ref_domicilio: "atras del local comunal",
+                cli_vivienda: "1",
+                cli_estado_civil: "2",
+                cli_celular1: "+51 925072688",
+                cli_celular2: "+51 789645734",
+                cli_correo: "richard@gmail.com",
+                clie_obs: "dos semanas para acabar redes 2",
+                neg_actividad: "desarrollo web",
+                neg_direccion: "no existe",
+                neg_referencia: "esto menos",
+                neg_observacion: "toy terminando mi proyecto",
+                pres_solicitado: "15000",
+                pres_aprobado: "",
+                pres_fecha_emision: "2023-07-09",
+                pres_fecha_desembolso: "",
+                pres_plazo: "16",
+                pres_tipo_plazo: "1",
+                pres_interes: "1",
+                pres_tasa: "12.43",
+                pres_ventas_diarias: "500",
+                pres_dias_buenos: "2000",
+                pres_dias_malos: "200",
+                pres_inventario: "150000",
+                recibo_luz: true,
+                mayor_21: true,
+                dni_vigente: true,
+                doc_negocio: false,
+                doc_vivienda: false,
+                compr_negocio: false,
+                ref1_dni: "11928374",
+                ref1_nombres: "lady",
+                ref1_apellidos: "arocutipa",
+                ref1_domicilio: "la perla mz 121 lt 1",
+                ref1_parentesco: "hermana",
+                ref1_celular1: "+51687233645",
+                ref1_correo: "lady@gmail.com",
+                ref2_dni: "92837465",
+                ref2_nombres: "marleny",
+                ref2_apellidos: "churata",
+                ref2_domicilio: "la perla",
+                ref2_parentesco: "mamá",
+                ref2_celular1: "+51345234345",
+                ref2_correo: "lady@gmail.com",
+                aval1_dni: "92758310",
+                aval1_nombres: "rosendo",
+                aval1_apellidos: "zapana",
+                aval1_domicilio: "chile",
+                aval1_correo: "lady@gmail.com",
+                aval1_celular1: "+51687233645",
+                aval2_dni: "61936295",
+                aval2_nombres: "iama",
+                aval2_apellidos: "cama",
+                aval2_domicilio: "ciudad nueva",
+                aval2_correo: "lady@gmail.com",
+                aval2_celular1: "+51687233645"
+        }
+    });
     const { submitCreditCreateForm, cleanCreditCreateForm } = useSelector(state => state.creditsOptions);
     const dispatch = useDispatch();
+    console.log(errors)
     useEffect(() => {
         if (submitCreditCreateForm) {
-            handleSubmit((data) => { console.log(data) })()
+            handleSubmit((data) => {
+                console.log(data)
+                dispatch(startNewCredit(data))
+            })()
             dispatch(setSubmitCreditCreateForm(false))
         }
     }, [submitCreditCreateForm])
@@ -58,11 +126,6 @@ export const CreateCredit = () => {
             dispatch(setCleanCreditCreateForm(false))
         }
     }, [cleanCreditCreateForm])
-
-    // TODO: traer tipo de vivienda
-    // TODO: traer estados civiles
-    // TODO: tipo de plazo
-    // TODO: tipo de interes
 
     return (
         <div className='form-tab'>
@@ -117,7 +180,7 @@ export const CreateCredit = () => {
             </div>
             <form className='form-tab__body' >
                 <div className='form-tab__body-inputs' id='1'>
-                    <InputsRow margin='1.6'>
+                    <InputsRow margin='1.6' gap='1.6rem 0rem'>
                         <InputNumber
                             col={rwd.operation_data1}
                             label='N. Operación'
@@ -152,7 +215,7 @@ export const CreateCredit = () => {
 
                     <hr />
 
-                    <InputsRow margin='1.6'>
+                    <InputsRow margin='1.6' gap='1.6rem 0rem'>
                         <InputText
                             col={rwd.DNI}
                             label='DNI'
@@ -297,7 +360,7 @@ export const CreateCredit = () => {
                     </InputsRow>
                 </div>
                 <div className='form-tab__body-inputs' id='2'>
-                    <InputsRow margin='1.6'>
+                    <InputsRow margin='1.6' gap='1.6rem 0rem'>
                         <InputText
                             col={rwd.busines_data}
                             label='Actividad negocio'
@@ -322,6 +385,13 @@ export const CreateCredit = () => {
                             id='neg_referencia'
                             error={errors?.neg_referencia?.message}
                             register={{ ...register('neg_referencia') }} />
+                        <InputText
+                            col={rwd.busines_data}
+                            label='Observación'
+                            id='neg_observacion'
+                            error=""
+                            register={{ ...register('neg_observacion') }}
+                        />
                     </InputsRow>
 
                     <h2 className='form-tab__body-title'>Subir imagenes</h2>
@@ -340,7 +410,7 @@ export const CreateCredit = () => {
                 </div>
 
                 <div className='form-tab__body-inputs' id='3'>
-                    <InputsRow margin='1.6'>
+                    <InputsRow margin='1.6' gap='1.6rem 0rem'>
                         <InputNumber
                             col={rwd.loan_data1}
                             label='Solicitado'
@@ -440,7 +510,7 @@ export const CreateCredit = () => {
                         />
                     </InputsRow>
 
-                    <InputsRow margin='1.6'>
+                    <InputsRow margin='1.6' gap='1.6rem 0rem'>
                         <InputChekbox
                             col={rwd.loan_data2}
                             label='Recibo de luz'
@@ -489,7 +559,7 @@ export const CreateCredit = () => {
                 </div>
                 <div className='form-tab__body-inputs' id='4'>
                     <h2 className='form-tab__body-title'>Referencia 1</h2>
-                    <InputsRow margin='1.6'>
+                    <InputsRow margin='1.6' gap='1.6rem 0rem'>
                         <InputText
                             col={rwd.DNI}
                             label='DNI'
@@ -551,7 +621,7 @@ export const CreateCredit = () => {
                         />
                         <InputText
                             col={rwd.ref_data2}
-                            label='Celular 1'
+                            label='Celular'
                             id='ref1_celular1'
                             error={errors?.ref1_celular1?.message}
                             register={{
@@ -565,33 +635,25 @@ export const CreateCredit = () => {
                         />
                         <InputText
                             col={rwd.ref_data2}
-                            label='Celular 2'
-                            id='ref1_celular2'
-                            error={errors?.ref1_celular2?.message}
+                            label='Correo'
+                            id='ref1_correo'
+                            error={errors?.ref1_correo?.message}
                             register={{
-                                ...register('ref1_celular2', {
+                                ...register('ref1_correo', {
+                                    required: 'El correo es requerido',
                                     pattern: {
-                                        value: /^\+[0-9\s]+$/,
-                                        message: "El el formato debe ser asi: +51 925 072 688",
+                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                        message: "Ingresa un correo valido: ejemplo@gmail.com"
                                     }
                                 })
                             }}
                         />
-                        <InputSelect
-                            col={rwd.ref_data2}
-                            label='Estado civil'
-                            id='ref1_estado_civil'
-                            error={errors?.ref1_estado_civil?.message}
-                            register={{ ...register('ref1_estado_civil') }}
-                        >
-                            {civilStatus?.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
-                        </InputSelect>
                     </InputsRow>
 
                     <hr />
                     <h2 className='form-tab__body-title'>Referencia 2</h2>
 
-                    <InputsRow margin='1.6'>
+                    <InputsRow margin='1.6' gap='1.6rem 0rem'>
                         <InputText
                             col={rwd.DNI}
                             label='DNI'
@@ -655,7 +717,7 @@ export const CreateCredit = () => {
                         />
                         <InputText
                             col={rwd.ref_data2}
-                            label='Celular 1'
+                            label='Celular'
                             id='ref2_celular1'
                             error={errors?.ref2_celular1?.message}
                             register={{
@@ -669,33 +731,25 @@ export const CreateCredit = () => {
                         />
                         <InputText
                             col={rwd.ref_data2}
-                            label='Celular 2'
-                            id='ref2_celular2'
-                            error={errors?.ref2_celular2?.message}
+                            label='Correo'
+                            id='ref2_correo'
+                            error={errors?.ref2_correo?.message}
                             register={{
-                                ...register('ref2_celular2', {
+                                ...register('ref2_correo', {
+                                    required: 'El correo es requerido',
                                     pattern: {
-                                        value: /^\+[0-9\s]+$/,
-                                        message: "El el formato debe ser asi: +51 925 072 688",
+                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                        message: "Ingresa un correo valido: ejemplo@gmail.com"
                                     }
                                 })
                             }}
                         />
-                        <InputSelect
-                            col={rwd.ref_data2}
-                            label='Estado civil'
-                            id='ref2_estado_civil'
-                            error={errors?.ref2_estado_civil?.message}
-                            register={{ ...register('ref2_estado_civil') }}
-                        >
-                            {civilStatus?.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
-                        </InputSelect>
                     </InputsRow>
 
                 </div>
                 <div className='form-tab__body-inputs' id='5'>
                     <h2 className='form-tab__body-title'>Aval 1</h2>
-                    <InputsRow margin='1.6'>
+                    <InputsRow margin='1.6' gap='1.6rem 0rem'>
                         <InputText
                             col={rwd.DNI}
                             label='DNI'
@@ -785,7 +839,7 @@ export const CreateCredit = () => {
                     </InputsRow>
                     <hr />
                     <h2 className='form-tab__body-title'>Aval 1</h2>
-                    <InputsRow margin='1.6'>
+                    <InputsRow margin='1.6' gap='1.6rem 0rem'>
                         <InputText
                             col={rwd.DNI}
                             label='DNI'

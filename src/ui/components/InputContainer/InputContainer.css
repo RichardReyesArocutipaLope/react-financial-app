@@ -34,19 +34,33 @@
     color: var(--color-inputs);
 }
 
-.input:focus{
+.input-error {
+    outline: 1px solid rgb(200, 0, 0) !important;
+}
+
+.input:focus {
     background-color: var(--bg-inputs-focus);
 }
-.input:focus+.input__label{
+
+.input:focus+.input__label {
     color: var(--color-inputs-focus-label);
 }
 
 
 /* min width */
-.min-width__input{
+.min-width__input {
     position: absolute;
     bottom: 0;
     left: 0;
     height: .2rem;
     background-color: red;
+}
+
+
+.input-error-message {
+    color: rgb(200, 0, 0);
+    font-size: .9rem;
+    position: absolute;
+    bottom: -1.2rem;
+    left: 2.2rem;
 }

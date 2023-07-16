@@ -17,7 +17,7 @@ export const moduleOptions = [
             modalFooterComponent: <OptionsCreateCredit />,
             modalProperties: {
                 width: 'modal-l',
-                bodyHeight: '50rem',
+                bodyHeight: '55rem',
                 bodyHeightClass: 'modal__body--responsive',
                 staticBackdrop: false,
                 hasScroll: false,

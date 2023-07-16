@@ -1,11 +1,11 @@
 import { InputContainer } from '../inputContainer'
 import './InputNumber.css'
 
-export const InputNumber = ({ label, col, id, register, money}) => {
+export const InputNumber = ({ label, col, id, register, money, error }) => {
   return (
-    <InputContainer col={col}>
+    <InputContainer col={col} error={error}>
       <input {...register} id={id}
-        className={`input input-number ${money ? 'money' : ''}`}
+        className={`input input-number ${money ? 'money' : ''} ${error ? 'input-error' : ''}`}
         type="number"></input>
       {label && <label className='input__label' htmlFor={id}>{label}</label>}
       {money && <div className='input-number__symbol'>S/.</div>}
