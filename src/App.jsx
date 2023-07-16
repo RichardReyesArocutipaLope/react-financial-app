@@ -1,8 +1,9 @@
-import { useEffect} from "react"
+import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { startAuthToken } from "./store/auth"
 import { AppRouter } from "./router/AppRouter"
 import { ModalProvider } from "./context/modalContext"
+import { AlertProvider } from "./context/alertContext/AlertProvider"
 
 export const App = () => {
 
@@ -13,9 +14,11 @@ export const App = () => {
     }, [])
 
     return (
-        <ModalProvider>
-            <AppRouter />
-        </ModalProvider>
+        <AlertProvider>
+            <ModalProvider>
+                <AppRouter />
+            </ModalProvider>
+        </AlertProvider>
     )
 
 }

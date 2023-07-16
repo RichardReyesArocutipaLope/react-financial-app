@@ -65,3 +65,4 @@ export * from './stormBackground';
 export * from './table';
 export * from './userOptionsWindow';
 export * from './simpleLoading'
+export * from './alert'

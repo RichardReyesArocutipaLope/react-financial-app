@@ -1,0 +1,59 @@
+.main-alert {
+    position: fixed;
+    z-index: var(--z-index-210);
+    border-radius: 1rem;
+    box-shadow: .3rem .3rem .8rem 0rem var(--shadow-60);
+    padding: 1.1rem;
+    width: 30rem;
+    max-width: 30rem;
+    top: 1.5rem;
+    right: -30rem;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    transition: right .2s ;
+}
+
+.main-alert.active{
+    right: 1.5rem;
+}
+
+.main-alert.danger {
+    background-color: rgb(170, 2, 2);
+    color: white;
+}
+
+.main-alert.warning {
+    background-color: rgb(243, 198, 0);
+    color: black;
+}
+
+.main-alert.success {
+    background-color: rgb(34, 139, 25);
+    color: white;
+}
+
+.main-alert.info {
+    background-color: rgb(13, 145, 221);
+    color: white;
+}
+
+.main-alert .icon-alert {
+    font-size: 3rem;
+    color: inherit;
+}
+
+.main-alert__code {
+    font-size: 1.1rem;
+    color: inherit;
+    font-weight: 600;
+    margin-bottom: .3rem;
+    letter-spacing: .03rem;
+}
+
+.main-alert__message {
+    font-size: 1.1rem;
+    color: inherit;
+    font-weight: 500;
+    letter-spacing: .03rem;
+}
