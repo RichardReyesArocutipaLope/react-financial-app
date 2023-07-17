@@ -6,7 +6,7 @@ import './Table.css'
 import { CreditContext } from '../../../credits/context'
 
 export const Table = ({ isLoading, arrayData }) => {
-    const { tablethead, setCreditSelected } = useContext(CreditContext);
+    const { tablethead, setCreditSelected, creditSelected } = useContext(CreditContext);
     const [tableRwd, setTableRwd] = useState(null)
     const [numRegister, setNumRegister] = useState(10)
     const { maxColumns } = useResponsiveTable();
@@ -22,9 +22,23 @@ export const Table = ({ isLoading, arrayData }) => {
         setTableRwd(initialTableRwd)
     }, [numRegister])
 
-    const onSelectRegister = (data,id) => {
+    const onSelectRegister = (data, id) => {
         setCreditSelected({ tablethead, data, id })
     }
+
+    const handleClickOutside = (event) => {
+        if ((event.target.closest('.table-container') === null) && (event.target.closest('.module-options__container') === null)) {
+            setCreditSelected(null)
+        };
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        }
+    }, [])
+
 
     return (
         <div className='table-container'>
@@ -37,7 +51,7 @@ export const Table = ({ isLoading, arrayData }) => {
                         {
                             arrayData?.map(({ id, data }, index) => (
                                 <React.Fragment key={id}>
-                                    <tr key={id} onClick={()=>{onSelectRegister(data, id)}}>
+                                    <tr key={id} onClick={() => { onSelectRegister(data, id) }} className={`${creditSelected?.id == id ? 'active' : ''}`}>
                                         <td className='button-rwd'>
                                             <i onClick={() => { setTableRwd(tableRwd => ({ ...tableRwd, [`tr${index}`]: !tableRwd[`tr${index}`] })) }} className="fa-solid fa-plus"></i>
                                         </td>

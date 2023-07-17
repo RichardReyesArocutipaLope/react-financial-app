@@ -35,6 +35,11 @@
     position: relative;
 }
 
+.table__tbody tr.active {
+    background-color: var(--bg-table-tr-active) !important;
+    color: var(--color-table-tr-hover);
+}
+
 .table__tbody tr td:first-of-type {
     border-bottom-left-radius: 1rem;
     border-top-left-radius: 1rem;

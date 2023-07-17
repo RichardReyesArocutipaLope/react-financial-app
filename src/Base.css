@@ -189,6 +189,7 @@
     --bg-table-th: rgb(205, 205, 205);
     --border-table-tr: 2px solid rgb(185, 185, 185);
     --bg-table-tr-hover: rgb(40, 40, 40);
+    --bg-table-tr-active: rgb(40, 40, 40);
     --color-table-tr-hover: rgb(240, 240, 240);
 
     /* Paginacion.css */
@@ -384,6 +385,7 @@
     --bg-table-th: rgb(10, 10, 10);
     --border-table-tr: 2px solid rgb(50, 50, 50);
     --bg-table-tr-hover: rgb(60, 60, 60);
+    --bg-table-tr-active: rgb(60, 60, 60);
     --color-table-tr-hover: rgb(240, 240, 240);
 
     /* Paginacion.css */
@@ -570,6 +572,7 @@
     --bg-table-th: rgb(10, 10, 10);
     --border-table-tr: 2px solid rgb(30, 30, 30);
     --bg-table-tr-hover: rgb(30, 30, 30);
+    --bg-table-tr-active: rgb(30, 30, 30);
     --color-table-tr-hover: rgb(240, 240, 240);
 
     /* Paginacion.css */
