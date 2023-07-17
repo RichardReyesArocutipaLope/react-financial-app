@@ -1,3 +1,4 @@
+import moment from "moment/moment"
 import { financialApi } from "../api"
 
 export const creditsGetRequest = async (dataFilter, parameters) => {
@@ -70,21 +71,21 @@ export const creditsGetRequest = async (dataFilter, parameters) => {
 export const creditCreateRequest = async (data) => {
 
     const creditBody = {
-        requested_money: data.pres_solicitado,
-        approved_money: data.pres_aprobado,
-        date_of_issue: data.pres_fecha_emision,
-        disbursement_date: data.pres_fecha_desembolso,
-        period: data.pres_plazo,
-        interest_rate: data.pres_tasa,
+        requested_money: +data.pres_solicitado,
+        approved_money: +data.pres_aprobado,
+        date_of_issue: moment().format('YYYY-MM-DD HH:mm:ss'),
+        disbursement_date: null,
+        period: +data.pres_plazo,
+        interest_rate: +data.pres_tasa,
         state: 'NU',
         observation: null,
-        fk_employee_cobrador: data.cobrador,
-        fk_employee_analista: data.analista,
-        fk_financial_interest: data.pres_interes,
-        fk_period_type: data.pres_tipo_plazo,
+        fk_employee_cobrador: +data.cobrador,
+        fk_employee_analista: +data.analista,
+        fk_financial_interest: +data.pres_interes,
+        fk_period_type: +data.pres_tipo_plazo,
         aval: [
             {
-                dni: data.aval1_dni,
+                dni: +data.aval1_dni,
                 first_name: data.aval1_nombres,
                 last_name: data.aval1_apellidos,
                 phone: data.aval1_celular1,
@@ -92,7 +93,7 @@ export const creditCreateRequest = async (data) => {
                 address: data.aval1_domicilio,
             },
             {
-                dni: data.aval2_dni,
+                dni: +data.aval2_dni,
                 first_name: data.aval2_nombres,
                 last_name: data.aval2_apellidos,
                 phone: data.aval2_celular1,
@@ -102,7 +103,7 @@ export const creditCreateRequest = async (data) => {
         ],
         personalReference: [
             {
-                dni: data.ref1_dni,
+                dni: +data.ref1_dni,
                 first_name: data.ref1_nombres,
                 last_name: data.ref1_apellidos,
                 phone: data.ref1_celular1,
@@ -111,7 +112,7 @@ export const creditCreateRequest = async (data) => {
                 relationship: data.ref1_parentesco
             },
             {
-                dni: data.ref2_dni,
+                dni: +data.ref2_dni,
                 first_name: data.ref2_nombres,
                 last_name: data.ref2_apellidos,
                 phone: data.ref2_celular1,
@@ -121,7 +122,7 @@ export const creditCreateRequest = async (data) => {
             }
         ],
         customer: {
-            dni: data.dni_cliente,
+            dni: +data.dni_cliente,
             first_name: data.cli_nombre,
             last_name: data.cli_apellidos,
             phone: data.cli_celular1,
@@ -134,23 +135,24 @@ export const creditCreateRequest = async (data) => {
             have_valid_dni: data.dni_vigente,
             have_property_documents: data.doc_vivienda,
             observation: data.clie_obs,
-            fk_civil_status: data.cli_estado_civil,
-            fk_housing_type: data.cli_vivienda,
+            fk_civil_status: +data.cli_estado_civil,
+            fk_housing_type: +data.cli_vivienda,
         },
         business: {
             business_description: data.neg_actividad,
             address: data.neg_direccion,
             address_reference: data.neg_referencia,
-            daily_gain: data.pres_ventas_diarias,
-            maximum_daily_gain: data.pres_dias_buenos,
-            minimum_daily_gain: data.pres_dias_malos,
-            inventory_value: data.pres_inventario,
+            daily_gain: +data.pres_ventas_diarias,
+            maximum_daily_gain: +data.pres_dias_buenos,
+            minimum_daily_gain: +data.pres_dias_malos,
+            inventory_value: +data.pres_inventario,
             have_property_documents: data.doc_negocio,
             have_vouchers: data.compr_negocio,
             observation: data.neg_observacion,
         }
     }
 
+    console.log(creditBody)
     const token = localStorage.getItem('token') || ''
     try {
         const { data } = await financialApi.post('/credits/credit', creditBody, {

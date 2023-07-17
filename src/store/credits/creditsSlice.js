@@ -5,7 +5,8 @@ const initialState = {
     credits: [],
     creditActive: [],
     numberOfCredits: 0,
-    message: {}
+    message: {},
+    activateAlert: { isActive: false, type: '' },
 }
 
 export const creditsSlice = createSlice({
@@ -16,6 +17,8 @@ export const creditsSlice = createSlice({
             state.credits.unshift(action.payload);
             state.credits.pop();
             state.isLoading = false;
+            state.numberOfCredits = state.numberOfCredits + 1
+            state.message = { statusCode: '', message: 'Registro creado con exito' }
         },
 
         setLoading: (state, action) => {
@@ -30,7 +33,7 @@ export const creditsSlice = createSlice({
         setCredits: (state, action) => {
             console.log(action, 'slice')
             state.credits = action.payload.credits;
-            state.numberOfCredits = action.payload.numberOfCredits
+            state.numberOfCredits = action.payload.numberOfCredits;
             state.isLoading = false;
         },
 
@@ -46,8 +49,14 @@ export const creditsSlice = createSlice({
 
         setError: (state, action) => {
             state.message = action.payload;
+            state.isLoading = false;
+        },
+
+        setActivateAlert: (state, action) => {
+            state.activateAlert = action.payload
         }
     },
 })
 
-export const { addCredit, setLoading, updateCredit, setCredits, deleteCreditById, clearCreditsLogout, setError } = creditsSlice.actions
+export const { addCredit, setLoading, updateCredit, setCredits, deleteCreditById,
+    clearCreditsLogout, setError, setActivateAlert } = creditsSlice.actions

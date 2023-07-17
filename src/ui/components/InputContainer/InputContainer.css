@@ -17,6 +17,10 @@
     max-height: 2rem;
     min-height: 2rem;
 }
+.input__label span{
+    color: rgb(200, 0, 0);
+    font-weight: 600;
+}
 
 .input {
     background-color: var(--bg-inputs);

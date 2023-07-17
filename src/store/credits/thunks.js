@@ -1,5 +1,5 @@
 import { creditCreateRequest, creditsGetRequest } from "../../service/creditsService";
-import { addCredit, clearCreditsLogout, setCredits, setError, setLoading } from "./creditsSlice";
+import { addCredit, clearCreditsLogout, setActivateAlert, setCredits, setError, setLoading } from "./creditsSlice";
 
 export const startLoadingCredits = (dataFilter, parameters) => {
     return async (dispatch) => {
@@ -12,10 +12,14 @@ export const startLoadingCredits = (dataFilter, parameters) => {
 
 export const startNewCredit = (data) => {
     return async (dispatch) => {
-        dispatch(setLoading());
         const { ok, credit, error } = await creditCreateRequest(data);
-        if (!ok) return dispatch(setError(error));
+        if (!ok) {
+            dispatch(setError(error));
+            dispatch(setActivateAlert({isActive:true, type:'danger'}));
+            return;
+        }
         dispatch(addCredit(credit));
+        dispatch(setActivateAlert({isActive:true, type:'success'}));
     }
 }
 

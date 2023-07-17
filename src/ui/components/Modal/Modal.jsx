@@ -38,7 +38,7 @@ export const Modal = ({ isOpenModal, setIsOpenModal, handleModal, modalBodyConte
                 <div className={`modal__body-container ${bodyHeightClass}`} style={{ height: bodyHeight }}>
                     <div className='shadow'></div>
                     <div className={`modal__body ${hasScroll ? 'modal-scroll' : ''}  ${bodyHeightClass}`} style={{ height: bodyHeight, backgroundColor: bodyBackgroundColor }}>
-                        {isOpenModal && modalBodyContent}
+                        {isOpenModal && React.cloneElement(modalBodyContent, { setIsOpenModal }) }
                     </div>
                     <div className='shadow'></div>
                 </div>

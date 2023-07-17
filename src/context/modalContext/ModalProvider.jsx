@@ -38,7 +38,7 @@ export const ModalProvider = ({ children }) => {
 
     return (
         <>
-            <ModalContext.Provider value={{handleModal,}}>
+            <ModalContext.Provider value={{handleModal,setIsOpenModal}}>
                 {children}
             </ModalContext.Provider>
 

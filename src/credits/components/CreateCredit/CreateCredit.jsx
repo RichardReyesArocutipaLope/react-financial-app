@@ -5,12 +5,14 @@ import {
     InputFileImage, InputNumber, InputSelect, InputText, InputsRow
 } from '../../../ui/components';
 import './CreateCredit.css';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { setCleanCreditCreateForm, setSubmitCreditCreateForm } from '../../../store/credits/creditsOptionsSlice';
 import { startNewCredit } from '../../../store/credits/thunks';
+import { AlertContext } from '../../../context/alertContext/AlertContext';
+import { setActivateAlert } from '../../../store/credits/creditsSlice';
 
-export const CreateCredit = () => {
+export const CreateCredit = ({setIsOpenModal}) => {
 
     const { analistas, cobradores } = useSelector(state => state.roles);
 
@@ -18,6 +20,9 @@ export const CreateCredit = () => {
     const { financialInterestRate } = useSelector(state => state.financialInterestRate);
     const { civilStatus } = useSelector(state => state.civilStatus);
     const { housingType } = useSelector(state => state.housingType);
+
+    const { activateAlert, message } = useSelector(state => state.credits);
+    const { setIsActiveAlert, setDataAlert } = useContext(AlertContext);
 
     const initialResponsive = [
         { name: 'DNI', xxs: 24, xs: 24, s: 16, m: 7, l: 7, xl: 5, xxl: 5, col: 6 },
@@ -42,69 +47,69 @@ export const CreateCredit = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
         defaultValues: {
-                n_operacion: "",
-                n_credito: "",
-                analista: "3",
-                cobrador: "7",
-                dni_cliente: "70283340",
-                cli_nombre: "Richard Reyes",
-                cli_apellidos: "Arocutipa Lope",
-                cli_domicilio: "la perla mz 127 lt 21",
-                cli_ref_domicilio: "atras del local comunal",
-                cli_vivienda: "1",
-                cli_estado_civil: "2",
-                cli_celular1: "+51 925072688",
-                cli_celular2: "+51 789645734",
-                cli_correo: "richard@gmail.com",
-                clie_obs: "dos semanas para acabar redes 2",
-                neg_actividad: "desarrollo web",
-                neg_direccion: "no existe",
-                neg_referencia: "esto menos",
-                neg_observacion: "toy terminando mi proyecto",
-                pres_solicitado: "15000",
-                pres_aprobado: "",
-                pres_fecha_emision: "2023-07-09",
-                pres_fecha_desembolso: "",
-                pres_plazo: "16",
-                pres_tipo_plazo: "1",
-                pres_interes: "1",
-                pres_tasa: "12.43",
-                pres_ventas_diarias: "500",
-                pres_dias_buenos: "2000",
-                pres_dias_malos: "200",
-                pres_inventario: "150000",
-                recibo_luz: true,
-                mayor_21: true,
-                dni_vigente: true,
-                doc_negocio: false,
-                doc_vivienda: false,
-                compr_negocio: false,
-                ref1_dni: "11928374",
-                ref1_nombres: "lady",
-                ref1_apellidos: "arocutipa",
-                ref1_domicilio: "la perla mz 121 lt 1",
-                ref1_parentesco: "hermana",
-                ref1_celular1: "+51687233645",
-                ref1_correo: "lady@gmail.com",
-                ref2_dni: "92837465",
-                ref2_nombres: "marleny",
-                ref2_apellidos: "churata",
-                ref2_domicilio: "la perla",
-                ref2_parentesco: "mamá",
-                ref2_celular1: "+51345234345",
-                ref2_correo: "lady@gmail.com",
-                aval1_dni: "92758310",
-                aval1_nombres: "rosendo",
-                aval1_apellidos: "zapana",
-                aval1_domicilio: "chile",
-                aval1_correo: "lady@gmail.com",
-                aval1_celular1: "+51687233645",
-                aval2_dni: "61936295",
-                aval2_nombres: "iama",
-                aval2_apellidos: "cama",
-                aval2_domicilio: "ciudad nueva",
-                aval2_correo: "lady@gmail.com",
-                aval2_celular1: "+51687233645"
+            n_operacion: "",
+            n_credito: "",
+            analista: "3",
+            cobrador: "7",
+            dni_cliente: "70289940",
+            cli_nombre: "Richard Reyes",
+            cli_apellidos: "Arocutipa Lope",
+            cli_domicilio: "la perla mz 127 lt 21",
+            cli_ref_domicilio: "atras del local comunal",
+            cli_vivienda: "1",
+            cli_estado_civil: "2",
+            cli_celular1: "+51 925072688",
+            cli_celular2: "+51 789645734",
+            cli_correo: "richard@gmail.com",
+            clie_obs: "dos semanas para acabar redes 2",
+            neg_actividad: "desarrollo web",
+            neg_direccion: "no existe",
+            neg_referencia: "esto menos",
+            neg_observacion: "toy terminando mi proyecto",
+            pres_solicitado: "15000",
+            pres_aprobado: "",
+            pres_fecha_emision: "2023-07-09",
+            pres_fecha_desembolso: "",
+            pres_plazo: "16",
+            pres_tipo_plazo: "1",
+            pres_interes: "1",
+            pres_tasa: "12.43",
+            pres_ventas_diarias: "500",
+            pres_dias_buenos: "2000",
+            pres_dias_malos: "200",
+            pres_inventario: "150000",
+            recibo_luz: true,
+            mayor_21: true,
+            dni_vigente: true,
+            doc_negocio: false,
+            doc_vivienda: false,
+            compr_negocio: false,
+            ref1_dni: "11928374",
+            ref1_nombres: "lady",
+            ref1_apellidos: "arocutipa",
+            ref1_domicilio: "la perla mz 121 lt 1",
+            ref1_parentesco: "hermana",
+            ref1_celular1: "+51687233645",
+            ref1_correo: "lady@gmail.com",
+            ref2_dni: "92837465",
+            ref2_nombres: "marleny",
+            ref2_apellidos: "churata",
+            ref2_domicilio: "la perla",
+            ref2_parentesco: "mamá",
+            ref2_celular1: "+51345234345",
+            ref2_correo: "lady@gmail.com",
+            aval1_dni: "92758310",
+            aval1_nombres: "rosendo",
+            aval1_apellidos: "zapana",
+            aval1_domicilio: "chile",
+            aval1_correo: "lady@gmail.com",
+            aval1_celular1: "+51687233645",
+            aval2_dni: "61936295",
+            aval2_nombres: "iama",
+            aval2_apellidos: "cama",
+            aval2_domicilio: "ciudad nueva",
+            aval2_correo: "lady@gmail.com",
+            aval2_celular1: "+51687233645"
         }
     });
     const { submitCreditCreateForm, cleanCreditCreateForm } = useSelector(state => state.creditsOptions);
@@ -126,6 +131,24 @@ export const CreateCredit = () => {
             dispatch(setCleanCreditCreateForm(false))
         }
     }, [cleanCreditCreateForm])
+
+    useEffect(() => {
+        if (activateAlert.isActive) {
+            setIsActiveAlert(true)
+            setDataAlert({
+                type: activateAlert.type,
+                errorCode: message.statusCode,
+                message: message.message
+            })
+            setTimeout(() => {
+                dispatch(setActivateAlert({isActive:false, type:''}))
+                setIsActiveAlert(false)
+            }, 3000);
+            if (activateAlert.type=='success') setIsOpenModal(false)
+        }
+
+    }, [activateAlert.isActive])
+
 
     return (
         <div className='form-tab'>
@@ -198,6 +221,7 @@ export const CreateCredit = () => {
                             label='Analista'
                             id='analista'
                             error={errors?.analista?.message}
+                            required={true}
                             register={{ ...register('analista', { required: 'El analista es requerido' }) }}
                         >
                             {analistas?.map(({ id, fullname }) => (<option key={id} value={id}>{fullname}</option>))}
@@ -207,6 +231,7 @@ export const CreateCredit = () => {
                             label='Cobrador'
                             id='cobrador'
                             error={errors?.cobrador?.message}
+                            required={true}
                             register={{ ...register('cobrador', { required: 'El cobrador es requerido' }) }}
                         >
                             {cobradores?.map(({ id, fullname }) => <option key={id} value={id}>{fullname}</option>)}
@@ -221,6 +246,7 @@ export const CreateCredit = () => {
                             label='DNI'
                             id='dni_cliente'
                             error={errors?.dni_cliente?.message}
+                            required={true}
                             register={{
                                 ...register('dni_cliente',
                                     {
@@ -243,6 +269,7 @@ export const CreateCredit = () => {
                             label='Nombres'
                             id='cli_nombre'
                             error={errors?.cli_nombre?.message}
+                            required={true}
                             register={{
                                 ...register('cli_nombre', {
                                     required: 'El nombre es requerido',
@@ -258,6 +285,7 @@ export const CreateCredit = () => {
                             label='Apellidos'
                             id='cli_apellidos'
                             error={errors?.cli_apellidos?.message}
+                            required={true}
                             register={{
                                 ...register('cli_apellidos', {
                                     required: 'El apellido es requerido',
@@ -275,6 +303,7 @@ export const CreateCredit = () => {
                             label='Domicilio'
                             id='cli_domicilio'
                             error={errors?.cli_domicilio?.message}
+                            required={true}
                             register={{ ...register('cli_domicilio', { required: 'El domicilio es requerido' }) }}
                         />
                         <InputText
@@ -289,6 +318,7 @@ export const CreateCredit = () => {
                             label='Vivienda'
                             id='cli_vivienda'
                             error={errors?.cli_vivienda?.message}
+                            required={true}
                             register={{ ...register('cli_vivienda', { required: 'El tipo de vivienda es requerido' }) }}
                         >
                             {housingType?.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
@@ -300,6 +330,7 @@ export const CreateCredit = () => {
                             label='Estado civil'
                             id='cli_estado_civil'
                             error={errors?.cli_estado_civil?.message}
+                            required={true}
                             register={{ ...register('cli_estado_civil', { required: 'El estado civil es requerido' }) }}
                         >
                             {civilStatus?.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
@@ -309,6 +340,7 @@ export const CreateCredit = () => {
                             label='Celular 1'
                             id='cli_celular1'
                             error={errors?.cli_celular1?.message}
+                            required={true}
                             register={{
                                 ...register('cli_celular1', {
                                     required: 'El celular 1 es requerido',
@@ -340,6 +372,7 @@ export const CreateCredit = () => {
                             label='Correo'
                             id='cli_correo'
                             error={errors?.cli_correo?.message}
+                            required={true}
                             register={{
                                 ...register('cli_correo', {
                                     required: 'El correo es requerido',
@@ -366,6 +399,7 @@ export const CreateCredit = () => {
                             label='Actividad negocio'
                             id='neg_actividad'
                             error={errors?.neg_actividad?.message}
+                            required={true}
                             register={{
                                 ...register('neg_actividad', {
                                     required: 'La actividad del negocio es requerida'
@@ -377,6 +411,7 @@ export const CreateCredit = () => {
                             label='Direccion Negocio'
                             id='neg_direccion'
                             error={errors?.neg_direccion?.message}
+                            required={true}
                             register={{ ...register('neg_direccion', { required: 'La dirección del negocio es requerida' }) }}
                         />
                         <InputText
@@ -416,6 +451,7 @@ export const CreateCredit = () => {
                             label='Solicitado'
                             id='pres_solicitado' money
                             error={errors?.pres_solicitado?.message}
+                            required={true}
                             register={{
                                 ...register('pres_solicitado', {
                                     required: 'El préstamo solicitado es requerido'
@@ -450,6 +486,7 @@ export const CreateCredit = () => {
                             label='Plazo'
                             id='pres_plazo'
                             error={errors?.pres_plazo?.message}
+                            required={true}
                             register={{ ...register('pres_plazo', { required: 'El plazo del crédito es requerido' }) }}
                         />
                         <InputSelect
@@ -457,6 +494,7 @@ export const CreateCredit = () => {
                             label='Tipo plazo'
                             id='pres_tipo_plazo'
                             error={errors?.pres_tipo_plazo?.message}
+                            required={true}
                             register={{ ...register('pres_tipo_plazo', { required: 'El tipo de plazo es requerido' }) }}
                         >
                             {periodType?.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
@@ -467,6 +505,7 @@ export const CreateCredit = () => {
                             label='Tipo interes'
                             id='pres_interes'
                             error={errors?.pres_interes?.message}
+                            required={true}
                             register={{ ...register('pres_interes', { required: 'El tipo de interes es requerido' }) }}
                         >
                             {financialInterestRate?.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
@@ -476,6 +515,7 @@ export const CreateCredit = () => {
                             label='Tasa%'
                             id='pres_tasa'
                             error={errors?.pres_tasa?.message}
+                            required={true}
                             register={{ ...register('pres_tasa', { required: 'La tasa es requerida' }) }}
                         />
 
@@ -485,6 +525,7 @@ export const CreateCredit = () => {
                             label='Ventas diarias'
                             id='pres_ventas_diarias' money
                             error={errors?.pres_ventas_diarias?.message}
+                            required={true}
                             register={{ ...register('pres_ventas_diarias', { required: 'Ventas diarias es requerido' }) }}
                         />
                         <InputNumber
@@ -492,6 +533,7 @@ export const CreateCredit = () => {
                             label='Días buenos'
                             id='pres_dias_buenos' money
                             error={errors?.pres_dias_buenos?.message}
+                            required={true}
                             register={{ ...register('pres_dias_buenos', { required: 'Ventas en días buenos es requerido' }) }}
                         />
                         <InputNumber
@@ -499,6 +541,7 @@ export const CreateCredit = () => {
                             label='Días malos'
                             id='pres_dias_malos' money
                             error={errors?.pres_dias_malos?.message}
+                            required={true}
                             register={{ ...register('pres_dias_malos', { required: 'Ventas en días malos es requerido' }) }}
                         />
                         <InputNumber
@@ -506,6 +549,7 @@ export const CreateCredit = () => {
                             label='Inventario'
                             id='pres_inventario' money
                             error={errors?.pres_inventario?.message}
+                            required={true}
                             register={{ ...register('pres_inventario', { required: 'El valor del inventario es requerido' }) }}
                         />
                     </InputsRow>

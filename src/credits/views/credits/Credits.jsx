@@ -28,7 +28,7 @@ export const Credits = () => {
       <PaginationContainer
         currentOffset={currentOffset}
         setCurrentOffset={setCurrentOffset}
-        totalPages={Math.round(numberOfCredits / parameters.limit)}
+        totalPages={Math.ceil(numberOfCredits / parameters.limit)}
         totalRegisters={numberOfCredits}
       />
     </>
