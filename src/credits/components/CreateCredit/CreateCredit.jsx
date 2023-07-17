@@ -12,7 +12,31 @@ import { startNewCredit } from '../../../store/credits/thunks';
 import { AlertContext } from '../../../context/alertContext/AlertContext';
 import { setActivateAlert } from '../../../store/credits/creditsSlice';
 
-export const CreateCredit = ({setIsOpenModal}) => {
+const initialForm = {
+    analista: "3",
+    cobrador: "7",
+    dni_cliente: "70289940",
+    cli_nombre: "Richard Reyes",
+    cli_apellidos: "Arocutipa Lope",
+    cli_domicilio: "la perla mz 127 lt 21",
+    cli_vivienda: "1",
+    cli_estado_civil: "2",
+    cli_celular1: "+51 925072688",
+    neg_actividad: "desarrollo web",
+    neg_direccion: "no existe",
+    pres_solicitado: "15000",
+    pres_fecha_emision: "2023-07-09",
+    pres_plazo: "16",
+    pres_tipo_plazo: "1",
+    pres_interes: "1",
+    pres_tasa: "12.43",
+    pres_ventas_diarias: "500",
+    pres_dias_buenos: "2000",
+    pres_dias_malos: "200",
+    pres_inventario: "150000",
+}
+
+export const CreateCredit = ({ setIsOpenModal }) => {
 
     const { analistas, cobradores } = useSelector(state => state.roles);
 
@@ -45,62 +69,7 @@ export const CreateCredit = ({setIsOpenModal}) => {
     ]
     const { rwd, centinela } = useResponsiveForm(initialResponsive);
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm({
-        defaultValues: {
-            analista: "3",
-            cobrador: "7",
-            dni_cliente: "70289940",
-            cli_nombre: "Richard Reyes",
-            cli_apellidos: "Arocutipa Lope",
-            cli_domicilio: "la perla mz 127 lt 21",
-            cli_vivienda: "1",
-            cli_estado_civil: "2",
-            cli_celular1: "+51 925072688",
-
-            neg_actividad: "desarrollo web",
-            neg_direccion: "no existe",
-
-            pres_solicitado: "15000",
-
-            pres_fecha_emision: "2023-07-09",
-
-            pres_plazo: "16",
-            pres_tipo_plazo: "1",
-            pres_interes: "1",
-            pres_tasa: "12.43",
-            pres_ventas_diarias: "500",
-            pres_dias_buenos: "2000",
-            pres_dias_malos: "200",
-            pres_inventario: "150000",
-
-            // ref1_dni: "11928374",
-            // ref1_nombres: "lady",
-            // ref1_apellidos: "arocutipa",
-            // ref1_domicilio: "la perla mz 121 lt 1",
-            // ref1_parentesco: "hermana",
-            // ref1_celular1: "+51687233645",
-            // ref1_correo: "lady@gmail.com",
-            // ref2_dni: "92837465",
-            // ref2_nombres: "marleny",
-            // ref2_apellidos: "churata",
-            // ref2_domicilio: "la perla",
-            // ref2_parentesco: "mamá",
-            // ref2_celular1: "+51345234345",
-            // ref2_correo: "lady@gmail.com",
-            // aval1_dni: "92758310",
-            // aval1_nombres: "rosendo",
-            // aval1_apellidos: "zapana",
-            // aval1_domicilio: "chile",
-            // aval1_correo: "lady@gmail.com",
-            // aval1_celular1: "+51687233645",
-            // aval2_dni: "61936295",
-            // aval2_nombres: "iama",
-            // aval2_apellidos: "cama",
-            // aval2_domicilio: "ciudad nueva",
-            // aval2_correo: "lady@gmail.com",
-            // aval2_celular1: "+51687233645"
-        }
-    });
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({ defaultValues: initialForm });
     const { submitCreditCreateForm, cleanCreditCreateForm } = useSelector(state => state.creditsOptions);
     const dispatch = useDispatch();
     console.log(errors)
@@ -108,7 +77,56 @@ export const CreateCredit = ({setIsOpenModal}) => {
         if (submitCreditCreateForm) {
             handleSubmit((data) => {
                 console.log(data)
-                dispatch(startNewCredit(data))
+
+                const nullableData = [
+                    data.aval1_dni,
+                    data.aval1_nombres,
+                    data.aval1_apellidos,
+                    data.aval1_celular1,
+                    data.aval1_correo,
+                    data.aval1_domicilio,
+
+                    data.aval2_dni,
+                    data.aval2_nombres,
+                    data.aval2_apellidos,
+                    data.aval2_celular1,
+                    data.aval2_correo,
+                    data.aval2_domicilio,
+
+                    data.ref1_dni,
+                    data.ref1_nombres,
+                    data.ref1_apellidos,
+                    data.ref1_celular1,
+                    data.ref1_correo,
+                    data.ref1_domicilio,
+                    data.ref1_parentesco,
+
+                    data.ref2_dni,
+                    data.ref2_nombres,
+                    data.ref2_apellidos,
+                    data.ref2_celular1,
+                    data.ref2_correo,
+                    data.ref2_domicilio,
+                    data.ref2_parentesco,
+                ]
+                let isVacio=true
+                nullableData.forEach(item=>{
+                    if (item.length>0) isVacio=false;
+                })
+
+                if (isVacio) {
+                    dispatch(startNewCredit(data))
+                }else{
+                    setIsActiveAlert(true)
+                    setDataAlert({
+                        type: 'danger',
+                        errorCode: 400,
+                        message: 'Los datos obligatorios de Aval o Referencia son: DNI, Nombres, Apellidos, Domicilio y Celular'
+                    })
+                    setTimeout(() => {
+                        setIsActiveAlert(false)
+                    }, 5000);
+                }
             })()
             dispatch(setSubmitCreditCreateForm(false))
         }
@@ -130,10 +148,10 @@ export const CreateCredit = ({setIsOpenModal}) => {
                 message: message.message
             })
             setTimeout(() => {
-                dispatch(setActivateAlert({isActive:false, type:''}))
+                dispatch(setActivateAlert({ isActive: false, type: '' }))
                 setIsActiveAlert(false)
             }, 3000);
-            if (activateAlert.type=='success') setIsOpenModal(false)
+            if (activateAlert.type == 'success') setIsOpenModal(false)
         }
 
     }, [activateAlert.isActive])
@@ -664,7 +682,7 @@ export const CreateCredit = ({setIsOpenModal}) => {
                             }}
                         />
                         <InputText
-                            col={rwd.ref_data2}
+                            col={rwd.ref_data1}
                             label='Correo'
                             id='ref1_correo'
                             error={errors?.ref1_correo?.message}
@@ -759,7 +777,7 @@ export const CreateCredit = ({setIsOpenModal}) => {
                             }}
                         />
                         <InputText
-                            col={rwd.ref_data2}
+                            col={rwd.ref_data1}
                             label='Correo'
                             id='ref2_correo'
                             error={errors?.ref2_correo?.message}
