@@ -153,9 +153,38 @@ export const creditCreateRequest = async (data) => {
     }
 
     console.log(creditBody)
+
+    const deleteNull = (aea) => {
+        let newData = {}
+        for (const [key, value] of Object.entries(aea)) {
+            if (typeof value === 'object' && !Array.isArray(value) && value !== null) {
+                newData[key] = deleteNull(value);
+                continue;
+            }
+            if (value !== 0 && value !== null && value !== '' && (!Array.isArray(value) || value.length > 0)) {
+                if (Array.isArray(value)) {
+                    let newArray = []
+                    value.forEach(item => {
+                        newArray.push(deleteNull(item));
+                    })
+                    let cleanNewArray = newArray.filter(element => {
+                        Object.keys(element).length !== 0;
+                    })
+
+                    if (cleanNewArray.length > 0) newData[key] = cleanNewArray;
+                } else {
+                    newData[key] = value;
+                }
+            }
+        }
+        return newData
+    }
+
+    const newCrediBody = deleteNull(creditBody)
+
     const token = localStorage.getItem('token') || ''
     try {
-        const { data } = await financialApi.post('/credits/credit', creditBody, {
+        const { data } = await financialApi.post('/credits/credit', newCrediBody, {
             headers: {
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json',
@@ -200,3 +229,59 @@ export const creditCreateRequest = async (data) => {
         }
     }
 }
+
+
+
+// const creditBody = {
+//     requested_money: +data.pres_solicitado,//
+//     date_of_issue: moment().format('YYYY-MM-DD HH:mm:ss'),//
+//     period: +data.pres_plazo,//
+//     interest_rate: +data.pres_tasa,//
+//     state: 'NU',//
+//     fk_employee_cobrador: +data.cobrador, //
+//     fk_employee_analista: +data.analista,//
+//     fk_financial_interest: +data.pres_interes,//
+//     fk_period_type: +data.pres_tipo_plazo,//
+//     aval: [
+//         {
+//             dni: +data.aval1_dni,
+//             first_name: data.aval1_nombres,
+//             last_name: data.aval1_apellidos,
+//             phone: data.aval1_celular1,
+//             address: data.aval1_domicilio,
+//         },
+//     ],
+//     personalReference: [
+//         {
+//             dni: +data.ref1_dni,
+//             first_name: data.ref1_nombres,
+//             last_name: data.ref1_apellidos,
+//             phone: data.ref1_celular1,
+//             address: data.ref1_domicilio,
+//         },
+//     ],
+//     customer: {
+//         dni: +data.dni_cliente,//
+//         first_name: data.cli_nombre,//
+//         last_name: data.cli_apellidos,//
+//         phone: data.cli_celular1,//
+//         address: data.cli_domicilio,//
+//         // has_electricity_bill: data.recibo_luz,
+//         // is_over_21: data.mayor_21,
+//         // have_valid_dni: data.dni_vigente,
+//         // have_property_documents: data.doc_vivienda,
+//         fk_civil_status: +data.cli_estado_civil,//
+//         fk_housing_type: +data.cli_vivienda,//
+//     },
+//     business: {
+//         business_description: data.neg_actividad,//
+//         address: data.neg_direccion,//
+//         daily_gain: +data.pres_ventas_diarias,//
+//         maximum_daily_gain: +data.pres_dias_buenos,//
+//         minimum_daily_gain: +data.pres_dias_malos,//
+//         inventory_value: +data.pres_inventario,//
+//         // have_property_documents: data.doc_negocio,
+//         // have_vouchers: data.compr_negocio,
+//     }
+// }
+

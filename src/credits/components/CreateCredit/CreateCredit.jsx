@@ -47,29 +47,23 @@ export const CreateCredit = ({setIsOpenModal}) => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
         defaultValues: {
-            n_operacion: "",
-            n_credito: "",
             analista: "3",
             cobrador: "7",
             dni_cliente: "70289940",
             cli_nombre: "Richard Reyes",
             cli_apellidos: "Arocutipa Lope",
             cli_domicilio: "la perla mz 127 lt 21",
-            cli_ref_domicilio: "atras del local comunal",
             cli_vivienda: "1",
             cli_estado_civil: "2",
             cli_celular1: "+51 925072688",
-            cli_celular2: "+51 789645734",
-            cli_correo: "richard@gmail.com",
-            clie_obs: "dos semanas para acabar redes 2",
+
             neg_actividad: "desarrollo web",
             neg_direccion: "no existe",
-            neg_referencia: "esto menos",
-            neg_observacion: "toy terminando mi proyecto",
+
             pres_solicitado: "15000",
-            pres_aprobado: "",
+
             pres_fecha_emision: "2023-07-09",
-            pres_fecha_desembolso: "",
+
             pres_plazo: "16",
             pres_tipo_plazo: "1",
             pres_interes: "1",
@@ -78,38 +72,33 @@ export const CreateCredit = ({setIsOpenModal}) => {
             pres_dias_buenos: "2000",
             pres_dias_malos: "200",
             pres_inventario: "150000",
-            recibo_luz: true,
-            mayor_21: true,
-            dni_vigente: true,
-            doc_negocio: false,
-            doc_vivienda: false,
-            compr_negocio: false,
-            ref1_dni: "11928374",
-            ref1_nombres: "lady",
-            ref1_apellidos: "arocutipa",
-            ref1_domicilio: "la perla mz 121 lt 1",
-            ref1_parentesco: "hermana",
-            ref1_celular1: "+51687233645",
-            ref1_correo: "lady@gmail.com",
-            ref2_dni: "92837465",
-            ref2_nombres: "marleny",
-            ref2_apellidos: "churata",
-            ref2_domicilio: "la perla",
-            ref2_parentesco: "mamá",
-            ref2_celular1: "+51345234345",
-            ref2_correo: "lady@gmail.com",
-            aval1_dni: "92758310",
-            aval1_nombres: "rosendo",
-            aval1_apellidos: "zapana",
-            aval1_domicilio: "chile",
-            aval1_correo: "lady@gmail.com",
-            aval1_celular1: "+51687233645",
-            aval2_dni: "61936295",
-            aval2_nombres: "iama",
-            aval2_apellidos: "cama",
-            aval2_domicilio: "ciudad nueva",
-            aval2_correo: "lady@gmail.com",
-            aval2_celular1: "+51687233645"
+
+            // ref1_dni: "11928374",
+            // ref1_nombres: "lady",
+            // ref1_apellidos: "arocutipa",
+            // ref1_domicilio: "la perla mz 121 lt 1",
+            // ref1_parentesco: "hermana",
+            // ref1_celular1: "+51687233645",
+            // ref1_correo: "lady@gmail.com",
+            // ref2_dni: "92837465",
+            // ref2_nombres: "marleny",
+            // ref2_apellidos: "churata",
+            // ref2_domicilio: "la perla",
+            // ref2_parentesco: "mamá",
+            // ref2_celular1: "+51345234345",
+            // ref2_correo: "lady@gmail.com",
+            // aval1_dni: "92758310",
+            // aval1_nombres: "rosendo",
+            // aval1_apellidos: "zapana",
+            // aval1_domicilio: "chile",
+            // aval1_correo: "lady@gmail.com",
+            // aval1_celular1: "+51687233645",
+            // aval2_dni: "61936295",
+            // aval2_nombres: "iama",
+            // aval2_apellidos: "cama",
+            // aval2_domicilio: "ciudad nueva",
+            // aval2_correo: "lady@gmail.com",
+            // aval2_celular1: "+51687233645"
         }
     });
     const { submitCreditCreateForm, cleanCreditCreateForm } = useSelector(state => state.creditsOptions);
@@ -372,10 +361,8 @@ export const CreateCredit = ({setIsOpenModal}) => {
                             label='Correo'
                             id='cli_correo'
                             error={errors?.cli_correo?.message}
-                            required={true}
                             register={{
                                 ...register('cli_correo', {
-                                    required: 'El correo es requerido',
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                         message: "Ingresa un correo valido: ejemplo@gmail.com"
@@ -573,7 +560,6 @@ export const CreateCredit = ({setIsOpenModal}) => {
                             col={rwd.loan_data2}
                             label='DNI vigente'
                             id='dni_vigente'
-                            error={errors?.dni_vigente?.message}
                             register={{ ...register('dni_vigente') }}
                         />
 
@@ -684,7 +670,6 @@ export const CreateCredit = ({setIsOpenModal}) => {
                             error={errors?.ref1_correo?.message}
                             register={{
                                 ...register('ref1_correo', {
-                                    required: 'El correo es requerido',
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                         message: "Ingresa un correo valido: ejemplo@gmail.com"
@@ -780,7 +765,6 @@ export const CreateCredit = ({setIsOpenModal}) => {
                             error={errors?.ref2_correo?.message}
                             register={{
                                 ...register('ref2_correo', {
-                                    required: 'El correo es requerido',
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                         message: "Ingresa un correo valido: ejemplo@gmail.com"
