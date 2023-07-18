@@ -4,9 +4,12 @@ import { SimpleLoading } from '../simpleLoading'
 import { TableThead } from '../tableThead/TableThead'
 import './Table.css'
 import { CreditContext } from '../../../credits/context'
+import { useDispatch, useSelector } from 'react-redux'
+import { setSelectedCredit } from '../../../store/credits/creditsSlice'
 
 export const Table = ({ isLoading, arrayData }) => {
-    const { tablethead, setCreditSelected, creditSelected } = useContext(CreditContext);
+    const { selectedCredit } = useSelector(state => state.credits);
+    const { tablethead } = useContext(CreditContext);
     const [tableRwd, setTableRwd] = useState(null)
     const [numRegister, setNumRegister] = useState(10)
     const { maxColumns } = useResponsiveTable();
@@ -22,13 +25,15 @@ export const Table = ({ isLoading, arrayData }) => {
         setTableRwd(initialTableRwd)
     }, [numRegister])
 
+    const dispatch = useDispatch();
+
     const onSelectRegister = (data, id) => {
-        setCreditSelected({ tablethead, data, id })
+        dispatch(setSelectedCredit({ tablethead, data, id }))
     }
 
     const handleClickOutside = (event) => {
         if ((event.target.closest('.table-container') === null) && (event.target.closest('.module-options__container') === null)) {
-            setCreditSelected(null)
+            dispatch(setSelectedCredit(null))
         };
     };
 
@@ -51,7 +56,7 @@ export const Table = ({ isLoading, arrayData }) => {
                         {
                             arrayData?.map(({ id, data }, index) => (
                                 <React.Fragment key={id}>
-                                    <tr key={id} onClick={() => { onSelectRegister(data, id) }} className={`${creditSelected?.id == id ? 'active' : ''}`}>
+                                    <tr key={id} onClick={() => { onSelectRegister(data, id) }} className={`${selectedCredit?.id == id ? 'active' : ''}`}>
                                         <td className='button-rwd'>
                                             <i onClick={() => { setTableRwd(tableRwd => ({ ...tableRwd, [`tr${index}`]: !tableRwd[`tr${index}`] })) }} className="fa-solid fa-plus"></i>
                                         </td>

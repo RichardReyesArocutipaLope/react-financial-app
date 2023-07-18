@@ -41,8 +41,6 @@ export const CreditProvider = ({ children }) => {
         ],
     }
 
-    const [creditSelected, setCreditSelected] = useState()
-
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -86,9 +84,6 @@ export const CreditProvider = ({ children }) => {
             value={{
                 tablethead,
                 dataInfoRight,
-
-                creditSelected,
-                setCreditSelected,
 
                 currentOffset,
                 setCurrentOffset,

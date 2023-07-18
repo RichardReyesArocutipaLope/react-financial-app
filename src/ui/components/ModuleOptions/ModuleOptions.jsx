@@ -3,12 +3,14 @@ import { ModuleOptionsInfoLeft } from '../moduleOptionsInfoLeft/ModuleOptionsInf
 import { ModuleOptionsInfoRight } from '../moduleOptionsInfoRight/ModuleOptionsInfoRight';
 import './ModuleOptions.css'
 import { CreditContext } from '../../../credits/context';
+import { useSelector } from 'react-redux';
 
 export const ModuleOptions = ({ children, titleInfoLeft, titleInfoRight }) => {
 
     const [moreInfoLeft, setMoreInfoLeft] = useState(false);
     const [moreInfoRight, setMoreInfoRight] = useState(false);
-    const { dataInfoRight, creditSelected } = useContext(CreditContext);
+    const { dataInfoRight } = useContext(CreditContext);
+    const { selectedCredit } = useSelector(state => state.credits);
 
     const handleMoreInfoLeft = () => {
         setMoreInfoLeft(!moreInfoLeft);
@@ -22,7 +24,7 @@ export const ModuleOptions = ({ children, titleInfoLeft, titleInfoRight }) => {
             <ModuleOptionsInfoLeft
                 moreInfoLeft={moreInfoLeft}
                 handleMoreInfoLeft={handleMoreInfoLeft}
-                creditSelected={creditSelected}
+                selectedCredit={selectedCredit}
                 titleInfoLeft={titleInfoLeft}
             />
             <div className='module-options__main' >

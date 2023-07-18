@@ -8,6 +8,7 @@ import {
 export const moduleOptions = [
     {
         moduleOptionData: {
+            idIsRequired: false,
             moduleOptionIcon: < i className="fa-solid fa-file-circle-plus" ></i>,
             moduleOptionLabel: 'Crear',
             moduleOptionColor: 'celeste'
@@ -31,6 +32,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-file-pen"></i>,
             moduleOptionLabel: 'Editar',
             moduleOptionColor: 'ambar'
@@ -54,6 +56,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-trash"></i>,
             moduleOptionLabel: 'Eliminar',
             moduleOptionColor: 'rojo'
@@ -77,6 +80,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-thumbs-up"></i>,
             moduleOptionLabel: 'Aprobar',
             moduleOptionColor: 'azul'
@@ -100,6 +104,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-sack-dollar"></i>,
             moduleOptionLabel: 'Desembolsar',
             moduleOptionColor: 'verde'
@@ -123,6 +128,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-calendar-days"></i>,
             moduleOptionLabel: 'Cronograma',
             moduleOptionColor: 'turqueza'
@@ -146,6 +152,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-file-lines"></i>,
             moduleOptionLabel: 'Ficha',
             moduleOptionColor: 'gris'
@@ -169,6 +176,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            idIsRequired: false,
             moduleOptionIcon: <i className="fa-solid fa-bolt"></i>,
             moduleOptionLabel: 'Simular',
             moduleOptionColor: 'turquesa'
@@ -192,6 +200,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-file-export"></i>,
             moduleOptionLabel: 'Exportar',
             moduleOptionColor: 'morado'

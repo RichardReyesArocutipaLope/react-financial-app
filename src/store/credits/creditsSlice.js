@@ -3,7 +3,9 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     isLoading: false,
     credits: [],
-    creditActive: [],
+    creditFormEdit: {},
+
+    selectedCredit: null,
     numberOfCredits: 0,
     message: {},
     activateAlert: { isActive: false, type: '' },
@@ -21,13 +23,22 @@ export const creditsSlice = createSlice({
             state.message = { statusCode: '', message: 'Registro creado con exito' }
         },
 
-        setLoading: (state, action) => {
-            state.isLoading = true;
+        updateCredit: (state, action) => {
+            state.credits=state.credits.map(credit=> {
+                if (credit.id==action.payload.id) {
+                    return { 
+                        id: action.payload.id,
+                        data:action.payload.data
+                    }
+                }
+                return credit;
+            })
+            state.isLoading = false;
+            state.message = { statusCode: '', message: 'Registro editado con exito' }
         },
 
-        updateCredit: (state, action) => {
-            state.isLoading = false;
-            state.credits = [];
+        setLoading: (state, action) => {
+            state.isLoading = true;
         },
 
         setCredits: (state, action) => {
@@ -54,9 +65,17 @@ export const creditsSlice = createSlice({
 
         setActivateAlert: (state, action) => {
             state.activateAlert = action.payload
+        },
+
+        setCreditFormEdit: (state, action) => {
+            state.creditFormEdit = action.payload
+        },
+
+        setSelectedCredit: (state, action) => {
+            state.selectedCredit = action.payload
         }
     },
 })
 
 export const { addCredit, setLoading, updateCredit, setCredits, deleteCreditById,
-    clearCreditsLogout, setError, setActivateAlert } = creditsSlice.actions
+    clearCreditsLogout, setError, setActivateAlert, setCreditFormEdit, setSelectedCredit } = creditsSlice.actions

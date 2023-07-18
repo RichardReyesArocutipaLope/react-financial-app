@@ -1,5 +1,5 @@
-import { creditCreateRequest, creditsGetRequest } from "../../service/creditsService";
-import { addCredit, clearCreditsLogout, setActivateAlert, setCredits, setError, setLoading } from "./creditsSlice";
+import { creditCreateRequest, creditGetRequest, creditUpdateRequest, creditsGetRequest } from "../../service/creditsService";
+import { addCredit, clearCreditsLogout, setActivateAlert, setCreditFormEdit, setCredits, setError, setLoading, updateCredit } from "./creditsSlice";
 
 export const startLoadingCredits = (dataFilter, parameters) => {
     return async (dispatch) => {
@@ -22,4 +22,29 @@ export const startNewCredit = (data) => {
         dispatch(setActivateAlert({isActive:true, type:'success'}));
     }
 }
+
+export const startUpdateCredit = (data, id) => {
+    return async (dispatch) => {
+        const { ok, credit, error } = await creditUpdateRequest(data, id);
+        if (!ok) {
+            dispatch(setError(error));
+            dispatch(setActivateAlert({isActive:true, type:'danger'}));
+            return;
+        }
+        dispatch(updateCredit(credit));
+        dispatch(setActivateAlert({isActive:true, type:'success'}));
+    }
+}
+
+export const startGetCredit = (id) => {
+    return async (dispatch) => {
+        const { ok, credit, error } = await creditGetRequest(id);
+        if (!ok) {
+            dispatch(setError(error));
+            return;
+        }
+        dispatch(setCreditFormEdit(credit));
+    }
+}
+
 

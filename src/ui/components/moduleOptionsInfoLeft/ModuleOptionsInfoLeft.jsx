@@ -1,6 +1,6 @@
 import './ModuleOptionsInfoLeft.css'
 
-export const ModuleOptionsInfoLeft = ({ titleInfoLeft = "", moreInfoLeft, handleMoreInfoLeft, creditSelected }) => {
+export const ModuleOptionsInfoLeft = ({ titleInfoLeft = "", moreInfoLeft, handleMoreInfoLeft, selectedCredit }) => {
 
     return (
         <div
@@ -10,11 +10,11 @@ export const ModuleOptionsInfoLeft = ({ titleInfoLeft = "", moreInfoLeft, handle
             <p>{titleInfoLeft}</p>
             <div className='module-options__info'>
                 {
-                    !creditSelected
+                    !selectedCredit
                         ? <h2 className='message-empty'>Seleccione un registro</h2>
-                        : (creditSelected.data?.map((item, index) => (
+                        : (selectedCredit.data?.map((item, index) => (
                             <div className='module-options__info-row' key={index}>
-                                <span>{creditSelected.tablethead[index]}</span>
+                                <span>{selectedCredit.tablethead[index]}</span>
                                 <span>{item}</span>
                             </div>
                         )))
