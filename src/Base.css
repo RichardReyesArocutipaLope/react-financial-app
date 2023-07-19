@@ -257,6 +257,10 @@
     --color-export-hover: rgb(0, 0, 0);
     --shadow-export-hover: .6rem .6rem .6rem 0rem var(--shadow-80);
 
+    --bg-user-options-window: rgb(238, 238, 238);
+    --shadow-user-options-window: 0rem 0rem 1rem 0rem var(--shadow-100);
+    --bg-hover-user-option: rgb(207, 207, 207);
+
     /* ==================================================================== */
     /* ==================================================================== */
     /* ==================================================================== */
@@ -310,7 +314,7 @@
     --bg-min-suboption: red;
     --shadow-min-suboption: 0rem 0rem 1rem 0rem re;
     --bg-min-line-subption: red;
-    
+
     --color-toltip-sidebar-option: rgb(20, 20, 20);
 
     /* SidebarSubOption.css */
@@ -639,6 +643,10 @@
     --bg-export-hover: rgb(180, 180, 180);
     --color-export-hover: rgb(0, 0, 0);
     --shadow-export-hover: .6rem .6rem .6rem 0rem var(--shadow-80);
+
+    --bg-user-options-window: rgb(10, 10, 10);
+    --shadow-user-options-window: 0rem 0rem 1rem 0rem var(--shadow-100);
+    --bg-hover-user-option: rgb(26, 26, 26);
 
     /* ========================================= */
     --color-txt-00: rgb(0, 0, 0);

@@ -42,10 +42,10 @@ export const Sidebar = () => {
     '--bg-sidebar-suboption-active': ' rgb(40, 40, 40)',
     '--color-sidebar-suboption-active': ' rgb(220, 220, 220)',
     '--shadow-sidebar-suboption-active': ' 4px 4px 5px 0px var(--shadow-40), -3px -3px 4px 0px rgb(230, 230, 230), inset -3px -3px 5px 0px rgb(20, 20, 20), inset 3px 3px 5px 0px rgb(65, 65, 65)',
-    '--bg-header': ' rgb(215, 215, 215)',
+    '--bg-header': 'rgb(215, 215, 215)',
     '--border-header-option': ' 2px solid rgb(225, 225, 225)',
     '--color-header-option': ' rgb(70, 70, 70)',
-    '--bg-module': ' rgb(205, 205, 205)',
+    '--bg-module': 'rgb(205, 205, 205)',
     '--bg-module-options-info': ' rgb(215, 215, 215)',
     '--color-module-options-info': ' rgb(70, 70, 70)',
     '--bg-module-options-info-row': ' rgb(185, 185, 185)',
@@ -110,6 +110,10 @@ export const Sidebar = () => {
     '--bg-export-hover': ' rgb(30, 30, 30)',
     '--color-export-hover': ' rgb(220, 220, 220)',
     '--shadow-export-hover': ' .6rem .6rem .6rem 0rem var(--shadow-20)',
+
+    '--bg-user-options-window': 'rgb(215, 215, 215)',
+    '--shadow-user-options-window': '0rem 0rem 1rem 0rem var(--shadow-30)',
+    '--bg-hover-user-option': 'rgb(205, 205, 205)',
   }
   const cssDarkTheme = {
     '--text-one-color-black': 'rgb(255, 255, 255)',
@@ -212,6 +216,10 @@ export const Sidebar = () => {
     '--bg-export-hover': 'rgb(180, 180, 180)',
     '--color-export-hover': 'rgb(0, 0, 0)',
     '--shadow-export-hover': '.6rem .6rem .6rem 0rem var(--shadow-80)',
+
+    '--bg-user-options-window': 'rgb(10, 10, 10)',
+    '--shadow-user-options-window': '0rem 0rem 1rem 0rem var(--shadow-100)',
+    '--bg-hover-user-option': 'rgb(26, 26, 26)',
   }
   const rootStyle = document.documentElement.style
   const changeTheme = (theme) => {

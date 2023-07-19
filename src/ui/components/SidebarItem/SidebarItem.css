@@ -23,7 +23,7 @@
     transform: translateY(-50%);
     transition: width .4s, transform .4s;
     width: 0rem;
-    z-index: var(--z-index-60);
+    z-index: var(--z-index-80);
     text-align: center;
 }
 

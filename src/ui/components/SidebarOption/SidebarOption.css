@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: var(--z-index-70);
+    z-index: var(--z-index-90);
     position: relative;
     background-color: var(--bg-sidebar-option);
 }
