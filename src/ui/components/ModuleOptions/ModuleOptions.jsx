@@ -29,7 +29,7 @@ export const ModuleOptions = ({ children, titleInfoLeft, titleInfoRight }) => {
             />
             <div className='module-options__main' >
                 <div className='module-options'>
-                    <div >
+                    <div className='module-options-sub'>
                         {children}
                     </div>
                 </div>
