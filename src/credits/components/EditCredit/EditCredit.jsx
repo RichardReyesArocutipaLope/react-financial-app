@@ -39,7 +39,7 @@ const initialForm = {
     pres_inventario: "150000",
 }
 
-export const EditCredit = ({setIsOpenModal}) => {
+export const EditCredit = ({ setIsOpenModal }) => {
 
     const { analistas, cobradores } = useSelector(state => state.roles);
 
@@ -88,43 +88,73 @@ export const EditCredit = ({setIsOpenModal}) => {
             handleSubmit((data) => {
                 console.log(data, 'EDIT')
 
-                const nullableData = [
+                const requiredDataAval1 = [
                     data.aval1_dni,
                     data.aval1_nombres,
                     data.aval1_apellidos,
                     data.aval1_celular1,
-                    data.aval1_correo,
                     data.aval1_domicilio,
-
+                ]
+                const requiredDataAval2 = [
                     data.aval2_dni,
                     data.aval2_nombres,
                     data.aval2_apellidos,
                     data.aval2_celular1,
-                    data.aval2_correo,
                     data.aval2_domicilio,
-
+                ]
+                const requiredDataRef1 = [
                     data.ref1_dni,
                     data.ref1_nombres,
                     data.ref1_apellidos,
                     data.ref1_celular1,
-                    data.ref1_correo,
                     data.ref1_domicilio,
-                    data.ref1_parentesco,
-
+                ]
+                const requiredDataRef2 = [
                     data.ref2_dni,
                     data.ref2_nombres,
                     data.ref2_apellidos,
                     data.ref2_celular1,
-                    data.ref2_correo,
                     data.ref2_domicilio,
-                    data.ref2_parentesco,
                 ]
-                let isVacio = true
-                nullableData.forEach(item => {
-                    if (item.length > 0) isVacio = false;
-                })
 
-                if (isVacio) {
+                // const nullableData = [
+                //     data.aval1_correo,
+                //     data.aval2_correo,
+                //     data.ref1_correo,
+                //     data.ref1_parentesco,
+                //     data.ref2_correo,
+                //     data.ref2_parentesco,
+                // ]
+
+                let pasaNormal = true
+
+                let emptyFullAval1 = 0
+                requiredDataAval1.forEach(item => {
+                    (item.length == 0) ? emptyFullAval1 += 1 : emptyFullAval1 -= 1
+                })
+                if (!(Math.abs(emptyFullAval1) == requiredDataAval1.length)) pasaNormal = false
+
+                let emptyFullAval2 = 0
+                requiredDataAval2.forEach(item => {
+                    (item.length == 0) ? emptyFullAval2 += 1 : emptyFullAval2 -= 1
+                })
+                if (!(Math.abs(emptyFullAval2) == requiredDataAval2.length)) pasaNormal = false
+
+                let emptyFullRef1 = 0
+                requiredDataRef1.forEach(item => {
+                    (item.length == 0) ? emptyFullRef1 += 1 : emptyFullRef1 -= 1
+                })
+                if (!(Math.abs(emptyFullRef1) == requiredDataRef1.length)) pasaNormal = false
+
+                let emptyFullRef2 = 0
+                requiredDataRef2.forEach(item => {
+                    (item.length == 0) ? emptyFullRef2 += 1 : emptyFullRef2 -= 1
+                })
+                if (!(Math.abs(emptyFullRef2) == requiredDataRef2.length)) pasaNormal = false
+
+                console.log(pasaNormal, 'EEEEEEEEEEEEEEEEEEEEEEEEEEE')
+
+                if (pasaNormal) {
                     dispatch(startUpdateCredit(data, creditFormEdit?.id))
                 } else {
                     setIsActiveAlert(true)

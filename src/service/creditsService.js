@@ -237,7 +237,7 @@ export const creditUpdateRequest = async (data, id) => {
         fk_period_type: +data.pres_tipo_plazo,
         aval: [
             {
-                id: +data.aval1_id,
+                id: +data.aval1_id || null,
 
                 dni: +data.aval1_dni,
                 first_name: data.aval1_nombres,
@@ -247,7 +247,7 @@ export const creditUpdateRequest = async (data, id) => {
                 address: data.aval1_domicilio,
             },
             {
-                id: +data.aval2_id,
+                id: +data.aval2_id || null,
 
                 dni: +data.aval2_dni,
                 first_name: data.aval2_nombres,
@@ -259,7 +259,7 @@ export const creditUpdateRequest = async (data, id) => {
         ],
         personalReference: [
             {
-                id: +data.ref1_id,
+                id: +data.ref1_id || null,
                 dni: +data.ref1_dni,
                 first_name: data.ref1_nombres,
                 last_name: data.ref1_apellidos,
@@ -269,7 +269,7 @@ export const creditUpdateRequest = async (data, id) => {
                 relationship: data.ref1_parentesco
             },
             {
-                id: +data.ref2_id,
+                id: +data.ref2_id || null,
                 dni: +data.ref2_dni,
                 first_name: data.ref2_nombres,
                 last_name: data.ref2_apellidos,
@@ -311,6 +311,7 @@ export const creditUpdateRequest = async (data, id) => {
             observation: data.neg_observacion,
         }
     }
+
     console.log(creditBody, 'UPDATE CREDIT')
 
     const deleteNull = (aea) => {
@@ -323,7 +324,8 @@ export const creditUpdateRequest = async (data, id) => {
                 if (Array.isArray(value)) {
                     let newArray = []
                     value.forEach(item => { newArray.push(deleteNull(item)); })
-                    let cleanNewArray = newArray.filter(element => { Object.keys(element).length !== 0; })
+                    console.log(newArray, 'EEEEEEEEEEEEEEEEEEEEEEEEEEE')
+                    let cleanNewArray = newArray.filter(element => Object.keys(element).length !== 0)
                     if (cleanNewArray.length > 0) newData[key] = cleanNewArray;
                 } else {
                     newData[key] = value;
@@ -334,6 +336,8 @@ export const creditUpdateRequest = async (data, id) => {
     }
 
     const newCrediBody = deleteNull(creditBody)
+
+    console.log(newCrediBody, 'UPDATE CREDIT delte  null')
 
     const token = localStorage.getItem('token') || ''
     try {
@@ -479,14 +483,151 @@ export const creditGetRequest = async (id) => {
             credit: {
                 dataCreditform: convertDataToFormCreate,
                 id: data.id
-            }
+            },
+            creditRaw:data
         }
     } catch (error) {
         console.log(error)
+        const { statusCode, message } = error.response?.data
         return {
             ok: false,
             error: { statusCode, message }
         }
     }
 }
+
+
+export const creditDeleteRequest = async (id) => {
+
+    const token = localStorage.getItem('token') || ''
+
+    try {
+        await financialApi.delete(`/credits/credit/${id}`, {
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+        })
+
+        return { ok: true, }
+
+    } catch (error) {
+        console.log(error)
+        const { statusCode, message } = error.response?.data
+        return {
+            ok: false,
+            error: { statusCode, message }
+        }
+    }
+}
+
+
+export const creditApproveRequest = async (id) => {
+
+    const token = localStorage.getItem('token') || ''
+console.log(id, 'credit APROVE CREDIT', token)
+    try {
+        const { data } = await financialApi.patch(`/credits/credit/approve/${id}`, {}, {
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+        })
+
+        const creditCreated = data?.credit
+        let newEstado
+        switch (creditCreated.state) {
+            case 'NU': newEstado = 'Nuevo'; break;
+            case 'RE': newEstado = 'Renovado'; break;
+            case 'AP': newEstado = 'Aprobado'; break;
+            case 'DE': newEstado = 'Desembolsado'; break;
+            case 'RC': newEstado = 'Rechazado'; break;
+        }
+        const adaptedCredit = {
+            id: creditCreated.id,
+            data: [
+                creditCreated.fk_customer.first_name + ' ' + creditCreated.fk_customer.last_name,
+                creditCreated.fk_customer.dni,
+                creditCreated.requested_money,
+                newEstado,
+                creditCreated.period + ' ' + creditCreated.fk_period_type.name,
+                creditCreated.interest_rate,
+                creditCreated.fk_employee_analista.first_name + ' ' + creditCreated.fk_employee_analista.last_name,
+                creditCreated.fk_employee_cobrador.first_name + ' ' + creditCreated.fk_employee_cobrador.last_name,
+            ]
+        }
+
+        return {
+            ok: true,
+            credit: adaptedCredit,
+        }
+
+    } catch (error) {
+        console.log(error)
+        const { statusCode, message } = error.response?.data
+        return {
+            ok: false,
+            error: { statusCode, message }
+        }
+    }
+}
+
+
+
+
+export const creditDisburseRequest = async (id) => {
+
+    const token = localStorage.getItem('token') || ''
+
+    try {
+        const { data } = await financialApi.patch(`/credits/credit/disburse/${id}`,{}, {
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+        })
+
+        
+        const creditCreated = data?.credit
+        let newEstado
+        switch (creditCreated.state) {
+            case 'NU': newEstado = 'Nuevo'; break;
+            case 'RE': newEstado = 'Renovado'; break;
+            case 'AP': newEstado = 'Aprobado'; break;
+            case 'DE': newEstado = 'Desembolsado'; break;
+            case 'RC': newEstado = 'Rechazado'; break;
+        }
+        const adaptedCredit = {
+            id: creditCreated.id,
+            data: [
+                creditCreated.fk_customer.first_name + ' ' + creditCreated.fk_customer.last_name,
+                creditCreated.fk_customer.dni,
+                creditCreated.requested_money,
+                newEstado,
+                creditCreated.period + ' ' + creditCreated.fk_period_type.name,
+                creditCreated.interest_rate,
+                creditCreated.fk_employee_analista.first_name + ' ' + creditCreated.fk_employee_analista.last_name,
+                creditCreated.fk_employee_cobrador.first_name + ' ' + creditCreated.fk_employee_cobrador.last_name,
+            ]
+        }
+
+        return {
+            ok: true,
+            credit: adaptedCredit,
+        }
+    } catch (error) {
+        console.log(error)
+        const { statusCode, message } = error.response?.data
+        return {
+            ok: false,
+            error: { statusCode, message }
+        }
+    }
+}
+
+
+
 

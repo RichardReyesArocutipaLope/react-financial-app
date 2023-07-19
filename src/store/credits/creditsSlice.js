@@ -7,6 +7,7 @@ const initialState = {
 
     selectedCredit: null,
     numberOfCredits: 0,
+    creditRawSelected:null,
     message: {},
     activateAlert: { isActive: false, type: '' },
 }
@@ -48,8 +49,37 @@ export const creditsSlice = createSlice({
             state.isLoading = false;
         },
 
-        deleteCreditById: (state, action) => {
-            state.credits = state.credits.filter(credit => credit.id !== action.payload)
+        setDeleteCredit: (state, action) => {
+            state.isLoading = false;
+            state.message = { statusCode: '', message: 'Registro eliminado con exito' }
+        },
+
+        setApproveCredit: (state, action) => {
+            state.credits=state.credits.map(credit=> {
+                if (credit.id==action.payload.id) {
+                    return { 
+                        id: action.payload.id,
+                        data:action.payload.data
+                    }
+                }
+                return credit;
+            })
+            state.isLoading = false;
+            state.message = { statusCode: '', message: 'Crédito aprobado con exito' }
+        },
+
+        setDisburseCredit: (state, action) => {
+            state.credits=state.credits.map(credit=> {
+                if (credit.id==action.payload.id) {
+                    return { 
+                        id: action.payload.id,
+                        data:action.payload.data
+                    }
+                }
+                return credit;
+            })
+            state.isLoading = false;
+            state.message = { statusCode: '', message: 'Crédito desembolsado con exito' }
         },
 
         clearCreditsLogout: (state) => {
@@ -71,11 +101,15 @@ export const creditsSlice = createSlice({
             state.creditFormEdit = action.payload
         },
 
+        setCreditRawSelected: (state, action) => {
+            state.creditRawSelected = action.payload
+        },
+
         setSelectedCredit: (state, action) => {
             state.selectedCredit = action.payload
-        }
+        },
     },
 })
 
-export const { addCredit, setLoading, updateCredit, setCredits, deleteCreditById,
-    clearCreditsLogout, setError, setActivateAlert, setCreditFormEdit, setSelectedCredit } = creditsSlice.actions
+export const { addCredit, setLoading, updateCredit, setCredits, setDeleteCredit, setApproveCredit, setDisburseCredit,
+    clearCreditsLogout, setError, setActivateAlert, setCreditFormEdit, setSelectedCredit, setCreditRawSelected } = creditsSlice.actions
