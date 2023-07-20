@@ -11,29 +11,10 @@ import { setCleanCreditCreateForm, setSubmitCreditCreateForm } from '../../../st
 import { startNewCredit } from '../../../store/credits/thunks';
 import { AlertContext } from '../../../context/alertContext/AlertContext';
 import { setActivateAlert } from '../../../store/credits/creditsSlice';
+import moment from "moment/moment"
 
 const initialForm = {
-    analista: "3",
-    cobrador: "7",
-    dni_cliente: "70289940",
-    cli_nombre: "Richard Reyes",
-    cli_apellidos: "Arocutipa Lope",
-    cli_domicilio: "la perla mz 127 lt 21",
-    cli_vivienda: "1",
-    cli_estado_civil: "2",
-    cli_celular1: "+51 925072688",
-    neg_actividad: "desarrollo web",
-    neg_direccion: "no existe",
-    pres_solicitado: "15000",
-    pres_fecha_emision: "2023-07-09",
-    pres_plazo: "16",
-    pres_tipo_plazo: "1",
-    pres_interes: "1",
-    pres_tasa: "12.43",
-    pres_ventas_diarias: "500",
-    pres_dias_buenos: "2000",
-    pres_dias_malos: "200",
-    pres_inventario: "150000",
+    pres_fecha_emision: moment().format('YYYY-MM-DD'),
 }
 
 export const CreateCredit = ({ setIsOpenModal }) => {
@@ -474,6 +455,7 @@ export const CreateCredit = ({ setIsOpenModal }) => {
                             col={rwd.loan_data1}
                             label='Fecha de emision'
                             id='pres_fecha_emision'
+                            disabled
                             error={errors?.pres_fecha_emision?.message}
                             register={{ ...register('pres_fecha_emision', { required: 'La fecha de emisión es requerida' }) }}
                         />

@@ -2,6 +2,7 @@ import { InputContainer } from '../inputContainer'
 import './InputNumber.css'
 
 export const InputNumber = ({ label, col, id, register, money, error, required = false }) => {
+
   return (
     <InputContainer col={col} error={error}>
       <input {...register} id={id}

@@ -534,6 +534,7 @@ export const EditCredit = ({ setIsOpenModal }) => {
                             col={rwd.loan_data1}
                             label='Fecha de emision'
                             id='pres_fecha_emision'
+                            disabled
                             error={errors?.pres_fecha_emision?.message}
                             register={{ ...register('pres_fecha_emision', { required: 'La fecha de emisión es requerida' }) }}
                         />

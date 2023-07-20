@@ -70,11 +70,14 @@ export const creditsGetRequest = async (dataFilter, parameters) => {
 
 export const creditCreateRequest = async (data) => {
 
+    let formatDateDesembolso = null
+    data.pres_fecha_desembolso && (formatDateDesembolso = moment(data.pres_fecha_desembolso).format('YYYY-MM-DD HH:mm:ss'))
+
     const creditBody = {
         requested_money: +data.pres_solicitado,
         approved_money: +data.pres_aprobado,
         date_of_issue: moment().format('YYYY-MM-DD HH:mm:ss'),
-        disbursement_date: null,
+        disbursement_date: formatDateDesembolso,
         period: +data.pres_plazo,
         interest_rate: +data.pres_tasa,
         state: 'NU',
@@ -225,10 +228,13 @@ export const creditCreateRequest = async (data) => {
 
 export const creditUpdateRequest = async (data, id) => {
 
+    let formatDateDesembolso = null
+    data.pres_fecha_desembolso && (formatDateDesembolso = moment(data.pres_fecha_desembolso).format('YYYY-MM-DD HH:mm:ss'))
+
     const creditBody = {
         requested_money: +data.pres_solicitado,
         approved_money: +data.pres_aprobado,
-        disbursement_date: null,
+        disbursement_date: formatDateDesembolso,
         period: +data.pres_plazo,
         interest_rate: +data.pres_tasa,
         fk_employee_cobrador: +data.cobrador,
@@ -312,8 +318,6 @@ export const creditUpdateRequest = async (data, id) => {
         }
     }
 
-    console.log(creditBody, 'UPDATE CREDIT')
-
     const deleteNull = (aea) => {
         let newData = {}
         for (const [key, value] of Object.entries(aea)) {
@@ -324,7 +328,6 @@ export const creditUpdateRequest = async (data, id) => {
                 if (Array.isArray(value)) {
                     let newArray = []
                     value.forEach(item => { newArray.push(deleteNull(item)); })
-                    console.log(newArray, 'EEEEEEEEEEEEEEEEEEEEEEEEEEE')
                     let cleanNewArray = newArray.filter(element => Object.keys(element).length !== 0)
                     if (cleanNewArray.length > 0) newData[key] = cleanNewArray;
                 } else {
@@ -336,8 +339,6 @@ export const creditUpdateRequest = async (data, id) => {
     }
 
     const newCrediBody = deleteNull(creditBody)
-
-    console.log(newCrediBody, 'UPDATE CREDIT delte  null')
 
     const token = localStorage.getItem('token') || ''
     try {
@@ -401,6 +402,11 @@ export const creditGetRequest = async (id) => {
             },
         })
 
+        let formatDateEmision
+        let formatDateDesembolso
+        data.date_of_issue && (formatDateEmision = moment(data.date_of_issue).format('YYYY-MM-DD'))
+        data.disbursement_date && (formatDateDesembolso = moment(data.disbursement_date).format('YYYY-MM-DD'))
+
         const convertDataToFormCreate = {
             cobrador: data.fk_employee_cobrador.id,
             analista: data.fk_employee_analista.id,
@@ -423,7 +429,8 @@ export const creditGetRequest = async (id) => {
             neg_referencia: data.fk_customer.business.address_reference,
             neg_observacion: data.fk_customer.business.observation,
             pres_solicitado: data.requested_money,
-            pres_fecha_emision: data.date_of_issue,
+            pres_fecha_emision: formatDateEmision,
+            pres_fecha_desembolso: formatDateDesembolso,
             pres_plazo: data.period,
             pres_tipo_plazo: data.fk_period_type.id,
             pres_interes: data.fk_financial_interest.id,
@@ -433,7 +440,6 @@ export const creditGetRequest = async (id) => {
             pres_dias_malos: data.fk_customer.business.minimum_daily_gain,
             pres_inventario: data.fk_customer.business.inventory_value,
             pres_aprobado: data.approved_money,
-            pres_fecha_desembolso: data.disbursement_date,
 
             recibo_luz: data.fk_customer.has_electricity_bill,
             mayor_21: data.fk_customer.is_over_21,
@@ -484,7 +490,7 @@ export const creditGetRequest = async (id) => {
                 dataCreditform: convertDataToFormCreate,
                 id: data.id
             },
-            creditRaw:data
+            creditRaw: data
         }
     } catch (error) {
         console.log(error)
@@ -526,7 +532,7 @@ export const creditDeleteRequest = async (id) => {
 export const creditApproveRequest = async (id) => {
 
     const token = localStorage.getItem('token') || ''
-console.log(id, 'credit APROVE CREDIT', token)
+    console.log(id, 'credit APROVE CREDIT', token)
     try {
         const { data } = await financialApi.patch(`/credits/credit/approve/${id}`, {}, {
             headers: {
@@ -582,7 +588,7 @@ export const creditDisburseRequest = async (id) => {
     const token = localStorage.getItem('token') || ''
 
     try {
-        const { data } = await financialApi.patch(`/credits/credit/disburse/${id}`,{}, {
+        const { data } = await financialApi.patch(`/credits/credit/disburse/${id}`, {}, {
             headers: {
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json',
@@ -590,7 +596,7 @@ export const creditDisburseRequest = async (id) => {
             },
         })
 
-        
+
         const creditCreated = data?.credit
         let newEstado
         switch (creditCreated.state) {
