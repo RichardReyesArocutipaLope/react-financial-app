@@ -8,6 +8,10 @@
     position: relative;
 }
 
+.input-doc__container.textarea {
+    height: 6.6rem;
+}
+
 .input-doc__label {
     font-size: 1.4rem;
     font-weight: 500;
@@ -29,4 +33,11 @@
     height: 3.1rem;
     max-height: 3.1rem;
     min-height: 3.1rem;
+    overflow: hidden;
+}
+
+.input-doc.textarea{
+    height: 4.1rem;
+    max-height: 4.1rem;
+    min-height: 4.1rem;
 }

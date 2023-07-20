@@ -1,6 +1,6 @@
 import './InputForDocument.css'
 
-export const InputForDocument = ({ col, label, content }) => {
+export const InputForDocument = ({ col, label, content, textarea }) => {
     
     let maxCol = 24;
     let maxWidth = 100;
@@ -10,8 +10,8 @@ export const InputForDocument = ({ col, label, content }) => {
     }
 
     return (
-        <div className='input-doc__container' style={{ width: `${width}%` }}>
-            <div className='input-doc'>{content}</div>
+        <div className={`input-doc__container ${textarea?'textarea':''}`} style={{ width: `${width}%` }}>
+            <div className={`input-doc ${textarea?'textarea':''}`}>{content}</div>
             {label && <div className='input-doc__label'>{label}</div>}
         </div>
     )
