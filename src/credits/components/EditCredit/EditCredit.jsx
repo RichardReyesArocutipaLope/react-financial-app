@@ -116,15 +116,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
                     data.ref2_domicilio,
                 ]
 
-                // const nullableData = [
-                //     data.aval1_correo,
-                //     data.aval2_correo,
-                //     data.ref1_correo,
-                //     data.ref1_parentesco,
-                //     data.ref2_correo,
-                //     data.ref2_parentesco,
-                // ]
-
                 let pasaNormal = true
 
                 let emptyFullAval1 = 0
