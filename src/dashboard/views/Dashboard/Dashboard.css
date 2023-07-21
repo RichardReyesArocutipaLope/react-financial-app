@@ -1,3 +1,73 @@
-.dashboard{
+.tools-title{
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.tools-container {
+    display: flex;
+    gap: 15rem;
+    justify-content: center;
+    position: relative;
+}
+.tools__plus{
+    position: absolute;
+    left: 50%;
+    top: 5rem;
+    color: white;
+    font-size: 7rem;
+    transform: translateX(-50%);
+    
+}
+
+.tools {
+    width: 18rem;
+    text-align: center;
+}
+
+.tools h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: .02rem;
+    color: white;
+    margin-top: 2rem;
+}
+
+.tools__img {
+    width: 18rem;
+    height: 18rem;
+}
+.react-logo {
+    object-fit: contain;
+}
+.nest-logo {
+    object-fit: contain;
+}
+
+.tools__repository{
+    border-radius: 1rem;
+    width: 11rem;
+    padding: .5rem 1rem;
+    color: black;
+    background-color: white;
+    outline: 1px solid white;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 2rem;
+    gap: .5rem;
+    transition: background-color .3s;
+}
+.tools__repository i{
+    font-size: 1.6rem;
+    color: black;
+}
+.tools__repository:hover{
     background-color: black;
+    color: white;
+}
+.tools__repository:hover i{
+    color: white;
 }
