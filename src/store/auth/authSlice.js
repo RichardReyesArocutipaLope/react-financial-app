@@ -4,6 +4,7 @@ const initialState = {
     status: 'checking', // 'checking','not-authenticated', 'authenticated
     uid: null,
     fullName: null,
+    role:null,
     token: null,
     errorMessage: null,
 }
@@ -17,10 +18,10 @@ export const authSlice = createSlice({
             state.uid = action.payload.uid;
             state.fullName = action.payload.fullName;
             state.token = action.payload.token;
+            state.role = action.payload.role;
             state.errorMessage = null;
         },
         logout: (state, action) => {
-            console.log(action)
             state.status = 'not-authenticated';
             state.uid = null;
             state.fullName = null;

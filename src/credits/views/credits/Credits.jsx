@@ -16,7 +16,7 @@ export const Credits = () => {
       <ModuleTitle title='Créditos' />
       <ModuleOptions titleInfoLeft="CREDITOS INFO" titleInfoRight="REGISTRO INFO" >
         {moduleOptions.map(({ moduleOptionData, moduleOptionModal }) => (
-          <ModuleOption
+          <ModuleOption key={moduleOptionData.id}
             moduleOptionData={moduleOptionData}
             moduleOptionModal={moduleOptionModal}
             handleModal={handleModal}

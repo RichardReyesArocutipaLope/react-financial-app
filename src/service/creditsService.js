@@ -532,7 +532,7 @@ export const creditDeleteRequest = async (id) => {
 export const creditApproveRequest = async (id) => {
 
     const token = localStorage.getItem('token') || ''
-    console.log(id, 'credit APROVE CREDIT', token)
+
     try {
         const { data } = await financialApi.patch(`/credits/credit/approve/${id}`, {}, {
             headers: {

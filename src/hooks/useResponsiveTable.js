@@ -31,7 +31,6 @@ export const useResponsiveTable = () => {
 
             if (!(centinela !== sentinel)) return;
             setCentinela(sentinel);
-            console.log(sentinel);
             setMaxColumns(maxColumns);
         }
 

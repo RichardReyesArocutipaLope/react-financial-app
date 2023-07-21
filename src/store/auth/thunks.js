@@ -1,4 +1,4 @@
-import { loginRequest, registerRequest } from "../../service/authService";
+import { CheckAuthRequest, loginRequest, registerRequest } from "../../service/authService";
 import { checkingCredentials, login, logout } from "./authSlice";
 
 export const startLogin = (data) => {
@@ -17,13 +17,20 @@ export const startRegister = (data) => {
     }
 }
 
-export const startAuthToken = (data) => {
+export const startCheckAuthToken = () => {
     return async (dispatch) => {
-        dispatch(logout())
+        const token = localStorage.getItem('token') || null
+        if (!token) return dispatch(logout());
+
+        const user = await CheckAuthRequest(token);
+        if (!user.ok) return dispatch(logout())
+        dispatch(login(user))
     }
 }
 
 export const startLogout = (data) => {
     return async (dispatch) => {
+        localStorage.clear();
+        dispatch(logout())
     }
 }

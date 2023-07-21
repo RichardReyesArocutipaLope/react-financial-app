@@ -10,7 +10,7 @@ export const DisburseCredit = ({setIsOpenModal}) => {
     const { activateAlert, message, selectedCredit, creditRawSelected } = useSelector(state => state.credits);
     const { setIsActiveAlert, setDataAlert } = useContext(AlertContext);
     const { submitCreditCreateForm } = useSelector(state => state.creditsOptions);
-    const { fullName } = useSelector(state => state.auth);
+    const { fullName, role} = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
 
@@ -45,7 +45,7 @@ export const DisburseCredit = ({setIsOpenModal}) => {
 
     return (
         <ModalWarningContainer>
-            <p><b>Richard Reyes Arocutipa Lope {`(${fullName})`}</b>, el crédito que selecciono es del cliente <b>{creditRawSelected?.fk_customer.first_name+ ' '+ creditRawSelected?.fk_customer.last_name}</b>, el cual posee un monto aprobado por <b>S/ {creditRawSelected?.requested_money}</b> por un periodo de <b>{creditRawSelected?.period} {creditRawSelected?.fk_period_type.name}</b>.
+            <p><b>{fullName} {`(${role})`}</b>, el crédito que selecciono es del cliente <b>{creditRawSelected?.fk_customer.first_name+ ' '+ creditRawSelected?.fk_customer.last_name}</b>, el cual posee un monto aprobado por <b>S/ {creditRawSelected?.requested_money}</b> por un periodo de <b>{creditRawSelected?.period} {creditRawSelected?.fk_period_type.name}</b>.
             </p>
             <InputsRow margin="1.3" justifyContent='center'>
                 <InputSelect col={16} label='Selecciona una CAJA' id='disburse-caja' >

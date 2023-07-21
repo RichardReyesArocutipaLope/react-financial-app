@@ -75,9 +75,9 @@ export const EditCredit = ({ setIsOpenModal }) => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm({ defaultValues: creditFormEdit?.dataCreditform });
     const { submitCreditCreateForm, cleanCreditCreateForm } = useSelector(state => state.creditsOptions);
     const dispatch = useDispatch();
-    console.log(errors)
 
     useEffect(() => {
+        reset()
         reset(creditFormEdit?.dataCreditform)
 
     }, [creditFormEdit?.dataCreditform])
@@ -86,7 +86,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
     useEffect(() => {
         if (submitCreditCreateForm) {
             handleSubmit((data) => {
-                console.log(data, 'EDIT')
 
                 const requiredDataAval1 = [
                     data.aval1_dni,
@@ -151,8 +150,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
                     (item.length == 0) ? emptyFullRef2 += 1 : emptyFullRef2 -= 1
                 })
                 if (!(Math.abs(emptyFullRef2) == requiredDataRef2.length)) pasaNormal = false
-
-                console.log(pasaNormal, 'EEEEEEEEEEEEEEEEEEEEEEEEEEE')
 
                 if (pasaNormal) {
                     dispatch(startUpdateCredit(data, creditFormEdit?.id))

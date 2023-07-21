@@ -35,7 +35,6 @@ export const useResponsiveForm = (initialResponsive = []) => {
 
             if (!(centinela !== sentinel)) return;
             setCentinela(sentinel);
-            console.log(sentinel);
             if (assignedBreakPointsFiltering.includes(col)) setNewCol(col);
         }
 

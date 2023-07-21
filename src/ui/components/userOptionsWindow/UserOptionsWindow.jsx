@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import './UserOptionsWindow.css'
-import { useDispatch } from 'react-redux';
-import { logout } from '../../../store/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, startLogout } from '../../../store/auth';
 
 export const UserOptionsWindow = () => {
 
   const [isOpenUserOptions, setIsOpenUserOptions] = useState(false)
+  const { fullName, role} = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
 
@@ -25,7 +26,7 @@ export const UserOptionsWindow = () => {
   }, [])
 
   const onLogout = () => {
-    dispatch(logout())
+    dispatch(startLogout())
   }
 
   return (
@@ -35,8 +36,8 @@ export const UserOptionsWindow = () => {
           <img src="https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
         </div>
         <div className='user__name'>
-          <p>Richard A.</p>
-          <p>Director</p>
+          <p>{fullName || '...'}</p>
+          <p>{role || '...'}</p>
         </div>
       </div>
       <div className={`user__options-window ${isOpenUserOptions ? 'open' : ''}`}>

@@ -26,7 +26,7 @@ export const rolesGetRequestByName = async (name) => {
             }
             adapterUsers.push(adaptUser)
         });
-        console.log(adapterUsers, 'rolesService')
+
         return {
             ok: true,
             nameRole: data.name,

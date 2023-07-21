@@ -8,6 +8,7 @@ import {
 export const moduleOptions = [
     {
         moduleOptionData: {
+            id:10,
             idIsRequired: false,
             moduleOptionIcon: < i className="fa-solid fa-file-circle-plus" ></i>,
             moduleOptionLabel: 'Crear',
@@ -32,6 +33,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            id:11,
             idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-file-pen"></i>,
             moduleOptionLabel: 'Editar',
@@ -56,6 +58,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            id:12,
             idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-trash"></i>,
             moduleOptionLabel: 'Eliminar',
@@ -80,6 +83,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            id:13,
             idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-thumbs-up"></i>,
             moduleOptionLabel: 'Aprobar',
@@ -104,6 +108,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            id:14,
             idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-sack-dollar"></i>,
             moduleOptionLabel: 'Desembolsar',
@@ -128,6 +133,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            id:15,
             idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-calendar-days"></i>,
             moduleOptionLabel: 'Cronograma',
@@ -152,6 +158,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            id:16,
             idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-file-lines"></i>,
             moduleOptionLabel: 'Ficha',
@@ -176,6 +183,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            id:17,
             idIsRequired: false,
             moduleOptionIcon: <i className="fa-solid fa-bolt"></i>,
             moduleOptionLabel: 'Simular',
@@ -200,6 +208,7 @@ export const moduleOptions = [
 
     {
         moduleOptionData: {
+            id:18,
             idIsRequired: true,
             moduleOptionIcon: <i className="fa-solid fa-file-export"></i>,
             moduleOptionLabel: 'Exportar',

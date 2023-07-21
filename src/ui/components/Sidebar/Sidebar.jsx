@@ -228,15 +228,25 @@ export const Sidebar = () => {
       rootStyle.setProperty(cssVar, theme[cssVar])
     }
   }
-  // if (localStorage.getItem('theme') == 'dark') changeTheme(cssDarkTheme)
-  // localStorage.setItem('theme', 'dark')
-  // localStorage.setItem('theme', 'light')
 
   useEffect(() => {
-    darkThemeIsActive ? changeTheme(cssDarkTheme) : changeTheme(cssLightTheme);
-  }, [darkThemeIsActive])
+    if (localStorage.getItem('theme') == 'dark') {
+      changeTheme(cssDarkTheme)
+      setDarkThemeIsActive(true)
+    } else {
+      localStorage.setItem('theme', 'light')
+      changeTheme(cssLightTheme)
+    }
+  }, [])
 
   const handleTheme = () => {
+    if (!darkThemeIsActive) {
+      localStorage.setItem('theme', 'dark')
+      changeTheme(cssDarkTheme)
+    } else {
+      localStorage.setItem('theme', 'light')
+      changeTheme(cssLightTheme)
+    }
     setDarkThemeIsActive(!darkThemeIsActive);
   }
 

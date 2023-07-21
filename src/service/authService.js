@@ -7,7 +7,7 @@ export const loginRequest = async ({ user, password }) => {
                 'Content-Type': 'application/json',
             },
         })
-        const { token, user: { full_name, id } } = data;
+        const { token, user: { fk_employee, id, fk_role } } = data;
 
         localStorage.setItem('token', token);
         localStorage.setItem('token-init-date', new Date().getTime());
@@ -15,15 +15,16 @@ export const loginRequest = async ({ user, password }) => {
         return {
             ok: true,
             uid: id,
-            fullName: full_name,
+            fullName: fk_employee.first_name,
+            role: fk_role.name,
             token: token,
         }
 
     } catch (error) {
         const errorType = error.response?.data?.error
-        let errorMessage='Error del servidor'
+        let errorMessage = 'Error del servidor'
         if (errorType == 'Bad Request' || errorType == 'Unauthorized') {
-            errorMessage ='El nombre de usuario o contraseña son incorrectos'
+            errorMessage = 'El nombre de usuario o contraseña son incorrectos'
         }
         return {
             ok: false,
@@ -44,17 +45,57 @@ export const registerRequest = async ({ fullName, password, idEmployee, idRole }
                 'Content-Type': 'application/json',
             },
         })
-        const { token, user: { full_name, id } } = data;
+        const { token, user: { fk_employee, id, fk_role } } = data;
 
         return {
             ok: true,
             uid: id,
-            fullName: full_name,
+            fullName: fk_employee.first_name,
+            role: fk_role.name,
             token: token,
         }
 
     } catch (error) {
         console.log(error)
+    }
+}
+
+
+export const CheckAuthRequest = async (tokenn) => {
+
+    try {
+        const { data } = await financialApi.get(`/auth/users/check-status`, {
+            headers: {
+                'Authorization': 'Bearer ' + tokenn,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+        })
+
+        const { token, user: { fk_employee, id, fk_role } } = data;
+
+        localStorage.setItem('token', token);
+        localStorage.setItem('token-init-date', new Date().getTime());
+        return {
+            ok: true,
+            uid: id,
+            fullName: fk_employee.first_name,
+            role: fk_role.name,
+            token: token,
+        }
+
+    } catch (error) {
+
+        const errorType = error.response?.data?.error
+        let errorMessage = 'Error del servidor'
+        if (errorType == 'Bad Request' || errorType == 'Unauthorized') {
+            errorMessage = 'El nombre de usuario o contraseña son incorrectos'
+        }
+        localStorage.clear();
+        return {
+            ok: false,
+            errorMessage: errorMessage,
+        }
     }
 }
 

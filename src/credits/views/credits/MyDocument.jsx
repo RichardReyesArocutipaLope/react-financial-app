@@ -94,7 +94,7 @@ const CreateTableHeader = ({ newThead }) => {
     return (
         <View style={styles.tableRowHeaderStyle} fixed>
             {newThead.map(item => (
-                <View style={{ width: item.width }}>
+                <View style={{ width: item.width }} key={item.label}>
                     <Text style={styles.tableCellHeaderStyle}>{item.label}</Text>
                 </View>
             ))}
@@ -117,9 +117,9 @@ const CreateTableRow = ({ newCredits }) => {
 
 const Filter = ({ newDataFilter }) => {
     return newDataFilter.map(data => (
-        <View style={styles.rowFilter} fixed>
+        <View style={styles.rowFilter} fixed key={Math.floor(Math.random() * 100)}>
             {data.map(item => (
-                <View style={styles.rowFilterItem}>
+                <View style={styles.rowFilterItem} key={Math.floor(Math.random() * 100)}>
                     <View style={styles.rowFilterHead}>
                         <Text style={styles.rowFilterTextHead}>{item.label}</Text>
                     </View>
@@ -276,7 +276,6 @@ export const MyDocument = ({ credits, thead, dataForFilter, analistas, cobradore
         }
         newCredits.push(adaptCredit)
     });
-    console.log(newCredits, 'aeaeaeaeae')
 
     return (
         <Document>

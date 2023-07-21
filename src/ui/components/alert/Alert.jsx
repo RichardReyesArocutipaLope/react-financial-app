@@ -4,10 +4,10 @@ export const Alert = ({ dataAlert, isActiveAlert }) => {
 
     const { type = 'success', errorCode, message = 'message' } = dataAlert
 
-    const iconDanger = <i class="fa-solid fa-xmark icon-alert"></i>
-    const iconSuccess = <i class="fa-regular fa-circle-check icon-alert"></i>
-    const iconWarning = <i class="fa-solid fa-circle-exclamation icon-alert"></i>
-    const iconInfo = <i class="fa-solid fa-circle-info icon-alert"></i>
+    const iconDanger = <i className="fa-solid fa-xmark icon-alert"></i>
+    const iconSuccess = <i className="fa-regular fa-circle-check icon-alert"></i>
+    const iconWarning = <i className="fa-solid fa-circle-exclamation icon-alert"></i>
+    const iconInfo = <i className="fa-solid fa-circle-info icon-alert"></i>
 
     let icon
     switch (type) {

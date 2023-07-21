@@ -53,12 +53,10 @@ export const CreateCredit = ({ setIsOpenModal }) => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm({ defaultValues: initialForm });
     const { submitCreditCreateForm, cleanCreditCreateForm } = useSelector(state => state.creditsOptions);
     const dispatch = useDispatch();
-    console.log(errors)
+
     useEffect(() => {
         if (submitCreditCreateForm) {
             handleSubmit((data) => {
-                console.log(data)
-
                 const nullableData = [
                     data.aval1_dni,
                     data.aval1_nombres,

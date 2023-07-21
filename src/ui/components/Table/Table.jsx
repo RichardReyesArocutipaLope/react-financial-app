@@ -13,7 +13,6 @@ export const Table = ({ isLoading, arrayData }) => {
     const [tableRwd, setTableRwd] = useState(null)
     const [numRegister, setNumRegister] = useState(10)
     const { maxColumns } = useResponsiveTable();
-    console.log('maxColumns', maxColumns);
 
 
     useEffect(() => {
@@ -21,7 +20,6 @@ export const Table = ({ isLoading, arrayData }) => {
         for (let i = 0; i < numRegister; i++) {
             initialTableRwd[`tr${i}`] = false;
         }
-        console.log(initialTableRwd)
         setTableRwd(initialTableRwd)
     }, [numRegister])
 

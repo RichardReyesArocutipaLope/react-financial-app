@@ -43,7 +43,6 @@ export const creditsSlice = createSlice({
         },
 
         setCredits: (state, action) => {
-            console.log(action, 'slice')
             state.credits = action.payload.credits;
             state.numberOfCredits = action.payload.numberOfCredits;
             state.isLoading = false;
