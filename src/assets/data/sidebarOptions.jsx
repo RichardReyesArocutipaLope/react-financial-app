@@ -110,4 +110,12 @@ export const sidebarOptions = [
       },
     ],
   },
+  {
+    id: 8,
+    label: 'Developers',
+    icon: <i className="icon-option__i fa-brands fa-square-js"></i>,
+    path: '/dev',
+    options: [
+    ],
+  },
 ]

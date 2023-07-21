@@ -11,6 +11,7 @@ import { SecurityRouter } from "../security/routes/SecurityRouter"
 import { ReceivablesRouter } from "../receivables/routes/ReceivablesRouter"
 import { useSelector } from "react-redux"
 import { MainLoading } from "../ui/views"
+import { DeveloperRouter } from "../developer/routes/DeveloperRouter"
 
 export const AppRouter = () => {
 
@@ -34,6 +35,7 @@ export const AppRouter = () => {
                     <ReportsRouter />
                     <SecurityRouter />
                     <ReceivablesRouter />
+                    <DeveloperRouter />
                 </PrivateRoute>
             } />
         </Routes>
