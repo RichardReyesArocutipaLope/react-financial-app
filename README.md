@@ -17,4 +17,4 @@ npm run dev
 
 ## Deploy on Netlify
 
-El proyecto se implementó y puede probarlo haciendo clic en [**[ here ]**](https://financial-app.netlify.app/)
+El proyecto se implementó y puede probarlo haciendo clic en [**[ here ]**](https://reactjs-financial-app.netlify.app)
