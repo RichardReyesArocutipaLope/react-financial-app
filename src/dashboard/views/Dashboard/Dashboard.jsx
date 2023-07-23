@@ -3,6 +3,7 @@ import logoNest from '../../../assets/img/dashboard/nest-icon.svg'
 import financialAppDB from '../../../assets/img/dashboard/financial_app_di.png'
 import './Dashboard.css'
 import { MirrorCard } from '../../../ui/components/mirrorCard/MirrorCard'
+import { ShadowCard } from '../../../ui/components/shadowCard/ShadowCard'
 
 
 export const Dashboard = () => {
@@ -12,6 +13,22 @@ export const Dashboard = () => {
     <div className='dashboard'>
       <h1 className='tools-title'>APLICACIÓN FINANCIERA</h1>
       <div className='tools-container'>
+
+        <div className='social-container'>
+          <a href="https://github.com/RichardReyesArocutipaLope"
+            target='_blank' className='social-icon'>
+            <i className="fa-brands fa-github"></i>
+          </a>
+          <a className='social-icon'>
+            <i className="fa-brands fa-linkedin"></i>
+          </a>
+          <a className='social-icon'>
+            <i className="fa-brands fa-facebook"></i>
+          </a>
+          <a className='social-icon'>
+            <i className="fa-brands fa-instagram"></i>
+          </a>
+        </div>
 
         <MirrorCard width='30rem' height='45rem'>
           <div className='tools'>
@@ -45,10 +62,14 @@ export const Dashboard = () => {
         </MirrorCard>
 
       </div>
-      <div className='db-logical'>
-        <h2 className='db-logical__title'>Modelo lógico de la base de datos {'(primera versión)'}</h2>
-        <img src={financialAppDB} alt="" />
-      </div>
+      <ShadowCard width='100%' height='max-content'>
+        <div className='db-logical'>
+          <h2 className='db-logical__title'>Modelo lógico de la base de datos {'(primera versión)'}</h2>
+          <img src={financialAppDB} alt="" />
+        </div>
+      </ShadowCard>
+
+
 
     </div>
 

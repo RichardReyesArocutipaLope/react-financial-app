@@ -67,3 +67,4 @@ export * from './userOptionsWindow';
 export * from './simpleLoading'
 export * from './alert'
 export * from './mirrorCard'
+export * from './shadowCard'
