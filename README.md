@@ -1,6 +1,6 @@
 # FINANCIAL APP
 
-Este proyecto es una aplicación financiera para la gestion de créditos y cobranzas, La cual fue desarollada desde cero usando ReactJS y puro CSS, cuenta con inición de sesion, validaciones, componentes personalizados, exportaciónes PDF XLSX, modo oscuro y tiene un diseño responsivo.
+Este proyecto es una aplicación financiera para la gestion de créditos y cobranzas, La cual fue desarrollada desde cero usando ReactJS y puro CSS, cuenta con inición de sesion, validaciones, componentes personalizados, exportaciónes PDF XLSX, modo oscuro y tiene un diseño responsivo.
 
 ## Getting Started
 
