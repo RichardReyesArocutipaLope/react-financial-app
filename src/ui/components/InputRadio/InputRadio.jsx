@@ -1,4 +1,4 @@
-import { InputContainer } from '../InputContainer/InputContainer'
+import { InputContainer } from '../inputContainer'
 import './InputRadio.css'
 
 export const InputRadio = ({ col, label, name, id }) => {

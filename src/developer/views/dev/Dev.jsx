@@ -36,8 +36,8 @@ export const Dev = () => {
     <>
       <InputsRow margin='0'>
         <InputColor col={rwd.inputColor} label='Input color' name='Input-color' />
-        <InputChekbox col={rwd.inputChekbox} label='Input checkbox' name='Input-checkbox' />
-        <InputDate col={rwd.inputDate} label='Input date' name='Input date' />
+        <InputChekbox col={rwd.inputChekbox} label='Input checkbox' id='Input-checkbox' />
+        <InputDate col={rwd.inputDate} label='Input date' id='Input date' />
         <InputDateTime col={rwd.inputDateTime} label='Input datetime' name='Input datetime' />
 
         <InputEmail col={rwd.inputEmail} label='Input email' name='Input email' />
@@ -49,15 +49,15 @@ export const Dev = () => {
         <InputRadio col={rwd.inputRadio} label='Input radio' name='Input-radio' id='b' />
         <InputRange col={rwd.inputRange} label='Input range' name='Input-range' />
         <InputTel col={rwd.inputTel} label='Input tel' name='Input-tel' />
-        <InputText col={rwd.inputText} label='Input text' name='Input-text' />
+        <InputText col={rwd.inputText} label='Input text' id='Input-text' />
 
         <InputTime col={rwd.inputTime} label='Input time' name='Input-time' />
         <InputUrl col={rwd.inputUrl} label='Input url' name='Input-url' />
         <InputWeek col={rwd.inputWeek} label='Input week' name='Input-week' />
-        <InputSelect col={rwd.inputSelect} label='Input select' name='select' />
+        <InputSelect col={rwd.inputSelect} label='Input select' id='select' />
 
         <InputMoneyRange col={rwd.inputRangoMoney} label='Input money range' name='rango-money' />
-        <InputDateRange col={rwd.inputRangoDate} label='Input date range' name='rango-date' />
+        <InputDateRange col={rwd.inputRangoDate} label='Input date range' id='rango-date' />
         <InputDatalist col={rwd.inputDatalist} label='Input data list' name='input-datalist' />
         <InputTextarea col={rwd.inputTextarea} label='Textarea' name='textarea' />
       </InputsRow>
