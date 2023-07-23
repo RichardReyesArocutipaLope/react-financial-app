@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import { Dashboard } from "../views"
 
 export const DashboardRouter = () => {
@@ -6,6 +6,7 @@ export const DashboardRouter = () => {
         <Routes>
             <Route path="/dashboard" element={<Dashboard />}>
             </Route>
+            <Route path='/' element={<Navigate to='/dashboard' />} />
         </Routes>
     )
 }
