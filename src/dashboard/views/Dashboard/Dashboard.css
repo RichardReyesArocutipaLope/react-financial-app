@@ -1,28 +1,37 @@
-.tools-title{
+.dashboard {
+    background-color: black;
+    height: 200vh;
+    border-radius: 1rem;
+    box-shadow: 0rem 0rem 2rem 0rem rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+}
+
+.tools-title {
     color: white;
     text-align: center;
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 2rem 1rem;
 }
 
 .tools-container {
     display: flex;
-    gap: 15rem;
     justify-content: center;
-    position: relative;
+    align-items: center;
 }
-.tools__plus{
-    position: absolute;
-    left: 50%;
-    top: 5rem;
+
+.tools__plus {
     color: white;
-    font-size: 7rem;
-    transform: translateX(-50%);
-    
+    font-size: 9rem;
+    margin: 0 7rem;
 }
 
 .tools {
-    width: 18rem;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
     text-align: center;
 }
 
@@ -31,21 +40,21 @@
     font-weight: 600;
     letter-spacing: .02rem;
     color: white;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .tools__img {
-    width: 18rem;
-    height: 18rem;
-}
-.react-logo {
-    object-fit: contain;
-}
-.nest-logo {
-    object-fit: contain;
+    text-align: center;
 }
 
-.tools__repository{
+.tools__logo {
+    object-fit: contain;
+    width: 15rem;
+    height: 15rem;
+}
+
+
+.tools__repository {
     border-radius: 1rem;
     width: 11rem;
     padding: .5rem 1rem;
@@ -56,18 +65,49 @@
     display: flex;
     justify-content: center;
     margin: auto;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     gap: .5rem;
     transition: background-color .3s;
 }
-.tools__repository i{
+
+.tools__repository i {
     font-size: 1.6rem;
     color: black;
 }
-.tools__repository:hover{
+
+.tools__repository:hover {
     background-color: black;
     color: white;
 }
-.tools__repository:hover i{
+
+.tools__repository:hover i {
     color: white;
+}
+
+.tools__description {
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
+    color: white;
+    text-align: center;
+    line-height: 1.7rem;
+}
+
+
+.db-logical {
+    display: flex;
+    justify-content: center;
+    margin-top: 7rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.db-logical__title {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.db-logical img {
+    object-fit: contain;
+    width: 75%;
+
 }
