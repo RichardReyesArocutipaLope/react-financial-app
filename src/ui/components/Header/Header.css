@@ -23,6 +23,7 @@
     border-radius: .8rem;
     border: var(--border-header-option);
     box-shadow: 0px 0px 20px 0px var(--shadow-10);
+    cursor: pointer;
 }
 .main-header__option i{
     font-size: 1.5rem;

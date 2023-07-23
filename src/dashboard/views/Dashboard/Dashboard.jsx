@@ -65,7 +65,9 @@ export const Dashboard = () => {
       <ShadowCard width='100%' height='max-content'>
         <div className='db-logical'>
           <h2 className='db-logical__title'>Modelo lógico de la base de datos {'(primera versión)'}</h2>
-          <img src={financialAppDB} alt="" />
+          <div>
+            <img src={financialAppDB} alt="" />
+          </div>
         </div>
       </ShadowCard>
 
