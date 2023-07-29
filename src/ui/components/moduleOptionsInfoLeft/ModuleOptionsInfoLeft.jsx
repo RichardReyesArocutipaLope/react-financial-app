@@ -1,18 +1,14 @@
+import { useSelector } from 'react-redux';
 import './ModuleOptionsInfoLeft.css';
 
-export const ModuleOptionsInfoLeft = ({
-	titleInfoLeft = '',
-	moreInfoLeft,
-	handleMoreInfoLeft,
-	selectedCredit,
-}) => {
+export const ModuleOptionsInfoLeft = ({ titleInfoLeft = '', moreInfoLeft, handleMoreInfoLeft }) => {
 	console.log('ModuleOptionsInfoLeft.jsx');
+
+	const { selectedCredit } = useSelector(state => state.credits);
 
 	return (
 		<div
-			className={`module-options__info-wrapper left ${
-				moreInfoLeft ? 'extend' : ''
-			}`}
+			className={`module-options__info-wrapper left ${moreInfoLeft ? 'extend' : ''}`}
 			onDoubleClick={handleMoreInfoLeft}>
 			<p>{titleInfoLeft}</p>
 			<div className='module-options__info'>

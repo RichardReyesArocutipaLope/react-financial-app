@@ -9,16 +9,7 @@ import { startLoadingHousingType } from '../../store/catalogue/housingType/thunk
 import { startLoadingCivilStatus } from '../../store/catalogue/civilStatus/thunks';
 
 export const CreditProvider = ({ children }) => {
-	const tablethead = [
-		'Nombres',
-		'DNI',
-		'Préstamo',
-		'Estado',
-		'Plazo',
-		'Tasa Inc',
-		'Analista',
-		'Cobrador',
-	];
+	const tablethead = ['Nombres', 'DNI', 'Préstamo', 'Estado', 'Plazo', 'Tasa Inc', 'Analista', 'Cobrador'];
 
 	const dataInfoRight = {
 		infoHead: ['Monto', '4', '8', '12'],
@@ -63,7 +54,7 @@ export const CreditProvider = ({ children }) => {
 	const [parameters, setParameters] = useState({ limit: 10, offset: 0 });
 
 	useEffect(() => {
-		setParameters({ limit: 10, offset: currentOffset });
+		if (currentOffset !== parameters.offset) setParameters({ limit: 10, offset: currentOffset });
 	}, [currentOffset]);
 
 	useEffect(() => {

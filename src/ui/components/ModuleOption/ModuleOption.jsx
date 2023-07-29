@@ -1,42 +1,22 @@
-import { useContext } from 'react';
+import { memo, useContext } from 'react';
 import './ModuleOption.css';
 import { AlertContext } from '../../../context/alertContext/AlertContext';
-import { useSelector } from 'react-redux';
+import { ModalContext } from '../../../context/modalContext';
 
-export const ModuleOption = ({
-	moduleOptionData,
-	moduleOptionModal,
-	handleModal,
-}) => {
-	console.log('ModuleOptions.jsx');
+export const ModuleOption = memo(({ moduleOptionData, moduleOptionModal, selectedCredit }) => {
+	console.log('ModuleOption.jsx');
 
-	const {
-		moduleOptionIcon,
-		moduleOptionLabel,
-		moduleOptionColor,
-		idIsRequired,
-	} = moduleOptionData;
-	const { modalBodyComponent, modalFooterComponent, modalProperties } =
-		moduleOptionModal;
+	const { moduleOptionIcon, moduleOptionLabel, moduleOptionColor, idIsRequired } = moduleOptionData;
+	const { modalBodyComponent, modalFooterComponent, modalProperties } = moduleOptionModal;
 
-	const { selectedCredit } = useSelector(state => state.credits);
 	const { setIsActiveAlert, setDataAlert } = useContext(AlertContext);
+	const { handleModal } = useContext(ModalContext);
 
 	const onClickModuleOption = () => {
 		if (!idIsRequired)
-			return handleModal(
-				'setData',
-				modalBodyComponent,
-				modalFooterComponent,
-				modalProperties,
-			);
+			return handleModal('setData', modalBodyComponent, modalFooterComponent, modalProperties);
 		if (selectedCredit?.id)
-			return handleModal(
-				'setData',
-				modalBodyComponent,
-				modalFooterComponent,
-				modalProperties,
-			);
+			return handleModal('setData', modalBodyComponent, modalFooterComponent, modalProperties);
 
 		setIsActiveAlert(true);
 		setDataAlert({
@@ -58,4 +38,4 @@ export const ModuleOption = ({
 			</button>
 		</div>
 	);
-};
+});

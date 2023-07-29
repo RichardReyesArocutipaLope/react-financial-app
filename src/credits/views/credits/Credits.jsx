@@ -1,6 +1,5 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { ModalContext } from '../../../context/modalContext';
 import { CreditContext } from '../../context';
 import {
 	Filter,
@@ -13,28 +12,31 @@ import {
 import { moduleOptions } from './';
 
 export const Credits = () => {
-	const { isLoading, credits, numberOfCredits } = useSelector(
-		state => state.credits,
-	);
-	const { currentOffset, setCurrentOffset, parameters } =
-		useContext(CreditContext);
-	const { handleModal } = useContext(ModalContext);
+	console.log('Credits.jsx');
 
-	return (
+	const { isLoading, credits, numberOfCredits, selectedCredit } = useSelector(state => state.credits);
+	const { currentOffset, setCurrentOffset, parameters } = useContext(CreditContext);
+	const memoSelectCredit = useMemo(() => selectedCredit, [selectedCredit]);
+
+	const moduleChildren = useMemo(
+		() =>
+			moduleOptions.map(({ moduleOptionData, moduleOptionModal }) => (
+				<ModuleOption
+					key={moduleOptionData.id}
+					moduleOptionData={moduleOptionData}
+					moduleOptionModal={moduleOptionModal}
+					selectedCredit={memoSelectCredit}
+				/>
+			)),
+		[],
+	);
+
+	return !(credits.length > 0) ? (
+		<h1>Cargando...</h1>
+	) : (
 		<>
 			<ModuleTitle title='Créditos' />
-			<ModuleOptions
-				titleInfoLeft='CREDITOS INFO'
-				titleInfoRight='REGISTRO INFO'>
-				{moduleOptions.map(({ moduleOptionData, moduleOptionModal }) => (
-					<ModuleOption
-						key={moduleOptionData.id}
-						moduleOptionData={moduleOptionData}
-						moduleOptionModal={moduleOptionModal}
-						handleModal={handleModal}
-					/>
-				))}
-			</ModuleOptions>
+			<ModuleOptions>{moduleChildren}</ModuleOptions>
 			<Filter credits={credits} />
 			<Table isLoading={isLoading} arrayData={credits} />
 			<PaginationContainer

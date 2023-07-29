@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import './UserOptionsWindow.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout, startLogout } from '../../../store/auth';
+import { startLogout } from '../../../store/auth';
+import logoUser from '../../../assets/img/logo-user.jpg';
 
 export const UserOptionsWindow = () => {
 	const [isOpenUserOptions, setIsOpenUserOptions] = useState(false);
@@ -14,8 +15,7 @@ export const UserOptionsWindow = () => {
 	};
 
 	const handleClickOutside = event => {
-		if (event.target.closest('.user__container') === null)
-			setIsOpenUserOptions(false);
+		if (event.target.closest('.user__container') === null) setIsOpenUserOptions(false);
 	};
 
 	useEffect(() => {
@@ -33,18 +33,14 @@ export const UserOptionsWindow = () => {
 		<div className='user__container'>
 			<div className='user__info' onClick={handleUserOptions}>
 				<div className='user__img'>
-					<img
-						src='https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-						alt=''
-					/>
+					<img src={logoUser} alt='' />
 				</div>
 				<div className='user__name'>
 					<p>{fullName || '...'}</p>
 					<p>{role || '...'}</p>
 				</div>
 			</div>
-			<div
-				className={`user__options-window ${isOpenUserOptions ? 'open' : ''}`}>
+			<div className={`user__options-window ${isOpenUserOptions ? 'open' : ''}`}>
 				<ul className='user__option-container'>
 					<li className='user__option' onClick={onLogout}>
 						Salir

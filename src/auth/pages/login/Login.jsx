@@ -62,10 +62,7 @@ export const Login = () => {
 		<div className='login-container'>
 			<img src={fondo} alt='' className='img-fondo' />
 
-			<form
-				className='login__form'
-				onSubmit={handleSubmit(onSubmit)}
-				noValidate>
+			<form className='login__form' onSubmit={handleSubmit(onSubmit)} noValidate>
 				<LoginTitle />
 
 				<div className='input-container'>

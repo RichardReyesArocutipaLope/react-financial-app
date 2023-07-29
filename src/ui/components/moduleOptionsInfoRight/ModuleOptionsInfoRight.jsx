@@ -1,21 +1,12 @@
 import './ModuleOptionsInfoRight.css';
 
-export const ModuleOptionsInfoRight = ({
-	dataInfoRight = {},
-	titleInfoRight = '',
-	moreInfoRight,
-	handleMoreInfoRight,
-}) => {
+export const ModuleOptionsInfoRight = ({ dataInfoRight = {}, titleInfoRight = '', moreInfoRight, handleMoreInfoRight }) => {
 	const { infoBody, infoHead } = dataInfoRight;
 
 	console.log('ModuleOptionsInfoRight.jsx');
 
 	return (
-		<div
-			className={`module-options__info-wrapper right ${
-				moreInfoRight ? 'extend' : ''
-			}`}
-			onDoubleClick={handleMoreInfoRight}>
+		<div className={`module-options__info-wrapper right ${moreInfoRight ? 'extend' : ''}`} onDoubleClick={handleMoreInfoRight}>
 			<p>{titleInfoRight}</p>
 			<div className='module-options__info'>
 				<div className='module-options__info-table-title'>

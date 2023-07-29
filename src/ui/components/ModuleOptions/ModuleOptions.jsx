@@ -1,17 +1,15 @@
-import { useContext, useState } from 'react';
+import { memo, useContext, useState } from 'react';
 import { ModuleOptionsInfoLeft } from '../moduleOptionsInfoLeft/ModuleOptionsInfoLeft';
 import { ModuleOptionsInfoRight } from '../moduleOptionsInfoRight/ModuleOptionsInfoRight';
 import './ModuleOptions.css';
 import { CreditContext } from '../../../credits/context';
-import { useSelector } from 'react-redux';
 
-export const ModuleOptions = ({ children, titleInfoLeft, titleInfoRight }) => {
+export const ModuleOptions = memo(({ children }) => {
 	console.log('ModuleOptions.jsx');
 
 	const [moreInfoLeft, setMoreInfoLeft] = useState(false);
 	const [moreInfoRight, setMoreInfoRight] = useState(false);
 	const { dataInfoRight } = useContext(CreditContext);
-	const { selectedCredit } = useSelector(state => state.credits);
 
 	const handleMoreInfoLeft = () => {
 		setMoreInfoLeft(!moreInfoLeft);
@@ -25,8 +23,7 @@ export const ModuleOptions = ({ children, titleInfoLeft, titleInfoRight }) => {
 			<ModuleOptionsInfoLeft
 				moreInfoLeft={moreInfoLeft}
 				handleMoreInfoLeft={handleMoreInfoLeft}
-				selectedCredit={selectedCredit}
-				titleInfoLeft={titleInfoLeft}
+				titleInfoLeft='CREDITOS INFO'
 			/>
 			<div className='module-options__main'>
 				<div className='module-options'>
@@ -37,8 +34,8 @@ export const ModuleOptions = ({ children, titleInfoLeft, titleInfoRight }) => {
 				moreInfoRight={moreInfoRight}
 				handleMoreInfoRight={handleMoreInfoRight}
 				dataInfoRight={dataInfoRight}
-				titleInfoRight={titleInfoRight}
+				titleInfoRight='REGISTRO INFO'
 			/>
 		</div>
 	);
-};
+});
