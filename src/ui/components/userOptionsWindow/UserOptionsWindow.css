@@ -1,66 +1,64 @@
 .user__container {
-    position: relative;
+	position: relative;
 }
 .user__info {
-    display: flex;
-    gap: 1rem;
-    min-width: 15rem;
-    width: 15rem;
-    justify-content: end;
-    cursor: pointer;
+	display: flex;
+	gap: 1rem;
+	min-width: 15rem;
+	width: 15rem;
+	justify-content: end;
+	cursor: pointer;
 }
 
 .user__img {
-    width: 3.7rem;
-    height: 3.7rem;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0px 0px 15px 1px var(--shadow-40);
+	width: 3.7rem;
+	height: 3.7rem;
+	border-radius: 50%;
+	overflow: hidden;
+	box-shadow: 0px 0px 15px 1px var(--shadow-40);
 }
 .user__name {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    min-width: 8rem;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	min-width: 8rem;
 }
 
 .user__name :first-of-type {
-    font-size: 1.2rem;
-    font-weight: 600;
+	font-size: 1.2rem;
+	font-weight: 600;
 }
 .user__name :last-of-type {
-    font-size: 1rem;
-    font-weight: 500;
+	font-size: 1rem;
+	font-weight: 500;
 }
-
-
 
 .user__options-window {
-    position: absolute;
-    width: 100%;
-    height: 0rem;
-    background-color: var(--bg-user-options-window);
-    box-shadow: var(--shadow-user-options-window);
-    border-radius: 1rem;
-    right: 0;
-    top: 120%;
-    transition: height .3s;
-    overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 0rem;
+	background-color: var(--bg-user-options-window);
+	box-shadow: var(--shadow-user-options-window);
+	border-radius: 1rem;
+	right: 0;
+	top: 120%;
+	transition: height 0.3s;
+	overflow: hidden;
 }
 .user__options-window.open {
-    height: 10rem;
+	height: 10rem;
 }
 
-.user__option-container{
-    padding: 1rem;
+.user__option-container {
+	padding: 1rem;
 }
 .user__option {
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 0.4rem .8rem;
-    border-radius: .5rem;
-    cursor: pointer;
+	font-size: 1.1rem;
+	font-weight: 500;
+	padding: 0.4rem 0.8rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
 }
-.user__option:hover{
-    background-color: var(--bg-hover-user-option);
+.user__option:hover {
+	background-color: var(--bg-hover-user-option);
 }

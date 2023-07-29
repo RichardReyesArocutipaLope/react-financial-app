@@ -1,2 +1,2 @@
-export * from './periodTypeSlice'
-export * from './thunks'
+export * from './periodTypeSlice';
+export * from './thunks';

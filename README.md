@@ -4,16 +4,17 @@ Este proyecto es una aplicación financiera para la gestion de créditos y cobra
 
 ## Getting Started
 
-
 Para ejecutar este proyecto en su máquina local, instale todas las dependencias:
+
 ```
 npm install
 ```
+
 Luego, ejecute el proyecto en su máquina local:
+
 ```
 npm run dev
 ```
-
 
 ## Deploy on Netlify
 

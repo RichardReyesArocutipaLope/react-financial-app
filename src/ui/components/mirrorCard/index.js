@@ -1,1 +1,1 @@
-export * from './MirrorCard'
+export * from './MirrorCard';

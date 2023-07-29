@@ -1,30 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    isLoading: false,
-    civilStatus: [],
-    message: '',
-}
+	isLoading: false,
+	civilStatus: [],
+	message: '',
+};
 
 export const civilStatusSlice = createSlice({
-    name: 'civilStatusSlice',
-    initialState,
-    reducers: {
-        setLoadingCivilStatus: (state) => {
-            state.isLoading = true;
-        },
+	name: 'civilStatusSlice',
+	initialState,
+	reducers: {
+		setLoadingCivilStatus: state => {
+			state.isLoading = true;
+		},
 
-        setCivilStatus: (state, action) => {
-            state.civilStatus = action.payload;
-            state.isLoading = false;
-        },
-        
-        clearCivilStatusLogout: (state) => {
-            state.isLoading = false;
-            state.civilStatus = [];
-            state.message = '';
-        },
-    },
-})
+		setCivilStatus: (state, action) => {
+			state.civilStatus = action.payload;
+			state.isLoading = false;
+		},
 
-export const { setLoadingCivilStatus, setCivilStatus, clearCivilStatusLogout } = civilStatusSlice.actions
+		clearCivilStatusLogout: state => {
+			state.isLoading = false;
+			state.civilStatus = [];
+			state.message = '';
+		},
+	},
+});
+
+export const { setLoadingCivilStatus, setCivilStatus, clearCivilStatusLogout } =
+	civilStatusSlice.actions;

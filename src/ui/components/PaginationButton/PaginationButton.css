@@ -1,30 +1,30 @@
-.pagination-button{
-    border-radius: .7rem;
-    color: var(--color-pagination-button);
-    box-shadow: var(--shadow-pagination-button);
-    cursor: pointer;
-    display: inline-block;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 500;
-    height: 2.5rem;
-    padding: .2rem .5rem;
-    transform: scale(1);
-    transition: transform .1s;
-    user-select: none;
-    width: 3.5rem;
-    background-color: var(--bg-pagination-button);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.pagination-button {
+	border-radius: 0.7rem;
+	color: var(--color-pagination-button);
+	box-shadow: var(--shadow-pagination-button);
+	cursor: pointer;
+	display: inline-block;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.1rem;
+	font-weight: 500;
+	height: 2.5rem;
+	padding: 0.2rem 0.5rem;
+	transform: scale(1);
+	transition: transform 0.1s;
+	user-select: none;
+	width: 3.5rem;
+	background-color: var(--bg-pagination-button);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.pagination-button:hover{
-    transform: scale(1.1);
+.pagination-button:hover {
+	transform: scale(1.1);
 }
-.pagination-button.active{
-    background-color: var(--bg-pagination-button-active);
-    box-shadow: var(--shadow-pagination-button-active);
-    transform: scale(1.1);
-    color: var(--color-pagination-button-active);
+.pagination-button.active {
+	background-color: var(--bg-pagination-button-active);
+	box-shadow: var(--shadow-pagination-button-active);
+	transform: scale(1.1);
+	color: var(--color-pagination-button-active);
 }

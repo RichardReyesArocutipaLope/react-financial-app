@@ -1,12 +1,12 @@
-.input-select-icon{
-    background-color: var(--bg-inputs);
-    font-size: 1.3rem;
-    padding: .3rem;
-    position: absolute;
-    right: 1.4rem;
-    top: 2.4rem;
+.input-select-icon {
+	background-color: var(--bg-inputs);
+	font-size: 1.3rem;
+	padding: 0.3rem;
+	position: absolute;
+	right: 1.4rem;
+	top: 2.4rem;
 }
 
 .input-select option {
-    background-color: var(--bg-inputs);
+	background-color: var(--bg-inputs);
 }

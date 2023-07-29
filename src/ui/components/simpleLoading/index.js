@@ -1,1 +1,1 @@
-export * from './SimpleLoading'
+export * from './SimpleLoading';

@@ -1,2 +1,2 @@
-export * from './authService'
-export * from './creditsService'
+export * from './authService';
+export * from './creditsService';

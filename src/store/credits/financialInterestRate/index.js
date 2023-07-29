@@ -1,2 +1,2 @@
-export * from './financialInterestRateSlice'
-export * from './thunks'
+export * from './financialInterestRateSlice';
+export * from './thunks';

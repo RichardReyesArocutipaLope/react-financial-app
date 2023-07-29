@@ -1,1 +1,1 @@
-export * from './ShadowCard'
+export * from './ShadowCard';

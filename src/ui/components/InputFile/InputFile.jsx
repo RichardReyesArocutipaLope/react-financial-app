@@ -1,10 +1,10 @@
-import './InputFile.css'
+import './InputFile.css';
 
 export const InputFile = () => {
-  return (
-    <div>
-        <input type="file"></input>
-        <label htmlFor=""></label>
-    </div>
-  )
-}
+	return (
+		<div>
+			<input type='file'></input>
+			<label htmlFor=''></label>
+		</div>
+	);
+};

@@ -1,1 +1,1 @@
-export * from './UserOptionsWindow'
+export * from './UserOptionsWindow';

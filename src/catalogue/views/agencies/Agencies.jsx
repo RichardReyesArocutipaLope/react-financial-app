@@ -1,8 +1,3 @@
-
 export const Agencies = () => {
-    return (
-        <div>
-            Agenciesssss
-        </div >
-    )
-}
+	return <div>Agenciesssss</div>;
+};

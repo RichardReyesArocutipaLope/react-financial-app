@@ -1,66 +1,64 @@
 .main-sidebar__option {
-    padding: .8rem;
-    padding-left: 0;
-    border-radius: 1rem;
-    cursor: pointer;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: var(--z-index-90);
-    position: relative;
-    background-color: var(--bg-sidebar-option);
+	padding: 0.8rem;
+	padding-left: 0;
+	border-radius: 1rem;
+	cursor: pointer;
+	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: var(--z-index-90);
+	position: relative;
+	background-color: var(--bg-sidebar-option);
 }
 
-
 .min-sidebar .main-sidebar__option {
-    padding-right: 0;
+	padding-right: 0;
 }
 
 .main-sidebar__option:hover {
-    box-shadow: var(--shadow-sidebar-option-hover);
-    background-color: var(--bg-sidebar-option-hover);
+	box-shadow: var(--shadow-sidebar-option-hover);
+	background-color: var(--bg-sidebar-option-hover);
 }
 
-
 .main-sidebar__option.active {
-    background-color: var(--bg-sidebar-option-active);
-    box-shadow: var(--shadow-sidebar-option-active);
+	background-color: var(--bg-sidebar-option-active);
+	box-shadow: var(--shadow-sidebar-option-active);
 }
 
 .main-sidebar__option.active .icon-option__i {
-    color: var(--color-sidebar-option-active);
+	color: var(--color-sidebar-option-active);
 }
 
 .main-sidebar__option.active .main-sidebar__label {
-    color: var(--color-sidebar-option-active);
+	color: var(--color-sidebar-option-active);
 }
 
 .main-sidebar__label-container {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .icon-option {
-    width: 4rem;
-    height: 2.3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	width: 4rem;
+	height: 2.3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .main-sidebar__label-container .icon-option__i {
-    color: var(--color-sidebar-option);
-    font-size: 2.1rem;
+	color: var(--color-sidebar-option);
+	font-size: 2.1rem;
 }
 
 .main-sidebar__label {
-    color: var(--color-sidebar-option);
-    font-size: 1.3rem;
-    font-weight: 600;
+	color: var(--color-sidebar-option);
+	font-size: 1.3rem;
+	font-weight: 600;
 }
 
 .main-sidebar__option .angle-down {
-    color: var(--color-sidebar-option);
-    font-size: 1.4rem;
+	color: var(--color-sidebar-option);
+	font-size: 1.4rem;
 }

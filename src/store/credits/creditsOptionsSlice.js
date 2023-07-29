@@ -1,59 +1,59 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    submitCreditCreateForm: false,
-    cleanCreditCreateForm: false,
+	submitCreditCreateForm: false,
+	cleanCreditCreateForm: false,
 
-    submitCreditEditForm: false,
-    resetCreditEditForm: false,
+	submitCreditEditForm: false,
+	resetCreditEditForm: false,
 
-    submitCreditDeleteForm: false,
+	submitCreditDeleteForm: false,
 
-    submitCreditApprovalForm: false,
+	submitCreditApprovalForm: false,
 
-    submitCreditDisburseForm: false,
-}
+	submitCreditDisburseForm: false,
+};
 
 export const creditsOptionsSlice = createSlice({
-    name: 'creditsOptionsSlice',
-    initialState,
-    reducers: {
-        setSubmitCreditCreateForm: (state, action) => {
-            state.submitCreditCreateForm = action.payload;
-        },
+	name: 'creditsOptionsSlice',
+	initialState,
+	reducers: {
+		setSubmitCreditCreateForm: (state, action) => {
+			state.submitCreditCreateForm = action.payload;
+		},
 
-        setCleanCreditCreateForm: (state, action) => {
-            state.cleanCreditCreateForm = action.payload;
-        },
+		setCleanCreditCreateForm: (state, action) => {
+			state.cleanCreditCreateForm = action.payload;
+		},
 
-        setSubmitCreditEditForm: (state, action) => {
-            state.submitCreditEditForm = action.payload;
-        },
+		setSubmitCreditEditForm: (state, action) => {
+			state.submitCreditEditForm = action.payload;
+		},
 
-        setResetCreditEditForm: (state, action) => {
-            state.resetCreditEditForm = action.payload;
-        },
+		setResetCreditEditForm: (state, action) => {
+			state.resetCreditEditForm = action.payload;
+		},
 
-        setsubmitCreditDeleteForm: (state, action) => {
-            state.submitCreditDeleteForm = action.payload;
-        },
+		setsubmitCreditDeleteForm: (state, action) => {
+			state.submitCreditDeleteForm = action.payload;
+		},
 
-        setSubmitCreditApprovalForm: (state, action) => {
-            state.submitCreditApprovalForm = action.payload;
-        },
+		setSubmitCreditApprovalForm: (state, action) => {
+			state.submitCreditApprovalForm = action.payload;
+		},
 
-        setSubmitCreditDisburseForm: (state, action) => {
-            state.submitCreditDisburseForm = action.payload
-        },
-    },
-})
+		setSubmitCreditDisburseForm: (state, action) => {
+			state.submitCreditDisburseForm = action.payload;
+		},
+	},
+});
 
 export const {
-    setSubmitCreditCreateForm,
-    setCleanCreditCreateForm,
-    setSubmitCreditEditForm,
-    setResetCreditEditForm,
-    setsubmitCreditDeleteForm,
-    setSubmitCreditApprovalForm,
-    setSubmitCreditDisburseForm,
-} = creditsOptionsSlice.actions
+	setSubmitCreditCreateForm,
+	setCleanCreditCreateForm,
+	setSubmitCreditEditForm,
+	setResetCreditEditForm,
+	setsubmitCreditDeleteForm,
+	setSubmitCreditApprovalForm,
+	setSubmitCreditDisburseForm,
+} = creditsOptionsSlice.actions;

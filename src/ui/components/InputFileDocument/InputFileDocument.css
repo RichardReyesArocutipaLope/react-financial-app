@@ -1,16 +1,16 @@
 .input-file-document {
-    width: 13rem;
-    height: 9rem;
-    display: block;
-    background-color: var(--bg-inputs);
-    border-radius: .8rem;
-    box-shadow: var(--shadow-inputs);
-    padding: 1rem;
-    text-align: center;
-    cursor: pointer;
+	width: 13rem;
+	height: 9rem;
+	display: block;
+	background-color: var(--bg-inputs);
+	border-radius: 0.8rem;
+	box-shadow: var(--shadow-inputs);
+	padding: 1rem;
+	text-align: center;
+	cursor: pointer;
 }
 
 .input-file-document i {
-    font-size: 7rem;
-    color: var(--color-inputs);
+	font-size: 7rem;
+	color: var(--color-inputs);
 }

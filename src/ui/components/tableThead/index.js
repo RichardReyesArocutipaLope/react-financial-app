@@ -1,1 +1,1 @@
-export * from './TableThead'
+export * from './TableThead';

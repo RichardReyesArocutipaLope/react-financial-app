@@ -1,70 +1,68 @@
 .input__container {
-    height: 4.6rem;
-    padding: 0rem 1.2rem;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    position: relative;
+	height: 4.6rem;
+	padding: 0rem 1.2rem;
+	width: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	position: relative;
 }
 
 .input__label {
-    font-size: 1.2rem;
-    font-weight: 500;
-    order: 1;
-    padding: .2rem 1rem;
-    height: 2rem;
-    max-height: 2rem;
-    min-height: 2rem;
+	font-size: 1.2rem;
+	font-weight: 500;
+	order: 1;
+	padding: 0.2rem 1rem;
+	height: 2rem;
+	max-height: 2rem;
+	min-height: 2rem;
 }
-.input__label span{
-    color: rgb(200, 0, 0);
-    font-weight: 600;
+.input__label span {
+	color: rgb(200, 0, 0);
+	font-weight: 600;
 }
 
 .input {
-    background-color: var(--bg-inputs);
-    border-radius: .8rem;
-    border: none;
-    box-shadow: var(--shadow-inputs);
-    font-size: 1.1rem;
-    outline: none;
-    padding: .6rem 1rem;
-    order: 2;
-    width: 100%;
-    height: 2.6rem;
-    max-height: 2.6rem;
-    min-height: 2.6rem;
-    color: var(--color-inputs);
+	background-color: var(--bg-inputs);
+	border-radius: 0.8rem;
+	border: none;
+	box-shadow: var(--shadow-inputs);
+	font-size: 1.1rem;
+	outline: none;
+	padding: 0.6rem 1rem;
+	order: 2;
+	width: 100%;
+	height: 2.6rem;
+	max-height: 2.6rem;
+	min-height: 2.6rem;
+	color: var(--color-inputs);
 }
 
 .input-error {
-    outline: 1px solid rgb(200, 0, 0) !important;
+	outline: 1px solid rgb(200, 0, 0) !important;
 }
 
 .input:focus {
-    background-color: var(--bg-inputs-focus);
+	background-color: var(--bg-inputs-focus);
 }
 
-.input:focus+.input__label {
-    color: var(--color-inputs-focus-label);
+.input:focus + .input__label {
+	color: var(--color-inputs-focus-label);
 }
-
 
 /* min width */
 .min-width__input {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: .2rem;
-    background-color: red;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 0.2rem;
+	background-color: red;
 }
 
-
 .input-error-message {
-    color: rgb(200, 0, 0);
-    font-size: .9rem;
-    position: absolute;
-    bottom: -1.2rem;
-    left: 2.2rem;
+	color: rgb(200, 0, 0);
+	font-size: 0.9rem;
+	position: absolute;
+	bottom: -1.2rem;
+	left: 2.2rem;
 }

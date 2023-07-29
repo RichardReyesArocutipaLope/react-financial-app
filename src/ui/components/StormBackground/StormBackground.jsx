@@ -1,15 +1,11 @@
-import { useEffect } from 'react'
-import './StormBackground.css'
+import { useEffect } from 'react';
+import './StormBackground.css';
 import { init } from './stormBackgroundjs';
 
-
 export const StormBackground = () => {
-    useEffect(() => {
-        init();
-    }, [])
+	useEffect(() => {
+		init();
+	}, []);
 
-    return (
-        <div className='storm-background'>
-        </div>
-    )
-}
+	return <div className='storm-background'></div>;
+};

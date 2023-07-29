@@ -1,7 +1,5 @@
-import './Roles.css'
+import './Roles.css';
 
 export const Roles = () => {
-  return (
-    <div>Roles</div>
-  )
-}
+	return <div>Roles</div>;
+};

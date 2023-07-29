@@ -1,17 +1,17 @@
-.warning-container{
+.warning-container {
 }
 
-.warning-container p{
-    color: var(--text-five-color-black);
-    font-size: 1.2rem;
-    font-weight: 500;
-    padding: .5rem;
+.warning-container p {
+	color: var(--text-five-color-black);
+	font-size: 1.2rem;
+	font-weight: 500;
+	padding: 0.5rem;
 }
-.warning-container p:first-child{
-    text-align: justify;
+.warning-container p:first-child {
+	text-align: justify;
 }
-.warning-container p:last-child{
-    text-align: center;
-    font-size: 1.35rem;
-    margin-top: 2rem;
+.warning-container p:last-child {
+	text-align: center;
+	font-size: 1.35rem;
+	margin-top: 2rem;
 }

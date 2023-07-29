@@ -1,9 +1,5 @@
-import './ModalWarningContainer.css'
+import './ModalWarningContainer.css';
 
 export const ModalWarningContainer = ({ children }) => {
-    return (
-        <div className='warning-container'>
-            {children}
-        </div>
-    )
-}
+	return <div className='warning-container'>{children}</div>;
+};

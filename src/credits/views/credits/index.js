@@ -1,2 +1,2 @@
 export * from './Credits';
-export * from './moduleOptions'
+export * from './moduleOptions';

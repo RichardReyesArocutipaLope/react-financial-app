@@ -1,49 +1,48 @@
 .sub-option__label {
-    color: var(--color-suboption);
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding: .8rem 1rem;
-    border-radius: 1rem;
-    cursor: pointer;
-    position: relative;
-    display: block;
+	color: var(--color-suboption);
+	font-size: 1.2rem;
+	font-weight: 600;
+	padding: 0.8rem 1rem;
+	border-radius: 1rem;
+	cursor: pointer;
+	position: relative;
+	display: block;
 }
 
 .sub-option__label:hover {
-    box-shadow: var(--shadow-sidebar-suboption-hover);
+	box-shadow: var(--shadow-sidebar-suboption-hover);
 }
 
 .sub-option__label.active {
-    box-shadow: var(--shadow-sidebar-suboption-active);
-    background-color: var(--bg-sidebar-suboption-active);
-    color: var(--color-sidebar-suboption-active);
-    z-index: var(--z-index-50);
+	box-shadow: var(--shadow-sidebar-suboption-active);
+	background-color: var(--bg-sidebar-suboption-active);
+	color: var(--color-sidebar-suboption-active);
+	z-index: var(--z-index-50);
 }
 
 .sub-option__label:first-of-type {
-    margin-top: 1rem;
+	margin-top: 1rem;
 }
 
 .sub-option__label:last-of-type {
-    margin-bottom: .5rem;
+	margin-bottom: 0.5rem;
 }
 
 .icon-suboption {
-    font-size: 1.3rem;
-    color: var(--color-icon-suboption);
-    position: absolute;
-    top: 50%;
-    left: -1.2rem;
-    transform: translateY(-50%);
+	font-size: 1.3rem;
+	color: var(--color-icon-suboption);
+	position: absolute;
+	top: 50%;
+	left: -1.2rem;
+	transform: translateY(-50%);
 }
 
 .min-sidebar .icon-suboption {
-    color: var(--color-min-icon-suboption);
+	color: var(--color-min-icon-suboption);
 }
 
 @media screen and (max-width: 1280px) {
-    .icon-suboption {
-        color: var(--color-min-icon-suboption);
-    }
-    
+	.icon-suboption {
+		color: var(--color-min-icon-suboption);
+	}
 }

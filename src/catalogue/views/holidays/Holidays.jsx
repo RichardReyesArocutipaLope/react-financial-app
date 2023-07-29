@@ -1,9 +1,9 @@
-import './Holidays.css'
+import './Holidays.css';
 
 export const Holidays = () => {
-  return (
-    <>
-    <div>Holidays</div>
-    </>
-  )
-}
+	return (
+		<>
+			<div>Holidays</div>
+		</>
+	);
+};

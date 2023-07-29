@@ -1,10 +1,9 @@
-
-import { Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom';
 
 export const Catalogue = () => {
-    return (
-        <>
-            <Outlet />
-        </>
-    )
-}
+	return (
+		<>
+			<Outlet />
+		</>
+	);
+};

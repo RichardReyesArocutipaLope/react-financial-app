@@ -1,32 +1,32 @@
 .input-number__range-container {
-    display: flex;
-    gap: 6%;
-    order: 2;
-    position: relative;
+	display: flex;
+	gap: 6%;
+	order: 2;
+	position: relative;
 }
 
 .input-number__range {
-    padding-left: 3.1rem !important;
-    width: 47%;
+	padding-left: 3.1rem !important;
+	width: 47%;
 }
 
 .input-number__range-container::after {
-    content: '-';
-    font-size: 1.5rem;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
+	content: '-';
+	font-size: 1.5rem;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
 }
 
-.input-number__range-container .input-number__symbol{
-    position: absolute;
-    font-size: 1.1rem;
-    padding: .6rem;
-    background-color: var(--input-money-symbol);
-    border-bottom-left-radius: .8rem;
-    border-top-left-radius: .8rem;
+.input-number__range-container .input-number__symbol {
+	position: absolute;
+	font-size: 1.1rem;
+	padding: 0.6rem;
+	background-color: var(--input-money-symbol);
+	border-bottom-left-radius: 0.8rem;
+	border-top-left-radius: 0.8rem;
 }
 .input-number__range-container .input-number__symbol:nth-child(2) {
-    left: 53%;
-} 
+	left: 53%;
+}

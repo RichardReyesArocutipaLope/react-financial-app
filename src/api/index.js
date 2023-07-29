@@ -1,2 +1,1 @@
-
-export {default as financialApi} from './financialApi';
+export { default as financialApi } from './financialApi';

@@ -1,2 +1,2 @@
-export * from './civilStatusSlice'
-export * from './thunks'
+export * from './civilStatusSlice';
+export * from './thunks';

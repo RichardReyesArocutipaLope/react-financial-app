@@ -1,10 +1,10 @@
-import './InputHidden.css'
+import './InputHidden.css';
 
 export const InputHidden = () => {
-  return (
-    <div>
-        <input type="hidden"></input>
-        <label htmlFor=""></label>
-    </div>
-  )
-}
+	return (
+		<div>
+			<input type='hidden'></input>
+			<label htmlFor=''></label>
+		</div>
+	);
+};

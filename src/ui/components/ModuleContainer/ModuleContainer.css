@@ -1,30 +1,27 @@
-
 .module-container {
-    background-color: var(--bg-module);
-    padding: 2rem;
-    flex-grow: 1;
-    overflow-y: scroll;
-    position: relative;
+	background-color: var(--bg-module);
+	padding: 2rem;
+	flex-grow: 1;
+	overflow-y: scroll;
+	position: relative;
 }
 
-
 .body__shadow {
-    height: .1px;
-    background-color: var(--bg-module);
-    box-shadow: 0px 0px 20px 1px var(--shadow-40);
-    z-index: var(--z-index-40);
-    position: relative;
-    margin-left: 10%;
-    margin-right: 10%;
+	height: 0.1px;
+	background-color: var(--bg-module);
+	box-shadow: 0px 0px 20px 1px var(--shadow-40);
+	z-index: var(--z-index-40);
+	position: relative;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 .body__shadow:last-of-type {
-    box-shadow: 0px 0px 20px 1px var(--shadow-90);
+	box-shadow: 0px 0px 20px 1px var(--shadow-90);
 }
 
-
 @media screen and (max-width: 640px) {
-    .body__shadow {
-        box-shadow: 0px 0px 10px 0.5px var(--shadow-40);
-    }
+	.body__shadow {
+		box-shadow: 0px 0px 10px 0.5px var(--shadow-40);
+	}
 }

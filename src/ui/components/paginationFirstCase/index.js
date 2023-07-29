@@ -1,1 +1,1 @@
-export * from './PaginationFirstCase'
+export * from './PaginationFirstCase';

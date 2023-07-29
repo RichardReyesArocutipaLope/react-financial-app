@@ -1,29 +1,29 @@
-let scene,
-	camera,
-	renderer,
-	cloudParticles = [],
-	rainParticles = [],
-	flash,
-	rain,
-	rainGeo,
-	rainCount = 15000;
+let scene;
+	let camera;
+	let renderer;
+	const cloudParticles = [];
+	const rainParticles = [];
+	let flash;
+	let rain;
+	let rainGeo;
+	const rainCount = 15000;
 export function init() {
 	scene = new THREE.Scene();
 	camera = new THREE.PerspectiveCamera(
 		60,
 		window.innerWidth / window.innerHeight,
 		1,
-		1000
+		1000,
 	);
 	camera.position.z = 1;
 	camera.rotation.x = 1.16;
 	camera.rotation.y = -0.12;
 	camera.rotation.z = 0.27;
 
-	let ambient = new THREE.AmbientLight(0x555555);
+	const ambient = new THREE.AmbientLight(0x555555);
 	scene.add(ambient);
 
-	let directionalLight = new THREE.DirectionalLight(0xffeedd);
+	const directionalLight = new THREE.DirectionalLight(0xffeedd);
 	directionalLight.position.set(0, 0, 1);
 	scene.add(directionalLight);
 
@@ -37,17 +37,17 @@ export function init() {
 	renderer.setClearColor(scene.fog.color);
 
 	renderer.setSize(window.innerWidth, window.innerHeight);
-	let mainelement=document.querySelector('.storm-background');
+	const mainelement = document.querySelector('.storm-background');
 	mainelement.appendChild(renderer.domElement);
 
-	let positions = [];
-	let sizes = [];
+	const positions = [];
+	const sizes = [];
 	rainGeo = new THREE.BufferGeometry();
 	for (let i = 0; i < rainCount; i++) {
-		let rainDrop = new THREE.Vector3(
+		const rainDrop = new THREE.Vector3(
 			Math.random() * 400 - 200,
 			Math.random() * 500 - 250,
-			Math.random() * 400 - 200
+			Math.random() * 400 - 200,
 		);
 		positions.push(Math.random() * 400 - 200);
 		positions.push(Math.random() * 500 - 250);
@@ -55,37 +55,37 @@ export function init() {
 		sizes.push(30);
 	}
 	rainGeo.setAttribute(
-		"position",
-		new THREE.BufferAttribute(new Float32Array(positions), 3)
+		'position',
+		new THREE.BufferAttribute(new Float32Array(positions), 3),
 	);
 	rainGeo.setAttribute(
-		"size",
-		new THREE.BufferAttribute(new Float32Array(sizes), 1)
+		'size',
+		new THREE.BufferAttribute(new Float32Array(sizes), 1),
 	);
-	let rainMaterial = new THREE.PointsMaterial({
+	const rainMaterial = new THREE.PointsMaterial({
 		color: 0xaaaaaa,
 		size: 0.1,
-		transparent: true
+		transparent: true,
 	});
 	rain = new THREE.Points(rainGeo, rainMaterial);
 	scene.add(rain);
 
-	let loader = new THREE.TextureLoader();
+	const loader = new THREE.TextureLoader();
 	loader.load(
-		"https://static.vecteezy.com/system/resources/previews/010/884/548/original/dense-fluffy-puffs-of-white-smoke-and-fog-on-transparent-background-abstract-smoke-clouds-movement-blurred-out-of-focus-smoking-blows-from-machine-dry-ice-fly-fluttering-in-air-effect-texture-png.png",
+		'https://static.vecteezy.com/system/resources/previews/010/884/548/original/dense-fluffy-puffs-of-white-smoke-and-fog-on-transparent-background-abstract-smoke-clouds-movement-blurred-out-of-focus-smoking-blows-from-machine-dry-ice-fly-fluttering-in-air-effect-texture-png.png',
 		function (texture) {
-			let cloudGeo = new THREE.PlaneBufferGeometry(500, 500);
-			let cloudMaterial = new THREE.MeshLambertMaterial({
+			const cloudGeo = new THREE.PlaneBufferGeometry(500, 500);
+			const cloudMaterial = new THREE.MeshLambertMaterial({
 				map: texture,
-				transparent: true
+				transparent: true,
 			});
 
 			for (let p = 0; p < 25; p++) {
-				let cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
+				const cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
 				cloud.position.set(
 					Math.random() * 800 - 400,
 					500,
-					Math.random() * 500 - 450
+					Math.random() * 500 - 450,
 				);
 				cloud.rotation.x = 1.16;
 				cloud.rotation.y = -0.12;
@@ -95,12 +95,12 @@ export function init() {
 				scene.add(cloud);
 			}
 			animate();
-			window.addEventListener("resize", onWindowResize);
-		}
+			window.addEventListener('resize', onWindowResize);
+		},
 	);
 }
 function animate() {
-	cloudParticles.forEach((p) => {
+	cloudParticles.forEach(p => {
 		p.rotation.z -= 0.002;
 	});
 	rainGeo.attributes.size.array.forEach((r, i) => {

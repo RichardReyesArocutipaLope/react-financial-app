@@ -1,10 +1,10 @@
-import './InputImage.css'
+import './InputImage.css';
 
 export const InputImage = () => {
-  return (
-    <div>
-        <input type="image"></input>
-        <label htmlFor=""></label>
-    </div>
-  )
-}
+	return (
+		<div>
+			<input type='image'></input>
+			<label htmlFor=''></label>
+		</div>
+	);
+};

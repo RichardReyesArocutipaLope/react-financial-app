@@ -1,1 +1,1 @@
-export * from './PaginationThidCase'
+export * from './PaginationThidCase';

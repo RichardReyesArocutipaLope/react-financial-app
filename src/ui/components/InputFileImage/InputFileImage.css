@@ -1,16 +1,16 @@
 .input-file-image {
-    width: 13rem;
-    height: 9rem;
-    display: block;
-    background-color: var(--bg-inputs);
-    border-radius: .8rem;
-    box-shadow: var(--shadow-inputs);
-    padding: .5rem;
-    text-align: center;
-    cursor: pointer;
+	width: 13rem;
+	height: 9rem;
+	display: block;
+	background-color: var(--bg-inputs);
+	border-radius: 0.8rem;
+	box-shadow: var(--shadow-inputs);
+	padding: 0.5rem;
+	text-align: center;
+	cursor: pointer;
 }
 
 .input-file-image i {
-    font-size: 8rem;
-    color: var(--color-inputs);
+	font-size: 8rem;
+	color: var(--color-inputs);
 }

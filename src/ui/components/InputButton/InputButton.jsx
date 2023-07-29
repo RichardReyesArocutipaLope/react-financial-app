@@ -1,10 +1,10 @@
-import './InputButton.css'
+import './InputButton.css';
 
 export const InputButton = () => {
-  return (
-    <div>
-        <input type="button"></input>
-        <label htmlFor=""></label>
-    </div>
-  )
-}
+	return (
+		<div>
+			<input type='button'></input>
+			<label htmlFor=''></label>
+		</div>
+	);
+};
