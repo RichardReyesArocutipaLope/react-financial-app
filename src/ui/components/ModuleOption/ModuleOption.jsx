@@ -8,18 +8,12 @@ export const ModuleOption = memo(({ moduleOptionData, moduleOptionModal }) => {
 	console.log('ModuleOption.jsx');
 
 	const { moduleOptionIcon, moduleOptionLabel, moduleOptionColor, idIsRequired } = moduleOptionData;
-	const { modalBodyComponent, modalFooterComponent, modalProperties } = moduleOptionModal;
 	const { selectedCredit } = useSelector(state => state.credits);
-
 	const { setDataAlert } = useContext(AlertContext);
 	const { handleModal } = useContext(ModalContext);
 
 	const onClickModuleOption = () => {
-		if (!idIsRequired)
-			return handleModal('setData', modalBodyComponent, modalFooterComponent, modalProperties);
-		if (selectedCredit?.id)
-			return handleModal('setData', modalBodyComponent, modalFooterComponent, modalProperties);
-
+		if (!idIsRequired || selectedCredit?.id) return handleModal(moduleOptionModal);
 		setDataAlert({
 			type: 'danger',
 			errorCode: null,

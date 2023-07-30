@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Modal.css';
 
 export const Modal = ({
 	isOpenModal,
 	setIsOpenModal,
-	handleModal,
 	modalBodyContent,
 	modalFooterContent,
 	modalProperties,
@@ -35,11 +34,7 @@ export const Modal = ({
 	) => {
 		setAnotherOpenModal(false);
 		setTimeout(() => {
-			anotherModal(
-				anotherBodyComponent,
-				anotherFooterComponet,
-				anotherModalProperties,
-			);
+			anotherModal(anotherBodyComponent, anotherFooterComponet, anotherModalProperties);
 			setAnotherOpenModal(true);
 		}, 300);
 
@@ -58,31 +53,23 @@ export const Modal = ({
 				(anotherOpenModal ? 'another-modal-active' : 'another-modal-inactive')
 			}`}
 			onClick={handleClickOutside}>
-			<div
-				className={`modal ${width} ${
-					bodyHeight === '100%' ? 'height100' : ''
-				} ${bodyHeightClass}`}>
+			<div className={`modal ${width} ${bodyHeight === '100%' ? 'height100' : ''} ${bodyHeightClass}`}>
 				<div className='modal__header'>
 					<h1>{title}</h1>
-					<span onClick={handleModal} className='modal__header-closeModal'>
+					<span onClick={() => setIsOpenModal(false)} className='modal__header-closeModal'>
 						<i className='fa-solid fa-xmark'></i>
 					</span>
 				</div>
 
-				<div
-					className={`modal__body-container ${bodyHeightClass}`}
-					style={{ height: bodyHeight }}>
+				<div className={`modal__body-container ${bodyHeightClass}`} style={{ height: bodyHeight }}>
 					<div className='shadow'></div>
 					<div
-						className={`modal__body ${
-							hasScroll ? 'modal-scroll' : ''
-						}  ${bodyHeightClass}`}
+						className={`modal__body ${hasScroll ? 'modal-scroll' : ''}  ${bodyHeightClass}`}
 						style={{
 							height: bodyHeight,
 							backgroundColor: bodyBackgroundColor,
 						}}>
-						{isOpenModal &&
-							React.cloneElement(modalBodyContent, { setIsOpenModal })}
+						{isOpenModal && React.cloneElement(modalBodyContent, { setIsOpenModal })}
 					</div>
 					<div className='shadow'></div>
 				</div>

@@ -18,7 +18,7 @@ export const AlertProvider = ({ children }) => {
 
 	return (
 		<>
-			<AlertContext.Provider value={{ setIsActiveAlert, setDataAlert }}>{children}</AlertContext.Provider>
+			<AlertContext.Provider value={{ setDataAlert }}>{children}</AlertContext.Provider>
 			<Alert isActiveAlert={isActiveAlert} dataAlert={dataAlert} />
 		</>
 	);

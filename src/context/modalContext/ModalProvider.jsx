@@ -18,19 +18,11 @@ export const ModalProvider = ({ children }) => {
 		footerHeightClass: '',
 	});
 
-	const handleModal = (
-		typeOfOperation = '',
-		bodyComponent = <></>,
-		footerComponet = <></>,
-		modalProperties = {},
-	) => {
-		if (typeOfOperation === 'setData') {
-			setModalBodyContent(bodyComponent);
-			setModalFooterContent(footerComponet);
-			modalProperties && setModalProperties(modalProperties);
-			setIsOpenModal(!isOpenModal);
-			return;
-		}
+	const handleModal = moduleOptionModal => {
+		const { modalBodyComponent, modalFooterComponent, modalProperties } = moduleOptionModal;
+		setModalBodyContent(modalBodyComponent);
+		setModalFooterContent(modalFooterComponent);
+		modalProperties && setModalProperties(modalProperties);
 		setIsOpenModal(!isOpenModal);
 	};
 
@@ -46,14 +38,11 @@ export const ModalProvider = ({ children }) => {
 
 	return (
 		<>
-			<ModalContext.Provider value={{ handleModal, setIsOpenModal }}>
-				{children}
-			</ModalContext.Provider>
+			<ModalContext.Provider value={{ handleModal, setIsOpenModal }}>{children}</ModalContext.Provider>
 
 			<Modal
 				isOpenModal={isOpenModal}
 				setIsOpenModal={setIsOpenModal}
-				handleModal={handleModal}
 				modalBodyContent={modalBodyContent}
 				modalFooterContent={modalFooterContent}
 				modalProperties={modalProperties}
