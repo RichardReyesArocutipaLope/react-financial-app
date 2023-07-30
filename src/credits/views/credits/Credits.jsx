@@ -14,9 +14,8 @@ import { moduleOptions } from './';
 export const Credits = () => {
 	console.log('Credits.jsx');
 
-	const { isLoading, credits, numberOfCredits, selectedCredit } = useSelector(state => state.credits);
+	const { isLoading, credits, numberOfCredits } = useSelector(state => state.credits);
 	const { currentOffset, setCurrentOffset, parameters } = useContext(CreditContext);
-	const memoSelectCredit = useMemo(() => selectedCredit, [selectedCredit]);
 
 	const moduleChildren = useMemo(
 		() =>
@@ -25,7 +24,6 @@ export const Credits = () => {
 					key={moduleOptionData.id}
 					moduleOptionData={moduleOptionData}
 					moduleOptionModal={moduleOptionModal}
-					selectedCredit={memoSelectCredit}
 				/>
 			)),
 		[],

@@ -22,28 +22,20 @@ export const useResponsiveForm = (initialResponsive = []) => {
 	const [rwd, setRwd] = useState({});
 	const [centinela, setCentinela] = useState('firstRender');
 
-	const assignedBreakPoints = [];
-	initialResponsive.forEach(item => {
-		assignedBreakPoints.push(...Object.keys(item));
-	});
-	const assignedBreakPointsFiltering = [...new Set(assignedBreakPoints)];
+	const breakpointsKeys = [];
+	initialResponsive.forEach(item => breakpointsKeys.push(...Object.keys(item)));
+	const uniqueBreakpointsKeys = [...new Set(breakpointsKeys)];
 
 	useEffect(() => {
 		function cambiarEstilo() {
-			const { sentinel, col } = config.find(
-				item =>
-					window.matchMedia(
-						`(min-width: ${item.min}px) and (max-width: ${item.max}px)`,
-					).matches,
-			);
-
-			if (!(centinela !== sentinel)) return;
+			const mediaScreen = (min, max) => `(min-width: ${min}px) and (max-width: ${max}px)`;
+			const { sentinel, col } = config.find(({ min, max }) => matchMedia(mediaScreen(min, max)).matches);
+			if (centinela === sentinel) return;
+			if (uniqueBreakpointsKeys.includes(col)) setNewCol(col);
 			setCentinela(sentinel);
-			if (assignedBreakPointsFiltering.includes(col)) setNewCol(col);
 		}
 
 		if (centinela === 'firstRender') cambiarEstilo();
-
 		window.addEventListener('resize', cambiarEstilo);
 
 		return () => {
@@ -53,9 +45,7 @@ export const useResponsiveForm = (initialResponsive = []) => {
 
 	const setNewCol = breackPoint => {
 		const updatedRwd = {};
-		initialResponsive.forEach(
-			item => (updatedRwd[item.name] = item[breackPoint] || item.col),
-		);
+		initialResponsive.forEach(item => (updatedRwd[item.name] = item[breackPoint]));
 		setRwd(updatedRwd);
 	};
 

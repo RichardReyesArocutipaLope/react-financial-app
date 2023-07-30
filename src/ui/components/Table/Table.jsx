@@ -61,7 +61,7 @@ export const Table = ({ isLoading, arrayData }) => {
 									onClick={() => {
 										onSelectRegister(data, id);
 									}}
-									className={`${selectedCredit?.id == id ? 'active' : ''}`}>
+									className={`${selectedCredit?.id === id ? 'active' : ''}`}>
 									<td className='button-rwd'>
 										<i
 											onClick={() => {
@@ -74,32 +74,25 @@ export const Table = ({ isLoading, arrayData }) => {
 									</td>
 
 									{data.map((item, index) => {
-										if (index + 1 > maxColumns) return;
+										if (index + 1 > maxColumns) return null;
 										return <td key={item}>{item}</td>;
 									})}
 								</tr>
-								{tableRwd &&
-									tableRwd[`tr${index}`] &&
-									data.length > maxColumns && (
-										<tr className='tr-children'>
-											<div>
-												{data.map((item, index) => {
-													if (index + 1 <= maxColumns) return;
-													return (
-														<td key={item}>
-															<span className='tr-children__title'>
-																{tablethead[index]}
-															</span>
-															:
-															<span className='tr-children__content'>
-																{item}
-															</span>
-														</td>
-													);
-												})}
-											</div>
-										</tr>
-									)}
+								{tableRwd && tableRwd[`tr${index}`] && data.length > maxColumns && (
+									<tr className='tr-children'>
+										<div>
+											{data.map((item, index) => {
+												if (index + 1 <= maxColumns) return null;
+												return (
+													<td key={item}>
+														<span className='tr-children__title'>{tablethead[index]}</span>:
+														<span className='tr-children__content'>{item}</span>
+													</td>
+												);
+											})}
+										</div>
+									</tr>
+								)}
 							</React.Fragment>
 						))}
 					</tbody>
