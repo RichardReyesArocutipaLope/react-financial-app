@@ -12,38 +12,29 @@ export const Table = ({ isLoading, arrayData }) => {
 
 	const { selectedCredit } = useSelector(state => state.credits);
 	const { tablethead } = useContext(CreditContext);
-	const [tableRwd, setTableRwd] = useState(null);
-	const [numRegister, setNumRegister] = useState(10);
 	const { maxColumns } = useResponsiveTable();
+	const [tableRwd, setTableRwd] = useState(null);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		const initialTableRwd = {};
-		for (let i = 0; i < numRegister; i++) {
+		for (let i = 0; i < 10; i++) {
 			initialTableRwd[`tr${i}`] = false;
 		}
 		setTableRwd(initialTableRwd);
-	}, [numRegister]);
+	}, []);
 
-	const dispatch = useDispatch();
+	const onSelectRegister = (data, id) => dispatch(setSelectedCredit({ tablethead, data, id }));
 
-	const onSelectRegister = (data, id) => {
-		dispatch(setSelectedCredit({ tablethead, data, id }));
-	};
-
-	const handleClickOutside = event => {
-		if (
-			event.target.closest('.table-container') === null &&
-			event.target.closest('.module-options__container') === null
-		) {
-			dispatch(setSelectedCredit(null));
-		}
+	const handleClickOutside = ({ target }) => {
+		const closetTable = target.closest('.table-container') === null;
+		const closetOptions = target.closest('.module-options__container') === null;
+		if (closetTable && closetOptions) dispatch(setSelectedCredit(null));
 	};
 
 	useEffect(() => {
 		document.addEventListener('click', handleClickOutside);
-		return () => {
-			document.removeEventListener('click', handleClickOutside);
-		};
+		return () => document.removeEventListener('click', handleClickOutside);
 	}, []);
 
 	return (
