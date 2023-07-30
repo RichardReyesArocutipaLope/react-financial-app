@@ -1,3 +1,4 @@
+import { CreditsLoading } from '../../credits/views/credits/CreditsLoading';
 import { Header, ModuleContainer, Sidebar } from '../components';
 
 export const FinancialLayout = ({ children }) => {
@@ -7,6 +8,9 @@ export const FinancialLayout = ({ children }) => {
 			<div className='content-app'>
 				<Header />
 				<ModuleContainer>{children}</ModuleContainer>
+				{/* <ModuleContainer>
+					<CreditsLoading />
+				</ModuleContainer> */}
 			</div>
 		</>
 	);

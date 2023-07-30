@@ -10,6 +10,7 @@ import {
 	Table,
 } from '../../../ui/components';
 import { moduleOptions } from './';
+import { CreditsLoading } from './CreditsLoading';
 
 export const Credits = () => {
 	console.log('Credits.jsx');
@@ -30,7 +31,7 @@ export const Credits = () => {
 	);
 
 	return !(credits.length > 0) ? (
-		<h1>Cargando...</h1>
+		<CreditsLoading />
 	) : (
 		<>
 			<ModuleTitle title='Créditos' />

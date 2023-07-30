@@ -7,17 +7,12 @@
 }
 
 .body__shadow {
-	height: 0.1px;
+	height: 0.5px;
 	background-color: var(--bg-module);
 	box-shadow: 0px 0px 20px 1px var(--shadow-40);
-	z-index: var(--z-index-40);
-	position: relative;
-	margin-left: 10%;
-	margin-right: 10%;
-}
-
-.body__shadow:last-of-type {
-	box-shadow: 0px 0px 20px 1px var(--shadow-90);
+	z-index: var(--z-index-90);
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 @media screen and (max-width: 640px) {

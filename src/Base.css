@@ -160,8 +160,7 @@
 		0.15rem 0.15rem 0.1rem 0rem rgb(240, 240, 240),
 		-0.15rem -0.15rem 0.1rem 0rem rgb(180, 180, 180);
 
-	--shadow-module-option-active: inset 0.6rem 0.6rem 1.5rem 0rem
-			var(--shadow-50),
+	--shadow-module-option-active: inset 0.6rem 0.6rem 1.5rem 0rem var(--shadow-50),
 		0.15rem 0.15rem 0.1rem 0rem rgb(240, 240, 240),
 		-0.15rem -0.15rem 0.1rem 0rem rgb(180, 180, 180);
 
@@ -351,8 +350,7 @@
 		0.15rem 0.15rem 0.1rem 0rem rgb(30, 30, 30),
 		-0.15rem -0.15rem 0.1rem 0rem rgb(10, 10, 10);
 
-	--shadow-module-option-active: inset 0.6rem 0.6rem 1.5rem 0rem
-			var(--shadow-100),
+	--shadow-module-option-active: inset 0.6rem 0.6rem 1.5rem 0rem var(--shadow-100),
 		0.15rem 0.15rem 0.1rem 0rem rgb(30, 30, 30),
 		-0.15rem -0.15rem 0.1rem 0rem rgb(10, 10, 10);
 
@@ -534,8 +532,7 @@
 		0.15rem 0.15rem 0.1rem 0rem rgb(12, 12, 12),
 		-0.15rem -0.15rem 0.1rem 0rem rgb(0, 0, 0);
 
-	--shadow-module-option-active: inset 0.6rem 0.6rem 1.5rem 0rem
-			var(--shadow-100),
+	--shadow-module-option-active: inset 0.6rem 0.6rem 1.5rem 0rem var(--shadow-100),
 		0.15rem 0.15rem 0.1rem 0rem rgb(12, 12, 12),
 		-0.15rem -0.15rem 0.1rem 0rem rgb(0, 0, 0);
 
@@ -729,6 +726,7 @@ img {
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
+	background-color: var(--bg-module);
 }
 
 .d-none {
@@ -762,6 +760,7 @@ img {
 }
 
 @media screen and (max-width: 1280px) {
+
 	/* minimizar sidebar */
 	.main-sidebar {
 		width: 6.4rem;
@@ -911,7 +910,7 @@ img {
 		width: 16.7em;
 	}
 
-	.module-options > div {
+	.module-options>div {
 		padding: 2em 3.7em 2em 1em;
 	}
 
