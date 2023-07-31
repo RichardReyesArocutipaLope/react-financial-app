@@ -62,6 +62,7 @@ export * from './sidebarOption';
 export * from './sidebarSubOption';
 export * from './sidebarSubOptions';
 export * from './stormBackground';
+export * from './tableContainer';
 export * from './table';
 export * from './userOptionsWindow';
 export * from './simpleLoading';

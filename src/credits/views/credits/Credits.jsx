@@ -7,7 +7,7 @@ import {
 	ModuleOptions,
 	ModuleTitle,
 	PaginationContainer,
-	Table,
+	TableContainer,
 } from '../../../ui/components';
 import { moduleOptions } from './';
 import { CreditsLoading } from './CreditsLoading';
@@ -37,7 +37,7 @@ export const Credits = () => {
 			<ModuleTitle title='Créditos' />
 			<ModuleOptions>{moduleChildren}</ModuleOptions>
 			<Filter credits={credits} />
-			<Table isLoading={isLoading} arrayData={credits} />
+			<TableContainer isLoading={isLoading} arrayData={credits} />
 			<PaginationContainer
 				currentOffset={currentOffset}
 				setCurrentOffset={setCurrentOffset}

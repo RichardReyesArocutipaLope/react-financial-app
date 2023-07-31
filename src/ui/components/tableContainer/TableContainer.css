@@ -1,0 +1,44 @@
+/*  */
+.button-rwd {
+	position: relative;
+	width: 2rem;
+	padding: 0 !important;
+}
+
+.button-rwd i {
+	font-size: 1.2rem;
+	color: rgb(0, 0, 0);
+	padding: 0.2rem;
+	border-radius: 50%;
+	position: absolute;
+	width: 1.5rem;
+	height: 1.5rem;
+	text-align: center;
+	top: 0.7rem;
+	left: 0.7rem;
+}
+
+.button-rwd .fa-plus {
+	background-color: rgb(17, 148, 24);
+}
+
+.button-rwd .fa-minus {
+	background-color: rgb(187, 0, 0);
+}
+
+.tr-children:hover {
+	color: inherit !important;
+	background-color: inherit !important;
+	cursor: initial;
+}
+
+.tr-children__title {
+	display: inline-block;
+	width: 6rem;
+	font-weight: 900;
+}
+
+.tr-children__content {
+	display: inline-block;
+	padding-left: 0.5rem;
+}

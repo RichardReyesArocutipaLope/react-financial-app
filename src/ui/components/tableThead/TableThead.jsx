@@ -6,7 +6,7 @@ export const TableThead = memo(({ tablethead, maxCols }) => {
 	return (
 		<thead className='table__thead'>
 			<tr>
-				<th className='button-rwd'></th>
+				{tablethead.length > maxCols && <th className='button-rwd'></th>}
 				{tablethead.map((item, index) => {
 					if (index + 1 > maxCols) return null;
 					return <th key={item}>{item}</th>;

@@ -1,0 +1,17 @@
+.table__thead th {
+    padding: 0.8rem 1.1rem;
+    background-color: var(--bg-table-th);
+    text-align: start;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.table__thead th:first-of-type {
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+
+.table__thead th:last-of-type {
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
