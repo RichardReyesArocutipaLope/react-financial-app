@@ -1,4 +1,4 @@
-import { useEffect , useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const breackPoints = {
 	xxs: 480,
@@ -8,85 +8,34 @@ const breackPoints = {
 	l: 1536,
 	xl: 2000,
 };
+
+const { xxs, xs, s, m, l, xl } = breackPoints;
 const config = [
-	{
-		min: breackPoints.xl,
-		max: 5000,
-		sentinel: '>xl',
-		col: 'xxl',
-		maxColumns: 10,
-	},
-	{
-		min: breackPoints.l + 1,
-		max: breackPoints.xl,
-		sentinel: 'l-xl',
-		col: 'xl',
-		maxColumns: 8,
-	},
-	{
-		min: breackPoints.m + 1,
-		max: breackPoints.l,
-		sentinel: 'm-l',
-		col: 'l',
-		maxColumns: 6,
-	},
-	{
-		min: breackPoints.s + 1,
-		max: breackPoints.m,
-		sentinel: 's-m',
-		col: 'm',
-		maxColumns: 5,
-	},
-	{
-		min: breackPoints.xs + 1,
-		max: breackPoints.s,
-		sentinel: 'xs-s',
-		col: 's',
-		maxColumns: 4,
-	},
-	{
-		min: breackPoints.xxs + 1,
-		max: breackPoints.xs,
-		sentinel: 'xxs-xs',
-		col: 'xs',
-		maxColumns: 2,
-	},
-	{
-		min: 0,
-		max: breackPoints.xxs,
-		sentinel: '<xxs',
-		col: 'xxs',
-		maxColumns: 1,
-	},
+	{ min: xl, max: 5000, cols: 10 },
+	{ min: l + 1, max: xl, cols: 8 },
+	{ min: m + 1, max: l, cols: 6 },
+	{ min: s + 1, max: m, cols: 5 },
+	{ min: xs + 1, max: s, cols: 4 },
+	{ min: xxs + 1, max: xs, cols: 2 },
+	{ min: 0, max: xxs, cols: 1 },
 ];
 
 export const useResponsiveTable = () => {
-	const [maxColumns, setMaxColumns] = useState(1);
-	const [centinela, setCentinela] = useState('firstRender');
+	const [maxCols, setMaxCols] = useState(0);
 
 	useEffect(() => {
 		function responseTable() {
-			const { sentinel, maxColumns } = config.find(
-				item =>
-					window.matchMedia(
-						`(min-width: ${item.min}px) and (max-width: ${item.max}px)`,
-					).matches,
-			);
-
-			if (!(centinela !== sentinel)) return;
-			setCentinela(sentinel);
-			setMaxColumns(maxColumns);
+			const mediaScreen = ({ min, max }) => `(min-width: ${min}px) and (max-width: ${max}px)`;
+			const { cols } = config.find(item => matchMedia(mediaScreen(item)).matches);
+			if (maxCols === cols) return;
+			setMaxCols(cols);
 		}
 
-		if (centinela === 'firstRender') responseTable();
-		window.addEventListener('resize', responseTable);
+		if (!maxCols) responseTable();
+		addEventListener('resize', responseTable);
 
-		return () => {
-			window.removeEventListener('resize', responseTable);
-		};
-	}, [centinela]);
+		return () => removeEventListener('resize', responseTable);
+	}, [maxCols]);
 
-	return {
-		maxColumns,
-	};
+	return { maxCols };
 };

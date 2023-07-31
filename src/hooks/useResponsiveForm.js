@@ -28,8 +28,8 @@ export const useResponsiveForm = (initialResponsive = []) => {
 
 	useEffect(() => {
 		function cambiarEstilo() {
-			const mediaScreen = (min, max) => `(min-width: ${min}px) and (max-width: ${max}px)`;
-			const { sentinel, col } = config.find(({ min, max }) => matchMedia(mediaScreen(min, max)).matches);
+			const mediaScreen = ({ min, max }) => `(min-width: ${min}px) and (max-width: ${max}px)`;
+			const { sentinel, col } = config.find(item => matchMedia(mediaScreen(item)).matches);
 			if (centinela === sentinel) return;
 			if (uniqueBreakpointsKeys.includes(col)) setNewCol(col);
 			setCentinela(sentinel);

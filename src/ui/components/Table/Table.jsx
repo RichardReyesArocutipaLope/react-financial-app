@@ -12,7 +12,7 @@ export const Table = ({ isLoading, arrayData }) => {
 
 	const { selectedCredit } = useSelector(state => state.credits);
 	const { tablethead } = useContext(CreditContext);
-	const { maxColumns } = useResponsiveTable();
+	const { maxCols } = useResponsiveTable();
 	const [tableRwd, setTableRwd] = useState(null);
 	const dispatch = useDispatch();
 
@@ -37,13 +37,14 @@ export const Table = ({ isLoading, arrayData }) => {
 		return () => document.removeEventListener('click', handleClickOutside);
 	}, []);
 
+	console.log(maxCols, 'MAX COLS ********************************');
 	return (
 		<div className='table-container'>
 			{isLoading ? (
 				<SimpleLoading />
 			) : (
 				<table className='table'>
-					<TableThead tablethead={tablethead} maxColumns={maxColumns} />
+					<TableThead tablethead={tablethead} maxCols={maxCols} />
 					<tbody className='table__tbody'>
 						{arrayData?.map(({ id, data }, index) => (
 							<React.Fragment key={id}>
@@ -65,15 +66,15 @@ export const Table = ({ isLoading, arrayData }) => {
 									</td>
 
 									{data.map((item, index) => {
-										if (index + 1 > maxColumns) return null;
+										if (index + 1 > maxCols) return null;
 										return <td key={item}>{item}</td>;
 									})}
 								</tr>
-								{tableRwd && tableRwd[`tr${index}`] && data.length > maxColumns && (
+								{tableRwd && tableRwd[`tr${index}`] && data.length > maxCols && (
 									<tr className='tr-children'>
 										<div>
 											{data.map((item, index) => {
-												if (index + 1 <= maxColumns) return null;
+												if (index + 1 <= maxCols) return null;
 												return (
 													<td key={item}>
 														<span className='tr-children__title'>{tablethead[index]}</span>:
