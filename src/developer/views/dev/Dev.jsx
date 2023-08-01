@@ -135,61 +135,19 @@ export const Dev = () => {
 	return (
 		<>
 			<InputsRow margin='0'>
-				<InputColor
-					col={rwd.inputColor}
-					label='Input color'
-					name='Input-color'
-				/>
-				<InputChekbox
-					col={rwd.inputChekbox}
-					label='Input checkbox'
-					id='Input-checkbox'
-				/>
+				<InputColor col={rwd.inputColor} label='Input color' name='Input-color' />
+				<InputChekbox col={rwd.inputChekbox} label='Input checkbox' id='Input-checkbox' />
 				<InputDate col={rwd.inputDate} label='Input date' id='Input date' />
-				<InputDateTime
-					col={rwd.inputDateTime}
-					label='Input datetime'
-					name='Input datetime'
-				/>
+				<InputDateTime col={rwd.inputDateTime} label='Input datetime' name='Input datetime' />
 
-				<InputEmail
-					col={rwd.inputEmail}
-					label='Input email'
-					name='Input email'
-				/>
-				<InputMonth
-					col={rwd.inputMonth}
-					label='Input month'
-					name='Input month'
-				/>
-				<InputNumber
-					col={rwd.inputNumber}
-					label='Input number'
-					name='Input number'
-				/>
-				<InputPassword
-					col={rwd.inputPassword}
-					label='Input password'
-					name='Input password'
-				/>
+				<InputEmail col={rwd.inputEmail} label='Input email' name='Input email' />
+				<InputMonth col={rwd.inputMonth} label='Input month' name='Input month' />
+				<InputNumber col={rwd.inputNumber} label='Input number' />
+				<InputPassword col={rwd.inputPassword} label='Input password' name='Input password' />
 
-				<InputRadio
-					col={rwd.inputRadio}
-					label='Input radio'
-					name='Input-radio'
-					id='a'
-				/>
-				<InputRadio
-					col={rwd.inputRadio}
-					label='Input radio'
-					name='Input-radio'
-					id='b'
-				/>
-				<InputRange
-					col={rwd.inputRange}
-					label='Input range'
-					name='Input-range'
-				/>
+				<InputRadio col={rwd.inputRadio} label='Input radio' name='Input-radio' id='a' />
+				<InputRadio col={rwd.inputRadio} label='Input radio' name='Input-radio' id='b' />
+				<InputRange col={rwd.inputRange} label='Input range' name='Input-range' />
 				<InputTel col={rwd.inputTel} label='Input tel' name='Input-tel' />
 				<InputText col={rwd.inputText} label='Input text' id='Input-text' />
 
@@ -198,26 +156,10 @@ export const Dev = () => {
 				<InputWeek col={rwd.inputWeek} label='Input week' name='Input-week' />
 				<InputSelect col={rwd.inputSelect} label='Input select' id='select' />
 
-				<InputMoneyRange
-					col={rwd.inputRangoMoney}
-					label='Input money range'
-					name='rango-money'
-				/>
-				<InputDateRange
-					col={rwd.inputRangoDate}
-					label='Input date range'
-					id='rango-date'
-				/>
-				<InputDatalist
-					col={rwd.inputDatalist}
-					label='Input data list'
-					name='input-datalist'
-				/>
-				<InputTextarea
-					col={rwd.inputTextarea}
-					label='Textarea'
-					name='textarea'
-				/>
+				<InputMoneyRange col={rwd.inputRangoMoney} label='Input money range' name='rango-money' />
+				<InputDateRange col={rwd.inputRangoDate} label='Input date range' id='rango-date' />
+				<InputDatalist col={rwd.inputDatalist} label='Input data list' name='input-datalist' />
+				<InputTextarea col={rwd.inputTextarea} label='Textarea' name='textarea' />
 			</InputsRow>
 
 			<InputsRow margin='3'>
@@ -248,11 +190,7 @@ export const Dev = () => {
 						className='print-word'
 						content={<i className='fa-sharp fa-solid fa-file-word icon'></i>}
 					/>
-					<Button
-						width='8.1rem'
-						className='dark'
-						content={<i className='fa-solid fa-print icon'></i>}
-					/>
+					<Button width='8.1rem' className='dark' content={<i className='fa-solid fa-print icon'></i>} />
 				</FragmentContainer>
 			</InputsRow>
 		</>

@@ -19,10 +19,7 @@ import {
 	setCleanCreditCreateForm,
 	setSubmitCreditCreateForm,
 } from '../../../store/credits/creditsOptionsSlice';
-import {
-	startGetCredit,
-	startUpdateCredit,
-} from '../../../store/credits/thunks';
+import { startGetCredit, startUpdateCredit } from '../../../store/credits/thunks';
 import { AlertContext } from '../../../context/alertContext/AlertContext';
 import { setActivateAlert } from '../../../store/credits/creditsSlice';
 
@@ -57,14 +54,11 @@ export const EditCredit = ({ setIsOpenModal }) => {
 	const { analistas, cobradores } = useSelector(state => state.roles);
 
 	const { periodType } = useSelector(state => state.periodType);
-	const { financialInterestRate } = useSelector(
-		state => state.financialInterestRate,
-	);
+	const { financialInterestRate } = useSelector(state => state.financialInterestRate);
 	const { civilStatus } = useSelector(state => state.civilStatus);
 	const { housingType } = useSelector(state => state.housingType);
 
-	const { activateAlert, message, selectedCredit, creditFormEdit } =
-		useSelector(state => state.credits);
+	const { activateAlert, message, selectedCredit, creditFormEdit } = useSelector(state => state.credits);
 	const { setIsActiveAlert, setDataAlert } = useContext(AlertContext);
 
 	const initialResponsive = [
@@ -204,9 +198,7 @@ export const EditCredit = ({ setIsOpenModal }) => {
 		reset,
 		formState: { errors },
 	} = useForm({ defaultValues: creditFormEdit?.dataCreditform });
-	const { submitCreditCreateForm, cleanCreditCreateForm } = useSelector(
-		state => state.creditsOptions,
-	);
+	const { submitCreditCreateForm, cleanCreditCreateForm } = useSelector(state => state.creditsOptions);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -252,29 +244,25 @@ export const EditCredit = ({ setIsOpenModal }) => {
 				requiredDataAval1.forEach(item => {
 					item.length == 0 ? (emptyFullAval1 += 1) : (emptyFullAval1 -= 1);
 				});
-				if (!(Math.abs(emptyFullAval1) == requiredDataAval1.length))
-					pasaNormal = false;
+				if (!(Math.abs(emptyFullAval1) == requiredDataAval1.length)) pasaNormal = false;
 
 				let emptyFullAval2 = 0;
 				requiredDataAval2.forEach(item => {
 					item.length == 0 ? (emptyFullAval2 += 1) : (emptyFullAval2 -= 1);
 				});
-				if (!(Math.abs(emptyFullAval2) == requiredDataAval2.length))
-					pasaNormal = false;
+				if (!(Math.abs(emptyFullAval2) == requiredDataAval2.length)) pasaNormal = false;
 
 				let emptyFullRef1 = 0;
 				requiredDataRef1.forEach(item => {
 					item.length == 0 ? (emptyFullRef1 += 1) : (emptyFullRef1 -= 1);
 				});
-				if (!(Math.abs(emptyFullRef1) == requiredDataRef1.length))
-					pasaNormal = false;
+				if (!(Math.abs(emptyFullRef1) == requiredDataRef1.length)) pasaNormal = false;
 
 				let emptyFullRef2 = 0;
 				requiredDataRef2.forEach(item => {
 					item.length == 0 ? (emptyFullRef2 += 1) : (emptyFullRef2 -= 1);
 				});
-				if (!(Math.abs(emptyFullRef2) == requiredDataRef2.length))
-					pasaNormal = false;
+				if (!(Math.abs(emptyFullRef2) == requiredDataRef2.length)) pasaNormal = false;
 
 				if (pasaNormal) {
 					dispatch(startUpdateCredit(data, creditFormEdit?.id));
@@ -329,86 +317,56 @@ export const EditCredit = ({ setIsOpenModal }) => {
 					href='#1'
 					className='form-tab__header-item active'
 					onClick={e => {
-						document
-							.querySelectorAll('.form-tab__header-item')
-							.forEach(item => {
-								item.classList.remove('active');
-							});
+						document.querySelectorAll('.form-tab__header-item').forEach(item => {
+							item.classList.remove('active');
+						});
 						e.target.classList.add('active');
 					}}>
-					{centinela <= 1280 ? (
-						<i className='fa-solid fa-user'></i>
-					) : (
-						'Datos de cliente'
-					)}
+					{centinela <= 1280 ? <i className='fa-solid fa-user'></i> : 'Datos de cliente'}
 				</a>
 				<a
 					href='#2'
 					className='form-tab__header-item'
 					onClick={e => {
-						document
-							.querySelectorAll('.form-tab__header-item')
-							.forEach(item => {
-								item.classList.remove('active');
-							});
+						document.querySelectorAll('.form-tab__header-item').forEach(item => {
+							item.classList.remove('active');
+						});
 						e.target.classList.add('active');
 					}}>
-					{centinela <= 1280 ? (
-						<i className='fa-solid fa-briefcase'></i>
-					) : (
-						'Datos de negocio'
-					)}
+					{centinela <= 1280 ? <i className='fa-solid fa-briefcase'></i> : 'Datos de negocio'}
 				</a>
 				<a
 					href='#3'
 					className='form-tab__header-item'
 					onClick={e => {
-						document
-							.querySelectorAll('.form-tab__header-item')
-							.forEach(item => {
-								item.classList.remove('active');
-							});
+						document.querySelectorAll('.form-tab__header-item').forEach(item => {
+							item.classList.remove('active');
+						});
 						e.target.classList.add('active');
 					}}>
-					{centinela <= 1280 ? (
-						<i className='fa-solid fa-landmark'></i>
-					) : (
-						'Datos de prestamo'
-					)}
+					{centinela <= 1280 ? <i className='fa-solid fa-landmark'></i> : 'Datos de prestamo'}
 				</a>
 				<a
 					href='#4'
 					className='form-tab__header-item'
 					onClick={e => {
-						document
-							.querySelectorAll('.form-tab__header-item')
-							.forEach(item => {
-								item.classList.remove('active');
-							});
+						document.querySelectorAll('.form-tab__header-item').forEach(item => {
+							item.classList.remove('active');
+						});
 						e.target.classList.add('active');
 					}}>
-					{centinela <= 1280 ? (
-						<i className='fa-solid fa-users'></i>
-					) : (
-						'Ref. Personales'
-					)}
+					{centinela <= 1280 ? <i className='fa-solid fa-users'></i> : 'Ref. Personales'}
 				</a>
 				<a
 					href='#5'
 					className='form-tab__header-item'
 					onClick={e => {
-						document
-							.querySelectorAll('.form-tab__header-item')
-							.forEach(item => {
-								item.classList.remove('active');
-							});
+						document.querySelectorAll('.form-tab__header-item').forEach(item => {
+							item.classList.remove('active');
+						});
 						e.target.classList.add('active');
 					}}>
-					{centinela <= 1280 ? (
-						<i className='fa-solid fa-user-lock'></i>
-					) : (
-						'Datos de aval'
-					)}
+					{centinela <= 1280 ? <i className='fa-solid fa-user-lock'></i> : 'Datos de aval'}
 				</a>
 			</div>
 			<form className='form-tab__body'>
@@ -418,13 +376,11 @@ export const EditCredit = ({ setIsOpenModal }) => {
 							col={rwd.operation_data1}
 							label='N. Operación'
 							register={{ ...register('n_operacion') }}
-							id='n_operacion'
 						/>
 						<InputNumber
 							col={rwd.operation_data1}
 							label='N. Crédito'
 							register={{ ...register('n_credito') }}
-							id='n_credito'
 						/>
 						<InputSelect
 							col={rwd.operation_data2}
@@ -529,8 +485,7 @@ export const EditCredit = ({ setIsOpenModal }) => {
 									required: 'El apellido es requerido',
 									pattern: {
 										value: /^[a-zA-Z ]{2,254}$/,
-										message:
-											'El apellido solo puede contener letras y espacios',
+										message: 'El apellido solo puede contener letras y espacios',
 									},
 								}),
 							}}
@@ -714,7 +669,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputNumber
 							col={rwd.loan_data1}
 							label='Solicitado'
-							id='pres_solicitado'
 							money
 							error={errors?.pres_solicitado?.message}
 							required={true}
@@ -727,7 +681,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputNumber
 							col={rwd.loan_data1}
 							label='Aprobado'
-							id='pres_aprobado'
 							money
 							error={errors?.pres_aprobado?.message}
 							register={{ ...register('pres_aprobado') }}
@@ -755,7 +708,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputNumber
 							col={rwd.loan_data1}
 							label='Plazo'
-							id='pres_plazo'
 							error={errors?.pres_plazo?.message}
 							required={true}
 							register={{
@@ -802,7 +754,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputNumber
 							col={rwd.loan_data1}
 							label='Tasa%'
-							id='pres_tasa'
 							error={errors?.pres_tasa?.message}
 							required={true}
 							register={{
@@ -813,7 +764,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputNumber
 							col={rwd.loan_data1}
 							label='Ventas diarias'
-							id='pres_ventas_diarias'
 							money
 							error={errors?.pres_ventas_diarias?.message}
 							required={true}
@@ -826,7 +776,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputNumber
 							col={rwd.loan_data1}
 							label='Días buenos'
-							id='pres_dias_buenos'
 							money
 							error={errors?.pres_dias_buenos?.message}
 							required={true}
@@ -839,7 +788,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputNumber
 							col={rwd.loan_data1}
 							label='Días malos'
-							id='pres_dias_malos'
 							money
 							error={errors?.pres_dias_malos?.message}
 							required={true}
@@ -852,7 +800,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputNumber
 							col={rwd.loan_data1}
 							label='Inventario'
-							id='pres_inventario'
 							money
 							error={errors?.pres_inventario?.message}
 							required={true}
@@ -968,8 +915,7 @@ export const EditCredit = ({ setIsOpenModal }) => {
 								...register('ref1_apellidos', {
 									pattern: {
 										value: /^[a-zA-Z ]{2,254}$/,
-										message:
-											'El apellido solo puede contener letras y espacios',
+										message: 'El apellido solo puede contener letras y espacios',
 									},
 								}),
 							}}
@@ -1081,8 +1027,7 @@ export const EditCredit = ({ setIsOpenModal }) => {
 								...register('ref2_apellidos', {
 									pattern: {
 										value: /^[a-zA-Z ]{2,254}$/,
-										message:
-											'El apellido solo puede contener letras y espacios',
+										message: 'El apellido solo puede contener letras y espacios',
 									},
 								}),
 							}}
@@ -1195,8 +1140,7 @@ export const EditCredit = ({ setIsOpenModal }) => {
 								...register('aval1_apellidos', {
 									pattern: {
 										value: /^[a-zA-Z ]{2,254}$/,
-										message:
-											'El apellido solo puede contener letras y espacios',
+										message: 'El apellido solo puede contener letras y espacios',
 									},
 								}),
 							}}
@@ -1301,8 +1245,7 @@ export const EditCredit = ({ setIsOpenModal }) => {
 								...register('aval2_apellidos', {
 									pattern: {
 										value: /^[a-zA-Z ]{2,254}$/,
-										message:
-											'El apellido solo puede contener letras y espacios',
+										message: 'El apellido solo puede contener letras y espacios',
 									},
 								}),
 							}}

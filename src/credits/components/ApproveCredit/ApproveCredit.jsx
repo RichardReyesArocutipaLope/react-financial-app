@@ -3,15 +3,11 @@ import { ModalWarningContainer } from '../../../ui/components';
 import { useContext, useEffect } from 'react';
 import { AlertContext } from '../../../context/alertContext/AlertContext';
 import { setActivateAlert } from '../../../store/credits/creditsSlice';
-import {
-	startApproveCredit,
-	startGetCredit,
-} from '../../../store/credits/thunks';
+import { startApproveCredit, startGetCredit } from '../../../store/credits/thunks';
 import { setSubmitCreditCreateForm } from '../../../store/credits/creditsOptionsSlice';
 
 export const ApproveCredit = ({ setIsOpenModal }) => {
-	const { activateAlert, message, selectedCredit, creditRawSelected } =
-		useSelector(state => state.credits);
+	const { activateAlert, message, selectedCredit, creditRawSelected } = useSelector(state => state.credits);
 	const { setIsActiveAlert, setDataAlert } = useContext(AlertContext);
 	const { submitCreditCreateForm } = useSelector(state => state.creditsOptions);
 	const { fullName, role } = useSelector(state => state.auth);
@@ -37,7 +33,7 @@ export const ApproveCredit = ({ setIsOpenModal }) => {
 				dispatch(setActivateAlert({ isActive: false, type: '' }));
 				setIsActiveAlert(false);
 			}, 3000);
-			if (activateAlert.type == 'success') setIsOpenModal(false);
+			if (activateAlert.type === 'success') setIsOpenModal(false);
 		}
 	}, [activateAlert.isActive]);
 
@@ -52,13 +48,8 @@ export const ApproveCredit = ({ setIsOpenModal }) => {
 					{fullName} {`(${role})`}
 				</b>
 				, el crédito que selecciono es del cliente{' '}
-				<b>
-					{creditRawSelected?.fk_customer.first_name +
-						' ' +
-						creditRawSelected?.fk_customer.last_name}
-				</b>
-				, el cual posee un monto solicitado por{' '}
-				<b>S/ {creditRawSelected?.requested_money}</b> por un periodo de{' '}
+				<b>{creditRawSelected?.fk_customer.first_name + ' ' + creditRawSelected?.fk_customer.last_name}</b>,
+				el cual posee un monto solicitado por <b>S/ {creditRawSelected?.requested_money}</b> por un periodo de{' '}
 				<b>
 					{creditRawSelected?.period} {creditRawSelected?.fk_period_type.name}
 				</b>

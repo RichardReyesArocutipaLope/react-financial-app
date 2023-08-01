@@ -58,47 +58,14 @@ export const SimulateCredit = () => {
 					<FragmentContainer col={rwd.buttonSearchDNI}>
 						<Button width='8.7rem' className='primary' content='Buscar' />
 					</FragmentContainer>
-					<InputText
-						col={rwd.simulate_data1}
-						label='Nombres'
-						name='cli_nombre'
-					/>
-					<InputText
-						col={rwd.simulate_data1}
-						label='Apellidos'
-						name='cli_apellidos'
-					/>
-					<InputNumber
-						col={rwd.simulate_data2}
-						label='Monto solicitado'
-						name='monto-solicitado'
-						money
-					/>
-					<InputDate
-						col={rwd.simulate_data2}
-						label='Desembolso'
-						name='pres_fecha-desembolso'
-					/>
-					<InputNumber
-						col={rwd.simulate_data2}
-						label='Plazo'
-						name='pres_plazo'
-					/>
-					<InputSelect
-						col={rwd.simulate_data2}
-						label='Tipo plazo'
-						name='pres_tipo-plazo'
-					/>
-					<InputSelect
-						col={rwd.simulate_data2}
-						label='Tipo interes'
-						name='pres_interes'
-					/>
-					<InputNumber
-						col={rwd.simulate_data2}
-						label='Tasa%'
-						name='pres_tasa'
-					/>
+					<InputText col={rwd.simulate_data1} label='Nombres' name='cli_nombre' />
+					<InputText col={rwd.simulate_data1} label='Apellidos' name='cli_apellidos' />
+					<InputNumber col={rwd.simulate_data2} label='Monto solicitado' money />
+					<InputDate col={rwd.simulate_data2} label='Desembolso' name='pres_fecha-desembolso' />
+					<InputNumber col={rwd.simulate_data2} label='Plazo' />
+					<InputSelect col={rwd.simulate_data2} label='Tipo plazo' name='pres_tipo-plazo' />
+					<InputSelect col={rwd.simulate_data2} label='Tipo interes' name='pres_interes' />
+					<InputNumber col={rwd.simulate_data2} label='Tasa%' />
 				</InputsRow>
 				<hr />
 			</div>
@@ -312,9 +279,8 @@ export const SimulateCredit = () => {
 					<div className='terms-conditions'>
 						<p>Terms & Conditions</p>
 						<p>
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro,
-							necessitatibus ipsa. Libero adipisci nobis, saepe dolores iure
-							sint qui architecto, harum sapiente, iste quo eos sunt amet
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro, necessitatibus ipsa. Libero
+							adipisci nobis, saepe dolores iure sint qui architecto, harum sapiente, iste quo eos sunt amet
 							delectus soluta quia?
 						</p>
 					</div>
