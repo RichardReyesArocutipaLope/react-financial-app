@@ -63,8 +63,8 @@ export const SimulateCredit = () => {
 					<InputNumber col={rwd.simulate_data2} label='Monto solicitado' money />
 					<InputDate col={rwd.simulate_data2} label='Desembolso' name='pres_fecha-desembolso' />
 					<InputNumber col={rwd.simulate_data2} label='Plazo' />
-					<InputSelect col={rwd.simulate_data2} label='Tipo plazo' name='pres_tipo-plazo' />
-					<InputSelect col={rwd.simulate_data2} label='Tipo interes' name='pres_interes' />
+					<InputSelect col={rwd.simulate_data2} label='Tipo plazo' />
+					<InputSelect col={rwd.simulate_data2} label='Tipo interes' />
 					<InputNumber col={rwd.simulate_data2} label='Tasa%' />
 				</InputsRow>
 				<hr />

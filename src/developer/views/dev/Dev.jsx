@@ -154,7 +154,7 @@ export const Dev = () => {
 				<InputTime col={rwd.inputTime} label='Input time' name='Input-time' />
 				<InputUrl col={rwd.inputUrl} label='Input url' name='Input-url' />
 				<InputWeek col={rwd.inputWeek} label='Input week' name='Input-week' />
-				<InputSelect col={rwd.inputSelect} label='Input select' id='select' />
+				<InputSelect col={rwd.inputSelect} label='Input select' />
 
 				<InputMoneyRange col={rwd.inputRangoMoney} label='Input money range' name='rango-money' />
 				<InputDateRange col={rwd.inputRangoDate} label='Input date range' id='rango-date' />

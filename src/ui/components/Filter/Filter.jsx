@@ -55,18 +55,14 @@ export const Filter = memo(({ credits }) => {
 							registerTo={{ ...register('range_loan_to') }}
 						/>
 
-						<InputSelect col={rwd.filter} label='Estado' id='Estado' register={{ ...register('state') }}>
+						<InputSelect col={rwd.filter} label='Estado' register={{ ...register('state') }}>
 							<option value='RE'>Renovado</option>
 							<option value='NU'>Nuevo</option>
 							<option value='AP'>Aprobado</option>
 							<option value='DE'>Desembolsado</option>
 						</InputSelect>
 
-						<InputSelect
-							col={rwd.filter}
-							label='Analista'
-							id='Analista'
-							register={{ ...register('id_analista') }}>
+						<InputSelect col={rwd.filter} label='Analista' register={{ ...register('id_analista') }}>
 							{analistas?.map(({ id, fullname }) => (
 								<option value={id} key={id}>
 									{fullname}
@@ -74,11 +70,7 @@ export const Filter = memo(({ credits }) => {
 							))}
 						</InputSelect>
 
-						<InputSelect
-							col={rwd.filter}
-							label='Cobrador'
-							id='Cobrador'
-							register={{ ...register('id_cobrador') }}>
+						<InputSelect col={rwd.filter} label='Cobrador' register={{ ...register('id_cobrador') }}>
 							{cobradores?.map(({ id, fullname }) => (
 								<option value={id} key={id}>
 									{fullname}

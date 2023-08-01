@@ -385,7 +385,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputSelect
 							col={rwd.operation_data2}
 							label='Analista'
-							id='analista'
 							error={errors?.analista?.message}
 							required={true}
 							register={{
@@ -402,7 +401,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputSelect
 							col={rwd.operation_data2}
 							label='Cobrador'
-							id='cobrador'
 							error={errors?.cobrador?.message}
 							required={true}
 							register={{
@@ -513,7 +511,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputSelect
 							col={rwd.client_data1}
 							label='Vivienda'
-							id='cli_vivienda'
 							error={errors?.cli_vivienda?.message}
 							required={true}
 							register={{
@@ -531,7 +528,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputSelect
 							col={rwd.client_data1}
 							label='Estado civil'
-							id='cli_estado_civil'
 							error={errors?.cli_estado_civil?.message}
 							required={true}
 							register={{
@@ -719,7 +715,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputSelect
 							col={rwd.loan_data1}
 							label='Tipo plazo'
-							id='pres_tipo_plazo'
 							error={errors?.pres_tipo_plazo?.message}
 							required={true}
 							register={{
@@ -737,7 +732,6 @@ export const EditCredit = ({ setIsOpenModal }) => {
 						<InputSelect
 							col={rwd.loan_data1}
 							label='Tipo interes'
-							id='pres_interes'
 							error={errors?.pres_interes?.message}
 							required={true}
 							register={{

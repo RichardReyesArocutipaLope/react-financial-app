@@ -1,5 +1,8 @@
+import { useContext, useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useResponsiveForm } from '../../../hooks';
+import moment from 'moment/moment';
 import {
 	Button,
 	FlexContainer,
@@ -13,9 +16,6 @@ import {
 	InputText,
 	InputsRow,
 } from '../../../ui/components';
-import './CreateCredit.css';
-import { useContext, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
 import {
 	setCleanCreditCreateForm,
 	setSubmitCreditCreateForm,
@@ -23,32 +23,35 @@ import {
 import { startNewCredit } from '../../../store/credits/thunks';
 import { AlertContext } from '../../../context/alertContext/AlertContext';
 import { setActivateAlert } from '../../../store/credits/creditsSlice';
-import moment from 'moment/moment';
+import { labelTabsHeader } from './dataCreateCredit';
+import './CreateCredit.css';
 
 const defaultValues = {
 	pres_fecha_emision: moment().format('YYYY-MM-DD'),
 };
 
+const initialResponsive = [
+	{ name: 'DNI', xxs: 24, xs: 24, s: 16, m: 7, l: 7, xl: 5, xxl: 5 },
+	{ name: 'btnDNI', xxs: 24, xs: 24, s: 8, m: 5, l: 5, xl: 3, xxl: 3 },
+	{ name: 'data2', xxs: 24, xs: 24, s: 24, m: 12, l: 12, xl: 8, xxl: 8 },
+	{ name: 'client_2', xxs: 24, xs: 24, s: 24, m: 24, l: 24, xl: 16, xxl: 16 },
+	{ name: 'busines_1', xxs: 24, xs: 24, s: 24, m: 12, l: 12, xl: 12, xxl: 12 },
+	{ name: 'loan_1', xxs: 24, xs: 24, s: 12, m: 8, l: 8, xl: 6, xxl: 6 },
+	{ name: 'loan_2', xxs: 24, xs: 24, s: 12, m: 12, l: 8, xl: 8, xxl: 8 },
+	{ name: 'data3', xxs: 24, xs: 24, s: 12, m: 6, l: 6, xl: 4, xxl: 4 },
+];
+
 export const CreateCredit = ({ setIsOpenModal }) => {
+	const dispatch = useDispatch();
 	const { analistas, cobradores } = useSelector(state => state.roles);
 	const { periodType } = useSelector(state => state.periodType);
 	const { financialInterestRate } = useSelector(state => state.financialInterestRate);
 	const { civilStatus } = useSelector(state => state.civilStatus);
 	const { housingType } = useSelector(state => state.housingType);
 	const { activateAlert, message } = useSelector(state => state.credits);
-	const { setIsActiveAlert, setDataAlert } = useContext(AlertContext);
-
-	const initialResponsive = [
-		{ name: 'DNI', xxs: 24, xs: 24, s: 16, m: 7, l: 7, xl: 5, xxl: 5 },
-		{ name: 'btnDNI', xxs: 24, xs: 24, s: 8, m: 5, l: 5, xl: 3, xxl: 3 },
-		{ name: 'data2', xxs: 24, xs: 24, s: 24, m: 12, l: 12, xl: 8, xxl: 8 },
-		{ name: 'client_2', xxs: 24, xs: 24, s: 24, m: 24, l: 24, xl: 16, xxl: 16 },
-		{ name: 'busines_1', xxs: 24, xs: 24, s: 24, m: 12, l: 12, xl: 12, xxl: 12 },
-		{ name: 'loan_1', xxs: 24, xs: 24, s: 12, m: 8, l: 8, xl: 6, xxl: 6 },
-		{ name: 'loan_2', xxs: 24, xs: 24, s: 12, m: 12, l: 8, xl: 8, xxl: 8 },
-		{ name: 'data3', xxs: 24, xs: 24, s: 12, m: 6, l: 6, xl: 4, xxl: 4 },
-	];
+	const { setDataAlert } = useContext(AlertContext);
 	const { rwd, centinela } = useResponsiveForm(initialResponsive);
+	const { submitCreditCreateForm, cleanCreditCreateForm } = useSelector(state => state.creditsOptions);
 
 	const {
 		register,
@@ -56,8 +59,6 @@ export const CreateCredit = ({ setIsOpenModal }) => {
 		reset,
 		formState: { errors },
 	} = useForm({ defaultValues });
-	const { submitCreditCreateForm, cleanCreditCreateForm } = useSelector(state => state.creditsOptions);
-	const dispatch = useDispatch();
 
 	useEffect(() => {
 		if (submitCreditCreateForm) {
@@ -120,16 +121,13 @@ export const CreateCredit = ({ setIsOpenModal }) => {
 				if (pasaNormal) {
 					dispatch(startNewCredit(data));
 				} else {
-					setIsActiveAlert(true);
 					setDataAlert({
 						type: 'danger',
 						errorCode: 400,
 						message:
 							'Los datos obligatorios de Aval o Referencia son: DNI, Nombres, Apellidos, Domicilio y Celular',
+						time: 5000,
 					});
-					setTimeout(() => {
-						setIsActiveAlert(false);
-					}, 5000);
 				}
 			})();
 			dispatch(setSubmitCreditCreateForm(false));
@@ -145,78 +143,32 @@ export const CreateCredit = ({ setIsOpenModal }) => {
 
 	useEffect(() => {
 		if (activateAlert.isActive) {
-			setIsActiveAlert(true);
 			setDataAlert({
 				type: activateAlert.type,
 				errorCode: message.statusCode,
 				message: message.message,
+				time: 3000,
 			});
-			setTimeout(() => {
-				dispatch(setActivateAlert({ isActive: false, type: '' }));
-				setIsActiveAlert(false);
-			}, 3000);
+			dispatch(setActivateAlert({ isActive: false, type: '' }));
 			if (activateAlert.type === 'success') setIsOpenModal(false);
 		}
 	}, [activateAlert.isActive]);
 
+	const [tabh, setTabh] = useState('#1');
+
 	return (
 		<div className='form-tab'>
 			<div className='form-tab__header'>
-				<a
-					href='#1'
-					className='form-tab__header-item active'
-					onClick={e => {
-						document.querySelectorAll('.form-tab__header-item').forEach(item => {
-							item.classList.remove('active');
-						});
-						e.target.classList.add('active');
-					}}>
-					{centinela <= 1280 ? <i className='fa-solid fa-user'></i> : 'Datos de cliente'}
-				</a>
-				<a
-					href='#2'
-					className='form-tab__header-item'
-					onClick={e => {
-						document.querySelectorAll('.form-tab__header-item').forEach(item => {
-							item.classList.remove('active');
-						});
-						e.target.classList.add('active');
-					}}>
-					{centinela <= 1280 ? <i className='fa-solid fa-briefcase'></i> : 'Datos de negocio'}
-				</a>
-				<a
-					href='#3'
-					className='form-tab__header-item'
-					onClick={e => {
-						document.querySelectorAll('.form-tab__header-item').forEach(item => {
-							item.classList.remove('active');
-						});
-						e.target.classList.add('active');
-					}}>
-					{centinela <= 1280 ? <i className='fa-solid fa-landmark'></i> : 'Datos de prestamo'}
-				</a>
-				<a
-					href='#4'
-					className='form-tab__header-item'
-					onClick={e => {
-						document.querySelectorAll('.form-tab__header-item').forEach(item => {
-							item.classList.remove('active');
-						});
-						e.target.classList.add('active');
-					}}>
-					{centinela <= 1280 ? <i className='fa-solid fa-users'></i> : 'Ref. Personales'}
-				</a>
-				<a
-					href='#5'
-					className='form-tab__header-item'
-					onClick={e => {
-						document.querySelectorAll('.form-tab__header-item').forEach(item => {
-							item.classList.remove('active');
-						});
-						e.target.classList.add('active');
-					}}>
-					{centinela <= 1280 ? <i className='fa-solid fa-user-lock'></i> : 'Datos de aval'}
-				</a>
+				{labelTabsHeader.map(({ label, icon, href }) => (
+					<a
+						key={href}
+						href={href}
+						className={`form-tab__header-item ${tabh === href ? 'active' : ''}`}
+						onClick={() => setTabh(href)}
+					>
+						{centinela <= 1280 ? icon : label}
+					</a>
+				))}
 			</div>
 			<form className='form-tab__body'>
 				<div className='form-tab__body-inputs' id='1'>
@@ -226,14 +178,14 @@ export const CreateCredit = ({ setIsOpenModal }) => {
 						<InputSelect
 							col={rwd.data2}
 							label='Analista'
-							id='analista'
 							error={errors?.analista?.message}
 							required={true}
 							register={{
 								...register('analista', {
 									required: 'El analista es requerido',
 								}),
-							}}>
+							}}
+						>
 							{analistas?.map(({ id, fullname }) => (
 								<option key={id} value={id}>
 									{fullname}
@@ -243,14 +195,14 @@ export const CreateCredit = ({ setIsOpenModal }) => {
 						<InputSelect
 							col={rwd.data2}
 							label='Cobrador'
-							id='cobrador'
 							error={errors?.cobrador?.message}
 							required={true}
 							register={{
 								...register('cobrador', {
 									required: 'El cobrador es requerido',
 								}),
-							}}>
+							}}
+						>
 							{cobradores?.map(({ id, fullname }) => (
 								<option key={id} value={id}>
 									{fullname}
@@ -346,14 +298,14 @@ export const CreateCredit = ({ setIsOpenModal }) => {
 						<InputSelect
 							col={rwd.data2}
 							label='Vivienda'
-							id='cli_vivienda'
 							error={errors?.cli_vivienda?.message}
 							required={true}
 							register={{
 								...register('cli_vivienda', {
 									required: 'El tipo de vivienda es requerido',
 								}),
-							}}>
+							}}
+						>
 							{housingType?.map(({ id, name }) => (
 								<option key={id} value={id}>
 									{name}
@@ -364,14 +316,14 @@ export const CreateCredit = ({ setIsOpenModal }) => {
 						<InputSelect
 							col={rwd.data2}
 							label='Estado civil'
-							id='cli_estado_civil'
 							error={errors?.cli_estado_civil?.message}
 							required={true}
 							register={{
 								...register('cli_estado_civil', {
 									required: 'El estado civil es requerido',
 								}),
-							}}>
+							}}
+						>
 							{civilStatus?.map(({ id, name }) => (
 								<option key={id} value={id}>
 									{name}
@@ -487,7 +439,6 @@ export const CreateCredit = ({ setIsOpenModal }) => {
 						<InputFileDocument name='doc2' />
 					</FlexContainer>
 				</div>
-
 				<div className='form-tab__body-inputs' id='3'>
 					<InputsRow margin='1.6' gap='1.6rem 0rem'>
 						<InputNumber
@@ -543,14 +494,14 @@ export const CreateCredit = ({ setIsOpenModal }) => {
 						<InputSelect
 							col={rwd.loan_1}
 							label='Tipo plazo'
-							id='pres_tipo_plazo'
 							error={errors?.pres_tipo_plazo?.message}
 							required={true}
 							register={{
 								...register('pres_tipo_plazo', {
 									required: 'El tipo de plazo es requerido',
 								}),
-							}}>
+							}}
+						>
 							{periodType?.map(({ id, name }) => (
 								<option key={id} value={id}>
 									{name}
@@ -561,14 +512,14 @@ export const CreateCredit = ({ setIsOpenModal }) => {
 						<InputSelect
 							col={rwd.loan_1}
 							label='Tipo interes'
-							id='pres_interes'
 							error={errors?.pres_interes?.message}
 							required={true}
 							register={{
 								...register('pres_interes', {
 									required: 'El tipo de interes es requerido',
 								}),
-							}}>
+							}}
+						>
 							{financialInterestRate?.map(({ id, name }) => (
 								<option key={id} value={id}>
 									{name}
