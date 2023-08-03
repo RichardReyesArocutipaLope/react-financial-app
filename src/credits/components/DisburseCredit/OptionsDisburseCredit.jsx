@@ -1,31 +1,13 @@
-import { useDispatch } from 'react-redux';
 import { Button, FragmentContainer } from '../../../ui/components';
-import { setSubmitCreditCreateForm } from '../../../store/credits/creditsOptionsSlice';
 
-export const OptionsDisburseCredit = ({ setIsOpenModal }) => {
-	const handleModal = () => {
-		setIsOpenModal(false);
-	};
-
-	const dispatch = useDispatch();
-	const onSubmit = () => {
-		dispatch(setSubmitCreditCreateForm(true));
-	};
+export const OptionsDisburseCredit = ({ setIsOpenModal, setModalReset, setModalSubmit }) => {
+	const handleModal = () => setIsOpenModal(false);
+	const onSubmit = () => setModalSubmit(state => state + 1);
 
 	return (
 		<FragmentContainer justifyContent='center' gap='.9rem'>
-			<Button
-				width='10.5rem'
-				className='success'
-				content='Desembolsar'
-				event={onSubmit}
-			/>
-			<Button
-				width='9rem'
-				className='danger'
-				content='Cancelar'
-				event={handleModal}
-			/>
+			<Button width='10.5rem' className='success' content='Desembolsar' event={onSubmit} />
+			<Button width='9rem' className='danger' content='Cancelar' event={handleModal} />
 		</FragmentContainer>
 	);
 };
