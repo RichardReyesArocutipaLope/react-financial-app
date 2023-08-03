@@ -26,7 +26,7 @@ export const creditsSlice = createSlice({
 
 		updateCredit: (state, action) => {
 			state.credits = state.credits.map(credit => {
-				if (credit.id == action.payload.id) {
+				if (credit.id === action.payload.id) {
 					return {
 						id: action.payload.id,
 						data: action.payload.data,
@@ -58,7 +58,7 @@ export const creditsSlice = createSlice({
 
 		setApproveCredit: (state, action) => {
 			state.credits = state.credits.map(credit => {
-				if (credit.id == action.payload.id) {
+				if (credit.id === action.payload.id) {
 					return {
 						id: action.payload.id,
 						data: action.payload.data,
@@ -72,7 +72,7 @@ export const creditsSlice = createSlice({
 
 		setDisburseCredit: (state, action) => {
 			state.credits = state.credits.map(credit => {
-				if (credit.id == action.payload.id) {
+				if (credit.id === action.payload.id) {
 					return {
 						id: action.payload.id,
 						data: action.payload.data,

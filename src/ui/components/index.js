@@ -69,3 +69,5 @@ export * from './simpleLoading';
 export * from './alert';
 export * from './mirrorCard';
 export * from './shadowCard';
+export * from './formTab';
+export * from './formTabHeader';

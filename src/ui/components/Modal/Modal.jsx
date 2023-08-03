@@ -43,6 +43,9 @@ export const Modal = ({
 		}, 610);
 	};
 
+	const [modalReset, setModalReset] = useState(0);
+	const [modalSubmit, setModalSubmit] = useState(0);
+
 	return (
 		<div
 			className={`modal-container ${verticallyCentered ? 'center' : ''} ${
@@ -52,7 +55,8 @@ export const Modal = ({
 				typeof anotherOpenModal === 'boolean' &&
 				(anotherOpenModal ? 'another-modal-active' : 'another-modal-inactive')
 			}`}
-			onClick={handleClickOutside}>
+			onClick={handleClickOutside}
+		>
 			<div className={`modal ${width} ${bodyHeight === '100%' ? 'height100' : ''} ${bodyHeightClass}`}>
 				<div className='modal__header'>
 					<h1>{title}</h1>
@@ -68,10 +72,10 @@ export const Modal = ({
 						style={{
 							height: bodyHeight,
 							backgroundColor: bodyBackgroundColor,
-						}}>
-						{isOpenModal && React.cloneElement(modalBodyContent, { setIsOpenModal })}
+						}}
+					>
+						{isOpenModal && React.cloneElement(modalBodyContent, { setIsOpenModal, modalReset, modalSubmit })}
 					</div>
-					<div className='shadow'></div>
 				</div>
 
 				<div className={`modal__footer ${footerHeightClass}`}>
@@ -79,6 +83,8 @@ export const Modal = ({
 						React.cloneElement(modalFooterContent, {
 							setIsOpenModal,
 							openAnotherModal,
+							setModalReset,
+							setModalSubmit,
 						})}
 				</div>
 			</div>

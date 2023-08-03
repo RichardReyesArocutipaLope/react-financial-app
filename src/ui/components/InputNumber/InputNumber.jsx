@@ -9,7 +9,8 @@ export const InputNumber = ({ label = 'label', col, register, money, error, requ
 				{...register}
 				id={id}
 				className={`input input-number ${money ? 'money' : ''} ${error ? 'input-error' : ''}`}
-				type='number'></input>
+				type='number'
+			></input>
 			{label && (
 				<label className='input__label' htmlFor={id}>
 					{label} {required && <span>*</span>}
