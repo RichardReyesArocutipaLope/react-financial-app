@@ -82,7 +82,8 @@ export const CreditProvider = ({ children }) => {
 
 				parameters,
 				setParameters,
-			}}>
+			}}
+		>
 			{children}
 		</CreditContext.Provider>
 	);

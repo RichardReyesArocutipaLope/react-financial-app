@@ -1,19 +1,15 @@
 import { useContext, useEffect } from 'react';
 import { AlertContext } from '../../../context/alertContext/AlertContext';
 import { setActivateAlert } from '../../../store/credits/creditsSlice';
-import {
-	startDeleteCredit,
-	startGetCredit,
-} from '../../../store/credits/thunks';
+import { startDeleteCredit, startGetCredit } from '../../../store/credits/thunks';
 import { setSubmitCreditCreateForm } from '../../../store/credits/creditsOptionsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { DocumentTemplate } from '../../../ui/components';
 import moment from 'moment/moment';
 import './CreditSchedule.css';
 
-export const CreditSchedule = () => {
-	const { activateAlert, message, selectedCredit, creditRawSelected } =
-		useSelector(state => state.credits);
+export const CreditSchedule = ({ onCloseModal }) => {
+	const { activateAlert, message, selectedCredit, creditRawSelected } = useSelector(state => state.credits);
 	const { setIsActiveAlert, setDataAlert } = useContext(AlertContext);
 	const { submitCreditCreateForm } = useSelector(state => state.creditsOptions);
 	const dispatch = useDispatch();
@@ -37,7 +33,7 @@ export const CreditSchedule = () => {
 				dispatch(setActivateAlert({ isActive: false, type: '' }));
 				setIsActiveAlert(false);
 			}, 3000);
-			if (activateAlert.type == 'success') setIsOpenModal(false);
+			if (activateAlert.type === 'success') onCloseModal();
 		}
 	}, [activateAlert.isActive]);
 
@@ -63,8 +59,7 @@ export const CreditSchedule = () => {
 							<span>Phone</span>: {creditRawSelected?.fk_customer?.phone}
 						</p>
 						<p>
-							<span>Email</span>:{' '}
-							{creditRawSelected?.fk_customer?.email || 'No especificado'}
+							<span>Email</span>: {creditRawSelected?.fk_customer?.email || 'No especificado'}
 						</p>
 					</div>
 				</div>
@@ -74,8 +69,7 @@ export const CreditSchedule = () => {
 							<span>Invoice No</span>: 345232
 						</p>
 						<p>
-							<span>Invoice Date</span>:{' '}
-							{moment(creditRawSelected?.date_of_issue).format('YYYY-MM-DD')}
+							<span>Invoice Date</span>: {moment(creditRawSelected?.date_of_issue).format('YYYY-MM-DD')}
 						</p>
 					</div>
 					<div>
@@ -87,9 +81,7 @@ export const CreditSchedule = () => {
 						</p>
 						<p>
 							<span>Account Name</span>:{' '}
-							{creditRawSelected?.fk_customer.first_name +
-								' ' +
-								creditRawSelected?.fk_customer.last_name}
+							{creditRawSelected?.fk_customer.first_name + ' ' + creditRawSelected?.fk_customer.last_name}
 						</p>
 					</div>
 				</div>
@@ -261,10 +253,9 @@ export const CreditSchedule = () => {
 				<div className='terms-conditions'>
 					<p>Terms & Conditions</p>
 					<p>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro,
-						necessitatibus ipsa. Libero adipisci nobis, saepe dolores iure sint
-						qui architecto, harum sapiente, iste quo eos sunt amet delectus
-						soluta quia?
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro, necessitatibus ipsa. Libero
+						adipisci nobis, saepe dolores iure sint qui architecto, harum sapiente, iste quo eos sunt amet
+						delectus soluta quia?
 					</p>
 				</div>
 				<div className='signature'>

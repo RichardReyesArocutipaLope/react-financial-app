@@ -5,7 +5,7 @@ import './ModuleOptions.css';
 import { CreditContext } from '../../../credits/context';
 
 export const ModuleOptions = memo(({ children }) => {
-	console.log('ModuleOptions.jsx');
+	// console.log('ModuleOptions.jsx');
 
 	const [moreInfoLeft, setMoreInfoLeft] = useState(false);
 	const [moreInfoRight, setMoreInfoRight] = useState(false);

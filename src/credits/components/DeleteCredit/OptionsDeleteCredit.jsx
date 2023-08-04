@@ -1,7 +1,7 @@
 import { Button, FragmentContainer } from '../../../ui/components';
 
-export const OptionsDeleteCredit = ({ setIsOpenModal, openAnotherModal, setModalReset, setModalSubmit }) => {
-	const handleModal = () => setIsOpenModal(false);
+export const OptionsDeleteCredit = ({ onCloseModal, openAnotherModal, setModalReset, setModalSubmit }) => {
+	const handleModal = () => onCloseModal();
 	const onSubmit = () => setModalSubmit(state => state + 1);
 
 	return (

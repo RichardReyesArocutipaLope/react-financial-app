@@ -1,16 +1,12 @@
-import { memo, useContext } from 'react';
+import { memo } from 'react';
 import './ModuleOption.css';
-import { AlertContext } from '../../../context/alertContext/AlertContext';
-import { ModalContext } from '../../../context/modalContext';
 import { useSelector } from 'react-redux';
 
-export const ModuleOption = memo(({ moduleOptionData, moduleOptionModal }) => {
-	console.log('ModuleOption.jsx');
+export const ModuleOption = memo(({ moduleOptionData, moduleOptionModal, setDataAlert, handleModal }) => {
+	// console.log('ModuleOption.jsx');
 
 	const { moduleOptionIcon, moduleOptionLabel, moduleOptionColor, idIsRequired } = moduleOptionData;
 	const { selectedCredit } = useSelector(state => state.credits);
-	const { setDataAlert } = useContext(AlertContext);
-	const { handleModal } = useContext(ModalContext);
 
 	const onClickModuleOption = () => {
 		if (!idIsRequired || selectedCredit?.id) return handleModal(moduleOptionModal);

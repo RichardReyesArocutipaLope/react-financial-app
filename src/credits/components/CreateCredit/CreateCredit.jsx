@@ -43,7 +43,7 @@ let ref2 = false;
 let aval1 = false;
 let aval2 = false;
 
-export const CreateCredit = ({ setIsOpenModal, modalReset, modalSubmit }) => {
+export const CreateCredit = ({ onCloseModal, modalReset, modalSubmit }) => {
 	const dispatch = useDispatch();
 	const { analistas, cobradores } = useSelector(state => state.roles);
 	const { periodType } = useSelector(state => state.periodType);
@@ -108,7 +108,7 @@ export const CreateCredit = ({ setIsOpenModal, modalReset, modalSubmit }) => {
 			time: 3000,
 		});
 		dispatch(setActivateAlert({ isActive: false, type: '' }));
-		if (activateAlert.type === 'success') setIsOpenModal(false);
+		if (activateAlert.type === 'success') onCloseModal();
 	};
 
 	useEffect(() => {

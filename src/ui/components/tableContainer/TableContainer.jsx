@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { memo, useContext, useEffect, useState } from 'react';
 import { useResponsiveTable } from '../../../hooks';
 import { CreditContext } from '../../../credits/context';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,9 +6,8 @@ import { setSelectedCredit } from '../../../store/credits/creditsSlice';
 import { Table } from '../table/Table';
 import './TableContainer.css';
 
-export const TableContainer = ({ isLoading, arrayData }) => {
-	console.log('Table.jsx');
-
+export const TableContainer = memo(({ isLoading, arrayData }) => {
+	// console.log('Table.jsx');
 	const { selectedCredit } = useSelector(state => state.credits);
 	const { tablethead } = useContext(CreditContext);
 	const { maxCols } = useResponsiveTable();
@@ -53,12 +52,14 @@ export const TableContainer = ({ isLoading, arrayData }) => {
 				<React.Fragment key={id}>
 					<tr
 						onClick={() => onSelectRegister(data, id)}
-						className={`${selectedCredit?.id === id ? 'active' : ''}`}>
+						className={`${selectedCredit?.id === id ? 'active' : ''}`}
+					>
 						{data.length > maxCols && (
 							<td className='button-rwd'>
 								<i
 									onClick={() => expand(index)}
-									className={`fa-solid ${tableRwd && tableRwd[`tr${index}`] ? 'fa-minus' : 'fa-plus'}`}></i>
+									className={`fa-solid ${tableRwd && tableRwd[`tr${index}`] ? 'fa-minus' : 'fa-plus'}`}
+								></i>
 							</td>
 						)}
 						{data.map((item, index) => index + 1 <= maxCols && <td key={item}>{item}</td>)}
@@ -76,4 +77,4 @@ export const TableContainer = ({ isLoading, arrayData }) => {
 			))}
 		</Table>
 	);
-};
+});

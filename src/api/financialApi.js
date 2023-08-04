@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { getEnvVariables } from '../helpers/getEnvVariables';
+// import { getEnvVariables } from '../helpers/getEnvVariables';
 
 // const { API_URL } = getEnvVariables();
 
 const financialApi = axios.create({
-	baseURL: 'http://localhost:3000/api',
+	baseURL: 'https://nest-financial-app.onrender.com/api',
 });
 
 // TODO: configurar interceptors

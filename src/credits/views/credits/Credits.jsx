@@ -11,12 +11,15 @@ import {
 } from '../../../ui/components';
 import { moduleOptions } from './';
 import { CreditsLoading } from './CreditsLoading';
+import { ModalContext } from '../../../context/modalContext';
+import { AlertContext } from '../../../context/alertContext/AlertContext';
 
 export const Credits = () => {
-	console.log('Credits.jsx');
-
+	// console.log('Credits.jsx');
 	const { isLoading, credits, numberOfCredits } = useSelector(state => state.credits);
 	const { currentOffset, setCurrentOffset, parameters } = useContext(CreditContext);
+	const { setDataAlert } = useContext(AlertContext);
+	const { handleModal } = useContext(ModalContext);
 
 	const moduleChildren = useMemo(
 		() =>
@@ -25,6 +28,8 @@ export const Credits = () => {
 					key={moduleOptionData.id}
 					moduleOptionData={moduleOptionData}
 					moduleOptionModal={moduleOptionModal}
+					setDataAlert={setDataAlert}
+					handleModal={handleModal}
 				/>
 			)),
 		[],

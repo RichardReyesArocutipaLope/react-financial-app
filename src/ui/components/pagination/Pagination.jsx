@@ -3,16 +3,9 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 export const Pagination = ({ data, children }) => {
 	//! [ <- ]  [ 1 ] ......  [ 20 ]  [ -> ]
-	const {
-		totalRegisters,
-		currentPage,
-		handleCurrentOffset,
-		totalPages,
-		nextPage,
-		prevPage,
-	} = data;
+	const { totalRegisters, currentPage, handleCurrentOffset, totalPages, nextPage, prevPage } = data;
 
-	console.log('Pagination..jsx');
+	// console.log('Pagination..jsx');
 
 	return (
 		<>

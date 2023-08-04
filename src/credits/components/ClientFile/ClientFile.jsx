@@ -1,22 +1,14 @@
 import { useContext, useEffect } from 'react';
 import { AlertContext } from '../../../context/alertContext/AlertContext';
 import { setActivateAlert } from '../../../store/credits/creditsSlice';
-import {
-	startDeleteCredit,
-	startGetCredit,
-} from '../../../store/credits/thunks';
+import { startDeleteCredit, startGetCredit } from '../../../store/credits/thunks';
 import { setSubmitCreditCreateForm } from '../../../store/credits/creditsOptionsSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-	DocumentTemplate,
-	InputForDocument,
-	RowForDocument,
-} from '../../../ui/components';
+import { DocumentTemplate, InputForDocument, RowForDocument } from '../../../ui/components';
 import './ClientFile.css';
 
-export const ClientFile = () => {
-	const { activateAlert, message, selectedCredit, creditRawSelected } =
-		useSelector(state => state.credits);
+export const ClientFile = ({ onCloseModal }) => {
+	const { activateAlert, message, selectedCredit, creditRawSelected } = useSelector(state => state.credits);
 	const { setIsActiveAlert, setDataAlert } = useContext(AlertContext);
 	const { submitCreditCreateForm } = useSelector(state => state.creditsOptions);
 	const dispatch = useDispatch();
@@ -40,7 +32,7 @@ export const ClientFile = () => {
 				dispatch(setActivateAlert({ isActive: false, type: '' }));
 				setIsActiveAlert(false);
 			}, 3000);
-			if (activateAlert.type == 'success') setIsOpenModal(false);
+			if (activateAlert.type === 'success') onCloseModal();
 		}
 	}, [activateAlert.isActive]);
 
@@ -55,29 +47,13 @@ export const ClientFile = () => {
 				<InputForDocument
 					col={9}
 					label='Nombres'
-					content={
-						creditRawSelected?.fk_customer.first_name +
-						' ' +
-						creditRawSelected?.fk_customer.last_name
-					}
+					content={creditRawSelected?.fk_customer.first_name + ' ' + creditRawSelected?.fk_customer.last_name}
 				/>
-				<InputForDocument
-					col={9}
-					label='Dirección'
-					content={creditRawSelected?.fk_customer.address}
-				/>
-				<InputForDocument
-					col={6}
-					label='DNI'
-					content={creditRawSelected?.fk_customer.dni}
-				/>
+				<InputForDocument col={9} label='Dirección' content={creditRawSelected?.fk_customer.address} />
+				<InputForDocument col={6} label='DNI' content={creditRawSelected?.fk_customer.dni} />
 			</RowForDocument>
 			<RowForDocument margin='1.2'>
-				<InputForDocument
-					col={7}
-					label='Celular 1'
-					content={creditRawSelected?.fk_customer?.phone}
-				/>
+				<InputForDocument col={7} label='Celular 1' content={creditRawSelected?.fk_customer?.phone} />
 				<InputForDocument
 					col={7}
 					label='Celular 2'
@@ -100,10 +76,7 @@ export const ClientFile = () => {
 				<InputForDocument
 					col={12}
 					label='Referencia de negocio'
-					content={
-						creditRawSelected?.fk_customer?.business?.address_reference ||
-						'No especificado'
-					}
+					content={creditRawSelected?.fk_customer?.business?.address_reference || 'No especificado'}
 				/>
 			</RowForDocument>
 			<RowForDocument margin='1.2'>
@@ -111,9 +84,7 @@ export const ClientFile = () => {
 					col={24}
 					label='Actividad de negocio'
 					textarea
-					content={
-						creditRawSelected?.fk_customer?.business?.business_description
-					}
+					content={creditRawSelected?.fk_customer?.business?.business_description}
 				/>
 			</RowForDocument>
 
@@ -122,68 +93,48 @@ export const ClientFile = () => {
 				<InputForDocument
 					col={9}
 					label='Nombres'
-					content={`${
-						creditRawSelected?.personalReference[0]?.first_name || ''
-					} ${
-						creditRawSelected?.personalReference[0]?.last_name ||
-						'No especificado'
+					content={`${creditRawSelected?.personalReference[0]?.first_name || ''} ${
+						creditRawSelected?.personalReference[0]?.last_name || 'No especificado'
 					}`}
 				/>
 				<InputForDocument
 					col={5}
 					label='DNI'
-					content={
-						creditRawSelected?.personalReference[0]?.dni || 'No especificado'
-					}
+					content={creditRawSelected?.personalReference[0]?.dni || 'No especificado'}
 				/>
 				<InputForDocument
 					col={5}
 					label='Celular'
-					content={
-						creditRawSelected?.personalReference[0]?.phone || 'No especificado'
-					}
+					content={creditRawSelected?.personalReference[0]?.phone || 'No especificado'}
 				/>
 				<InputForDocument
 					col={5}
 					label='Parentesco'
-					content={
-						creditRawSelected?.personalReference[0]?.relationship ||
-						'No especificado'
-					}
+					content={creditRawSelected?.personalReference[0]?.relationship || 'No especificado'}
 				/>
 			</RowForDocument>
 			<RowForDocument margin='1.2'>
 				<InputForDocument
 					col={9}
 					label='Nombres'
-					content={`${
-						creditRawSelected?.personalReference[1]?.first_name || ''
-					} ${
-						creditRawSelected?.personalReference[1]?.last_name ||
-						'No especificado'
+					content={`${creditRawSelected?.personalReference[1]?.first_name || ''} ${
+						creditRawSelected?.personalReference[1]?.last_name || 'No especificado'
 					}`}
 				/>
 				<InputForDocument
 					col={5}
 					label='DNI'
-					content={
-						creditRawSelected?.personalReference[1]?.dni || 'No especificado'
-					}
+					content={creditRawSelected?.personalReference[1]?.dni || 'No especificado'}
 				/>
 				<InputForDocument
 					col={5}
 					label='Celular'
-					content={
-						creditRawSelected?.personalReference[1]?.phone || 'No especificado'
-					}
+					content={creditRawSelected?.personalReference[1]?.phone || 'No especificado'}
 				/>
 				<InputForDocument
 					col={5}
 					label='Parentesco'
-					content={
-						creditRawSelected?.personalReference[1]?.relationship ||
-						'No especificado'
-					}
+					content={creditRawSelected?.personalReference[1]?.relationship || 'No especificado'}
 				/>
 			</RowForDocument>
 
@@ -210,21 +161,13 @@ export const ClientFile = () => {
 
 			<h2 className='client-file__subtitle'>Datos de préstamo</h2>
 			<RowForDocument margin='1.2'>
-				<InputForDocument
-					col={8}
-					label='Monto aprobado'
-					content={creditRawSelected?.requested_money}
-				/>
+				<InputForDocument col={8} label='Monto aprobado' content={creditRawSelected?.requested_money} />
 				<InputForDocument
 					col={8}
 					label='Plazo del crédito'
 					content={`${creditRawSelected?.period} ${creditRawSelected?.fk_period_type.name}`}
 				/>
-				<InputForDocument
-					col={8}
-					label='Cuota a pagar'
-					content='No especificado'
-				/>
+				<InputForDocument col={8} label='Cuota a pagar' content='No especificado' />
 			</RowForDocument>
 		</DocumentTemplate>
 	);

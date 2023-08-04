@@ -2,7 +2,7 @@ import { memo } from 'react';
 import './TableThead.css';
 
 export const TableThead = memo(({ tablethead, maxCols }) => {
-	console.log('TableThead.jsx');
+	// console.log('TableThead.jsx');
 	return (
 		<thead className='table__thead'>
 			<tr>

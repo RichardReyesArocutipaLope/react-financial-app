@@ -1,11 +1,4 @@
-import {
-	Page,
-	Text,
-	View,
-	Document,
-	StyleSheet,
-	Font,
-} from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, Font } from '@react-pdf/renderer';
 import robotoBold from '../../../fonts/Roboto-Bold.ttf';
 
 Font.register({
@@ -116,11 +109,9 @@ const CreateTableRow = ({ newCredits }) => {
 
 const Filter = ({ newDataFilter }) => {
 	return newDataFilter.map(data => (
-		<View style={styles.rowFilter} fixed key={Math.floor(Math.random() * 100)}>
+		<View style={styles.rowFilter} fixed key={Math.random() * 100}>
 			{data.map(item => (
-				<View
-					style={styles.rowFilterItem}
-					key={Math.floor(Math.random() * 100)}>
+				<View style={styles.rowFilterItem} key={Math.random() * 100}>
 					<View style={styles.rowFilterHead}>
 						<Text style={styles.rowFilterTextHead}>{item.label}</Text>
 					</View>
@@ -141,16 +132,8 @@ const Title = ({ title }) => {
 	);
 };
 
-// Create Document Component
-export const MyDocument = ({
-	credits,
-	thead,
-	dataForFilter,
-	analistas,
-	cobradores,
-}) => {
-	console.log('MyDocument.jsx');
-
+export const MyDocument = ({ credits, thead, dataForFilter, analistas, cobradores }) => {
+	// console.log('MyDocument.jsx');
 	const convertState = estado => {
 		let newEstado;
 		switch (estado) {
@@ -189,14 +172,14 @@ export const MyDocument = ({
 			{
 				label: 'ANALISTA :',
 				value:
-					analistas?.find(employee => dataForFilter.idAnalista == employee.id)
-						?.fullname || 'No especificado',
+					analistas?.find(employee => dataForFilter.idAnalista === employee.id)?.fullname ||
+					'No especificado',
 			},
 			{
 				label: 'COBRADOR :',
 				value:
-					cobradores?.find(employee => dataForFilter.idCobrador == employee.id)
-						?.fullname || 'No especificado',
+					cobradores?.find(employee => dataForFilter.idCobrador === employee.id)?.fullname ||
+					'No especificado',
 			},
 		],
 		[

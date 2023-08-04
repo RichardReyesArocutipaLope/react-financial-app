@@ -22,7 +22,11 @@ export const Modal = ({
 	} = modalProperties;
 
 	const handleClickOutside = event => {
-		if (event.target.closest('.modal') === null) setIsOpenModal(false);
+		if (event.target.closest('.modal') === null) {
+			setModalReset(0);
+			setModalSubmit(0);
+			setIsOpenModal(false);
+		}
 	};
 
 	const [anotherOpenModal, setAnotherOpenModal] = useState('not-use');
@@ -46,6 +50,12 @@ export const Modal = ({
 	const [modalReset, setModalReset] = useState(0);
 	const [modalSubmit, setModalSubmit] = useState(0);
 
+	const onCloseModal = () => {
+		setModalReset(0);
+		setModalSubmit(0);
+		setIsOpenModal(false);
+	};
+
 	return (
 		<div
 			className={`modal-container ${verticallyCentered ? 'center' : ''} ${
@@ -60,7 +70,7 @@ export const Modal = ({
 			<div className={`modal ${width} ${bodyHeight === '100%' ? 'height100' : ''} ${bodyHeightClass}`}>
 				<div className='modal__header'>
 					<h1>{title}</h1>
-					<span onClick={() => setIsOpenModal(false)} className='modal__header-closeModal'>
+					<span onClick={onCloseModal} className='modal__header-closeModal'>
 						<i className='fa-solid fa-xmark'></i>
 					</span>
 				</div>
@@ -74,14 +84,14 @@ export const Modal = ({
 							backgroundColor: bodyBackgroundColor,
 						}}
 					>
-						{isOpenModal && React.cloneElement(modalBodyContent, { setIsOpenModal, modalReset, modalSubmit })}
+						{isOpenModal && React.cloneElement(modalBodyContent, { onCloseModal, modalReset, modalSubmit })}
 					</div>
 				</div>
 
 				<div className={`modal__footer ${footerHeightClass}`}>
 					{isOpenModal &&
 						React.cloneElement(modalFooterContent, {
-							setIsOpenModal,
+							onCloseModal,
 							openAnotherModal,
 							setModalReset,
 							setModalSubmit,

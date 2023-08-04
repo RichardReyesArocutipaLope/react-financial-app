@@ -7,11 +7,12 @@ export const AlertProvider = ({ children }) => {
 	const [dataAlert, setDataAlert] = useState({
 		type: 'success',
 		errorCode: null,
-		message: 'Bienvenido',
+		message: 'firstRender',
 		time: 1000,
 	});
 
 	useEffect(() => {
+		if (dataAlert.message === 'firstRender') return;
 		setIsActiveAlert(true);
 		setTimeout(() => setIsActiveAlert(false), dataAlert.time);
 	}, [dataAlert]);

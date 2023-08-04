@@ -1,18 +1,13 @@
 import { Button } from '../../../ui/components';
 
-export const OptionsExportCreditData = ({ setIsOpenModal }) => {
+export const OptionsExportCreditData = ({ onCloseModal }) => {
 	const handleModal = () => {
-		setIsOpenModal(false);
+		onCloseModal();
 	};
 
 	return (
 		<>
-			<Button
-				width='11rem'
-				className='danger'
-				content='Cancelar'
-				event={handleModal}
-			/>
+			<Button width='11rem' className='danger' content='Cancelar' event={handleModal} />
 		</>
 	);
 };

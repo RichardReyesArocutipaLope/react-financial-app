@@ -5,7 +5,7 @@ import { AlertContext } from '../../../context/alertContext/AlertContext';
 import { setActivateAlert } from '../../../store/credits/creditsSlice';
 import { startDeleteCredit, startGetCredit } from '../../../store/credits/thunks';
 
-export const DeleteCredit = ({ setIsOpenModal, modalReset, modalSubmit }) => {
+export const DeleteCredit = ({ onCloseModal, modalReset, modalSubmit }) => {
 	const dispatch = useDispatch();
 	const { activateAlert, message, selectedCredit, creditRawSelected } = useSelector(state => state.credits);
 	const { setDataAlert } = useContext(AlertContext);
@@ -30,7 +30,7 @@ export const DeleteCredit = ({ setIsOpenModal, modalReset, modalSubmit }) => {
 			time: 3000,
 		});
 		dispatch(setActivateAlert({ isActive: false, type: '' }));
-		if (activateAlert.type === 'success') setIsOpenModal(false);
+		if (activateAlert.type === 'success') onCloseModal();
 	}, [activateAlert.isActive]);
 
 	return (

@@ -7,7 +7,7 @@ import { PaginationFourthCase } from '../paginationFourthCase';
 import './PaginationContainer.css';
 
 export const PaginationContainer = memo(({ currentOffset, setCurrentOffset, totalPages, totalRegisters }) => {
-	console.log('PaginationContainer');
+	// console.log('PaginationContainer');
 
 	const currentPage = (currentOffset + 10) / 10;
 	const initialPages = [currentPage + 2, currentPage + 3, currentPage + 4, currentPage + 5, currentPage + 6];

@@ -1,16 +1,11 @@
-import { useDispatch } from 'react-redux';
 import { Button } from '../button';
 import { FragmentContainer } from '../fragmentContainer/FragmentContainer';
 
-export const DocumentExportOptions = ({ setIsOpenModal }) => {
+export const DocumentExportOptions = ({ onCloseModal }) => {
 	const handleModal = () => {
-		setIsOpenModal(false);
+		onCloseModal();
 	};
-
-	const dispatch = useDispatch();
-	const onSubmit = () => {
-		dispatch(setSubmitCreditCreateForm(true));
-	};
+	const onSubmit = () => {};
 	return (
 		<FragmentContainer justifyContent='center' gap='.9rem'>
 			<Button
@@ -21,12 +16,7 @@ export const DocumentExportOptions = ({ setIsOpenModal }) => {
 			/>
 			{/* <Button width='8.1rem' className='dark' content={<i className="fa-solid fa-print icon"></i>} />
             <Button width='8.1rem' className='secondary' content={<i className="fa-solid fa-image icon"></i>} /> */}
-			<Button
-				width='8.1rem'
-				className='danger'
-				content='Cancelar'
-				event={handleModal}
-			/>
+			<Button width='8.1rem' className='danger' content='Cancelar' event={handleModal} />
 		</FragmentContainer>
 	);
 };

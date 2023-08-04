@@ -26,7 +26,7 @@ const iconXlsx = <i className='fa-solid fa-file-excel icon'></i>;
 const iconFilter = <i className='fa-solid fa-filter icon'></i>;
 
 export const Filter = memo(({ credits }) => {
-	console.log('Filter.jsx');
+	// console.log('Filter.jsx');
 
 	const { register, handleSubmit, reset } = useForm();
 	const { rwd, centinela } = useResponsiveForm(initialResponsive);

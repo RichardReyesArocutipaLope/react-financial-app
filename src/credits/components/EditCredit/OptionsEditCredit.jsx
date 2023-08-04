@@ -1,7 +1,7 @@
 import { Button, FragmentContainer } from '../../../ui/components';
 
-export const OptionsEditCredit = ({ setIsOpenModal, openAnotherModal, setModalReset, setModalSubmit }) => {
-	const handleModal = () => setIsOpenModal(false);
+export const OptionsEditCredit = ({ onCloseModal, openAnotherModal, setModalReset, setModalSubmit }) => {
+	const handleModal = () => onCloseModal();
 	const onSubmit = () => setModalSubmit(state => state + 1);
 	const onClean = () => setModalReset(state => state + 1);
 
